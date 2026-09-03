@@ -23,24 +23,11 @@ HOY = datetime.date.today().strftime("%d de %B de %Y")
 # Mapa de carpetas de Google Drive, si ya se creo la estructura alli.
 # Formato: {"<nombre del estudiante>": {"id": "...", "modulos": {"1": "...", ...}}}
 #
-# Los enlaces de Drive dan permiso de ESCRITURA sobre las entregas, asi que no
-# deben quedar en un sitio publico: cualquiera con el enlace podria borrarlas.
-# Con PORTAL_PUBLICO=1 se genera la version sin ellos, apta para publicar.
-PUBLICO = os.environ.get("PORTAL_PUBLICO") == "1"
-
-DRIVE = {}
-_ruta_drive = os.path.join(RAIZ, "_assets", "drive.json")
-if os.path.exists(_ruta_drive) and not PUBLICO:
-    DRIVE = json.load(io.open(_ruta_drive, encoding="utf-8"))
-
-
-def drive_url(nombre, modulo=None):
-    """Enlace a la carpeta de Drive del estudiante, o de uno de sus modulos."""
-    reg = DRIVE.get(nombre)
-    if not reg:
-        return None
-    ident = reg["id"] if modulo is None else reg.get("modulos", {}).get(str(modulo))
-    return ("https://drive.google.com/drive/folders/" + ident) if ident else None
+# Los enlaces de Google Drive NO se escriben en el HTML. Los inserta assets/drive.js
+# al cargar la pagina, leyendo _assets/drive.json, que esta fuera del control de
+# versiones. Motivo: esos enlaces dan permiso de escritura sobre las entregas de
+# todo el grupo, asi que no pueden quedar en un sitio publico. Sin ese archivo la
+# pagina funciona igual y solo ofrece el destino de SharePoint.
 
 
 def ascii_seguro(t):
@@ -211,11 +198,7 @@ def pagina_portada(estudiantes):
 
 # --------------------------------------------------------- panel del estudiante
 def pagina_estudiante(est):
-    du = drive_url(est["nombre"])
-    bloque_drive_est = (
-        f'<a class="btn pequeno principal" href="{e(du)}" target="_blank" rel="noopener" '
-        f'style="margin-right:8px">Abrir mi carpeta en Google Drive ↗</a>'
-    ) if du else ""
+    bloque_drive_est = '<span id="drive-estudiante"></span>'
     tarjetas = []
     for m in MODULOS:
         tarjetas.append(f"""      <a class="tarjeta" href="{e(m['carpeta'])}/index.html">
@@ -259,12 +242,18 @@ def pagina_estudiante(est):
 """
     enc = f"""<h1>{e(est['nombre'])}</h1>
     <p class="lema">{e(est['email']) if est['email'] else 'Estudiante del grupo 2'} &nbsp;·&nbsp; 5 módulos del curso Microsoft Copilot Chat</p>"""
+    script_est = (
+        "<script>window.PORTAL = "
+        + json.dumps({"estudiante": est["nombre"], "rutaBase": "../../"}, ensure_ascii=False)
+        + ";</script>\n<script src=\"../../assets/drive.js\" defer></script>"
+    )
     return envoltura(
         f"{est['nombre']} · Entregas del curso",
         2,
         cuerpo,
         migas([("Portal", "../../index.html"), (est["nombre"], None)], 2),
         enc,
+        extra_body=script_est,
     )
 
 
@@ -287,20 +276,9 @@ def pagina_modulo(est, m, tiene_tutorial):
         reglas.append(f"mínimo {r['imagenesMin']} capturas o diagramas")
     reglas_txt = " · ".join(reglas) if reglas else "sin mínimo de extensión"
 
-    du = drive_url(est["nombre"], m["n"])
     spu = sp_url(est["carpetaSP"], m["sp"])
-    destino_txt = "Google Drive" if du else "SharePoint"
-    destino_url = du or spu
-
-    boton_drive_arriba = (
-        f'<a class="btn sutil" href="{e(du)}" target="_blank" rel="noopener">'
-        f'📂 Mi carpeta de este módulo en Google Drive ↗</a>\n            '
-    ) if du else ""
-
-    boton_drive_entrega = (
-        f'<a class="btn principal" href="{e(du)}" target="_blank" rel="noopener">'
-        f'☁️ Subirlo a Google Drive ↗</a>\n          '
-    ) if du else ""
+    boton_drive_arriba = '<span id="drive-modulo"></span>'
+    boton_drive_entrega = '<span id="drive-entrega"></span>'
 
     tut_nombre = f"Tutorial Modulo {m['n']} - {slug(m['titulo'])}.doc"
     bloque_tut = (
@@ -315,6 +293,7 @@ def pagina_modulo(est, m, tiene_tutorial):
         "moduloNumero": m["n"],
         "moduloCorto": m["corto"],
         "requisitos": m["requisitos"],
+        "rutaBase": "../../../",
         "endpoint": None,
     }
 
@@ -331,7 +310,7 @@ def pagina_modulo(est, m, tiene_tutorial):
         </div>
 
         <h2>Prepara y revisa tu entrega</h2>
-        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de {e(destino_txt)} con el botón de abajo.</p>
+        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de <span id="nombre-destino">SharePoint</span> con el botón de abajo.</p>
 
         <div id="recuperados" class="aviso oculto"></div>
 
@@ -396,7 +375,9 @@ def pagina_modulo(est, m, tiene_tutorial):
     <p class="lema">{e(m['resumen'])}</p>"""
 
     script = ("<script>window.PORTAL = " + json.dumps(cfg, ensure_ascii=False) +
-              ";</script>\n<script src=\"../../../assets/cargador.js\" defer></script>")
+              ";</script>\n"
+              "<script src=\"../../../assets/drive.js\" defer></script>\n"
+              "<script src=\"../../../assets/cargador.js\" defer></script>")
 
     return envoltura(
         f"Módulo {m['n']} · {m['titulo']} · {est['nombre']}",
@@ -444,9 +425,13 @@ def main():
     io.open(os.path.join(RAIZ, "index.html"), "w", encoding="utf-8").write(
         pagina_portada(estudiantes))
 
-    modo = "PUBLICA, sin enlaces de Drive" if PUBLICO else "privada, con enlaces de Drive"
-    print("OK  %d estudiantes  ·  %d carpetas de modulo  ·  version %s"
-          % (len(estudiantes), creados, modo))
+    hay_drive = os.path.exists(os.path.join(RAIZ, "_assets", "drive.json"))
+    print("OK  %d estudiantes  ·  %d carpetas de modulo  ·  portada generada"
+          % (len(estudiantes), creados))
+    print("    Google Drive: %s"
+          % ("_assets/drive.json presente, los botones aparecen al abrir la pagina"
+             if hay_drive else
+             "sin _assets/drive.json, las paginas solo ofrecen SharePoint"))
 
 
 if __name__ == "__main__":

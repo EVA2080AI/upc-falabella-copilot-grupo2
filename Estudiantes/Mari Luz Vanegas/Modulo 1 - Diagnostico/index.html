@@ -30,12 +30,12 @@
           <div class="acciones" style="margin-top:4px">
         <a class="btn principal" href="Tutorial Modulo 1 - Diagnostico-del-problema.doc" download>📝 Abrir el tutorial paso a paso (.doc)</a>
             <a class="btn" href="Actividad_0_Diagnostico.pdf" download>📄 Descargar el PDF de la actividad</a>
-            <a class="btn sutil" href="https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Finstructor6-cta_unipiloto_edu_co%2FDocuments%2FMoodle%20u%20piloto%20Falabella%20grupo%202%2FMari%20Luz%20vanegas%2FModulo%201&amp;view=0" target="_blank" rel="noopener">📂 Mi carpeta de este módulo en SharePoint ↗</a>
+            <span id="drive-modulo"></span><a class="btn sutil" href="https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Finstructor6-cta_unipiloto_edu_co%2FDocuments%2FMoodle%20u%20piloto%20Falabella%20grupo%202%2FMari%20Luz%20vanegas%2FModulo%201&amp;view=0" target="_blank" rel="noopener">📂 Mi carpeta de este módulo en SharePoint ↗</a>
           </div>
         </div>
 
         <h2>Prepara y revisa tu entrega</h2>
-        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de SharePoint con el botón de abajo.</p>
+        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de <span id="nombre-destino">SharePoint</span> con el botón de abajo.</p>
 
         <div id="recuperados" class="aviso oculto"></div>
 
@@ -52,7 +52,7 @@
 
         <div class="acciones oculto" id="acciones-entrega">
           <button class="btn principal" type="button" id="btn-descargar">⬇️ Descargar con el nombre correcto</button>
-          <a class="btn sutil" href="https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Finstructor6-cta_unipiloto_edu_co%2FDocuments%2FMoodle%20u%20piloto%20Falabella%20grupo%202%2FMari%20Luz%20vanegas%2FModulo%201&amp;view=0" target="_blank" rel="noopener">Subirlo a SharePoint ↗</a>
+          <span id="drive-entrega"></span><a class="btn sutil" href="https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Finstructor6-cta_unipiloto_edu_co%2FDocuments%2FMoodle%20u%20piloto%20Falabella%20grupo%202%2FMari%20Luz%20vanegas%2FModulo%201&amp;view=0" target="_blank" rel="noopener">Subirlo a SharePoint ↗</a>
           <button class="btn" type="button" id="btn-enviar">Enviar al servidor del curso</button>
         </div>
 
@@ -109,7 +109,8 @@
     <div><a href="https://upcedu-my.sharepoint.com/:f:/r/personal/instructor6-cta_unipiloto_edu_co/Documents/Moodle%20u%20piloto%20Falabella%20grupo%202" target="_blank" rel="noopener">Carpeta oficial en SharePoint</a></div>
   </div>
 </footer>
-<script>window.PORTAL = {"clave": "Mari-Luz-Vanegas::M1", "estudiante": "Mari Luz Vanegas", "moduloNumero": 1, "moduloCorto": "Diagnostico", "requisitos": {"formatos": ["pdf"], "paginasMin": 3, "paginasMax": 5}, "endpoint": null};</script>
+<script>window.PORTAL = {"clave": "Mari-Luz-Vanegas::M1", "estudiante": "Mari Luz Vanegas", "moduloNumero": 1, "moduloCorto": "Diagnostico", "requisitos": {"formatos": ["pdf"], "paginasMin": 3, "paginasMax": 5}, "rutaBase": "../../../", "endpoint": null};</script>
+<script src="../../../assets/drive.js" defer></script>
 <script src="../../../assets/cargador.js" defer></script>
 </body>
 </html>
