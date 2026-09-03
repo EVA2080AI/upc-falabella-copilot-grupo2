@@ -216,7 +216,7 @@ div.pagebreak {
 <table class="t">
 <thead><tr><th>Aspecto</th><th>Requisito oficial de la actividad</th></tr></thead>
 <tbody>
-<tr><td>Formato</td><td>Archivo de slides en PPT (.pptx) o PDF, subido al campus antes de la sesión</td></tr>
+<tr><td>Formato</td><td>Archivo de slides en PPT (.pptx) o PDF, subido al espacio de entrega del Módulo 5 en SharePoint antes de la sesión</td></tr>
 <tr><td>Extensión mínima</td><td>10 diapositivas con estructura clara (aquí armamos 13: 12 + 1 de respaldo)</td></tr>
 <tr><td>Duración</td><td>12 a 15 minutos de presentación + 5 minutos de preguntas</td></tr>
 <tr><td>Demo</td><td>El prototipo debe operar en vivo, no grabaciones</td></tr>
@@ -403,7 +403,7 @@ RESTRICCIONES: Máximo 25 palabras por versión. Español de Colombia, trato de 
 CONTEXTO: Vamos a demostrar ante un jurado nuestro prototipo de IA para [NOMBRE DEL PROCESO] del área de [TU ÁREA EN FALABELLA]. El prototipo es [asistente de Copilot Chat con instrucciones fijas / plantilla de prompts documentada / archivo de Excel con análisis asistido / agente en Copilot Studio o flujo en Power Automate, SOLO si tengo licencia].
 Caso 1: [por ejemplo, clasificar y responder un reclamo de un cliente por un pedido que llegó incompleto].
 Caso 2: [por ejemplo, generar el resumen semanal de novedades de inventario del CEDI para el jefe de tienda].
-Tenemos 4 minutos y medio en total para los dos casos.
+Tenemos 4 minutos en total para los dos casos.
 
 TAREA: Escribe el guion literal de la demo en vivo, minuto a minuto.
 
@@ -481,7 +481,7 @@ RESTRICCIONES: Español de Colombia, trato de usted, sin cifras inventadas ni da
 <li>Ensaya en voz alta, de pie y completo, <strong>con cronómetro</strong>. Hablar toma cerca de un 40% más de tiempo del que crees.</li>
 <li>Anota en qué diapositiva ibas al minuto 7: esa es tu marca de control el día de la exposición.</li>
 <li>Usa <strong>Presentación con diapositivas &gt; Ensayar intervalos</strong> para medirte automáticamente.</li>
-<li>Si quieres retroalimentación de ritmo, muletillas y lectura de las diapositivas, abre la presentación en <strong>PowerPoint para la web</strong> y usa <strong>Presentación con diapositivas &gt; Ensayar con el entrenador</strong> (Entrenador de presentaciones). Está incluido con la cuenta institucional y no requiere licencia de Copilot.</li>
+<li>Si quieres retroalimentación de ritmo, muletillas y lectura de las diapositivas, abre la presentación en <strong>PowerPoint para la web</strong> y usa <strong>Presentación con diapositivas &gt; Ensayar con el Asesor</strong> (Asesor de presentaciones). Está incluido con la cuenta institucional y no requiere licencia de Copilot.</li>
 </ol>
 <div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como evaluador del curso Microsoft Copilot Chat de la Universidad Piloto de Colombia.
 
@@ -509,13 +509,13 @@ RESTRICCIONES: No propongas diapositivas nuevas ni herramientas de pago. Todo de
 <tr><td>5</td><td>La solución en una frase</td><td>Qué hace el asistente y para quién</td><td>1:00</td></tr>
 <tr><td>6</td><td>Arquitectura</td><td>SmartArt: entrada, prompt, IA, revisión humana</td><td>1:30</td></tr>
 <tr><td>7</td><td>Herramientas y decisiones de diseño</td><td>Qué usaste, qué descartaste y por qué</td><td>1:00</td></tr>
-<tr><td>8</td><td>Demo caso 1</td><td>Solo el título: se habla sobre el prototipo en vivo</td><td>2:30</td></tr>
+<tr><td>8</td><td>Demo caso 1</td><td>Solo el título: se habla sobre el prototipo en vivo</td><td>2:00</td></tr>
 <tr><td>9</td><td>Demo caso 2</td><td>Solo el título: se habla sobre el prototipo en vivo</td><td>2:00</td></tr>
 <tr><td>10</td><td>Resultados y métricas</td><td>Línea base, meta y cómo se mide</td><td>1:00</td></tr>
 <tr><td>11</td><td>Riesgos y datos personales</td><td>Revisión humana, anonimización, Ley 1581 de 2012</td><td>1:00</td></tr>
 <tr><td>12</td><td>Próximos pasos y petición</td><td>Fase 2, responsable y qué le pides al jurado</td><td>0:30</td></tr>
 <tr><td>13</td><td>Respaldo</td><td>Capturas de las dos demos ya ejecutadas</td><td>solo si falla</td></tr>
-<tr><td></td><td><strong>Total hablado</strong></td><td></td><td><strong>14:30</strong></td></tr>
+<tr><td></td><td><strong>Total hablado</strong></td><td></td><td><strong>14:00</strong></td></tr>
 </tbody>
 </table>
 <p>Con esta estructura cumples de sobra el mínimo de 10 diapositivas y dejas visible cada uno de los tres pilares de la actividad: diagnóstico (2 a 4), solución (5 a 7) y demo en vivo (8 y 9).</p>
@@ -539,7 +539,7 @@ RESTRICCIONES: No propongas diapositivas nuevas ni herramientas de pago. Todo de
 <tr><td>Copilot en PowerPoint</td><td>Sí, licencia de Microsoft 365 Copilot</td><td>Esquema en texto plano pegado en <strong>Vista &gt; Esquema</strong> más <strong>Diseño &gt; Diseñador</strong> (pasos 2 y 3)</td></tr>
 <tr><td>Microsoft Copilot Studio</td><td>Sí, licencia aparte</td><td>Asistente en Copilot Chat con instrucciones fijas y prompts documentados (paso 5)</td></tr>
 <tr><td>Power Automate</td><td>Sí, para conectores y flujos de pago</td><td>Procedimiento manual documentado más plantilla de prompts, mostrado paso a paso en la demo</td></tr>
-<tr><td>Copilot para ensayar</td><td>No siempre</td><td><strong>Presentación con diapositivas &gt; Ensayar intervalos</strong> y el <strong>Entrenador de presentaciones</strong> en PowerPoint para la web (paso 7)</td></tr>
+<tr><td>Copilot para ensayar</td><td>No siempre</td><td><strong>Presentación con diapositivas &gt; Ensayar intervalos</strong> y el <strong>Asesor de presentaciones</strong> en PowerPoint para la web (paso 7)</td></tr>
 </tbody>
 </table>
 
@@ -567,7 +567,7 @@ NO pegues en Copilot ni muestres en la demo datos personales de clientes, númer
 <li><strong>Un solo caso de uso.</strong> La ficha pide mínimo dos, reales o simulados: es requisito, no sugerencia.</li>
 <li><strong>Que hable una sola persona</strong> cuando el trabajo es en grupo. Se evalúa la comunicación de todos los integrantes.</li>
 <li><strong>Mostrar datos reales de clientes.</strong> Falla de protección de datos y sanción directa en la nota.</li>
-<li><strong>Subir el archivo tarde.</strong> El PPT o PDF debe estar en el campus <strong>antes</strong> de la sesión.</li>
+<li><strong>Subir el archivo tarde.</strong> El PPT o PDF debe estar en el espacio de entrega del Módulo 5 en SharePoint <strong>antes</strong> de la sesión.</li>
 </ul>
 
 <h2>10. Anexo recomendado: bitácora de prompts</h2>
@@ -589,10 +589,10 @@ NO pegues en Copilot ni muestres en la demo datos personales de clientes, númer
 <strong>Criterio 2 · Viabilidad técnica de la solución:</strong> diapositiva 5 con la solución en una frase; diapositiva 6 con el SmartArt de la arquitectura; diapositiva 7 con las herramientas usadas, lo que descartaste y por qué; diapositiva 11 con riesgos, revisión humana y protección de datos.<br>
 <strong>Criterio 3 · Funcionamiento del prototipo en vivo:</strong> los dos casos de uso probados hoy; el prototipo opera en tiempo real, sin grabaciones; prompts esperando en el bloc de notas; pestañas y sesión verificadas; diapositiva 13 con capturas de respaldo; plan B de conexión sin wifi de invitados.<br>
 <strong>Criterio 4 · Calidad de la presentación oral:</strong> ensayo completo cronometrado entre 12 y 15 minutos; notas del orador en cada diapositiva; las 10 preguntas con respuesta de 30 segundos para los 5 minutos finales; diapositiva 12 con petición concreta; si es en grupo, hablan todos.<br>
-<strong>Requisitos formales de entrega:</strong> mínimo 10 diapositivas con estructura clara (llevas 13); mínimo 2 casos de uso demostrados; archivo en PPT o PDF guardado con el nombre correcto y subido al campus antes de la sesión; ningún dato personal ni información confidencial en las diapositivas ni en la demo; todas las cifras verificadas por una persona del grupo; bitácora de prompts lista si tu docente la pide.</div>
+<strong>Requisitos formales de entrega:</strong> mínimo 10 diapositivas con estructura clara (llevas 13); mínimo 2 casos de uso demostrados; archivo en PPT o PDF guardado con el nombre correcto y subido al espacio de entrega del Módulo 5 en SharePoint antes de la sesión, revisado con el cargador del index.html de esa carpeta; ningún dato personal ni información confidencial en las diapositivas ni en la demo; todas las cifras verificadas por una persona del grupo; bitácora de prompts lista si tu docente la pide.</div>
 
 <h2>11. Dónde subir el archivo</h2>
-<p>Sube el archivo de slides en <strong>PPT o PDF</strong> al <strong>campus virtual del curso</strong>, en la actividad correspondiente, <strong>antes de la sesión</strong> de sustentación. Lleva también el .pptx en una memoria USB o en tu OneDrive por si expones desde el equipo del salón. Sube con un día de anticipación: el día de la exposición necesitas la cabeza en la demo, no en el archivo. Si tu docente habilitó otro canal de entrega, confírmalo con él antes de la fecha.</p>
+<p>Sube el archivo de slides en <strong>PPT o PDF</strong> a <strong>tu carpeta personal en SharePoint</strong>, dentro de la carpeta del <strong>Módulo 5</strong>, <strong>antes de la sesión</strong> de sustentación. En esa misma carpeta está la página <strong>index.html</strong> del curso: ábrela y usa el cargador que revisa el archivo antes de que lo entregues; si te marca algo en rojo, corrígelo y vuelve a cargarlo. Lleva también el .pptx en una memoria USB o en tu OneDrive por si expones desde el equipo del salón. Sube con un día de anticipación: el día de la exposición necesitas la cabeza en la demo, no en el archivo. Si tu docente además habilitó el campus virtual como canal de entrega, confírmalo con él antes de la fecha.</p>
 <div class="callout" style="margin-top:20pt">
 <p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
 <p style="font-size:9.5pt">Sube tu entrega a tu carpeta personal en SharePoint, dentro de la carpeta de este m&oacute;dulo. En la p&aacute;gina <b>index.html</b> de esa misma carpeta tienes un cargador que revisa el archivo antes de que lo entregues.</p>

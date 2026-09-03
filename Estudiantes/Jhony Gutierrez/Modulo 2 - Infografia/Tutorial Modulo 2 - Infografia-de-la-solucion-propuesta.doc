@@ -224,7 +224,7 @@ div.pagebreak {
 <tr><td>Extensión</td><td>1 pieza vertical (1 página). Si la partes en dos, entrégala en un solo PDF</td></tr>
 <tr><td>Bloques obligatorios</td><td>A Encabezado · B Diagnóstico · C Propuesta IA · D Beneficios · E Herramientas</td></tr>
 <tr><td>Elementos visuales</td><td>Mínimo 5 elementos visuales diferenciados (no 5 cajas iguales)</td></tr>
-<tr><td>Herramientas sugeridas</td><td>Copilot Chat, Copilot en PowerPoint (opcional, con licencia), Canva, Microsoft Designer</td></tr>
+<tr><td>Herramientas sugeridas</td><td>Copilot Chat, Copilot en PowerPoint (opcional, con licencia), Canva, Microsoft Designer (solo con cuenta personal)</td></tr>
 <tr><td>Modalidad</td><td>La define tu docente. Si autoriza parejas, los dos nombres van en el encabezado</td></tr>
 <tr><td>Peso</td><td>25% de la nota</td></tr>
 <tr><td>Anexo recomendado</td><td>Bitácora de prompts, como última página del PDF o archivo aparte. No está en la rúbrica oficial, pero respalda tu diagnóstico y tu propuesta; confirma con tu docente si la exige</td></tr>
@@ -248,7 +248,7 @@ div.pagebreak {
 <li>Abre <strong>https://copilot.microsoft.com</strong> e inicia sesión con tu cuenta corporativa <strong>@falabella.com.co</strong>. También sirve el ícono de Copilot en la barra lateral de <strong>Edge</strong>. Esta versión web con cuenta corporativa es gratuita: no necesitas licencia de pago.</li>
 <li>Verifica en la parte superior el indicador de <strong>datos protegidos</strong> (aparece como un escudo con la palabra «Protegido» o un aviso de que tus datos personales y empresariales están protegidos): significa que tus conversaciones no se usan para entrenar el modelo. Si no aparece, cierra sesión y vuelve a entrar con la cuenta corporativa.</li>
 <li>Anota en un papel el proceso que vas a analizar: nombre, cuántas personas intervienen, cuánto se demora y qué es lo que más molesta de él.</li>
-<li>Abre en otra pestaña tu herramienta de diseño: <strong>Canva</strong> gratis, <strong>Microsoft Designer</strong> (designer.microsoft.com) o <strong>PowerPoint</strong> de escritorio.</li>
+<li>Abre en otra pestaña tu herramienta de diseño: <strong>Canva</strong> gratis o <strong>PowerPoint</strong> de escritorio. Son las dos que funcionan con tu cuenta corporativa; Microsoft Designer solo sirve si tienes cuenta personal de Microsoft.</li>
 </ol>
 <div class="callout">Elige un proceso que sufras en carne propia: devoluciones en tienda, alistamiento de pedidos en el CEDI, respuesta a PQR de servicio al cliente, activación de tarjeta CMR, cargue de productos al marketplace de Falabella.com, cierre de inventario, filtro de hojas de vida en selección o conciliación de cartera con proveedores. Entre más real, más fácil de llenar y mejor califica.</div>
 
@@ -514,7 +514,7 @@ RESTRICCIONES
 <tr><td>Texto de cuerpo</td><td>Gris oscuro</td><td>#333333</td></tr>
 </tbody>
 </table>
-<p><strong>Tipografías:</strong> máximo dos. Títulos en Montserrat o Poppins SemiBold, cuerpo en Open Sans o Segoe UI. <strong>Jerarquía:</strong> un solo título grande (60 a 80 pt), subtítulos de bloque de 28 a 32 pt, cuerpo de 16 a 18 pt y nunca menos de 14 pt. Si dudas entre agregar un texto o dejar espacio en blanco, deja el espacio.</p>
+<p><strong>Tipografías:</strong> máximo dos. Títulos en Montserrat o Poppins SemiBold, cuerpo en Open Sans o Segoe UI. <strong>Jerarquía:</strong> un solo título grande (60 a 80 pt), subtítulos de bloque de 28 a 32 pt, cuerpo de 16 a 18 pt y nunca menos de 14 pt. Esos tamaños son para un lienzo de 1920 px de ancho, como el de Canva o Designer; si armas la pieza en PowerPoint con el lienzo de 50,8 cm de la Ruta B, duplícalos (título 140 pt, subtítulos 60 pt, cuerpo 34 pt y nunca menos de 28 pt), porque ese lienzo mide el doble. Si dudas entre agregar un texto o dejar espacio en blanco, deja el espacio.</p>
 <div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como diseñador gráfico especializado en infografías corporativas.
 
 CONTEXTO
@@ -557,7 +557,7 @@ RESTRICCIONES
 <div class="pagebreak"></div>
 
 <h2>6. Cómo armar el archivo final sin licencia de Copilot</h2>
-<p>Elige <strong>una</strong> de las tres rutas. Las tres son gratuitas, ninguna exige licencia de pago y las tres cumplen el requisito de 1920 px.</p>
+<p>Elige <strong>una</strong> de las tres rutas. Las tres son gratuitas y ninguna exige licencia de pago de Copilot. Las rutas A y B funcionan con tu cuenta corporativa; la C solo si tienes cuenta personal de Microsoft. Cualquiera llega a los 1920 px, pero solo si configuras el lienzo como te indica cada una: ninguna te da esa resolución con el tamaño que trae por defecto.<strong>solo si configuras el lienzo</strong> como te indica cada ruta: ninguna te da esa resolución con el tamaño que trae por defecto.</p>
 
 <h3>Ruta A — Canva gratis (la más rápida)</h3>
 <ol>
@@ -571,19 +571,22 @@ RESTRICCIONES
 
 <h3>Ruta B — PowerPoint de escritorio</h3>
 <ol>
-<li><span class="kbd">Diseño</span> &gt; <span class="kbd">Tamaño de diapositiva</span> &gt; <span class="kbd">Personalizar tamaño de diapositiva</span>: ancho <strong>25,4 cm</strong> y alto <strong>63,5 cm</strong> (vertical de infografía). Cuando pregunte cómo ajustar el contenido, elige <span class="kbd">Maximizar</span>.</li>
-<li><strong>Truco de resolución:</strong> ese lienzo exporta a unos 960 px, por debajo del mínimo. Usa el <strong>doble</strong>: ancho <strong>50,8 cm</strong> y alto <strong>127 cm</strong>, con las letras al doble (título 140 pt, subtítulos 60 pt, cuerpo 34 pt). Alternativa igual de válida: exportar a <strong>PDF</strong>, que nunca pierde calidad.</li>
+<li><span class="kbd">Diseño</span> &gt; <span class="kbd">Tamaño de diapositiva</span> &gt; <span class="kbd">Personalizar tamaño de diapositiva</span>: ancho <strong>50,8 cm</strong> y alto <strong>127 cm</strong> (vertical de infografía). Cuando pregunte cómo ajustar el contenido, elige <span class="kbd">Maximizar</span>.</li>
+<li><strong>Por qué ese tamaño:</strong> PowerPoint exporta a PNG a 96 ppp, así que 50,8 cm dan exactamente <strong>1920 px</strong> de ancho; si usaras 25,4 cm solo obtendrías 960 px y no cumplirías el mínimo. Como el lienzo es del doble, sube también las letras: título 140 pt, subtítulos 60 pt, cuerpo 34 pt. Alternativa igual de válida: exportar a <strong>PDF</strong>, que nunca pierde calidad.</li>
 <li>Escribe primero los títulos de bloque y pega los textos con <span class="kbd">Ctrl + V</span>; si el formato se daña, abre el ícono de opciones de pegado y elige <span class="kbd">Mantener solo texto</span>.</li>
 <li>Abre <span class="kbd">Diseño</span> &gt; <span class="kbd">Diseñador</span> (antes «Ideas de diseño»): viene incluido en tu Microsoft 365 corporativo y <strong>no requiere licencia de Copilot</strong>. En lienzos muy largos casi no propone ideas, así que conviene diseñar por secciones y luego unirlas.</li>
 <li>Línea de tiempo y actores con <span class="kbd">Insertar</span> &gt; <span class="kbd">SmartArt</span> &gt; <strong>Proceso</strong>; barras antes/después con <span class="kbd">Insertar</span> &gt; <span class="kbd">Gráfico</span> &gt; <strong>Barra</strong>; íconos con <span class="kbd">Insertar</span> &gt; <span class="kbd">Iconos</span>.</li>
 <li>Exporta en <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Cambiar el tipo de archivo</span> &gt; <strong>PNG</strong>, o en <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Crear documento PDF/XPS</span>. Si eliges PNG, PowerPoint pregunta si exportas todas las diapositivas o solo esta.</li>
 </ol>
 
-<h3>Ruta C — Microsoft Designer</h3>
-<p>Entra a designer.microsoft.com con tu cuenta corporativa (o con una cuenta Microsoft personal si la corporativa no lo tiene habilitado), busca una plantilla de <strong>infographic</strong> o describe tu pieza en el cuadro de texto, reemplaza los textos por los tuyos y descarga en la máxima calidad. Es tu mejor opción si Copilot Chat está saturado o si ninguna plantilla de Canva te convence.</p>
+<h3>Ruta C — Microsoft Designer (solo con cuenta personal)</h3>
+<div class="warn"><p><strong>Con tu cuenta @falabella.com.co esta ruta no te va a servir.</strong> designer.microsoft.com está pensado para cuentas personales de Microsoft y para uso no comercial; con la cuenta corporativa aparece deshabilitado, salvo que te hayan asignado la licencia de pago de Microsoft 365 Copilot. Si entras con la corporativa y te lo bloquea, no pierdas tiempo: usa la <strong>Ruta A</strong> (Canva) o la <strong>Ruta B</strong> (PowerPoint), que funcionan para todos y sí garantizan los 1920 px.</p></div>
+<p>Si de todas formas tienes una cuenta Microsoft personal y quieres usarlo: <strong>antes de diseñar, ajusta el lienzo.</strong> Selecciona la página, haz clic en <span class="kbd">Cambiar tamaño</span> (Resize), elige <span class="kbd">Tamaño personalizado</span> y escribe <strong>1920 px de ancho x 5400 px de alto</strong>. Las plantillas de Designer vienen en tamaños de redes sociales, alrededor de 1080 px de ancho, y no cumplen el mínimo. Luego busca una plantilla de <strong>infographic</strong> o describe tu pieza en el cuadro de texto, reemplaza los textos por los tuyos y descarga en <strong>PNG</strong> o <strong>PDF</strong>.</p>
+<div class="warn">En Designer no existe una descarga «en la máxima calidad» que suba la resolución: el archivo sale al tamaño del lienzo. Si no cambias el tamaño antes de diseñar, vas a entregar unos 1080 px de ancho y el archivo queda por debajo del mínimo obligatorio de 1920 px.</div>
 
 <h3>Verifica los 1920 px antes de entregar</h3>
-<p>Windows: clic derecho sobre el archivo &gt; <span class="kbd">Propiedades</span> &gt; pestaña <span class="kbd">Detalles</span> &gt; revisa <strong>Ancho</strong> y <strong>Alto</strong>. Mac: clic derecho &gt; <span class="kbd">Obtener información</span> &gt; <strong>Más información</strong>. Si el ancho es menor a 1920 px, vuelve a exportar con el lienzo al doble o entrega el PDF.</p>
+<p>Esta verificación aplica solo si entregas <strong>PNG o JPG</strong>. Windows: clic derecho sobre el archivo &gt; <span class="kbd">Propiedades</span> &gt; pestaña <span class="kbd">Detalles</span> &gt; revisa <strong>Ancho</strong> y <strong>Alto</strong>. Mac: clic derecho &gt; <span class="kbd">Obtener información</span> &gt; <strong>Más información</strong>. Si el ancho es menor a 1920 px, vuelve a exportar con el lienzo más grande.</p>
+<p>Si entregas <strong>PDF</strong> no busques Ancho y Alto en pestaña Detalles: ahí solo verás título, autor y número de páginas, porque un PDF no tiene píxeles. No te preocupes ni pienses que hiciste algo mal: el PDF es vectorial, no pierde calidad al ampliarlo y por eso cumple el requisito de resolución.</p>
 
 <h2>7. Si tienes licencia Copilot (opcional, no afecta tu nota)</h2>
 <p>Todo lo obligatorio de esta actividad se resuelve con Copilot Chat gratuito y las rutas A, B o C. Lo siguiente <strong>solo aplica si tu área te asignó la licencia de pago de Microsoft 365 Copilot</strong>. Si no la tienes, salta esta sección: no cambia tu nota ni te falta ningún entregable. Esta actividad <strong>no requiere Copilot Studio ni Power Automate</strong> en ningún momento.</p>
@@ -602,8 +605,8 @@ RESTRICCIONES
 <li><strong>Proceso genérico.</strong> «Proceso de ventas» sin etapas reales se nota a un kilómetro.</li>
 <li><strong>Solución vaga.</strong> «Usar IA para mejorar» no es propuesta: di en qué etapa, qué hace la IA y qué sigue haciendo la persona.</li>
 <li><strong>Cifras sin respaldo.</strong> «Reduce 90% los errores» sin supuesto es bandera roja: usa rangos y la nota «estimación propia».</li>
-<li><strong>Resolución menor a 1920 px</strong> o captura de pantalla borrosa. Verifica en Propiedades &gt; Detalles.</li>
-<li><strong>Texto ilegible:</strong> letra menor a 14 pt, blanco sobre amarillo o texto encima de una foto.</li>
+<li><strong>Resolución menor a 1920 px</strong> o captura de pantalla borrosa. Si entregas PNG o JPG, verifica el ancho en <span class="kbd">Propiedades</span> &gt; <span class="kbd">Detalles</span>; si entregas PDF no aplica, porque no pierde calidad.</li>
+<li><strong>Texto ilegible:</strong> letra menor a 14 pt en un lienzo de 1920 px (o menor a 28 pt si trabajas en PowerPoint con el lienzo de 50,8 cm de la Ruta B), blanco sobre amarillo o texto encima de una foto.</li>
 <li><strong>Entregar sin documentar cómo usaste la IA.</strong> La bitácora no está en la rúbrica oficial, pero es la forma más fácil de demostrar que el diagnóstico y la propuesta son tuyos y no la primera respuesta del chat.</li>
 </ul>
 
@@ -626,8 +629,8 @@ RESTRICCIONES
 <li><strong>Criterio 2, coherencia de la solución:</strong> cada intervención de IA se conecta a un cuello de botella, y dice dónde se aplica, con qué herramienta y qué sigue haciendo la persona.</li>
 <li><strong>Criterio 2, coherencia de la solución:</strong> los beneficios se derivan de la propuesta, son estimaciones honestas y están marcados como propios.</li>
 <li><strong>Criterio 3, calidad del diseño visual:</strong> un solo título grande, máximo 3 niveles de texto, máximo 2 tipografías, paleta de 5 colores y suficiente espacio en blanco.</li>
-<li><strong>Criterio 3, calidad del diseño visual:</strong> ningún bloque pasa de 60 palabras y ningún texto baja de 14 pt.</li>
-<li><strong>Criterio 3, calidad del diseño visual:</strong> archivo en PDF o PNG/JPG de 1920 px de ancho o más, verificado en Propiedades &gt; Detalles.</li>
+<li><strong>Criterio 3, calidad del diseño visual:</strong> ningún bloque pasa de 60 palabras y ningún texto baja de 14 pt (28 pt si armaste la pieza en PowerPoint con el lienzo de 50,8 cm).</li>
+<li><strong>Criterio 3, calidad del diseño visual:</strong> si entregas PNG o JPG, verificaste en <span class="kbd">Propiedades</span> &gt; <span class="kbd">Detalles</span> (Windows) u <span class="kbd">Obtener información</span> &gt; <span class="kbd">Más información</span> (Mac) que el ancho es de 1920 px o más. Si entregas PDF no aplica esa verificación: el PDF es vectorial y no pierde calidad al ampliarlo.</li>
 <li><strong>Criterio 4, uso apropiado de elementos gráficos:</strong> están los 5 elementos diferenciados (línea de tiempo, íconos de actores, semáforo, barras antes/después, cinta de herramientas).</li>
 <li><strong>Criterio 4, uso apropiado de elementos gráficos:</strong> cada elemento aporta información del proceso; ninguno es solo decoración.</li>
 <li><strong>Estructura:</strong> aparecen completos los bloques A Encabezado, B Diagnóstico, C Propuesta IA, D Beneficios y E Herramientas.</li>

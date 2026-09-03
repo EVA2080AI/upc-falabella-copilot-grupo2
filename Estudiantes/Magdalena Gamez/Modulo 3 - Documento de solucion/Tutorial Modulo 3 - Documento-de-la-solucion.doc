@@ -222,7 +222,7 @@ div.pagebreak {
 <tr><td>Peso</td><td>25% de la nota total</td></tr>
 <tr><td>Secciones mínimas</td><td>01 Portada · 02 Problema abordado · 03 Solución IA · 04 Funcionamiento · 05 Insumos futuros</td></tr>
 <tr><td>Obligatorio adicional</td><td>Retomar el diagnóstico en máximo media página · esquema, diagrama o tabla del flujo · mínimo 2 casos de uso demostrables · anexo con prompts usados y ajustes</td></tr>
-<tr><td>Herramientas sugeridas</td><td>Copilot Chat para redacción · Copilot en Word (opcional, requiere licencia) · Microsoft Designer para esquemas · Copilot Studio básico (opcional, requiere licencia)</td></tr>
+<tr><td>Herramientas sugeridas</td><td>Copilot Chat para redacción · Copilot en Word (opcional, requiere licencia) · para los esquemas, SmartArt en Word de escritorio o en PowerPoint (Microsoft Designer aparece en la ficha, pero no funciona con la cuenta corporativa) · Copilot Studio básico (opcional, requiere licencia)</td></tr>
 <tr><td>Criterios de evaluación</td><td>Coherencia entre problema y solución · claridad en la descripción funcional · viabilidad de las herramientas propuestas · calidad del documento generado con IA</td></tr>
 </tbody>
 </table>
@@ -345,8 +345,8 @@ RESTRICCIONES:
 <table class="t">
 <thead><tr><th>Si tu grupo…</th><th>La solución se construye como…</th><th>Qué muestras en el módulo 5</th></tr></thead>
 <tbody>
-<tr><td>NO tiene licencia de Microsoft 365 Copilot, Copilot Studio ni Power Automate (caso más común)</td><td>Un <strong>asistente de instrucciones en Copilot Chat</strong>: un prompt de sistema largo más una base de conocimiento pegada en el chat (procedimientos, plantillas, criterios)</td><td>Pegas el prompt de sistema y ejecutas los 2 casos de uso en vivo</td></tr>
-<tr><td>SÍ tiene licencia asignada y confirmada por el área de TI</td><td>Un agente en <strong>Copilot Studio</strong> o un flujo en <strong>Power Automate</strong>, siempre como camino opcional</td><td>Abres el agente y corres los mismos 2 casos</td></tr>
+<tr><td>NO tiene licencia de Microsoft 365 Copilot, Copilot Studio ni Power Automate premium (caso más común)</td><td>Un <strong>asistente de instrucciones en Copilot Chat</strong>: un prompt de sistema largo más una base de conocimiento pegada en el chat (procedimientos, plantillas, criterios)</td><td>Pegas el prompt de sistema y ejecutas los 2 casos de uso en vivo</td></tr>
+<tr><td>SÍ tiene licencia asignada y confirmada por el área de TI</td><td>Un agente en <strong>Copilot Studio</strong> o un flujo en <strong>Power Automate</strong> con conectores premium, siempre como camino opcional (los flujos con conectores estándar ya vienen incluidos en tu cuenta corporativa)</td><td>Abres el agente y corres los mismos 2 casos</td></tr>
 </tbody>
 </table>
 <div class="callout">Un asistente hecho con instrucciones en Copilot Chat <strong>es una solución válida y calificable</strong>: se evalúa que sea coherente, funcional y demostrable, no que hayas pagado una licencia. Declara en el documento cuál es tu restricción de licencias: eso suma en viabilidad.</div>
@@ -355,7 +355,7 @@ RESTRICCIONES:
 CONTEXTO:
 - Falabella Colombia. Área: [TU ÁREA]. Proceso: [NOMBRE DEL PROCESO].
 - Problema abordado: [PEGA LA SECCIÓN 02 YA APROBADA].
-- Restricción de licencias [ELIGE UNA]: "solo Copilot Chat web corporativo, sin Copilot en Word, sin Copilot Studio y sin Power Automate" / "tenemos Microsoft 365 Copilot y Copilot Studio asignados".
+- Restricción de licencias [ELIGE UNA]: "solo Copilot Chat web corporativo, sin Copilot en Word, sin Copilot Studio y sin Power Automate premium" / "tenemos Microsoft 365 Copilot y Copilot Studio asignados".
 - Usuarios: [CARGOS Y CUÁNTOS]. Frecuencia de uso: [DIARIA / SEMANAL / POR SOLICITUD].
 
 TAREA: redacta la sección "03 Solución IA" con la descripción funcional del asistente dentro de esa restricción.
@@ -454,7 +454,7 @@ RESTRICCIONES:
 <li>Colorea desde la pestaña <span class="kbd">Diseño de SmartArt</span> &gt; <span class="kbd">Cambiar colores</span>.</li>
 <li>Debajo del gráfico pega el párrafo de 120 palabras y el pie "Figura 1. Flujo funcional de la solución". Un diagrama sin texto no cuenta como descripción funcional.</li>
 </ol>
-<div class="callout">Alternativas gratuitas si no tienes Word de escritorio: <span class="kbd">Insertar</span> &gt; <span class="kbd">Formas</span> para armar tres cajas con flechas, <span class="kbd">Insertar</span> &gt; <span class="kbd">Tabla</span> con la tabla de tres columnas del paso anterior, o un esquema hecho en <strong>designer.microsoft.com</strong> que luego insertas con <span class="kbd">Insertar</span> &gt; <span class="kbd">Imágenes</span> &gt; <span class="kbd">Este dispositivo</span>.</div>
+<div class="callout">Alternativas gratuitas si no tienes Word de escritorio: en <strong>Word para la web</strong> ve a <span class="kbd">Insertar</span> &gt; <span class="kbd">Dibujo</span> y, dentro del lienzo, usa el botón <span class="kbd">Formas</span> para armar tres cajas con flechas (el menú <span class="kbd">Insertar</span> &gt; <span class="kbd">Formas</span> a secas solo existe en Word de escritorio); también puedes usar <span class="kbd">Insertar</span> &gt; <span class="kbd">Tabla</span> con la tabla de tres columnas del paso anterior, o armar el diagrama con <span class="kbd">Insertar</span> &gt; <span class="kbd">SmartArt</span> en <strong>PowerPoint en la web</strong>, copiarlo y pegarlo en Word. Si ya tienes el esquema como imagen, lo insertas con <span class="kbd">Insertar</span> &gt; <span class="kbd">Imágenes</span> &gt; <span class="kbd">Este dispositivo</span>. <strong>Ojo:</strong> no uses <strong>designer.microsoft.com</strong> para este entregable: no funciona con la cuenta corporativa @falabella.com.co, solo con cuenta personal de Microsoft y para uso no comercial.</div>
 <p class="time">Tiempo estimado: 7 minutos</p>
 </div></div>
 
@@ -656,7 +656,7 @@ RESTRICCIONES:
 <li><strong>Copilot en Word (requiere Microsoft 365 Copilot):</strong> usa <em>Redactar con Copilot</em> en el margen izquierdo del documento con estos mismos prompts.</li>
 <li><strong>Copilot en Word con referencia a archivos:</strong> resume el diagnóstico de la Actividad 01 si lo guardas en OneDrive y lo referencias escribiendo la barra diagonal y el nombre del archivo.</li>
 <li><strong>Copilot Studio (requiere licencia):</strong> crea el agente, pega el prompt de sistema del paso 7 y sube la base de conocimiento. Toma captura de pantalla: es evidencia para el manual del módulo 4.</li>
-<li><strong>Power Automate (requiere licencia):</strong> solo tiene sentido si el disparador de tu caso es un correo o un formulario; si no lo tienes, ni lo menciones en el documento.</li>
+<li><strong>Power Automate (los flujos básicos ya vienen incluidos):</strong> los flujos con conectores estándar (Outlook, Forms, SharePoint, Teams) vienen incluidos en la licencia de Microsoft 365 corporativa, sin costo extra; solo se pagan aparte los conectores premium, los flujos de escritorio y AI Builder, que es donde entraría la parte de IA. Sigue siendo un camino opcional: solo tiene sentido si el disparador de tu caso es un correo o un formulario, y confírmalo con TI antes de prometerlo en el documento.</li>
 <li><strong>Equivalencia sin licencia:</strong> el asistente de instrucciones en Copilot Chat del paso 7 cumple exactamente la misma función evaluable que un agente de Copilot Studio.</li>
 </ul>
 
@@ -675,7 +675,7 @@ RESTRICCIONES:
 <h2>Errores que bajan la nota</h2>
 <ol>
 <li><strong>Solución que no responde al problema.</strong> Lee seguidas la 02 y la 03: cada función debe atacar un síntoma del diagnóstico.</li>
-<li><strong>Prometer herramientas que no tienen.</strong> Decir "se implementará con Power Automate" sin licencia hunde la viabilidad; declara la restricción real del grupo.</li>
+<li><strong>Prometer herramientas que no tienen.</strong> Decir "se implementará con Copilot Studio" o con conectores premium de Power Automate sin tener esa licencia hunde la viabilidad; declara la restricción real del grupo y confírmala con TI.</li>
 <li><strong>Casos de uso no demostrables.</strong> "Mejorará la experiencia del cliente" no se muestra en vivo; un caso tiene entrada, acción y salida tangible.</li>
 <li><strong>Diagrama ausente o sin explicación.</strong> La ficha exige esquema, diagrama o tabla, acompañado de texto y pie de figura.</li>
 <li><strong>Pegar la respuesta tal cual.</strong> Se nota en el tono, por ejemplo "En el dinámico mundo del retail actual". Reescribe con el vocabulario del área.</li>
@@ -691,7 +691,7 @@ RESTRICCIONES:
 <thead><tr><th>#</th><th>Prompt usado (resumen)</th><th>Herramienta</th><th>Qué devolvió la IA</th><th>Ajuste que hicimos</th><th>Responsable</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>Síntesis del problema del proceso [NOMBRE]</td><td>Copilot Chat web corporativo</td><td>Texto correcto con porcentajes inventados</td><td>Quitamos las cifras sin soporte</td><td>[NOMBRE]</td></tr>
-<tr><td>2</td><td>Descripción funcional con restricción de licencias</td><td>Copilot Chat web corporativo</td><td>Propuso Power Automate, que no tenemos</td><td>Reformulamos declarando la restricción de licencia</td><td>[NOMBRE]</td></tr>
+<tr><td>2</td><td>Descripción funcional con restricción de licencias</td><td>Copilot Chat web corporativo</td><td>Propuso conectores premium de Power Automate, que no tenemos</td><td>Reformulamos declarando la restricción de licencia</td><td>[NOMBRE]</td></tr>
 <tr><td>3</td><td>Flujo de entrada, procesamiento con IA y salida</td><td>Copilot Chat web corporativo</td><td>Viñetas muy largas para el SmartArt</td><td>Recorte a 6 palabras y punto de control humano</td><td>[NOMBRE]</td></tr>
 <tr><td>4</td><td>Dos casos de uso demostrables</td><td>Copilot Chat web corporativo</td><td>Los dos repetían la misma función</td><td>Exigimos casos distintos con salida tangible</td><td>[NOMBRE]</td></tr>
 <tr><td>5</td><td>Prompt de sistema del asistente</td><td>Copilot Chat web corporativo</td><td>Faltaba la regla de protección de datos</td><td>Añadimos la prohibición de procesar cédulas</td><td>[NOMBRE]</td></tr>
@@ -716,7 +716,7 @@ RESTRICCIONES:
 <li>Extensión entre 4 y 6 páginas, en Word (.docx) o PDF.</li>
 <li>Cero datos personales o confidenciales en todo el documento y en las capturas.</li>
 <li>Ningún paso del documento depende de una licencia de pago que el grupo no tenga.</li>
-<li>Archivo nombrado <em>M3_Act02_Solucion_[APELLIDOS].pdf</em> y con los 3 nombres en la portada.</li>
+<li>Archivo nombrado <em>M3_Act02_Solucion_[APELLIDOS]</em> con la extensión que corresponda: <em>.docx</em> si entregan en Word o <em>.pdf</em> si entregan en PDF, y con los 3 nombres en la portada.</li>
 </ul>
 </div>
 

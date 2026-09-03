@@ -269,7 +269,7 @@ div.pagebreak {
 <tr><td>Copilot dentro de Word (Redactar o Reescribir con Copilot)</td><td>Sí, requiere la licencia Microsoft 365 Copilot</td><td>Redactas en Copilot Chat y pegas el texto en Word a mano (sección 5)</td></tr>
 <tr><td>Copilot Studio o Power Automate</td><td>Sí, requieren licencia adicional</td><td>No los necesitas: esta actividad se documenta con Copilot Chat, no exige automatizar nada</td></tr>
 <tr><td>Microsoft Loop</td><td>Disponible con la cuenta corporativa, pero su uso aquí es opcional</td><td>Trabajas directo en tu archivo de Word; no afecta la calificación</td></tr>
-<tr><td>SharePoint para publicación</td><td>No, viene con la cuenta corporativa</td><td>Solo lo usas si el docente indicó esa ruta de entrega (sección 9)</td></tr>
+<tr><td>SharePoint para publicación</td><td>No, viene con la cuenta corporativa</td><td>Es la ruta de entrega del curso: subes ahí el archivo final y lo revisas con el cargador del index.html de la carpeta del módulo (sección 9)</td></tr>
 <tr><td>Diagramas (SmartArt de Word, designer.microsoft.com, Canva)</td><td>No</td><td>SmartArt ya viene incluido en Word de escritorio</td></tr>
 </tbody>
 </table>
@@ -283,7 +283,7 @@ div.pagebreak {
 <tr><td>2</td><td>Arquitectura en 5 capas explicada sin ser ingeniero (sección III)</td><td>Copilot Chat</td><td>9 min</td></tr>
 <tr><td>3</td><td>Diagrama del flujo con SmartArt en Word</td><td>Word</td><td>5 min</td></tr>
 <tr><td>4</td><td>Guía de uso para usuarios no técnicos + solución de problemas (sección IV)</td><td>Copilot Chat</td><td>8 min</td></tr>
-<tr><td>5</td><td>Tomar, tapar y pegar las 3 capturas con su leyenda</td><td>Windows o Mac + Word</td><td>8 min</td></tr>
+<tr><td>5</td><td>Tomar las 3 capturas, tapar lo sensible sobre la imagen y pegarlas con su leyenda</td><td>Windows o Mac + Word</td><td>8 min</td></tr>
 <tr><td>6</td><td>Limitaciones y próximos pasos (sección V)</td><td>Copilot Chat</td><td>6 min</td></tr>
 <tr><td>7</td><td>Auditar el borrador contra los criterios de evaluación</td><td>Copilot Chat</td><td>6 min</td></tr>
 <tr><td>8</td><td>Armar el documento, tabla de contenido, numeración y exportar a PDF (sección 5 de este tutorial)</td><td>Word</td><td>10 min</td></tr>
@@ -401,10 +401,10 @@ RESTRICCIONES
 <li>Elige la categoría <strong>Proceso</strong> y la opción <strong>Proceso básico</strong> o <strong>Proceso de flexión</strong>.</li>
 <li>Se abre el panel de texto a la izquierda del gráfico. Escribe ahí tus 5 rótulos, uno por línea: Entrada, Conocimiento, Razonamiento, Salida, Control. Si te faltan cajas, presiona <span class="kbd">Enter</span> al final de la última línea. Si no ves el panel, usa <span class="kbd">Diseño de SmartArt</span> &rarr; <span class="kbd">Panel de texto</span>.</li>
 <li>Con el diagrama seleccionado, entra a <span class="kbd">Diseño de SmartArt</span> &rarr; <span class="kbd">Cambiar colores</span> y elige una paleta sobria.</li>
-<li>Con el diagrama seleccionado ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Insertar título</span> (también aparece con clic derecho sobre el gráfico) &rarr; rótulo <strong>Figura</strong> &rarr; escribe <strong>Figura 1. Arquitectura funcional del asistente [NOMBRE]</strong>.</li>
+<li>Con el diagrama seleccionado ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Insertar título</span> (también aparece con clic derecho sobre el gráfico). En el desplegable <span class="kbd">Rótulo</span> verás solo <strong>Ecuación</strong>, <strong>Ilustración</strong> y <strong>Tabla</strong>: la primera vez haz clic en <span class="kbd">Nuevo rótulo...</span>, escribe <strong>Figura</strong> y acepta. De ahí en adelante &laquo;Figura&raquo; queda en la lista y Word numera solo. Deja la posición en <strong>Debajo del elemento seleccionado</strong> y completa la leyenda: <strong>Figura 1. Arquitectura funcional del asistente [NOMBRE]</strong>.</li>
 <li>Debajo pega el texto de 90 palabras que te dio el prompt de refinamiento. Ese párrafo es el que hace que el diagrama sume puntos y no sea decoración.</li>
 </ol>
-<div class="callout"><strong>Si trabajas en Mac:</strong> Word para Mac no permite insertar gráficos SmartArt nuevos (solo abrir y editar los que ya existen). Arma el diagrama con <span class="kbd">Insertar</span> &rarr; <span class="kbd">Formas</span> (cinco rectángulos y cuatro flechas, agrupados) o créalo gratis en <strong>designer.microsoft.com</strong> o Canva, descárgalo como imagen y pégalo en Word con su leyenda. Cuenta exactamente igual como evidencia visual.</div>
+<div class="callout"><strong>Si trabajas en Mac:</strong> Word para Mac de escritorio también tiene SmartArt. Ve a <span class="kbd">Insertar</span> &rarr; grupo Ilustraciones &rarr; <span class="kbd">SmartArt</span>, igual que en Windows, elige <strong>Proceso</strong> &rarr; <strong>Proceso básico</strong> y escribe los rótulos en el panel de texto; los colores los cambias en <span class="kbd">Diseño de SmartArt</span>. Si el botón SmartArt te aparece en gris, casi siempre es porque el archivo está guardado en el formato antiguo .doc: ve a <span class="kbd">Archivo</span> &rarr; <span class="kbd">Guardar como</span> y guárdalo como <strong>Documento de Word (.docx)</strong>; después SmartArt se activa. Solo si aún así no lo ves &mdash;por ejemplo si estás en Word en el navegador, que no incluye SmartArt&mdash; arma el diagrama con formas: en Word de escritorio es <span class="kbd">Insertar</span> &rarr; <span class="kbd">Formas</span>, y en Word para la web es <span class="kbd">Insertar</span> &rarr; <span class="kbd">Dibujo</span> y, dentro del lienzo, el botón <span class="kbd">Formas</span> (cinco rectángulos y cuatro flechas, agrupados); o créalo gratis en Canva, descárgalo como imagen y pégalo en Word con su leyenda. Cuenta exactamente igual como evidencia visual.</div>
 <div class="callout"><strong>Este diagrama cuenta</strong> como una de las 3 evidencias visuales obligatorias. Necesitas 2 capturas reales más (paso 5).</div>
 <p class="time">Tiempo estimado: 5 minutos</p>
 </div></div>
@@ -463,15 +463,24 @@ RESTRICCIONES
 <li><strong>Windows:</strong> <span class="kbd">Windows + Shift + S</span> abre el Recorte de pantalla. Arrastra sobre el área que quieres y se copia al portapapeles.</li>
 <li><strong>Mac:</strong> <span class="kbd">Cmd + Shift + 4</span> y arrastra. La imagen queda en el Escritorio; si además mantienes <span class="kbd">Ctrl</span> mientras arrastras, se copia al portapapeles.</li>
 </ul>
-<p><strong>Cómo pegarla y presentarla en Word:</strong></p>
+<p><strong>Cómo pegarla y presentarla en Word:</strong> antes de pegar nada, lee la caja roja del final de este paso: si la captura tiene un dato sensible, tienes que taparlo <strong>sobre la imagen</strong> antes de insertarla en Word.</p>
 <ol>
 <li>Ubica el cursor donde va la imagen y pega con <span class="kbd">Ctrl + V</span> (en Mac <span class="kbd">Cmd + V</span>).</li>
 <li>Haz clic en la imagen &rarr; pestaña <span class="kbd">Formato de imagen</span> &rarr; <span class="kbd">Borde de imagen</span> &rarr; elige gris o negro, grosor 1 pto. Enmarcarlas se ve profesional.</li>
-<li>Con la imagen seleccionada ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Insertar título</span> (también con clic derecho sobre la imagen) &rarr; rótulo <strong>Figura</strong> &rarr; escribe la leyenda: <strong>Figura 2. Prompt de sistema cargado en Copilot Chat</strong>.</li>
+<li>Con la imagen seleccionada ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Insertar título</span> (también con clic derecho sobre la imagen). Si es la primera vez, el rótulo <strong>Figura</strong> no aparece en la lista (solo están Ecuación, Ilustración y Tabla): haz clic en <span class="kbd">Nuevo rótulo...</span>, escribe <strong>Figura</strong> y acepta; si ya lo creaste en el paso 3, solo elígelo. Deja la posición en <strong>Debajo del elemento seleccionado</strong> y escribe la leyenda: <strong>Figura 2. Prompt de sistema cargado en Copilot Chat</strong>.</li>
 <li>Debajo de cada figura escribe una o dos líneas explicando qué se está viendo. Una captura sin explicación no suma.</li>
 </ol>
 <p><strong>Qué capturar (sugerencia que siempre funciona):</strong> Figura 2, el prompt de sistema o instrucciones cargadas; Figura 3, una consulta real del usuario con la respuesta del asistente; Figura 4, un caso donde el asistente responde que no sabe o pide más información (esto demuestra la capa de control y le encanta al evaluador).</p>
-<div class="warn"><strong>Antes de pegar cualquier captura:</strong> revísala. No pueden aparecer nombres de clientes, cédulas, números de tarjeta, correos reales, teléfonos ni pantallas de sistemas internos. Para tapar: en Word usa <span class="kbd">Insertar</span> &rarr; <span class="kbd">Formas</span> &rarr; rectángulo, dibújalo encima del dato y, en la pestaña <span class="kbd">Formato de forma</span>, ponle <span class="kbd">Relleno de forma</span> en negro sólido y <span class="kbd">Contorno de forma</span> &rarr; <span class="kbd">Sin contorno</span>. Si exportas a PDF, el rectángulo queda encima y el dato no se recupera. Nunca uses resaltador amarillo ni transparencias para tapar.</div>
+<div class="warn"><strong>Antes de pegar cualquier captura, revísala.</strong> No pueden aparecer nombres de clientes, cédulas, números de tarjeta, correos reales, teléfonos ni pantallas de sistemas internos.
+<p><strong>Ojo con esto, es lo más importante de todo el módulo:</strong> dibujar un rectángulo negro encima de la captura dentro de Word <strong>no borra el dato</strong>. Ese rectángulo es una forma independiente que se apila encima, y al exportar a PDF la imagen original queda incrustada completa dentro del archivo: cualquiera puede extraerla y ver el dato intacto. Tapar no es eliminar, y aquí estamos hablando de datos de clientes de Falabella y de la Ley 1581 de 2012.</p>
+<p><strong>Haz esto en cambio</strong> (el dato tiene que desaparecer <strong>antes</strong> de que la imagen entre a Word):</p>
+<ul>
+<li><strong>Lo más seguro: que el dato nunca aparezca en la captura.</strong> Cierra o reemplaza el dato en pantalla antes de capturar; vuelve a generar la conversación con datos ficticios (Cliente A, Proveedor 1, Pedido 000123) y captura eso.</li>
+<li><strong>Recorta el área sensible al capturar.</strong> Con <span class="kbd">Windows + Shift + S</span> o <span class="kbd">Cmd + Shift + 4</span> selecciona solo la parte que sí puedes mostrar.</li>
+<li><strong>O tapa sobre la imagen misma y guárdala tapada.</strong> En Windows abre la captura en <strong>Paint</strong>, dibuja encima un rectángulo negro relleno y usa <span class="kbd">Archivo</span> &rarr; <span class="kbd">Guardar</span>. En Mac ábrela con <strong>Vista Previa</strong>, usa <span class="kbd">Herramientas</span> &rarr; <span class="kbd">Anotar</span> &rarr; <span class="kbd">Rectángulo</span> con relleno negro y guarda. Recién ahí insertas esa imagen ya modificada en Word con <span class="kbd">Insertar</span> &rarr; <span class="kbd">Imágenes</span> &rarr; <span class="kbd">Este dispositivo</span>. La clave es que el tapado quede aplanado dentro del archivo de imagen, no como una forma encima.</li>
+<li><strong>Si ya la pegaste y la tapaste en Word</strong>, no la dejes así: toma una captura nueva de la pantalla ya tapada (<span class="kbd">Windows + Shift + S</span> o <span class="kbd">Cmd + Shift + 4</span>), borra la imagen anterior y pega la captura nueva. Y si recortas dentro de Word, entra a <span class="kbd">Formato de imagen</span> &rarr; <span class="kbd">Comprimir imágenes</span> y marca <strong>Eliminar áreas recortadas de las imágenes</strong>: el recorte por sí solo tampoco borra los píxeles.</li>
+<li><strong>Nunca</strong> uses resaltador amarillo, transparencias ni formas con relleno semitransparente para tapar.</li>
+</ul></div>
 <div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor de manuales técnicos especializado en redactar leyendas y textos de figuras.
 
 CONTEXTO
@@ -655,7 +664,7 @@ RESTRICCIONES
 <li><strong>Sin ejemplos prácticos.</strong> El criterio los exige de forma explícita: mínimo dos casos reales con el texto que escribe el usuario y la respuesta esperada.</li>
 <li><strong>Portada incompleta.</strong> Debe llevar título, nombre del asistente, propósito, tu nombre, curso, módulo y fecha. Sin el nombre del asistente pierdes el requisito de entrega número 01.</li>
 <li><strong>Copiar y pegar la respuesta de Copilot sin editar.</strong> Se detecta por el tono uniforme, los asteriscos de markdown y frases como "en el dinámico mundo del retail".</li>
-<li><strong>Datos sensibles visibles en las capturas.</strong> Correos, cédulas o nombres reales sin tapar. Es falta grave, no solo error de forma.</li>
+<li><strong>Datos sensibles en las capturas.</strong> Correos, cédulas o nombres reales a la vista, o tapados con una forma dibujada encima en Word: así el dato sigue dentro del archivo y se puede recuperar del PDF. Tápalo sobre la imagen antes de insertarla. Es falta grave, no solo error de forma.</li>
 <li><strong>No incluir la bitácora de prompts.</strong> Es requisito de entrega número 02 y es lo que evidencia tu proceso.</li>
 </ul>
 
@@ -701,7 +710,7 @@ RESTRICCIONES
 <li>Ejemplos prácticos: hay al menos dos casos de uso completos con el texto que escribe el usuario y la respuesta esperada.</li>
 <li>Ejemplos prácticos: los ejemplos usan datos ficticios (Cliente A, Proveedor 1, Pedido 000123) y corresponden a situaciones reales de tu área.</li>
 <li>Evidencias: mínimo 3 capturas o diagramas, todos con leyenda "Figura N." y un párrafo explicativo debajo.</li>
-<li>Datos: ninguna captura ni ningún texto muestra nombres, cédulas, tarjetas, correos o cifras confidenciales; lo sensible está tapado con rectángulo negro sólido, cumpliendo la Ley 1581 de 2012.</li>
+<li>Datos: ninguna captura ni ningún texto muestra nombres, cédulas, tarjetas, correos o cifras confidenciales; lo sensible se tapó <strong>sobre la imagen misma antes de insertarla en Word</strong> (en Paint o Vista Previa, guardando la imagen ya tapada) o se recapturó con datos ficticios, no con una forma dibujada encima en Word, cumpliendo la Ley 1581 de 2012.</li>
 <li>Verificación: revisaste manualmente cada dato, cifra y nombre que escribió la IA.</li>
 <li>Anexo: la bitácora de prompts está incluida y completada con lo que realmente hiciste, con la reflexión final.</li>
 <li>Ortografía: pasaste la revisión de Word con el idioma en Español (Colombia) y quitaste los asteriscos y numerales de markdown.</li>
@@ -709,7 +718,7 @@ RESTRICCIONES
 </ul></div>
 
 <h2>9. Dónde subir el archivo</h2>
-<p>Sube el documento en el <strong>espacio de entrega del Módulo 4</strong> que indicó el docente: el aula virtual del curso o la biblioteca de documentos del curso en <strong>SharePoint</strong>. En SharePoint la subida se hace con el botón <span class="kbd">Cargar</span> &rarr; <span class="kbd">Archivos</span>, o arrastrando el archivo dentro de la biblioteca. No tienes que abrir ningún archivo intermedio ni ningún cargador adicional para "preparar" o "validar" tu entregable: si te encuentras un enlace o un archivo de ese tipo, no lo uses y confirma la ruta correcta con el docente antes de subir nada.</p>
+<p>Sube el documento a tu <strong>carpeta personal en SharePoint</strong>, dentro de la carpeta del <strong>Módulo 4</strong>. En SharePoint la subida se hace con el botón <span class="kbd">Cargar</span> &rarr; <span class="kbd">Archivos</span>, o arrastrando el archivo dentro de la biblioteca. En esa misma carpeta está el <strong>index.html</strong> del curso: ábrelo, ahí tienes el cargador oficial que revisa formato, nombre y tamaño antes de que entregues, y que trabaja en tu propio navegador sin enviar el archivo a ninguna parte; si te marca algo en rojo, corrígelo y vuelve a cargarlo. Lo que sí debes evitar es subir el trabajo a servicios de terceros ajenos al curso: si alguien te pasa un enlace o una herramienta que no sea el index.html de tu carpeta ni SharePoint, no la uses y confirma la ruta con el docente. Si además el docente habilitó el aula virtual, sube allí la misma versión final.</p>
 <p>Antes de confirmar la entrega verifica tú mismo tres cosas: que el archivo se llame <strong>Modulo4_Act03_NombreApellido</strong>, que esté en Word (.docx) o PDF, y que tenga mínimo 8 páginas de contenido. Entrega individual y a tiempo: es el 35% de tu nota.</p>
 <div class="callout" style="margin-top:20pt">
 <p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
