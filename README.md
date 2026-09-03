@@ -24,6 +24,7 @@ Estudiantes/
 assets/
   estilos.css                     Hoja de estilos del portal
   cargador.js                     Validación y preparación de las entregas
+  drive.js                        Inserta los enlaces de Drive al abrir la página
 _generador/
   datos.py                        Datos maestros: módulos, pesos y requisitos
   generar.py                      Regenera todo el portal
