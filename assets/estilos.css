@@ -1,0 +1,226 @@
+/* ============================================================
+   Universidad Piloto de Colombia  ·  Falabella  ·  Grupo 2
+   Curso: Microsoft Copilot Chat
+   Hoja de estilos del portal de entregas
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --verde:#0B7A43;
+  --verde-claro:#12A65C;
+  --verde-suave:#E7F6EE;
+  --rojo:#D8232A;
+  --tinta:#14201A;
+  --tinta-2:#41544B;
+  --tinta-3:#7B8C84;
+  --linea:#DDE6E1;
+  --fondo:#F5F8F6;
+  --panel:#FFFFFF;
+  --ambar:#B7791F;
+  --ambar-suave:#FDF6E7;
+  --rojo-suave:#FDECEC;
+  --azul:#1D5FA8;
+  --azul-suave:#EAF1FA;
+  --radio:14px;
+  --sombra:0 1px 2px rgba(20,32,26,.06), 0 8px 24px -12px rgba(20,32,26,.18);
+  --sombra-alta:0 2px 4px rgba(20,32,26,.07), 0 20px 48px -18px rgba(20,32,26,.28);
+  --fuente:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-tema="claro"]){
+    --verde:#3FCB83;
+    --verde-claro:#5AE09A;
+    --verde-suave:#0F2A1D;
+    --rojo:#FF6B6B;
+    --tinta:#EAF2EE;
+    --tinta-2:#A9BDB4;
+    --tinta-3:#7B9187;
+    --linea:#22332B;
+    --fondo:#0C1410;
+    --panel:#121D18;
+    --ambar:#E5B45C;
+    --ambar-suave:#2A2213;
+    --rojo-suave:#2C1516;
+    --azul:#7FB2EE;
+    --azul-suave:#111F30;
+    --sombra:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    --sombra-alta:0 2px 4px rgba(0,0,0,.5), 0 20px 48px -18px rgba(0,0,0,.7);
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:var(--fuente);
+  background:var(--fondo);
+  color:var(--tinta);
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--verde);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.envoltura{max-width:1060px;margin:0 auto;padding:0 22px}
+.envoltura-ancha{max-width:1320px;margin:0 auto;padding:0 22px}
+
+/* ---------- Encabezado ---------- */
+.cabecera{
+  background:linear-gradient(150deg, var(--verde) 0%, #0A5F35 55%, #07422５ 100%);
+  background:linear-gradient(150deg, var(--verde) 0%, #0A5F35 55%, #073E24 100%);
+  color:#fff;
+  padding:34px 0 40px;
+  position:relative;
+  overflow:hidden;
+}
+.cabecera::after{
+  content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;
+  border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none;
+}
+.cabecera::before{
+  content:"";position:absolute;right:60px;bottom:-140px;width:230px;height:230px;
+  border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none;
+}
+.cabecera a{color:#fff}
+.marca{display:flex;align-items:center;gap:12px;font-weight:700;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;opacity:.92}
+.marca .punto{width:9px;height:9px;border-radius:50%;background:#8CF0B8;flex:none}
+.cabecera h1{margin:16px 0 8px;font-size:clamp(1.6rem,3.6vw,2.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.cabecera .lema{margin:0;max-width:660px;opacity:.9;font-size:1.03rem}
+
+.migas{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.86rem;opacity:.88;margin-bottom:6px}
+.migas span.sep{opacity:.5}
+
+/* ---------- Contenido ---------- */
+main{padding:34px 0 70px}
+h2{font-size:1.3rem;font-weight:750;letter-spacing:-.015em;margin:34px 0 14px}
+h2:first-child{margin-top:0}
+h3{font-size:1.02rem;font-weight:700;margin:22px 0 8px}
+.apunte{color:var(--tinta-2);font-size:.95rem;margin:0 0 18px;max-width:70ch}
+
+/* ---------- Tarjetas ---------- */
+.rejilla{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(258px,1fr))}
+.rejilla-2{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+.tarjeta{
+  display:block;background:var(--panel);border:1px solid var(--linea);
+  border-radius:var(--radio);padding:17px 18px;box-shadow:var(--sombra);
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  color:inherit;text-decoration:none;position:relative;
+}
+a.tarjeta:hover{transform:translateY(-2px);box-shadow:var(--sombra-alta);border-color:var(--verde);text-decoration:none}
+.tarjeta .nombre{font-weight:700;font-size:1.03rem;letter-spacing:-.01em;display:block;margin-bottom:3px}
+.tarjeta .detalle{color:var(--tinta-3);font-size:.85rem;display:block;word-break:break-word}
+.tarjeta .pie{margin-top:12px;padding-top:11px;border-top:1px solid var(--linea);font-size:.8rem;color:var(--tinta-3);display:flex;justify-content:space-between;align-items:center;gap:8px}
+
+.avatar{
+  width:40px;height:40px;border-radius:11px;background:var(--verde-suave);color:var(--verde);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;
+  flex:none;letter-spacing:.02em;
+}
+.fila-avatar{display:flex;align-items:center;gap:12px}
+
+/* ---------- Tarjeta de modulo ---------- */
+.mod{display:flex;gap:14px;align-items:flex-start}
+.mod .num{
+  width:44px;height:44px;border-radius:12px;flex:none;
+  background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.15rem;
+}
+.mod .cuerpo{min-width:0;flex:1}
+.mod .cuerpo .nombre{font-size:1.05rem}
+.mod .cuerpo .desc{color:var(--tinta-2);font-size:.88rem;margin:4px 0 0}
+
+/* ---------- Etiquetas ---------- */
+.eti{
+  display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;
+  padding:3px 9px;border-radius:999px;letter-spacing:.02em;white-space:nowrap;
+  background:var(--verde-suave);color:var(--verde);border:1px solid transparent;
+}
+.eti.gris{background:transparent;color:var(--tinta-3);border-color:var(--linea)}
+.eti.ambar{background:var(--ambar-suave);color:var(--ambar)}
+.eti.azul{background:var(--azul-suave);color:var(--azul)}
+.eti.rojo{background:var(--rojo-suave);color:var(--rojo)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 17px;border-radius:10px;font-weight:700;font-size:.92rem;
+  border:1px solid var(--linea);background:var(--panel);color:var(--tinta);
+  cursor:pointer;font-family:inherit;text-decoration:none;transition:.15s ease;
+  line-height:1.2;
+}
+.btn:hover{border-color:var(--verde);color:var(--verde);text-decoration:none}
+.btn.principal{background:var(--verde);border-color:var(--verde);color:#fff}
+.btn.principal:hover{background:var(--verde-claro);border-color:var(--verde-claro);color:#fff}
+.btn.sutil{background:transparent}
+.btn[disabled]{opacity:.45;cursor:not-allowed;pointer-events:none}
+.btn.pequeno{padding:7px 12px;font-size:.83rem;border-radius:8px}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
+/* ---------- Cajas ---------- */
+.caja{border:1px solid var(--linea);background:var(--panel);border-radius:var(--radio);padding:20px;box-shadow:var(--sombra)}
+.aviso{border-left:4px solid var(--azul);background:var(--azul-suave);border-radius:10px;padding:14px 16px;font-size:.92rem;margin:16px 0}
+.aviso.alerta{border-left-color:var(--rojo);background:var(--rojo-suave)}
+.aviso.bien{border-left-color:var(--verde);background:var(--verde-suave)}
+.aviso.ojo{border-left-color:var(--ambar);background:var(--ambar-suave)}
+.aviso strong{display:block;margin-bottom:3px}
+.aviso p{margin:5px 0 0}
+.aviso :last-child{margin-bottom:0}
+
+/* ---------- Zona de carga ---------- */
+.zona{
+  border:2px dashed var(--linea);border-radius:var(--radio);background:var(--panel);
+  padding:38px 24px;text-align:center;transition:.18s ease;cursor:pointer;
+}
+.zona:hover,.zona.encima{border-color:var(--verde);background:var(--verde-suave)}
+.zona.encima{transform:scale(1.005)}
+.zona .icono{font-size:2.3rem;line-height:1;margin-bottom:10px}
+.zona .titulo{font-weight:750;font-size:1.06rem;margin-bottom:5px}
+.zona .ayuda{color:var(--tinta-3);font-size:.88rem;margin:0}
+.zona input[type=file]{display:none}
+
+.lista-archivos{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.archivo{
+  display:flex;gap:13px;align-items:flex-start;background:var(--panel);
+  border:1px solid var(--linea);border-radius:12px;padding:13px 15px;
+}
+.archivo .ic{width:38px;height:38px;border-radius:9px;background:var(--verde-suave);color:var(--verde);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.68rem;flex:none;letter-spacing:.03em}
+.archivo .info{flex:1;min-width:0}
+.archivo .nom{font-weight:650;font-size:.94rem;word-break:break-word;display:block}
+.archivo .met{color:var(--tinta-3);font-size:.8rem;display:block;margin-top:2px}
+.archivo .quitar{border:none;background:transparent;color:var(--tinta-3);cursor:pointer;font-size:1.25rem;line-height:1;padding:2px 6px;border-radius:6px;font-family:inherit}
+.archivo .quitar:hover{color:var(--rojo);background:var(--rojo-suave)}
+.dictamen{margin-top:8px;font-size:.85rem;display:grid;gap:3px}
+.dictamen div{display:flex;gap:7px;align-items:flex-start}
+.dictamen .si{color:var(--verde)}
+.dictamen .no{color:var(--rojo)}
+.dictamen .duda{color:var(--ambar)}
+.dictamen .marca{flex:none;font-weight:800}
+
+.barra{height:6px;border-radius:99px;background:var(--linea);overflow:hidden;margin-top:10px}
+.barra i{display:block;height:100%;background:var(--verde);width:0;transition:width .3s ease}
+
+/* ---------- Tablas ---------- */
+table.datos{width:100%;border-collapse:collapse;font-size:.9rem;margin:12px 0}
+table.datos th,table.datos td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--linea);vertical-align:top}
+table.datos th{font-weight:700;color:var(--tinta-2);font-size:.79rem;text-transform:uppercase;letter-spacing:.05em}
+table.datos tr:last-child td{border-bottom:none}
+
+/* ---------- Pie ---------- */
+.pie-pagina{border-top:1px solid var(--linea);padding:26px 0 40px;color:var(--tinta-3);font-size:.86rem;background:var(--panel)}
+.pie-pagina .envoltura{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+
+/* ---------- Buscador ---------- */
+.buscador{position:relative;margin:0 0 20px;max-width:430px}
+.buscador input{
+  width:100%;padding:12px 15px 12px 40px;border-radius:11px;border:1px solid var(--linea);
+  background:var(--panel);color:var(--tinta);font-family:inherit;font-size:.95rem;
+}
+.buscador input:focus{outline:2px solid var(--verde);outline-offset:1px;border-color:var(--verde)}
+.buscador .lupa{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--tinta-3);pointer-events:none}
+
+.oculto{display:none !important}
+.solo-lectores{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

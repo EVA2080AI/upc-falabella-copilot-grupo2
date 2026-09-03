@@ -1,0 +1,731 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<title>Modulo 3 - Como hacerlo super rapido con Copilot</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+@page {
+  size: 21.59cm 27.94cm;
+  margin: 2.2cm 2.0cm 2.2cm 2.0cm;
+  mso-header-margin: 1.2cm;
+  mso-footer-margin: 1.2cm;
+  mso-paper-source: 0;
+}
+div.Section1 { page: Section1; }
+
+body {
+  font-family: "Aptos", "Calibri", "Segoe UI", sans-serif;
+  font-size: 11.0pt;
+  line-height: 1.42;
+  color: #1B2A22;
+  margin: 0;
+}
+
+/* ---------------- portada del tutorial ---------------- */
+h1 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 25.0pt;
+  line-height: 1.14;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 0 0 6pt 0;
+  letter-spacing: -0.3pt;
+  border-bottom: 3.0pt solid #0B7A43;
+  padding-bottom: 9pt;
+}
+p.sub {
+  font-size: 13.0pt;
+  color: #41544B;
+  margin: 0 0 10pt 0;
+  line-height: 1.34;
+}
+div.meta {
+  font-size: 8.8pt;
+  color: #FFFFFF;
+  background: #0B7A43;
+  padding: 7pt 11pt;
+  margin: 0 0 17pt 0;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  mso-shading: #0B7A43;
+}
+
+h2 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 15.5pt;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 21pt 0 7pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 1.0pt solid #C9DED3;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 12.0pt;
+  color: #14201A;
+  font-weight: bold;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 8pt 0; }
+ul, ol { margin: 0 0 10pt 0; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+strong, b { color: #0B5B33; }
+
+/* ---------------- pasos numerados ---------------- */
+div.step {
+  margin: 0 0 13pt 0;
+  padding: 11pt 13pt 8pt 13pt;
+  border: 0.75pt solid #DDE6E1;
+  border-left: 3.5pt solid #0B7A43;
+  background: #FBFDFC;
+  mso-shading: #FBFDFC;
+  page-break-inside: avoid;
+}
+div.step span.num {
+  font-family: "Aptos Display", "Calibri", sans-serif;
+  font-size: 15.0pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  padding: 2pt 9pt;
+  margin-right: 8pt;
+}
+div.stepbody { margin-top: 7pt; }
+p.time {
+  font-size: 9.0pt;
+  color: #0B7A43;
+  font-weight: bold;
+  font-style: italic;
+  margin: 6pt 0 0 0;
+}
+
+/* ---------------- prompts para copiar ---------------- */
+div.prompt {
+  margin: 9pt 0 11pt 0;
+  border: 0.75pt solid #B9CFC3;
+  background: #F2F8F5;
+  mso-shading: #F2F8F5;
+  padding: 0;
+  page-break-inside: avoid;
+}
+span.ptag {
+  display: block;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-size: 8.0pt;
+  font-weight: bold;
+  letter-spacing: 0.9pt;
+  padding: 4pt 10pt;
+  text-transform: uppercase;
+}
+div.prompt pre {
+  font-family: "Cascadia Mono", "Consolas", "Courier New", monospace;
+  font-size: 9.2pt;
+  line-height: 1.42;
+  color: #14201A;
+  margin: 0;
+  padding: 9pt 11pt;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ---------------- cajas de aviso ---------------- */
+div.callout, div.warn, div.ok {
+  margin: 10pt 0 12pt 0;
+  padding: 9pt 12pt;
+  border-left: 3.5pt solid #1D5FA8;
+  background: #EAF1FA;
+  mso-shading: #EAF1FA;
+  font-size: 10.4pt;
+  page-break-inside: avoid;
+}
+div.warn { border-left-color: #C62828; background: #FDECEC; mso-shading: #FDECEC; }
+div.ok   { border-left-color: #0B7A43; background: #E7F6EE; mso-shading: #E7F6EE; }
+div.callout p, div.warn p, div.ok p { margin: 0 0 5pt 0; }
+div.callout p:last-child, div.warn p:last-child, div.ok p:last-child { margin-bottom: 0; }
+div.ok ul, div.warn ul, div.callout ul { margin-bottom: 0; }
+
+/* ---------------- tablas ---------------- */
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 9pt 0 13pt 0;
+  font-size: 10.0pt;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+table.t th {
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+  padding: 6pt 8pt;
+  border: 0.5pt solid #0B7A43;
+  font-size: 9.4pt;
+}
+table.t td {
+  padding: 6pt 8pt;
+  border: 0.5pt solid #D5E3DB;
+  vertical-align: top;
+}
+table.t tr:nth-child(even) td { background: #F6FAF8; mso-shading: #F6FAF8; }
+
+span.kbd {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.4pt;
+  background: #EDF3F0;
+  mso-shading: #EDF3F0;
+  border: 0.5pt solid #C9DED3;
+  padding: 1pt 4pt;
+  color: #0B5B33;
+  font-weight: bold;
+}
+
+div.pagebreak {
+  page-break-before: always;
+  mso-special-character: line-break;
+  height: 0;
+  font-size: 1pt;
+}
+</style>
+</head>
+<body lang="ES-CO">
+<div class="Section1">
+<h1>C&oacute;mo hacer el M&oacute;dulo 3 s&uacute;per r&aacute;pido con Copilot</h1>
+<p class="sub">El documento de la solución: pasar del problema diagnosticado a una propuesta de IA clara, viable y demostrable, en una hora y sin licencia de pago.</p>
+<div class="meta">Microsoft Copilot Chat &middot; Universidad Piloto de Colombia &middot; Falabella grupo 2 &nbsp;|&nbsp; M&oacute;dulo 3: Documento de la soluci&oacute;n &nbsp;|&nbsp; Peso 25% &nbsp;|&nbsp; Word (.docx) o PDF, de 4 a 6 p&aacute;ginas &nbsp;|&nbsp; En grupo, m&aacute;ximo 3 personas</div><div class="callout"><p><b>Sobre la numeraci&oacute;n:</b> este es el <b>M&oacute;dulo 3</b> del curso, la carpeta que lleva ese nombre en SharePoint y en Drive. La universidad numer&oacute; las actividades de forma despareja, as&iacute; que en el PDF aparece como &laquo;ACTIVIDAD 02 &mdash; Documento de soluci&oacute;n&raquo;. Es la misma actividad; gu&iacute;ate por el n&uacute;mero de m&oacute;dulo.</p></div>
+
+<h2>Qué vas a entregar</h2>
+<p>Un documento de 4 a 6 páginas que describe la solución de IA que tu grupo propone para el problema diagnosticado en la Actividad 01. No es un ensayo: es la ficha técnica de algo que van a mostrar funcionando en los módulos 4 y 5. Explica qué se va a implementar, cómo funcionará, qué herramientas se usarán y qué beneficios se esperan. Lleva diagrama de flujo, dos casos de uso demostrables y anexo de prompts.</p>
+<table class="t">
+<thead><tr><th>Aspecto</th><th>Requisito oficial</th></tr></thead>
+<tbody>
+<tr><td>Objetivo de la actividad</td><td>Formular una solución tecnológica viable basada en IA, conectando el diagnóstico con una propuesta clara de intervención, criterios de uso, beneficios esperados y elementos iniciales para construir el asistente o prototipo</td></tr>
+<tr><td>Formato y extensión</td><td>Word (.docx) o PDF, de 4 a 6 páginas (portada y anexo incluidos)</td></tr>
+<tr><td>Modalidad</td><td>En grupo, máximo 3 personas</td></tr>
+<tr><td>Peso</td><td>25% de la nota total</td></tr>
+<tr><td>Secciones mínimas</td><td>01 Portada · 02 Problema abordado · 03 Solución IA · 04 Funcionamiento · 05 Insumos futuros</td></tr>
+<tr><td>Obligatorio adicional</td><td>Retomar el diagnóstico en máximo media página · esquema, diagrama o tabla del flujo · mínimo 2 casos de uso demostrables · anexo con prompts usados y ajustes</td></tr>
+<tr><td>Herramientas sugeridas</td><td>Copilot Chat para redacción · Copilot en Word (opcional, requiere licencia) · Microsoft Designer para esquemas · Copilot Studio básico (opcional, requiere licencia)</td></tr>
+<tr><td>Criterios de evaluación</td><td>Coherencia entre problema y solución · claridad en la descripción funcional · viabilidad de las herramientas propuestas · calidad del documento generado con IA</td></tr>
+</tbody>
+</table>
+
+<h2>Dónde se resuelve cada sección mínima</h2>
+<table class="t">
+<thead><tr><th>Sección mínima</th><th>Qué debe contener según la ficha</th><th>Paso de este tutorial</th></tr></thead>
+<tbody>
+<tr><td>01 Portada</td><td>Título de la solución, autores, proceso intervenido y fecha</td><td>Paso 9</td></tr>
+<tr><td>02 Problema abordado</td><td>Síntesis del diagnóstico y necesidad, en máximo media página</td><td>Paso 2</td></tr>
+<tr><td>03 Solución IA</td><td>Descripción funcional del asistente, sistema o automatización, con herramientas y beneficios</td><td>Paso 3</td></tr>
+<tr><td>04 Funcionamiento</td><td>Entradas, procesamiento con IA, salidas y usuarios beneficiarios</td><td>Pasos 4, 5, 6 y 7</td></tr>
+<tr><td>05 Insumos futuros</td><td>Elementos para el manual del sistema, el prototipo y la presentación final</td><td>Paso 8</td></tr>
+</tbody>
+</table>
+
+<h2>Antes de empezar (3 minutos)</h2>
+<ol>
+<li>Abre <strong>https://copilot.microsoft.com</strong> e inicia sesión con tu cuenta corporativa <strong>@falabella.com.co</strong>, no con la personal.</li>
+<li>Verifica arriba a la derecha el <strong>escudo de protección de datos empresariales</strong>. Si no aparece, cierra sesión y vuelve a entrar con la cuenta del trabajo: sin él, lo que escribas no está protegido.</li>
+<li>Ten a la mano el <strong>diagnóstico de la Actividad 01</strong>: la coherencia con él es el primer criterio de evaluación.</li>
+<li>Definan quién del grupo crea el archivo en OneDrive y lo comparte con los otros dos.</li>
+</ol>
+<div class="callout">Si Copilot Chat está saturado, usa Copilot desde la barra lateral de <strong>Edge</strong> con la misma cuenta corporativa: es la misma IA y sirve para todos estos prompts. Ninguno de los pasos obligatorios de este tutorial necesita licencia de pago.</div>
+
+<h2>Ruta rápida</h2>
+<table class="t">
+<thead><tr><th>#</th><th>Paso</th><th>Dónde</th><th>Tiempo</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Repartir roles y abrir el documento compartido</td><td>Word en la web</td><td>5 min</td></tr>
+<tr><td>2</td><td>Resumir el problema en media página</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>3</td><td>Elegir herramienta realista y describir la solución</td><td>Copilot Chat</td><td>8 min</td></tr>
+<tr><td>4</td><td>Pedir el flujo Entrada, Procesamiento con IA y Salida</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>5</td><td>Dibujar el diagrama con SmartArt</td><td>Word de escritorio</td><td>7 min</td></tr>
+<tr><td>6</td><td>Redactar los 2 casos de uso demostrables</td><td>Copilot Chat</td><td>8 min</td></tr>
+<tr><td>7</td><td>Escribir el prompt de sistema del asistente</td><td>Copilot Chat</td><td>8 min</td></tr>
+<tr><td>8</td><td>Redactar los insumos futuros</td><td>Copilot Chat</td><td>4 min</td></tr>
+<tr><td>9</td><td>Portada, estilos, tabla de contenido, revisión final y PDF</td><td>Word y Copilot Chat</td><td>8 min</td></tr>
+<tr><td>—</td><td><strong>Total</strong></td><td></td><td><strong>60 min</strong></td></tr>
+</tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<h2>Paso a paso</h2>
+
+<div class="step"><span class="num">1</span><div class="stepbody">
+<h3>Repartir el trabajo y abrir el documento compartido</h3>
+<p>Lo que hunde a los grupos no es la IA: es mandarse versiones por WhatsApp. Trabajen sobre <strong>un solo archivo en la nube</strong>.</p>
+<ol>
+<li>Uno crea el documento de Word y lo guarda en <strong>OneDrive</strong> o en la carpeta de SharePoint del curso.</li>
+<li>Clic en <strong>Compartir</strong>, agrega los correos de los otros dos con permiso de <strong>edición</strong>.</li>
+<li>Los tres lo abren con <strong>Word en la web</strong> y verán los cursores de colores de los demás: eso es coedición en tiempo real y <strong>no requiere licencia de Copilot</strong>.</li>
+<li>Activen <span class="kbd">Revisar</span> &gt; <span class="kbd">Control de cambios</span> y usen <span class="kbd">Ctrl + Alt + M</span> para insertar comentarios en vez de borrar el texto del otro.</li>
+</ol>
+<div class="callout">Word en la web sirve para escribir y coeditar, pero <strong>no permite insertar SmartArt ni portadas de galería</strong>. Quien haga los pasos 5 y 9 debe abrir el archivo en <strong>Word de escritorio</strong> con <span class="kbd">Editar en la aplicación de escritorio</span>; es el mismo archivo de OneDrive y tampoco cuesta licencia adicional.</div>
+<table class="t">
+<thead><tr><th>Rol</th><th>De qué se encarga</th><th>Pasos</th></tr></thead>
+<tbody>
+<tr><td>Coordinador del documento</td><td>Portada, estilos, tabla de contenido, PDF y voz unificada</td><td>1 y 9</td></tr>
+<tr><td>Analista de la solución</td><td>Problema, descripción funcional, herramientas e insumos futuros</td><td>2, 3 y 8</td></tr>
+<tr><td>Diseñador del prototipo</td><td>Flujo, diagrama, casos de uso y prompt de sistema</td><td>4, 5, 6 y 7</td></tr>
+</tbody>
+</table>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">2</span><div class="stepbody">
+<h3>Resumir el problema en media página</h3>
+<p>La ficha pide retomar el diagnóstico de la Actividad 01 en <strong>máximo media página</strong>. Esta es la sección 02 y de ella depende el criterio de coherencia.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como consultor de transformación digital especializado en retail.
+
+CONTEXTO:
+- Falabella Colombia. Área: [TU ÁREA EN FALABELLA]. Proceso: [NOMBRE DEL PROCESO].
+- Intervienen [CUÁNTAS PERSONAS INTERVIENEN], cargos: [CARGOS].
+- Problema del diagnóstico: [DESCRÍBELO EN 3 O 4 FRASES].
+- Síntomas: [TIEMPOS, REPROCESOS, ERRORES, QUEJAS, HORAS EXTRA].
+- A quién afecta: [CLIENTE, TIENDA, PROVEEDOR, EQUIPO INTERNO].
+
+TAREA: redacta la sección "02 Problema abordado" del documento de solución.
+
+FORMATO DE SALIDA:
+- Tres párrafos, máximo 250 palabras en total, sin viñetas, español de Colombia.
+- P1: qué hace hoy el proceso y dónde se rompe.
+- P2: consecuencias medibles para el área y para el cliente.
+- P3: por qué es un buen candidato para IA generativa.
+
+RESTRICCIONES:
+- No inventes cifras, porcentajes ni nombres que yo no te haya dado.
+- Lo que falte, escríbelo como [DATO POR CONFIRMAR].
+- No propongas todavía la solución.</pre></div>
+<p><strong>Qué debes ver:</strong> tres párrafos que se leen como un problema real, no como publicidad de la IA. Si hay porcentajes que tú nunca diste, bórralos.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor académico experto en documentos técnicos universitarios.
+
+CONTEXTO:
+- Documento: "Actividad 02 - Documento de solución" del curso Microsoft Copilot Chat, Universidad Piloto de Colombia en convenio con Falabella.
+- Sección que vamos a corregir: "02 Problema abordado".
+- Texto actual: [PEGA AQUÍ EL TEXTO QUE ACABAS DE GENERAR].
+- Datos que sí puedo sustentar: [LISTA LOS DATOS REALES DEL DIAGNÓSTICO].
+- Área: [TU ÁREA EN FALABELLA]. Proceso: [NOMBRE DEL PROCESO].
+
+TAREA: depura el texto anterior para que quepa en media página y resista la pregunta "¿de dónde sacaste ese dato?".
+
+FORMATO DE SALIDA:
+1. El texto corregido: tres párrafos, máximo 200 palabras.
+2. Debajo, máximo 5 viñetas con los cambios que hiciste y por qué.
+
+RESTRICCIONES:
+- Elimina toda cifra que no aparezca en los datos que puedo sustentar y reemplázala por [DATO POR CONFIRMAR].
+- Cambia frases vagas como "mejorar la eficiencia" por una consecuencia concreta y observable en [TU ÁREA].
+- Conserva la relación causa y efecto entre síntoma y consecuencia.
+- Cierra el último párrafo con la frase puente "Frente a esta situación, se propone".
+- Español de Colombia, sin viñetas dentro del texto y sin lenguaje de marketing.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">3</span><div class="stepbody">
+<h3>Elegir la herramienta realista y describir la solución</h3>
+<p>Aquí se juega la <strong>viabilidad de las herramientas propuestas</strong>. No prometas lo que no puedes mostrar.</p>
+<table class="t">
+<thead><tr><th>Si tu grupo…</th><th>La solución se construye como…</th><th>Qué muestras en el módulo 5</th></tr></thead>
+<tbody>
+<tr><td>NO tiene licencia de Microsoft 365 Copilot, Copilot Studio ni Power Automate (caso más común)</td><td>Un <strong>asistente de instrucciones en Copilot Chat</strong>: un prompt de sistema largo más una base de conocimiento pegada en el chat (procedimientos, plantillas, criterios)</td><td>Pegas el prompt de sistema y ejecutas los 2 casos de uso en vivo</td></tr>
+<tr><td>SÍ tiene licencia asignada y confirmada por el área de TI</td><td>Un agente en <strong>Copilot Studio</strong> o un flujo en <strong>Power Automate</strong>, siempre como camino opcional</td><td>Abres el agente y corres los mismos 2 casos</td></tr>
+</tbody>
+</table>
+<div class="callout">Un asistente hecho con instrucciones en Copilot Chat <strong>es una solución válida y calificable</strong>: se evalúa que sea coherente, funcional y demostrable, no que hayas pagado una licencia. Declara en el documento cuál es tu restricción de licencias: eso suma en viabilidad.</div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como arquitecto de soluciones de IA generativa para una empresa de retail.
+
+CONTEXTO:
+- Falabella Colombia. Área: [TU ÁREA]. Proceso: [NOMBRE DEL PROCESO].
+- Problema abordado: [PEGA LA SECCIÓN 02 YA APROBADA].
+- Restricción de licencias [ELIGE UNA]: "solo Copilot Chat web corporativo, sin Copilot en Word, sin Copilot Studio y sin Power Automate" / "tenemos Microsoft 365 Copilot y Copilot Studio asignados".
+- Usuarios: [CARGOS Y CUÁNTOS]. Frecuencia de uso: [DIARIA / SEMANAL / POR SOLICITUD].
+
+TAREA: redacta la sección "03 Solución IA" con la descripción funcional del asistente dentro de esa restricción.
+
+FORMATO DE SALIDA:
+1. Nombre de la solución, corto y en español.
+2. Qué es, en una frase de máximo 25 palabras.
+3. Qué hace: 5 funciones en viñetas, cada una empezando por un verbo.
+4. Qué NO hace: 3 límites explícitos.
+5. Tabla Herramienta | Para qué se usa, solo con lo disponible bajo la restricción.
+6. Beneficios esperados: 4 viñetas indicando a quién benefician.
+
+RESTRICCIONES:
+- No propongas herramientas que requieran licencia de pago si dije que no la tenemos.
+- Nada de lenguaje de marketing ni porcentajes de mejora inventados.
+- Máximo 400 palabras, español de Colombia.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como evaluador de proyectos de innovación con IA y revisa mi propuesta antes de que la entregue.
+
+CONTEXTO:
+- Sección "02 Problema abordado" aprobada: [PÉGALA AQUÍ].
+- Sección "03 Solución IA" en borrador: [PÉGALA AQUÍ].
+- Restricción real de licencias del grupo: [SOLO COPILOT CHAT WEB / TENEMOS MICROSOFT 365 COPILOT Y COPILOT STUDIO].
+- Me califican por coherencia entre problema y solución y por viabilidad de las herramientas.
+
+TAREA: ajusta la sección 03 para que resista esa evaluación.
+
+FORMATO DE SALIDA:
+1. La sección 03 corregida y completa.
+2. Tabla Función | Síntoma del problema que ataca, con una fila por cada una de las 5 funciones.
+3. Un párrafo final de 3 líneas titulado "Coherencia con el diagnóstico".
+
+RESTRICCIONES:
+- Reemplaza toda función que no ataque un síntoma real del diagnóstico.
+- Elimina de la tabla de herramientas cualquiera que no podamos usar hoy con [TU RESTRICCIÓN DE LICENCIA].
+- Ajusta el nombre de la solución para que suene a herramienta interna de Falabella y no a producto comercial.
+- Máximo 400 palabras y ningún porcentaje de mejora inventado.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">4</span><div class="stepbody">
+<h3>Pedir el flujo: entrada, procesamiento con IA y salida</h3>
+<p>Es la sección 04 y el corazón técnico. Pídelo <strong>en texto estructurado con frases cortas</strong>: así lo pegas directo en un SmartArt.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como analista funcional que documenta procesos automatizados con IA.
+
+CONTEXTO:
+- Solución: [NOMBRE Y FRASE DE QUÉ ES]. Proceso: [NOMBRE DEL PROCESO]. Área: [TU ÁREA].
+- Quién dispara el proceso: [CARGO O SISTEMA].
+- Información que se trabaja: [CORREOS DE CLIENTES, REPORTES DE INVENTARIO, HOJAS DE VIDA, NOVEDADES DE PROVEEDORES].
+
+TAREA: describe el funcionamiento en tres bloques más los usuarios beneficiarios.
+
+FORMATO DE SALIDA (lo voy a pegar en un diagrama):
+ENTRADA
+- tres viñetas de máximo 6 palabras cada una
+PROCESAMIENTO CON IA
+- tres viñetas de máximo 6 palabras cada una
+SALIDA
+- tres viñetas de máximo 6 palabras cada una
+USUARIOS BENEFICIARIOS
+- dos líneas con el formato "cargo: qué gana"
+Debajo, un párrafo de máximo 120 palabras que explique el recorrido completo en prosa.
+
+RESTRICCIONES:
+- Nada de tecnicismos: quien lee es un jefe de área.
+- Respeta el límite de 6 palabras por viñeta.
+- No uses datos personales ni nombres reales en los ejemplos.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como analista funcional senior que audita diagramas de proceso antes de publicarlos.
+
+CONTEXTO:
+- Flujo en borrador: [PEGA ENTRADA, PROCESAMIENTO CON IA, SALIDA Y USUARIOS BENEFICIARIOS].
+- Proceso: [NOMBRE DEL PROCESO]. Área: [TU ÁREA].
+- El flujo se va a dibujar en un SmartArt de tres bloques, por eso las viñetas deben ser muy cortas.
+
+TAREA: corrige el flujo y entrégamelo en dos formatos para que yo elija diagrama o tabla.
+
+FORMATO DE SALIDA:
+1. El flujo corregido, con la misma estructura de tres bloques y viñetas de máximo 6 palabras.
+2. La misma información en una tabla de tres columnas: Entrada | Procesamiento con IA | Salida.
+3. Un pie de figura de una sola línea que empiece por "Figura 1.".
+
+RESTRICCIONES:
+- En PROCESAMIENTO CON IA usa verbos precisos como clasificar, resumir, comparar, redactar o priorizar; está prohibido escribir "procesa información".
+- Agrega en SALIDA un punto de control humano: [CARGO] revisa y aprueba antes de que el resultado llegue al cliente o al proveedor.
+- Reescribe toda viñeta que pase de 6 palabras.
+- No uses datos personales ni nombres reales en los ejemplos.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">5</span><div class="stepbody">
+<h3>Dibujar el diagrama en Word con SmartArt (sin licencia)</h3>
+<p>Este paso se hace en <strong>Word de escritorio</strong>, porque Word en la web no inserta SmartArt.</p>
+<ol>
+<li>Ubica el cursor en la sección 04 y ve a <span class="kbd">Insertar</span> &gt; <span class="kbd">SmartArt</span>; en el cuadro "Elegir un gráfico SmartArt" abre la categoría <span class="kbd">Proceso</span>.</li>
+<li>Elige <strong>Proceso básico</strong> o <strong>Chevrón básico</strong>. Con tres bloques basta: Entrada, Procesamiento con IA y Salida.</li>
+<li>Abre el <strong>panel de texto</strong> con la flecha del costado izquierdo del gráfico y escribe los títulos. Con <span class="kbd">Tab</span> bajas de nivel para las viñetas y con <span class="kbd">Mayús + Tab</span> subes.</li>
+<li>Colorea desde la pestaña <span class="kbd">Diseño de SmartArt</span> &gt; <span class="kbd">Cambiar colores</span>.</li>
+<li>Debajo del gráfico pega el párrafo de 120 palabras y el pie "Figura 1. Flujo funcional de la solución". Un diagrama sin texto no cuenta como descripción funcional.</li>
+</ol>
+<div class="callout">Alternativas gratuitas si no tienes Word de escritorio: <span class="kbd">Insertar</span> &gt; <span class="kbd">Formas</span> para armar tres cajas con flechas, <span class="kbd">Insertar</span> &gt; <span class="kbd">Tabla</span> con la tabla de tres columnas del paso anterior, o un esquema hecho en <strong>designer.microsoft.com</strong> que luego insertas con <span class="kbd">Insertar</span> &gt; <span class="kbd">Imágenes</span> &gt; <span class="kbd">Este dispositivo</span>.</div>
+<p class="time">Tiempo estimado: 7 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">6</span><div class="stepbody">
+<h3>Redactar los 2 casos de uso demostrables</h3>
+<p>"Demostrable" significa que en la sustentación lo ejecutan en vivo y sale un resultado. Copia esta tabla tal cual en el documento.</p>
+<table class="t">
+<thead><tr><th>Campo</th><th>Caso de uso 1</th><th>Caso de uso 2</th></tr></thead>
+<tbody>
+<tr><td>Nombre del caso de uso</td><td></td><td></td></tr>
+<tr><td>Actor</td><td></td><td></td></tr>
+<tr><td>Disparador</td><td></td><td></td></tr>
+<tr><td>Entrada</td><td></td><td></td></tr>
+<tr><td>Qué hace la IA</td><td></td><td></td></tr>
+<tr><td>Salida esperada</td><td></td><td></td></tr>
+<tr><td>Cómo se demuestra en la presentación final</td><td></td><td></td></tr>
+</tbody>
+</table>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como diseñador de casos de uso para asistentes de IA en entornos corporativos.
+
+CONTEXTO:
+- Solución y sus 5 funciones: [PÉGALAS AQUÍ].
+- Flujo: [PEGA EL ESQUEMA DE ENTRADA, PROCESAMIENTO CON IA Y SALIDA].
+- Área: [TU ÁREA]. Proceso: [NOMBRE DEL PROCESO].
+- La demostración es en vivo desde Copilot Chat, máximo 3 minutos por caso.
+
+TAREA: propón 2 casos de uso distintos entre sí y demostrables en vivo.
+
+FORMATO DE SALIDA: una tabla con estas filas exactas y una columna por caso:
+Nombre del caso de uso | Actor | Disparador | Entrada | Qué hace la IA | Salida esperada | Cómo se demuestra en la presentación final
+
+RESTRICCIONES:
+- Ambos casos deben ejecutarse solo con Copilot Chat, sin licencias adicionales.
+- La entrada debe ser anonimizable: nada de cédulas, tarjetas, nómina ni nombres reales.
+- La salida debe ser tangible: un correo, un resumen, una clasificación o una lista priorizada.
+- Máximo 25 palabras por celda y sin repetir función entre los dos casos.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como diseñador de demostraciones en vivo para sustentaciones académicas.
+
+CONTEXTO:
+- Casos de uso en borrador: [PEGA LA TABLA COMPLETA].
+- Solución: [NOMBRE Y QUÉ ES]. Área: [TU ÁREA]. Proceso: [NOMBRE DEL PROCESO].
+- La demostración se hace en vivo en Copilot Chat, máximo 3 minutos por caso, frente al docente y al grupo.
+
+TAREA: convierte los dos casos en algo realmente demostrable el día de la sustentación.
+
+FORMATO DE SALIDA: la misma tabla, con estas tres filas nuevas al final:
+- Texto exacto que se pega en el chat, anonimizado y listo para copiar.
+- Criterio de éxito de la demostración.
+- Qué puede salir mal en vivo y cuál es el plan B.
+
+RESTRICCIONES:
+- En el texto que se pega usa "Cliente A", "Proveedor 1", "Tienda Norte" y "Asesor 2", y rangos en vez de cifras exactas.
+- Nada de cédulas, tarjetas CMR, teléfonos, correos reales ni datos de nómina.
+- Todo debe ejecutarse solo con Copilot Chat, sin licencias adicionales.
+- Máximo 40 palabras por celda y los dos casos no pueden repetir la misma función.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">7</span><div class="stepbody">
+<h3>Escribir el prompt de sistema del asistente</h3>
+<p>Es el activo más valioso: lo reutilizas en el manual del módulo 4 y en la demostración del módulo 5.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como ingeniero de prompts. Escribe el PROMPT DE SISTEMA de un asistente que funcionará dentro de Microsoft Copilot Chat.
+
+CONTEXTO:
+- Asistente: [NOMBRE DE LA SOLUCIÓN]. Área: [TU ÁREA]. Proceso: [NOMBRE DEL PROCESO].
+- Usuarios: [CARGOS]. Funciones: [PEGA LAS 5 FUNCIONES].
+- Casos que debe resolver: [PEGA LOS 2 CASOS DE USO].
+
+TAREA: escribe el prompt de sistema completo, listo para pegar en una conversación nueva de Copilot Chat.
+
+FORMATO DE SALIDA, con estos encabezados en mayúscula:
+ROL / ALCANCE / BASE DE CONOCIMIENTO / CÓMO DEBES RESPONDER / FORMATO DE SALIDA / QUÉ NO DEBES HACER / QUÉ PREGUNTAR SI FALTA INFORMACIÓN
+
+RESTRICCIONES:
+- Entre 25 y 40 líneas, español profesional, sin emojis.
+- Regla de protección de datos: negarse a procesar cédulas, tarjetas, nómina o nombres reales y pedir que se anonimicen.
+- Regla de verificación: marcar como [VERIFICAR] todo dato sin soporte.
+- Deja corchetes donde yo deba pegar los procedimientos del área.</pre></div>
+<p>Así se ve uno bien hecho. Adáptalo a tu proceso:</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL
+Eres el Asistente de Respuestas PQR de [TU ÁREA] en Falabella Colombia. Ayudas a los asesores a clasificar y responder solicitudes de clientes de forma rápida y uniforme.
+
+ALCANCE
+Atiendes únicamente casos de [DEVOLUCIONES, DEMORAS DE ENTREGA, GARANTÍAS, FACTURACIÓN CMR]. Fuera de eso, indicas a qué área derivar.
+
+BASE DE CONOCIMIENTO
+Trabaja solo con esta información interna:
+[PEGA EL PROCEDIMIENTO DEL ÁREA, LOS TIEMPOS COMPROMETIDOS Y LAS PLANTILLAS APROBADAS]
+
+CÓMO DEBES RESPONDER
+1. Clasifica el caso en [CATEGORÍA 1], [CATEGORÍA 2] o [CATEGORÍA 3].
+2. Asigna prioridad Alta, Media o Baja según impacto y tiempo transcurrido.
+3. Redacta el borrador de respuesta al cliente, máximo 150 palabras, tono empático.
+4. Propón el siguiente paso interno y quién lo ejecuta.
+
+FORMATO DE SALIDA
+Categoría / Prioridad / Borrador de respuesta / Siguiente paso interno / Datos faltantes
+
+QUÉ NO DEBES HACER
+- No proceses cédulas, tarjetas, direcciones ni nómina: detente y pide anonimizar como "Cliente A".
+- No prometas plazos ni compensaciones que no estén en la base de conocimiento.
+- No inventes políticas de Falabella; marca [VERIFICAR] todo dato sin soporte.
+
+QUÉ PREGUNTAR SI FALTA INFORMACIÓN
+Si no tienes fecha del caso, canal de ingreso o estado actual, pregúntalo antes de redactar.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa exactamente según el PROMPT DE SISTEMA que definimos y resuelve un caso de prueba.
+
+CONTEXTO:
+- Prompt de sistema vigente: [PÉGALO COMPLETO].
+- Caso de prueba anonimizado: [PEGA LA ENTRADA DEL CASO DE USO 1].
+- Quien va a usar tu respuesta es [CARGO] y necesita enviarla sin reescribirla.
+
+TAREA:
+1. Responde al caso respetando el formato de salida definido en el prompt de sistema.
+2. Después, autoevalúa tu propia respuesta.
+
+FORMATO DE SALIDA:
+- Bloque 1: la respuesta al caso, con los campos exactos del prompt de sistema.
+- Bloque 2: tres viñetas con las instrucciones que te faltaron para responder mejor.
+- Bloque 3: la redacción corregida de esas líneas, lista para pegar en el prompt de sistema.
+
+RESTRICCIONES:
+- No inventes políticas ni plazos: marca [VERIFICAR] lo que no esté en la base de conocimiento.
+- Si detectas datos personales en el caso, detente y pide que los anonimice.
+- Español profesional, sin emojis.</pre></div>
+<p><strong>Qué debes ver:</strong> una respuesta que respeta el formato pedido. Si no lo respeta, el prompt de sistema está flojo: aplica la corrección que la IA sugirió y vuelve a probar. Ese ida y vuelta documentado es el uso crítico que se califica.</p>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">8</span><div class="stepbody">
+<h3>Redactar los insumos futuros</h3>
+<p>Es la sección 05 y es lo que conecta esta actividad con el manual del sistema del módulo 4 y con la presentación final del módulo 5.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como líder de proyecto de innovación digital.
+
+CONTEXTO:
+- Solución: [PEGA NOMBRE, QUÉ ES Y LAS 5 FUNCIONES].
+- Casos de uso: [NOMBRES DE LOS 2 CASOS].
+- Integrantes del grupo: [NOMBRE 1], [NOMBRE 2], [NOMBRE 3].
+- Próximas entregas: manual del sistema (módulo 4) y presentación con prototipo (módulo 5).
+
+TAREA: redacta la sección "05 Insumos futuros".
+
+FORMATO DE SALIDA:
+- Párrafo introductorio de 3 líneas.
+- Tabla de tres columnas: Insumo | Para qué entrega sirve | Responsable del grupo.
+- Mínimo 6 filas: prompt de sistema, base de conocimiento por recopilar, guion de la demostración, capturas del prototipo, indicadores de seguimiento y riesgos con su mitigación.
+- Cierra con 3 viñetas de "Siguientes pasos inmediatos", cada una con fecha entre corchetes.
+
+RESTRICCIONES:
+- Máximo 250 palabras.
+- Todo debe ser ejecutable por 3 personas sin licencias adicionales.
+- No inventes fechas ni nombres: usa [FECHA] y [RESPONSABLE] donde falte el dato.</pre></div>
+<p class="time">Tiempo estimado: 4 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<div class="step"><span class="num">9</span><div class="stepbody">
+<h3>Portada, estilos, tabla de contenido y PDF, sin licencia de Copilot</h3>
+<p>Este paso se hace en <strong>Word de escritorio</strong> para tener portada de galería y exportación completa; lo que no aplique, se resuelve en Word en la web con las rutas alternativas indicadas.</p>
+<ol>
+<li><strong>Pegar sin dañar el formato:</strong> pega con <span class="kbd">Ctrl + V</span> y, en el botón de opciones de pegado que aparece al lado, elige <em>Mantener solo texto</em>; también puedes usar <span class="kbd">Inicio</span> &gt; <span class="kbd">Pegar</span> &gt; <span class="kbd">Mantener solo texto</span>. Así evitas fondos grises y luego aplicas tú los estilos.</li>
+<li><strong>Estilos:</strong> a los títulos de las secciones 01 a 05 aplícales <span class="kbd">Inicio</span> &gt; <span class="kbd">Estilos</span> &gt; <strong>Título 1</strong>; a los subtítulos, <strong>Título 2</strong>. Sin esto la tabla de contenido no funciona.</li>
+<li><strong>Portada (sección 01):</strong> <span class="kbd">Insertar</span> &gt; <span class="kbd">Portada</span> y elige una plantilla; en Word en la web usa <span class="kbd">Insertar</span> &gt; <span class="kbd">Salto de página</span> y arma la portada a mano. Debe llevar título de la solución, los 3 autores, proceso intervenido, asignatura, docente y fecha.</li>
+<li><strong>Tabla de contenido:</strong> <span class="kbd">Referencias</span> &gt; <span class="kbd">Tabla de contenido</span> &gt; <em>Tabla automática 1</em>. Al terminar, clic derecho sobre ella &gt; <em>Actualizar campos</em> &gt; <em>Actualizar toda la tabla</em>.</li>
+<li><strong>Numerar las páginas:</strong> <span class="kbd">Insertar</span> &gt; <span class="kbd">Número de página</span> &gt; <em>Final de página</em>.</li>
+<li><strong>Revisar la redacción:</strong> <span class="kbd">Revisar</span> &gt; <span class="kbd">Editor</span> (u <span class="kbd">Ortografía y gramática</span>, según la versión) para dejar el texto sin errores. Es gratuito y no tiene nada que ver con Copilot.</li>
+<li><strong>Cerrar la coedición:</strong> <span class="kbd">Revisar</span> &gt; <span class="kbd">Aceptar</span> &gt; <em>Aceptar todos los cambios</em>, luego <span class="kbd">Revisar</span> &gt; <span class="kbd">Eliminar</span> &gt; <em>Eliminar todos los comentarios del documento</em> y desactiva <span class="kbd">Control de cambios</span>.</li>
+<li><strong>Exportar:</strong> <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Crear documento PDF/XPS</span> en Word de escritorio, o <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Descargar como PDF</span> en Word en la web. Verifica que queden entre 4 y 6 páginas y que el diagrama no se corte.</li>
+</ol>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor de documentos académicos y de consultoría.
+
+CONTEXTO:
+- Documento: "Actividad 02 - Documento de solución", de 4 a 6 páginas, en Word o PDF.
+- Curso: Microsoft Copilot Chat, Universidad Piloto de Colombia en convenio con Falabella, Módulo 3.
+- Solución: [NOMBRE DE LA SOLUCIÓN]. Proceso intervenido: [NOMBRE DEL PROCESO]. Área: [TU ÁREA].
+- Autores: [NOMBRE 1], [NOMBRE 2], [NOMBRE 3]. Docente: [NOMBRE DEL DOCENTE]. Fecha: [DD/MM/AAAA].
+- Texto completo del documento: [PÉGALO AQUÍ].
+
+TAREA:
+1. Redacta el contenido de la sección "01 Portada".
+2. Revisa el documento completo contra los criterios de evaluación oficiales.
+
+FORMATO DE SALIDA:
+- Bloque 1: portada con título de la solución de máximo 12 palabras, subtítulo, autores, proceso intervenido, asignatura, docente, ciudad y fecha.
+- Bloque 2: tabla Criterio | Cumple o no cumple | Qué corregir, con estas filas: coherencia entre problema y solución, claridad en la descripción funcional, viabilidad de las herramientas propuestas y calidad del documento.
+- Bloque 3: lista de las frases que suenan a texto generado por IA, con su reemplazo sugerido en vocabulario del área.
+
+RESTRICCIONES:
+- No agregues secciones nuevas ni cambies los datos que te di.
+- Marca con [FALTA] cualquier sección mínima de 01 a 05 que no encuentres en el texto.
+- Español de Colombia, tono profesional y sobrio, sin lenguaje de marketing.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<h2>Si tienes licencia de pago (opcional, nunca obligatorio)</h2>
+<p>Nada de lo que sigue es necesario para entregar ni para obtener la nota máxima. Úsalo solo si tu área ya te asignó la licencia y lo confirmaste con TI.</p>
+<ul>
+<li><strong>Copilot en Word (requiere Microsoft 365 Copilot):</strong> usa <em>Redactar con Copilot</em> en el margen izquierdo del documento con estos mismos prompts.</li>
+<li><strong>Copilot en Word con referencia a archivos:</strong> resume el diagnóstico de la Actividad 01 si lo guardas en OneDrive y lo referencias escribiendo la barra diagonal y el nombre del archivo.</li>
+<li><strong>Copilot Studio (requiere licencia):</strong> crea el agente, pega el prompt de sistema del paso 7 y sube la base de conocimiento. Toma captura de pantalla: es evidencia para el manual del módulo 4.</li>
+<li><strong>Power Automate (requiere licencia):</strong> solo tiene sentido si el disparador de tu caso es un correo o un formulario; si no lo tienes, ni lo menciones en el documento.</li>
+<li><strong>Equivalencia sin licencia:</strong> el asistente de instrucciones en Copilot Chat del paso 7 cumple exactamente la misma función evaluable que un agente de Copilot Studio.</li>
+</ul>
+
+<div class="warn">
+<p><strong>Uso responsable de la información. Léelo antes de pegar nada en la IA.</strong></p>
+<ul>
+<li><strong>Nunca</strong> pegues datos personales de clientes, números de tarjeta CMR, cédulas, correos o teléfonos reales, datos de nómina ni información confidencial de Falabella como márgenes, contratos o cifras de venta.</li>
+<li><strong>Anonimiza siempre:</strong> "Cliente A", "Proveedor 1", "Tienda Norte", "Asesor 2", y usa rangos en vez de cifras exactas, por ejemplo "entre 50 y 100 solicitudes semanales".</li>
+<li>En Colombia rige la <strong>Ley 1581 de 2012</strong> de protección de datos personales y su decreto reglamentario 1377 de 2013: tratar datos de terceros sin autorización expone a sanciones de la Superintendencia de Industria y Comercio y a medidas disciplinarias internas, aunque sea "para una tarea del curso".</li>
+<li>La anonimización no es opcional: si el caso de uso necesita un dato sensible para funcionar, reemplázalo por una etiqueta como [DOCUMENTO DEL CLIENTE] tanto en el documento como en la demostración en vivo.</li>
+<li><strong>La IA se equivoca</strong> e inventa cifras, normas y nombres con total seguridad. Verifica datos, áreas y políticas antes de entregar: el documento lo firmas tú, no Copilot.</li>
+<li>El docente califica el <strong>uso crítico y documentado de la IA</strong>: mostrar el prompt inicial, lo que salió mal y cómo lo corregiste <strong>suma nota</strong>. Ocultarlo la baja.</li>
+</ul>
+</div>
+
+<h2>Errores que bajan la nota</h2>
+<ol>
+<li><strong>Solución que no responde al problema.</strong> Lee seguidas la 02 y la 03: cada función debe atacar un síntoma del diagnóstico.</li>
+<li><strong>Prometer herramientas que no tienen.</strong> Decir "se implementará con Power Automate" sin licencia hunde la viabilidad; declara la restricción real del grupo.</li>
+<li><strong>Casos de uso no demostrables.</strong> "Mejorará la experiencia del cliente" no se muestra en vivo; un caso tiene entrada, acción y salida tangible.</li>
+<li><strong>Diagrama ausente o sin explicación.</strong> La ficha exige esquema, diagrama o tabla, acompañado de texto y pie de figura.</li>
+<li><strong>Pegar la respuesta tal cual.</strong> Se nota en el tono, por ejemplo "En el dinámico mundo del retail actual". Reescribe con el vocabulario del área.</li>
+<li><strong>Documento fuera de rango.</strong> Menos de 4 páginas o más de 6 penaliza.</li>
+<li><strong>Anexo de prompts ausente o de una línea.</strong> La entrega pide explícitamente los prompts usados y los ajustes que hicieron.</li>
+<li><strong>Datos personales sin anonimizar</strong> en los ejemplos o en las capturas del prototipo.</li>
+<li><strong>Tres versiones distintas del archivo.</strong> Un solo documento en OneDrive, siempre.</li>
+</ol>
+
+<h2>Anexo obligatorio: bitácora de prompts</h2>
+<p>Registra qué le pediste a la IA, qué devolvió y qué corregiste. Con 5 o 6 filas basta: escoge los prompts que más cambiaron el resultado.</p>
+<table class="t">
+<thead><tr><th>#</th><th>Prompt usado (resumen)</th><th>Herramienta</th><th>Qué devolvió la IA</th><th>Ajuste que hicimos</th><th>Responsable</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Síntesis del problema del proceso [NOMBRE]</td><td>Copilot Chat web corporativo</td><td>Texto correcto con porcentajes inventados</td><td>Quitamos las cifras sin soporte</td><td>[NOMBRE]</td></tr>
+<tr><td>2</td><td>Descripción funcional con restricción de licencias</td><td>Copilot Chat web corporativo</td><td>Propuso Power Automate, que no tenemos</td><td>Reformulamos declarando la restricción de licencia</td><td>[NOMBRE]</td></tr>
+<tr><td>3</td><td>Flujo de entrada, procesamiento con IA y salida</td><td>Copilot Chat web corporativo</td><td>Viñetas muy largas para el SmartArt</td><td>Recorte a 6 palabras y punto de control humano</td><td>[NOMBRE]</td></tr>
+<tr><td>4</td><td>Dos casos de uso demostrables</td><td>Copilot Chat web corporativo</td><td>Los dos repetían la misma función</td><td>Exigimos casos distintos con salida tangible</td><td>[NOMBRE]</td></tr>
+<tr><td>5</td><td>Prompt de sistema del asistente</td><td>Copilot Chat web corporativo</td><td>Faltaba la regla de protección de datos</td><td>Añadimos la prohibición de procesar cédulas</td><td>[NOMBRE]</td></tr>
+<tr><td>6</td><td>Portada y revisión final contra los criterios</td><td>Copilot Chat web corporativo</td><td>Título demasiado comercial y una sección sin marcar</td><td>Acortamos el título y completamos la sección 05</td><td>[NOMBRE]</td></tr>
+</tbody>
+</table>
+
+<div class="ok">
+<p><strong>Checklist final antes de subir el archivo</strong></p>
+<ul>
+<li><strong>Criterio 1, coherencia entre problema y solución:</strong> cada función de la sección 03 ataca un síntoma nombrado en la sección 02, y existe el párrafo "Coherencia con el diagnóstico".</li>
+<li><strong>Criterio 2, claridad en la descripción funcional:</strong> la sección 04 tiene entradas, procesamiento con IA, salidas y usuarios beneficiarios, con diagrama, pie de figura y párrafo explicativo.</li>
+<li><strong>Criterio 3, viabilidad de las herramientas propuestas:</strong> toda herramienta mencionada se puede usar hoy con las licencias que el grupo realmente tiene, y la restricción quedó declarada por escrito.</li>
+<li><strong>Criterio 4, calidad del documento generado con IA:</strong> portada completa, tabla de contenido actualizada, estilos Título 1 y Título 2 aplicados, redacción revisada, sin comentarios ni marcas de control de cambios.</li>
+<li>Están las 5 secciones mínimas numeradas de 01 a 05, en ese orden.</li>
+<li>La portada trae título de la solución, los 3 autores, proceso intervenido y fecha.</li>
+<li>La sección 02 no supera media página y retoma el diagnóstico de la Actividad 01.</li>
+<li>Hay mínimo 2 casos de uso demostrables con las 7 filas completas.</li>
+<li>Hay esquema, diagrama o tabla del flujo de la solución, y no quedó cortado entre páginas.</li>
+<li>La sección 05 lista los insumos para el manual, el prototipo y la presentación final, con responsable.</li>
+<li>Anexo de bitácora diligenciado con los prompts usados y los ajustes reales.</li>
+<li>Extensión entre 4 y 6 páginas, en Word (.docx) o PDF.</li>
+<li>Cero datos personales o confidenciales en todo el documento y en las capturas.</li>
+<li>Ningún paso del documento depende de una licencia de pago que el grupo no tenga.</li>
+<li>Archivo nombrado <em>M3_Act02_Solucion_[APELLIDOS].pdf</em> y con los 3 nombres en la portada.</li>
+</ul>
+</div>
+
+<h2>Dónde subirlo</h2>
+<p>Sube el archivo a <strong>tu carpeta personal en SharePoint</strong>, dentro de la carpeta del <strong>Módulo 3</strong>; cada integrante sube la misma versión final en la suya. Esa carpeta tiene un <strong>index.html</strong> con un cargador de archivos para preparar y validar el entregable antes de subirlo. Si marca algo en rojo, corrígelo y vuelve a cargarlo.</p>
+<div class="callout" style="margin-top:20pt">
+<p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
+<p style="font-size:9.5pt">Sube tu entrega a tu carpeta personal en SharePoint, dentro de la carpeta de este m&oacute;dulo. En la p&aacute;gina <b>index.html</b> de esa misma carpeta tienes un cargador que revisa el archivo antes de que lo entregues.</p>
+</div>
+</div>
+</body>
+</html>

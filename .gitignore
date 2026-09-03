@@ -1,0 +1,11 @@
+# Datos que nunca se publican.
+# Correos corporativos de los 22 estudiantes:
+_assets/estudiantes.privado.json
+# Ids de Drive: dan permiso de escritura sobre las entregas de todo el grupo.
+_assets/drive.json
+
+# Sistema
+.DS_Store
+Thumbs.db
+node_modules/
+.vercel/

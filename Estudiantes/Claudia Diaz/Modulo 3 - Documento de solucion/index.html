@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Módulo 3 · Documento de la solución · Claudia Diaz</title>
+<meta name="description" content="3">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../../assets/estilos.css">
+
+</head>
+<body>
+<header class="cabecera">
+  <div class="envoltura-ancha">
+    <div class="marca"><span class="punto"></span> Universidad Piloto de Colombia &nbsp;·&nbsp; Falabella &nbsp;·&nbsp; Grupo 2</div>
+    <nav class="migas"><a href="../../../index.html">Portal</a><span class="sep">/</span><a href="../index.html">Claudia Diaz</a><span class="sep">/</span><span>Módulo 3</span></nav>
+    <h1>Módulo 3 · Documento de la solución</h1>
+    <p class="lema">Describe qué vas a implementar, cómo funcionará, con qué herramientas y qué beneficios esperas.</p>
+  </div>
+</header>
+<main>
+  <div class="envoltura-ancha">
+    <div class="rejilla-2" style="align-items:start">
+      <div>
+        <div class="caja">
+          <h2 style="margin-top:0">Los tres archivos de este módulo</h2>
+          <p class="apunte">Empieza por el tutorial. Trae los prompts ya escritos y está hecho para que puedas terminar sin licencia de pago de Copilot.</p>
+          <div class="acciones" style="margin-top:4px">
+        <a class="btn principal" href="Tutorial Modulo 3 - Documento-de-la-solucion.doc" download>📝 Abrir el tutorial paso a paso (.doc)</a>
+            <a class="btn" href="Actividad_2_Documento_Solucion.pdf" download>📄 Descargar el PDF de la actividad</a>
+            <a class="btn sutil" href="https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Finstructor6-cta_unipiloto_edu_co%2FDocuments%2FMoodle%20u%20piloto%20Falabella%20grupo%202%2FClaudia%20M%20Diaz%2FModulo%203&amp;view=0" target="_blank" rel="noopener">📂 Mi carpeta de este módulo en SharePoint ↗</a>
+          </div>
+        </div>
+
+        <h2>Prepara y revisa tu entrega</h2>
+        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de SharePoint con el botón de abajo.</p>
+
+        <div id="recuperados" class="aviso oculto"></div>
+
+        <div class="zona" id="zona-carga" role="button" tabindex="0" aria-label="Seleccionar o arrastrar el archivo de la entrega">
+          <div class="icono" aria-hidden="true">⬆️</div>
+          <div class="titulo">Arrastra tu archivo aquí o haz clic para buscarlo</div>
+          <p class="ayuda">Se acepta .pdf, .docx &nbsp;·&nbsp; mínimo 4 páginas · máximo sugerido 6 páginas</p>
+          <input type="file" id="entrada-archivo" multiple accept=".pdf,.docx">
+        </div>
+
+        <ul class="lista-archivos" id="lista-archivos"></ul>
+        <div id="resumen-estado"></div>
+        <div id="resumen-envio" class="aviso oculto"></div>
+
+        <div class="acciones oculto" id="acciones-entrega">
+          <button class="btn principal" type="button" id="btn-descargar">⬇️ Descargar con el nombre correcto</button>
+          <a class="btn sutil" href="https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Finstructor6-cta_unipiloto_edu_co%2FDocuments%2FMoodle%20u%20piloto%20Falabella%20grupo%202%2FClaudia%20M%20Diaz%2FModulo%203&amp;view=0" target="_blank" rel="noopener">Subirlo a SharePoint ↗</a>
+          <button class="btn" type="button" id="btn-enviar">Enviar al servidor del curso</button>
+        </div>
+
+        <div class="aviso ojo">
+          <strong>El portal revisa el formato, no el contenido</strong>
+          <p>Que el archivo pase la revisión significa que cumple los requisitos técnicos: formato, extensión y resolución. La nota la define el contenido según los criterios de evaluación de aquí al lado.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="caja">
+          <h3 style="margin-top:0">Ficha de la actividad</h3>
+          <table class="datos">
+            <tbody>
+              <tr><th>Actividad</th><td>Actividad 02</td></tr>
+              <tr><th>Peso</th><td><span class="eti">25%</span> de la nota</td></tr>
+              <tr><th>Formato</th><td>Word (.docx) o PDF, de 4 a 6 páginas</td></tr>
+              <tr><th>Modalidad</th><td>En grupo, máximo 3 personas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="caja" style="margin-top:14px">
+          <h3 style="margin-top:0">Qué debes entregar</h3>
+          <ul style="margin:0;padding-left:19px;font-size:.92rem;color:var(--tinta-2)">
+          <li>Documento de 4 a 6 páginas en Word o PDF</li>
+          <li>Un esquema, diagrama o tabla del flujo de la solución</li>
+          <li>Al menos 2 casos de uso demostrables en el prototipo</li>
+          <li>Los prompts usados y los ajustes realizados</li>
+          </ul>
+        </div>
+
+        <div class="caja" style="margin-top:14px">
+          <h3 style="margin-top:0">Con qué te califican</h3>
+          <ul style="margin:0;padding-left:19px;font-size:.92rem;color:var(--tinta-2)">
+          <li>Coherencia entre problema y solución</li>
+          <li>Claridad en la descripción funcional</li>
+          <li>Viabilidad de las herramientas propuestas</li>
+          <li>Calidad del documento generado con IA</li>
+          </ul>
+        </div>
+
+        <div class="aviso alerta" style="margin-top:14px">
+          <strong>Nunca pegues datos sensibles en la IA</strong>
+          <p>Nada de cédulas, números de tarjeta, datos de clientes, nómina ni información confidencial de Falabella. Reemplázalos por «Cliente A» o «Proveedor 1» y usa rangos en vez de cifras exactas. Ley 1581 de 2012.</p>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</main>
+<footer class="pie-pagina">
+  <div class="envoltura-ancha">
+    <div>Curso Microsoft Copilot Chat &nbsp;·&nbsp; Universidad Piloto de Colombia &nbsp;·&nbsp; Falabella Grupo 2</div>
+    <div><a href="https://upcedu-my.sharepoint.com/:f:/r/personal/instructor6-cta_unipiloto_edu_co/Documents/Moodle%20u%20piloto%20Falabella%20grupo%202" target="_blank" rel="noopener">Carpeta oficial en SharePoint</a></div>
+  </div>
+</footer>
+<script>window.PORTAL = {"clave": "Claudia-Diaz::M3", "estudiante": "Claudia Diaz", "moduloNumero": 3, "moduloCorto": "Documento-Solucion", "requisitos": {"formatos": ["pdf", "docx"], "paginasMin": 4, "paginasMax": 6}, "endpoint": null};</script>
+<script src="../../../assets/cargador.js" defer></script>
+</body>
+</html>

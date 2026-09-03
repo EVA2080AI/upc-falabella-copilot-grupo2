@@ -1,0 +1,602 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<title>Modulo 5 - Como hacerlo super rapido con Copilot</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+@page {
+  size: 21.59cm 27.94cm;
+  margin: 2.2cm 2.0cm 2.2cm 2.0cm;
+  mso-header-margin: 1.2cm;
+  mso-footer-margin: 1.2cm;
+  mso-paper-source: 0;
+}
+div.Section1 { page: Section1; }
+
+body {
+  font-family: "Aptos", "Calibri", "Segoe UI", sans-serif;
+  font-size: 11.0pt;
+  line-height: 1.42;
+  color: #1B2A22;
+  margin: 0;
+}
+
+/* ---------------- portada del tutorial ---------------- */
+h1 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 25.0pt;
+  line-height: 1.14;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 0 0 6pt 0;
+  letter-spacing: -0.3pt;
+  border-bottom: 3.0pt solid #0B7A43;
+  padding-bottom: 9pt;
+}
+p.sub {
+  font-size: 13.0pt;
+  color: #41544B;
+  margin: 0 0 10pt 0;
+  line-height: 1.34;
+}
+div.meta {
+  font-size: 8.8pt;
+  color: #FFFFFF;
+  background: #0B7A43;
+  padding: 7pt 11pt;
+  margin: 0 0 17pt 0;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  mso-shading: #0B7A43;
+}
+
+h2 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 15.5pt;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 21pt 0 7pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 1.0pt solid #C9DED3;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 12.0pt;
+  color: #14201A;
+  font-weight: bold;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 8pt 0; }
+ul, ol { margin: 0 0 10pt 0; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+strong, b { color: #0B5B33; }
+
+/* ---------------- pasos numerados ---------------- */
+div.step {
+  margin: 0 0 13pt 0;
+  padding: 11pt 13pt 8pt 13pt;
+  border: 0.75pt solid #DDE6E1;
+  border-left: 3.5pt solid #0B7A43;
+  background: #FBFDFC;
+  mso-shading: #FBFDFC;
+  page-break-inside: avoid;
+}
+div.step span.num {
+  font-family: "Aptos Display", "Calibri", sans-serif;
+  font-size: 15.0pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  padding: 2pt 9pt;
+  margin-right: 8pt;
+}
+div.stepbody { margin-top: 7pt; }
+p.time {
+  font-size: 9.0pt;
+  color: #0B7A43;
+  font-weight: bold;
+  font-style: italic;
+  margin: 6pt 0 0 0;
+}
+
+/* ---------------- prompts para copiar ---------------- */
+div.prompt {
+  margin: 9pt 0 11pt 0;
+  border: 0.75pt solid #B9CFC3;
+  background: #F2F8F5;
+  mso-shading: #F2F8F5;
+  padding: 0;
+  page-break-inside: avoid;
+}
+span.ptag {
+  display: block;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-size: 8.0pt;
+  font-weight: bold;
+  letter-spacing: 0.9pt;
+  padding: 4pt 10pt;
+  text-transform: uppercase;
+}
+div.prompt pre {
+  font-family: "Cascadia Mono", "Consolas", "Courier New", monospace;
+  font-size: 9.2pt;
+  line-height: 1.42;
+  color: #14201A;
+  margin: 0;
+  padding: 9pt 11pt;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ---------------- cajas de aviso ---------------- */
+div.callout, div.warn, div.ok {
+  margin: 10pt 0 12pt 0;
+  padding: 9pt 12pt;
+  border-left: 3.5pt solid #1D5FA8;
+  background: #EAF1FA;
+  mso-shading: #EAF1FA;
+  font-size: 10.4pt;
+  page-break-inside: avoid;
+}
+div.warn { border-left-color: #C62828; background: #FDECEC; mso-shading: #FDECEC; }
+div.ok   { border-left-color: #0B7A43; background: #E7F6EE; mso-shading: #E7F6EE; }
+div.callout p, div.warn p, div.ok p { margin: 0 0 5pt 0; }
+div.callout p:last-child, div.warn p:last-child, div.ok p:last-child { margin-bottom: 0; }
+div.ok ul, div.warn ul, div.callout ul { margin-bottom: 0; }
+
+/* ---------------- tablas ---------------- */
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 9pt 0 13pt 0;
+  font-size: 10.0pt;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+table.t th {
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+  padding: 6pt 8pt;
+  border: 0.5pt solid #0B7A43;
+  font-size: 9.4pt;
+}
+table.t td {
+  padding: 6pt 8pt;
+  border: 0.5pt solid #D5E3DB;
+  vertical-align: top;
+}
+table.t tr:nth-child(even) td { background: #F6FAF8; mso-shading: #F6FAF8; }
+
+span.kbd {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.4pt;
+  background: #EDF3F0;
+  mso-shading: #EDF3F0;
+  border: 0.5pt solid #C9DED3;
+  padding: 1pt 4pt;
+  color: #0B5B33;
+  font-weight: bold;
+}
+
+div.pagebreak {
+  page-break-before: always;
+  mso-special-character: line-break;
+  height: 0;
+  font-size: 1pt;
+}
+</style>
+</head>
+<body lang="ES-CO">
+<div class="Section1">
+<h1>C&oacute;mo hacer el M&oacute;dulo 5 s&uacute;per r&aacute;pido con Copilot</h1>
+<p class="sub">Presentación ejecutiva final de mínimo 10 diapositivas más la demostración en vivo de tu prototipo, armada en menos de una hora y sin necesidad de licencia de pago de Copilot.</p>
+<div class="meta">Microsoft Copilot Chat &middot; Universidad Piloto de Colombia &middot; Falabella grupo 2 &nbsp;|&nbsp; M&oacute;dulo 5: Presentaci&oacute;n final y prototipo en vivo &nbsp;|&nbsp; Peso 40% &nbsp;|&nbsp; PPT o PDF, m&iacute;nimo 10 diapositivas, m&aacute;s demostraci&oacute;n en vivo &nbsp;|&nbsp; En grupo, m&aacute;ximo 3 personas</div><div class="callout"><p><b>Sobre la numeraci&oacute;n:</b> este es el <b>M&oacute;dulo 5</b> del curso, la carpeta que lleva ese nombre en SharePoint y en Drive. La universidad numer&oacute; las actividades de forma despareja, as&iacute; que en el PDF aparece como &laquo;ACTIVIDAD 03 &mdash; Presentaci&oacute;n + prototipo&raquo;. Es la misma actividad; gu&iacute;ate por el n&uacute;mero de m&oacute;dulo.</p></div>
+
+<h2>1. Qué vas a entregar</h2>
+<p>Una exposición ejecutiva de 12 a 15 minutos (más 5 minutos de preguntas) que integra tres pilares: <strong>diagnóstico</strong> del problema de tu área, <strong>solución</strong> construida con IA (arquitectura, herramientas y decisiones de diseño) y <strong>demo en vivo</strong> del prototipo operando en tiempo real con mínimo dos casos de uso. No valen grabaciones: el jurado quiere ver el asistente respondiendo en el momento. Es el cierre del proyecto: demuestra a la vez tu dominio técnico y tu capacidad de comunicar ante una audiencia real.</p>
+<table class="t">
+<thead><tr><th>Aspecto</th><th>Requisito oficial de la actividad</th></tr></thead>
+<tbody>
+<tr><td>Formato</td><td>Archivo de slides en PPT (.pptx) o PDF, subido al campus antes de la sesión</td></tr>
+<tr><td>Extensión mínima</td><td>10 diapositivas con estructura clara (aquí armamos 13: 12 + 1 de respaldo)</td></tr>
+<tr><td>Duración</td><td>12 a 15 minutos de presentación + 5 minutos de preguntas</td></tr>
+<tr><td>Demo</td><td>El prototipo debe operar en vivo, no grabaciones</td></tr>
+<tr><td>Casos de uso</td><td>Mínimo 2 casos de uso reales o simulados</td></tr>
+<tr><td>Peso</td><td>40% de la nota total del curso</td></tr>
+<tr><td>Modalidad</td><td>Individual o en grupo, según indique tu docente; si es en grupo, hablan todos los integrantes</td></tr>
+</tbody>
+</table>
+<p>Estos son los cuatro criterios con los que te van a calificar y el lugar exacto donde cada uno se demuestra:</p>
+<table class="t">
+<thead><tr><th>#</th><th>Criterio de evaluación oficial</th><th>Qué mira el jurado</th><th>Dónde lo demuestras</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Identificación clara del problema</td><td>Que el problema sea concreto, medible y propio de tu área</td><td>Diapositivas 2, 3 y 4 (diagnóstico, datos e impacto actual)</td></tr>
+<tr><td>2</td><td>Viabilidad técnica de la solución</td><td>Que la arquitectura, las herramientas y las decisiones de diseño sean realizables</td><td>Diapositivas 5, 6, 7 y 11</td></tr>
+<tr><td>3</td><td>Funcionamiento del prototipo en vivo</td><td>Que el prototipo opere en tiempo real, con mínimo 2 casos de uso</td><td>Diapositivas 8 y 9 (demo), respaldo en la 13</td></tr>
+<tr><td>4</td><td>Calidad de la presentación oral</td><td>Claridad, manejo del tiempo, respuestas a las preguntas</td><td>Toda la exposición, el guion del paso 4 y los 5 minutos de preguntas</td></tr>
+</tbody>
+</table>
+
+<h2>2. Antes de empezar (3 minutos)</h2>
+<ol>
+<li>Entra a <strong>copilot.microsoft.com</strong> e inicia sesión con tu <strong>cuenta corporativa de Falabella</strong>, no con la personal.</li>
+<li>Verifica arriba a la derecha el <strong>indicador de protección de datos empresariales</strong> (el escudo con la palabra "Protegido"). Sin él no tienes esa protección: cierra sesión y vuelve a entrar con la cuenta corporativa.</li>
+<li>Ten a la mano el proceso que analizaste, sus cifras aproximadas y el prototipo de la actividad anterior abierto y probado.</li>
+<li>Si expones en grupo, repartan roles ya: quién narra el diagnóstico, quién explica la solución y quién opera la demo. Todos hablan, porque la comunicación de cada integrante se evalúa.</li>
+</ol>
+<div class="callout">Si Copilot Chat está saturado, ábrelo desde la barra lateral de <strong>Microsoft Edge</strong>: es el mismo motor y suele responder cuando la versión web está congestionada. Todo lo obligatorio de este tutorial se hace con <strong>Copilot Chat gratuito con cuenta corporativa</strong>; ninguna licencia de pago es requisito.</div>
+
+<h2>3. Ruta rápida</h2>
+<table class="t">
+<thead><tr><th>Paso</th><th>Qué haces</th><th>Herramienta</th><th>Tiempo</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Diagnóstico en una frase + 3 datos de impacto</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>2</td><td>Esquema de las 12 diapositivas en texto plano</td><td>Copilot Chat</td><td>10 min</td></tr>
+<tr><td>3</td><td>Pegar el esquema en PowerPoint y aplicar Diseñador</td><td>PowerPoint (sin licencia de Copilot)</td><td>8 min</td></tr>
+<tr><td>4</td><td>Guion hablado con tiempos por diapositiva</td><td>Copilot Chat</td><td>8 min</td></tr>
+<tr><td>5</td><td>Plan y guion literal de la demo en vivo</td><td>Copilot Chat + prototipo</td><td>10 min</td></tr>
+<tr><td>6</td><td>10 preguntas difíciles del jurado</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>7</td><td>Ensayo cronometrado y diapositiva de respaldo</td><td>Cronómetro + PowerPoint</td><td>7 min</td></tr>
+<tr><td></td><td><strong>Total</strong></td><td></td><td><strong>55 minutos</strong></td></tr>
+</tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<h2>4. Los pasos, uno por uno</h2>
+
+<div class="step"><span class="num">1</span><div class="stepbody">
+<h3>Diagnóstico: el problema en una frase y tres datos de impacto</h3>
+<p>El jurado decide en los primeros 60 segundos si tu proyecto es serio. Este es el criterio 1: identificación clara del problema.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como consultor senior en transformación digital para retail, con experiencia presentando ante comités de gerencia en empresas del sector.
+
+CONTEXTO: Trabajo en [TU ÁREA EN FALABELLA: servicio al cliente, CEDI, cartera CMR, selección, compras, marca propia] en Falabella Colombia. El problema está en el proceso de [NOMBRE DEL PROCESO].
+Hoy funciona así: [DESCRIBE EN 3 FRASES CÓMO SE HACE].
+Intervienen [CUÁNTAS PERSONAS INTERVIENEN] personas y toma [CUÁNTO TIEMPO TOMA] por [DÍA / SEMANA / MES].
+Los dos fallos más frecuentes son [PROBLEMA 1] y [PROBLEMA 2].
+
+TAREA: Construye el diagnóstico para una presentación ejecutiva de 12 a 15 minutos ante gerentes que no conocen mi área.
+
+FORMATO DE SALIDA:
+1. Una frase de problema de máximo 25 palabras, sin tecnicismos.
+2. Tres datos de impacto en rango (tiempo perdido, reprocesos, efecto en el cliente), de máximo 15 palabras cada uno.
+3. Una analogía de una frase para explicarlo a otra área.
+4. Tres preguntas con las que un gerente escéptico dudaría de mi diagnóstico.
+
+RESTRICCIONES: No inventes cifras: escribe [CIFRA A VALIDAR] donde falte el dato. Sin nombres ni datos reales de clientes, empleados o proveedores. Español de Colombia, tono ejecutivo, frases cortas.</pre></div>
+<p><strong>Qué ver en pantalla:</strong> una frase que puedas leer en voz alta sin tomar aire dos veces, y tres cifras en rango. Si devuelve un párrafo largo, todavía no sirve.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR (REFINAMIENTO)</span><pre>ROL: Sigues siendo el consultor senior en transformación digital para retail y ahora actúas además como editor de mensajes ejecutivos.
+
+CONTEXTO: Esta es la frase de problema que me entregaste: [PEGA LA FRASE]. Me quedó genérica: podría aplicarse a cualquier empresa y no menciona el proceso de [NOMBRE DEL PROCESO] en [TU ÁREA EN FALABELLA]. La primera frase hablada de mi exposición sale de aquí.
+
+TAREA: Reescribe la frase de problema en tres versiones distintas y ayúdame a elegir la mejor.
+
+FORMATO DE SALIDA:
+1. Versión A: empieza por el costo en horas para el equipo.
+2. Versión B: empieza por el efecto sobre el cliente final de Falabella.
+3. Versión C: empieza por el riesgo de error o de reproceso.
+4. Una tabla con Versión | Fortaleza | Debilidad | Cuándo conviene usarla.
+5. Tu recomendación de cuál sirve mejor como primera frase hablada y por qué, en dos líneas.
+
+RESTRICCIONES: Máximo 22 palabras por versión. Sin tecnicismos, sin cifras inventadas (usa [CIFRA A VALIDAR]), sin datos personales. Español de Colombia.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">2</span><div class="stepbody">
+<h3>El esquema de las 12 diapositivas en texto plano (el truco clave del curso)</h3>
+<p>No pidas "hazme una presentación". Pide el <strong>esquema en texto plano con jerarquía</strong>: es justo lo que PowerPoint convierte solo en diapositivas en el paso 3, sin ninguna licencia de pago.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como diseñador de presentaciones ejecutivas y coach de speakers corporativos.
+
+CONTEXTO: Somos [1, 2 O 3] estudiantes del curso Microsoft Copilot Chat de la Universidad Piloto de Colombia en convenio con Falabella. Exponemos de 12 a 15 minutos ante un jurado nuestro proyecto final: un asistente de IA para el proceso de [NOMBRE DEL PROCESO] en [TU ÁREA EN FALABELLA].
+Problema: [PEGA LA FRASE DEL PASO 1].
+Solución: [DESCRIBE TU PROTOTIPO EN 2 FRASES; por ejemplo, un asistente de Copilot Chat con instrucciones fijas que redacta respuestas a reclamos del marketplace].
+Herramientas obligatorias: [COPILOT CHAT / EDGE / WORD / EXCEL / POWERPOINT].
+Herramientas opcionales que solo usamos si hay licencia: [COPILOT STUDIO / POWER AUTOMATE / COPILOT EN POWERPOINT].
+Casos de uso de la demo en vivo: [CASO 1] y [CASO 2].
+
+TAREA: Escribe el ESQUEMA de 12 diapositivas en TEXTO PLANO, listo para pegar en la vista Esquema de PowerPoint.
+
+FORMATO DE SALIDA EXACTO:
+- Cada título de diapositiva en una línea, sin numeración, sin guiones y sin sangría.
+- Debajo, entre 2 y 4 viñetas, cada una con UNA tabulación al inicio y máximo 12 palabras.
+- Sin negritas, sin asteriscos, sin emojis, sin tablas, sin párrafos.
+Estructura obligatoria: 1 portada, 2 el problema en 30 segundos, 3 diagnóstico con datos, 4 impacto actual, 5 la solución en una frase, 6 arquitectura, 7 herramientas y decisiones de diseño, 8 demo caso 1, 9 demo caso 2, 10 resultados y métricas, 11 riesgos y datos personales, 12 próximos pasos y petición.
+
+RESTRICCIONES: Español de Colombia, cero relleno. No inventes cifras: escribe [CIFRA A VALIDAR]. En las diapositivas 8 y 9 pon solo el título del caso y la viñeta "demostración en vivo".</pre></div>
+<p><strong>Qué ver en pantalla:</strong> texto limpio, títulos pegados al margen y viñetas con sangría. Si trae asteriscos o negritas, refina antes de pegar.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR (REFINAMIENTO)</span><pre>ROL: Sigues actuando como diseñador de presentaciones ejecutivas, ahora en modo control de calidad del esquema.
+
+CONTEXTO: Este es el esquema que me entregaste: [PEGA EL ESQUEMA COMPLETO]. Lo voy a pegar en la vista Esquema de PowerPoint, así que cualquier asterisco, guion o número al inicio de línea me daña las diapositivas. Además varios títulos son genéricos y no afirman nada.
+
+TAREA: Corrige el esquema y devuélvemelo listo para pegar.
+
+FORMATO DE SALIDA:
+1. Quita todos los asteriscos, guiones, números y símbolos de formato: solo texto plano con tabulaciones.
+2. Corta cada viñeta a máximo 10 palabras.
+3. Cambia los títulos genéricos por títulos que afirmen algo; por ejemplo, en vez de "Resultados" escribe "Reducimos a la mitad el tiempo de respuesta".
+4. Agrega una diapositiva 13 titulada "Respaldo: capturas de la demo".
+5. Al final, en tres líneas separadas del esquema, dime qué títulos cambiaste y por qué.
+
+RESTRICCIONES: Conserva el orden y la cantidad de diapositivas. No inventes cifras: usa [CIFRA A VALIDAR]. Español de Colombia. Devuelve primero el esquema completo y solo después las tres líneas de explicación.</pre></div>
+<p class="time">Tiempo estimado: 10 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">3</span><div class="stepbody">
+<h3>Convertir el esquema en diapositivas reales, sin licencia de Copilot</h3>
+<p>Este paso reemplaza por completo a Copilot en PowerPoint y <strong>no requiere licencia de pago</strong>. Sigue el orden exacto:</p>
+<ol>
+<li>Copia el esquema con <span class="kbd">Ctrl + C</span> y abre una presentación en blanco en PowerPoint.</li>
+<li>Antes de nada, ve a <strong>Diseño &gt; Tamaño de diapositiva &gt; Panorámica (16:9)</strong> para que se vea bien en el videobeam.</li>
+<li>Ve a <strong>Vista &gt; Esquema</strong> (vista Esquema).</li>
+<li>Haz clic en el panel izquierdo, junto al icono de la primera diapositiva, y pega con <span class="kbd">Ctrl + V</span>. Si aparecen las opciones de pegado, elige <strong>Conservar solo texto</strong>.</li>
+<li>PowerPoint crea una diapositiva por cada título y convierte las líneas con sangría en viñetas. Vuelve a <strong>Vista &gt; Normal</strong>: ahí están tus 13 diapositivas.</li>
+<li>Entra a <strong>Diseño</strong>, elige un tema sobrio y abre <strong>Diseño &gt; Diseñador</strong> (Ideas de diseño). Aplica una sugerencia por diapositiva: se incluye con tu cuenta institucional y da calidad profesional.</li>
+<li>Para la diapositiva 6 usa <strong>Insertar &gt; SmartArt &gt; Proceso</strong> con cuatro cajas: entrada de datos, prompt con instrucciones fijas, Copilot Chat, salida revisada por una persona.</li>
+</ol>
+<div class="callout">Si el Diseñador no aparece o está deshabilitado, arma la portada y las imágenes en <strong>designer.microsoft.com</strong> o en <strong>Canva gratis</strong>, descárgalas en PNG e insértalas con <strong>Insertar &gt; Imágenes &gt; Este dispositivo</strong>.</div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">4</span><div class="stepbody">
+<h3>El guion hablado con tiempos por diapositiva</h3>
+<p>La calidad de la presentación oral es uno de los cuatro criterios. Pide el guion con tiempos y, si expones en grupo, con el reparto entre los integrantes.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como entrenador de oratoria ejecutiva especializado en presentaciones técnicas de 15 minutos.
+
+CONTEXTO: Somos [1, 2 O 3] expositores. Este es el esquema aprobado:
+[PEGA EL ESQUEMA COMPLETO DE LAS 13 DIAPOSITIVAS].
+Reparto: el expositor 1 presenta las diapositivas 1 a 4, el expositor 2 presenta 5 a 7 y 10 a 12, y el expositor 3 opera la demo en las diapositivas 8 y 9. Si expongo solo, asigna todo a un único expositor.
+Audiencia: docente y jurado de la Universidad Piloto de Colombia más líderes de Falabella. Conocen el retail, pero no son técnicos en inteligencia artificial.
+
+TAREA: Escribe el guion hablado completo, diapositiva por diapositiva.
+
+FORMATO DE SALIDA: Una tabla con las columnas Diapositiva | Expositor | Tiempo objetivo | Qué decir (texto hablado literal) | Frase de transición. El total debe sumar entre 13 y 14 minutos, para dejar margen dentro del límite de 15.
+
+RESTRICCIONES:
+- Texto conversacional, en primera persona del plural, frases de máximo 18 palabras.
+- La diapositiva 2 abre con un dato de impacto en la primera frase, sin saludo largo.
+- La diapositiva 12 cierra con una petición concreta al jurado.
+- En las diapositivas 8 y 9 solo indica qué hacer y qué decir mientras se opera el prototipo en vivo.
+- Español de Colombia, trato de usted hacia el jurado, sin anglicismos innecesarios y sin cifras inventadas.</pre></div>
+<p><strong>Qué ver en pantalla:</strong> una tabla cuyos tiempos no pasen de 14 minutos. Copia la columna "Qué decir" a las <strong>Notas del orador</strong> de cada diapositiva.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR (REFINAMIENTO)</span><pre>ROL: Sigues siendo el entrenador de oratoria ejecutiva y ahora te enfocas solo en la apertura y el cierre.
+
+CONTEXTO: Este es el guion que me entregaste: [PEGA LA APERTURA Y EL CIERRE]. La apertura suena a relleno y el cierre no pide nada concreto. El jurado son [NÚMERO] evaluadores y el dato de impacto que puedo usar es [DATO DE IMPACTO DEL PASO 1].
+
+TAREA: Reescribe únicamente la primera frase hablada y la frase de cierre.
+
+FORMATO DE SALIDA:
+1. Tres versiones de la primera frase, cada una arrancando con un dato de impacto, sin decir "buenos días" ni "les vamos a hablar de".
+2. Tres versiones de la frase de cierre, cada una con una petición concreta y distinta al jurado.
+3. Los segundos que toma decir cada versión en voz alta a ritmo normal.
+4. Una recomendación final de qué combinación de apertura y cierre usar, en dos líneas.
+
+RESTRICCIONES: Máximo 25 palabras por versión. Español de Colombia, trato de usted, sin cifras inventadas: usa [CIFRA A VALIDAR] si hace falta.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<div class="step"><span class="num">5</span><div class="stepbody">
+<h3>El plan de la demo en vivo y su guion literal</h3>
+<p>Aquí se gana o se pierde el criterio 3. La ficha exige el prototipo operando en tiempo real y mínimo dos casos de uso. Regla de oro: <strong>en la demo no se escribe, se pega</strong>.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como director técnico de demostraciones en vivo de software.
+
+CONTEXTO: Vamos a demostrar ante un jurado nuestro prototipo de IA para [NOMBRE DEL PROCESO] del área de [TU ÁREA EN FALABELLA]. El prototipo es [asistente de Copilot Chat con instrucciones fijas / plantilla de prompts documentada / archivo de Excel con análisis asistido / agente en Copilot Studio o flujo en Power Automate, SOLO si tengo licencia].
+Caso 1: [por ejemplo, clasificar y responder un reclamo de un cliente por un pedido que llegó incompleto].
+Caso 2: [por ejemplo, generar el resumen semanal de novedades de inventario del CEDI para el jefe de tienda].
+Tenemos 4 minutos y medio en total para los dos casos.
+
+TAREA: Escribe el guion literal de la demo en vivo, minuto a minuto.
+
+FORMATO DE SALIDA:
+1. Preparación previa: qué pestañas y archivos dejar abiertos, con qué sesión iniciada y en qué orden.
+2. Por cada caso: las 2 frases que dice el expositor antes de pegar, el PROMPT EXACTO que se pega, qué debe verse como respuesta esperada y la frase de cierre que conecta con el beneficio para el negocio.
+3. Un plan B por cada riesgo: sin internet, respuesta lenta, respuesta equivocada, sesión cerrada.
+4. Un checklist de 8 ítems para ejecutar 10 minutos antes de exponer.
+
+RESTRICCIONES: Datos SIMULADOS y anonimizados: "Cliente A", "Pedido 000123", "Proveedor 1", y rangos en vez de cifras exactas. Nunca datos reales de clientes, empleados ni de nómina. Español de Colombia.</pre></div>
+<p><strong>Qué ver en pantalla:</strong> los prompts exactos de la demo. Cópialos a un bloc de notas y déjalo abierto en la barra de tareas el día de la exposición.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR (REFINAMIENTO)</span><pre>ROL: Sigues siendo el director técnico de demostraciones en vivo y ahora actúas como responsable del plan de contingencia.
+
+CONTEXTO: Este es el guion de demo que me entregaste: [PEGA EL GUION DE LA DEMO]. Expongo en [SALÓN / SALA DE JUNTAS / VIRTUAL] con conexión [RED CORPORATIVA / WIFI DE INVITADOS / DATOS DEL CELULAR] y tengo capturas de respaldo en la diapositiva 13.
+
+TAREA: Arma el plan de contingencia para los cuatro escenarios en los que todo sale mal.
+
+FORMATO DE SALIDA: Una tabla con Escenario | Qué hago en pantalla | Frase exacta que le digo al jurado | Cuánto tiempo me cuesta. Cubre estos escenarios:
+1. Se cae la conexión en mitad del caso 2.
+2. Copilot responde algo incorrecto o inventado frente al jurado.
+3. La sesión se cerró y me pide volver a iniciar sesión.
+4. El prototipo tarda más de 40 segundos en responder.
+
+RESTRICCIONES: Máximo 3 líneas por escenario. Las frases deben conservar la credibilidad técnica, sin excusas ni culpar a la herramienta. Español de Colombia, trato de usted hacia el jurado.</pre></div>
+<div class="warn"><strong>Contingencia obligatoria.</strong> Sesión iniciada y probada 10 minutos antes · pestañas abiertas de antemano · prompts de la demo listos en un bloc de notas para pegar, nunca escribir en vivo · datos de prueba anonimizados preparados · capturas de las dos demos ya insertadas en la diapositiva 13 de respaldo · <strong>no dependas del wifi de invitados</strong>: usa la red corporativa y ten los datos del celular como plan B. Recuerda que las capturas son respaldo, no reemplazo: la ficha exige el prototipo operando en vivo.</div>
+<p class="time">Tiempo estimado: 10 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">6</span><div class="stepbody">
+<h3>Las preguntas difíciles del jurado</h3>
+<p>Son 5 minutos de preguntas y ahí se nota quién entendió su propio proyecto. Adapta estas respuestas a tu caso:</p>
+<table class="t">
+<thead><tr><th>Pregunta probable</th><th>Respuesta modelo (30 segundos)</th></tr></thead>
+<tbody>
+<tr><td>¿Qué pasa si la IA se equivoca?</td><td>Ninguna salida llega al cliente sin revisión humana: la IA redacta, una persona valida y firma.</td></tr>
+<tr><td>¿Cómo protegen los datos personales?</td><td>Datos anonimizados y Copilot con cuenta corporativa protegida. Cumplimos la Ley 1581 de 2012.</td></tr>
+<tr><td>¿Cuánto cuesta?</td><td>Cero en lo que demostramos: Copilot Chat con la cuenta corporativa. Las licencias quedan para la fase 2.</td></tr>
+<tr><td>¿Cómo se mide el retorno?</td><td>Horas ahorradas por semana, reprocesos evitados y tiempo de respuesta. Tenemos línea base y meta a 90 días.</td></tr>
+<tr><td>¿Es escalable a otras tiendas?</td><td>Sí: la lógica vive en el prompt, no en el software. Se replica cambiando tres variables del contexto.</td></tr>
+<tr><td>¿Y si Copilot cambia o desaparece?</td><td>El activo es el prompt documentado y el procedimiento. Es portable a otro asistente.</td></tr>
+<tr><td>¿Quién queda a cargo del proceso?</td><td>El líder de [ÁREA]. Dejamos la bitácora y un instructivo de una página para operarlo.</td></tr>
+<tr><td>¿Por qué no una macro o un formato?</td><td>Porque el cuello de botella es texto no estructurado: reclamos, correos y novedades.</td></tr>
+<tr><td>¿Qué tan real es la demo?</td><td>Los datos son simulados por protección de datos; el flujo y los prompts son los del proceso real.</td></tr>
+<tr><td>¿Cuál es el mayor riesgo?</td><td>Que la gente confíe ciegamente en la salida. Por eso la revisión humana es obligatoria en el procedimiento.</td></tr>
+</tbody>
+</table>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como jurado exigente y escéptico de un proyecto de IA aplicada, con perfil de gerente de operaciones de retail.
+
+CONTEXTO: Nuestro proyecto es [PEGA LA FRASE DE PROBLEMA Y LA DESCRIPCIÓN DE LA SOLUCIÓN]. Herramientas usadas: [LISTA]. Casos demostrados en vivo: [CASO 1] y [CASO 2]. Área: [TU ÁREA EN FALABELLA]. Los criterios con los que nos evalúan son: identificación clara del problema, viabilidad técnica de la solución, funcionamiento del prototipo en vivo y calidad de la presentación oral.
+
+TAREA: Genera 10 preguntas incómodas y específicas que nos harías en los 5 minutos de preguntas, apuntando a las debilidades reales de este proyecto y no a generalidades.
+
+FORMATO DE SALIDA: Una tabla con Pregunta | Por qué es incómoda | Respuesta modelo de máximo 45 palabras | Qué NO decir nunca.
+
+RESTRICCIONES: Incluye al menos una pregunta sobre datos personales y la Ley 1581 de 2012, una sobre costo de licencias, una sobre qué pasa si la IA se equivoca y una sobre cómo se mide el retorno. Español de Colombia, tono directo, sin cifras inventadas.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR (REFINAMIENTO)</span><pre>ROL: Sigues siendo el jurado escéptico y ahora actúas también como entrenador de respuestas en vivo.
+
+CONTEXTO: Estas son las respuestas que me diste: [PEGA LAS 10 RESPUESTAS]. Quedaron largas para decirlas de memoria frente al jurado y hay preguntas para las que todavía no tengo el dato. Expongo con [1, 2 O 3] integrantes y los temas de cada uno son [INTEGRANTE 1: DIAGNÓSTICO / INTEGRANTE 2: SOLUCIÓN / INTEGRANTE 3: DEMO].
+
+TAREA: Ajusta las respuestas para que se puedan decir en 30 segundos y asígnalas a cada integrante.
+
+FORMATO DE SALIDA: Una tabla con Pregunta | Respuesta ajustada | Frase puente si no sé el dato | Quién responde | RIESGO (sí o no).
+1. Máximo 30 palabras por respuesta, con esta estructura: primero la respuesta directa en una frase, después el dato o el control que la respalda.
+2. La frase puente debe ser del estilo "no tengo ese dato hoy, lo verifico y se lo envío".
+3. Marca con la palabra RIESGO las tres preguntas que más nos pueden costar puntos.
+
+RESTRICCIONES: Español de Colombia, trato de usted, sin cifras inventadas ni datos personales. Nada de promesas que no podamos sostener.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">7</span><div class="stepbody">
+<h3>Ensayo cronometrado y diapositiva de respaldo</h3>
+<ol>
+<li>Arma la <strong>diapositiva 13 de respaldo</strong> con capturas de las dos demos ya ejecutadas. Si falla el internet, muestras esa diapositiva y narras el flujo sin perder el hilo.</li>
+<li>Ensaya en voz alta, de pie y completo, <strong>con cronómetro</strong>. Hablar toma cerca de un 40% más de tiempo del que crees.</li>
+<li>Anota en qué diapositiva ibas al minuto 7: esa es tu marca de control el día de la exposición.</li>
+<li>Usa <strong>Presentación con diapositivas &gt; Ensayar intervalos</strong> para medirte automáticamente.</li>
+<li>Si quieres retroalimentación de ritmo, muletillas y lectura de las diapositivas, abre la presentación en <strong>PowerPoint para la web</strong> y usa <strong>Presentación con diapositivas &gt; Ensayar con el entrenador</strong> (Entrenador de presentaciones). Está incluido con la cuenta institucional y no requiere licencia de Copilot.</li>
+</ol>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>ROL: Actúa como evaluador del curso Microsoft Copilot Chat de la Universidad Piloto de Colombia.
+
+CONTEXTO: Ensayamos la presentación final y quedó en [MINUTOS QUE TE TOMÓ] minutos; el límite es 15 más 5 de preguntas. Dificultades detectadas: [nos alargamos en la diapositiva X, se nos olvidó Y, la demo tardó Z].
+Criterios oficiales de evaluación: identificación clara del problema, viabilidad técnica de la solución, funcionamiento del prototipo en vivo y calidad de la presentación oral.
+
+TAREA: Dime qué recortar y qué reforzar para cumplir el tiempo sin perder puntos en ninguno de los cuatro criterios.
+
+FORMATO DE SALIDA: Una tabla con Criterio | Qué tenemos hoy | Riesgo de perder puntos (alto, medio o bajo) | Ajuste concreto | Segundos que gano o pierdo. Cierra con las 3 cosas que debo recortar primero y con las 2 que no puedo tocar por ser requisito de la ficha.
+
+RESTRICCIONES: No propongas diapositivas nuevas ni herramientas de pago. Todo debe ser aplicable en menos de 30 minutos. Español de Colombia.</pre></div>
+<p class="time">Tiempo estimado: 7 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<h2>5. La estructura exacta de las diapositivas</h2>
+<table class="t">
+<thead><tr><th>#</th><th>Diapositiva</th><th>Qué debe verse</th><th>Tiempo</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Portada</td><td>Proyecto, área, integrantes, curso y fecha</td><td>0:30</td></tr>
+<tr><td>2</td><td>El problema en 30 segundos</td><td>Una frase grande y un dato de impacto</td><td>1:00</td></tr>
+<tr><td>3</td><td>Diagnóstico con datos</td><td>Cómo funciona hoy, personas y tiempos</td><td>1:30</td></tr>
+<tr><td>4</td><td>Impacto actual</td><td>Horas, reprocesos y efecto en el cliente, en rangos</td><td>1:00</td></tr>
+<tr><td>5</td><td>La solución en una frase</td><td>Qué hace el asistente y para quién</td><td>1:00</td></tr>
+<tr><td>6</td><td>Arquitectura</td><td>SmartArt: entrada, prompt, IA, revisión humana</td><td>1:30</td></tr>
+<tr><td>7</td><td>Herramientas y decisiones de diseño</td><td>Qué usaste, qué descartaste y por qué</td><td>1:00</td></tr>
+<tr><td>8</td><td>Demo caso 1</td><td>Solo el título: se habla sobre el prototipo en vivo</td><td>2:30</td></tr>
+<tr><td>9</td><td>Demo caso 2</td><td>Solo el título: se habla sobre el prototipo en vivo</td><td>2:00</td></tr>
+<tr><td>10</td><td>Resultados y métricas</td><td>Línea base, meta y cómo se mide</td><td>1:00</td></tr>
+<tr><td>11</td><td>Riesgos y datos personales</td><td>Revisión humana, anonimización, Ley 1581 de 2012</td><td>1:00</td></tr>
+<tr><td>12</td><td>Próximos pasos y petición</td><td>Fase 2, responsable y qué le pides al jurado</td><td>0:30</td></tr>
+<tr><td>13</td><td>Respaldo</td><td>Capturas de las dos demos ya ejecutadas</td><td>solo si falla</td></tr>
+<tr><td></td><td><strong>Total hablado</strong></td><td></td><td><strong>14:30</strong></td></tr>
+</tbody>
+</table>
+<p>Con esta estructura cumples de sobra el mínimo de 10 diapositivas y dejas visible cada uno de los tres pilares de la actividad: diagnóstico (2 a 4), solución (5 a 7) y demo en vivo (8 y 9).</p>
+
+<h2>6. Cómo armar el archivo final sin licencia de Copilot</h2>
+<ul>
+<li><strong>PowerPoint:</strong> el esquema se pega en <strong>Vista &gt; Esquema</strong> y crea las diapositivas solo; luego <strong>Diseño &gt; Diseñador</strong> e <strong>Insertar &gt; SmartArt</strong>.</li>
+<li><strong>Formato de pantalla:</strong> <strong>Diseño &gt; Tamaño de diapositiva &gt; Panorámica (16:9)</strong> antes de maquetar nada.</li>
+<li><strong>Notas del orador:</strong> pega ahí el guion del paso 4 y expón con <strong>Presentación con diapositivas &gt; Usar vista del moderador</strong>: las notas se ven solo en tu pantalla.</li>
+<li><strong>Consistencia:</strong> unifica fuentes en <strong>Vista &gt; Patrón de diapositivas</strong>. Cuerpo mínimo de 20 puntos: si no se lee desde el fondo del salón, no existe.</li>
+<li><strong>Anexo en Word:</strong> aplica <strong>Inicio &gt; Estilos</strong> (Título 1 y Título 2) y luego <strong>Referencias &gt; Tabla de contenido &gt; Tabla automática 1</strong>.</li>
+<li><strong>Pegado limpio:</strong> desde Copilot Chat usa <strong>Inicio &gt; Pegar &gt; Conservar solo texto</strong>, o <span class="kbd">Ctrl + Alt + V</span> (Pegado especial) y elige <strong>Texto sin formato</strong>.</li>
+<li><strong>Exportar:</strong> <strong>Archivo &gt; Exportar &gt; Crear documento PDF/XPS</strong>, con el nombre <strong>Act03_Presentacion_Apellidos.pdf</strong>. Guarda también el .pptx con <strong>Archivo &gt; Guardar como</strong>.</li>
+</ul>
+
+<h2>7. Herramientas sugeridas por la ficha y su equivalente sin licencia</h2>
+<p>La ficha sugiere cuatro herramientas. Ninguna es obligatoria: todas tienen una ruta equivalente que puedes hacer sin licencia de pago.</p>
+<table class="t">
+<thead><tr><th>Herramienta sugerida</th><th>¿Requiere licencia de pago?</th><th>Alternativa gratuita que usas en este tutorial</th></tr></thead>
+<tbody>
+<tr><td>Copilot en PowerPoint</td><td>Sí, licencia de Microsoft 365 Copilot</td><td>Esquema en texto plano pegado en <strong>Vista &gt; Esquema</strong> más <strong>Diseño &gt; Diseñador</strong> (pasos 2 y 3)</td></tr>
+<tr><td>Microsoft Copilot Studio</td><td>Sí, licencia aparte</td><td>Asistente en Copilot Chat con instrucciones fijas y prompts documentados (paso 5)</td></tr>
+<tr><td>Power Automate</td><td>Sí, para conectores y flujos de pago</td><td>Procedimiento manual documentado más plantilla de prompts, mostrado paso a paso en la demo</td></tr>
+<tr><td>Copilot para ensayar</td><td>No siempre</td><td><strong>Presentación con diapositivas &gt; Ensayar intervalos</strong> y el <strong>Entrenador de presentaciones</strong> en PowerPoint para la web (paso 7)</td></tr>
+</tbody>
+</table>
+
+<h2>8. Si tienes licencia (opcional)</h2>
+<p>Esta sección es <strong>totalmente opcional</strong>. Aplica solo si tu área te asignó licencia de Microsoft 365 Copilot, Copilot Studio o Power Automate. Si no la tienes, ignórala: con la ruta gratuita de arriba entregas exactamente lo mismo y compites por la misma nota, porque ningún criterio de evaluación exige herramientas de pago.</p>
+<ul>
+<li><strong>Copilot en PowerPoint (licencia Microsoft 365 Copilot):</strong> guarda el esquema en un documento de Word en OneDrive y usa <strong>Inicio &gt; Copilot &gt; Crear una presentación a partir de un archivo</strong>. Revísala siempre: suele agregar diapositivas de relleno que te desordenan el tiempo.</li>
+<li><strong>Copilot en PowerPoint (licencia):</strong> pídele "agregar notas del orador a todas las diapositivas" para adelantar parte del paso 4; el guion con tiempos igual lo ajustas tú.</li>
+<li><strong>Copilot Studio (licencia):</strong> demuestra el agente desde el panel de prueba, con la ventana abierta de antemano y datos simulados.</li>
+<li><strong>Power Automate (licencia):</strong> ejecuta el flujo en vivo con datos simulados y muestra el historial de ejecuciones como evidencia.</li>
+</ul>
+<div class="callout">Si usas alguna de estas herramientas, dilo en la diapositiva 7 y aclara al jurado que el proyecto también funciona sin ellas. Esa aclaración suma en el criterio de viabilidad técnica.</div>
+
+<div class="warn"><strong>Uso responsable de la IA y protección de datos: léelo antes de pegar nada.</strong><br>
+NO pegues en Copilot ni muestres en la demo datos personales de clientes, números de tarjeta, cédulas, correos o teléfonos reales, datos de nómina ni información confidencial de la empresa. <strong>Anonimiza siempre:</strong> "Cliente A", "Proveedor 1", "Tienda Norte", "Pedido 000123", y usa rangos ("entre 4 y 6 horas semanales") en vez de cifras exactas. La <strong>Ley 1581 de 2012</strong> de protección de datos personales en Colombia te obliga a tratar esos datos con autorización y finalidad definida; una captura con datos reales en tus diapositivas es una falta grave, y la diapositiva 11 debe declarar cómo los proteges.<br><br>
+<strong>La IA se equivoca.</strong> Inventa cifras, normas y estadísticas con total seguridad. Verifica datos, porcentajes, nombres y referencias legales antes de exponer: un dato falso detectado por el jurado te afecta los cuatro criterios al tiempo. El docente califica el <strong>uso crítico y documentado de la IA</strong>: mostrar que revisaste, corregiste y descartaste salidas <strong>suma nota</strong>; entregar la primera respuesta tal cual la resta.</div>
+
+<h2>9. Errores que bajan la nota</h2>
+<ul>
+<li><strong>Grabar la demo en video.</strong> La ficha exige el prototipo operando en vivo; un video no cumple ese criterio.</li>
+<li><strong>Escribir los prompts en vivo.</strong> Pierdes 90 segundos y aparecen errores de digitación: pégalos desde el bloc de notas.</li>
+<li><strong>Pasarse de 15 minutos.</strong> Te cortan y te quedas sin cierre ni petición final. Ensaya con cronómetro.</li>
+<li><strong>Quedarse por debajo de 10 diapositivas.</strong> Es el mínimo oficial y se revisa en el archivo que subes.</li>
+<li><strong>Diapositivas con párrafos.</strong> Si el jurado lee, no te escucha: máximo 4 viñetas de 10 palabras.</li>
+<li><strong>Un solo caso de uso.</strong> La ficha pide mínimo dos, reales o simulados: es requisito, no sugerencia.</li>
+<li><strong>Que hable una sola persona</strong> cuando el trabajo es en grupo. Se evalúa la comunicación de todos los integrantes.</li>
+<li><strong>Mostrar datos reales de clientes.</strong> Falla de protección de datos y sanción directa en la nota.</li>
+<li><strong>Subir el archivo tarde.</strong> El PPT o PDF debe estar en el campus <strong>antes</strong> de la sesión.</li>
+</ul>
+
+<h2>10. Anexo recomendado: bitácora de prompts</h2>
+<p>La bitácora no aparece entre los cinco puntos de entrega de la ficha, así que <strong>confirma con tu docente</strong> si la exige; cuando la pide, es la evidencia más rápida de que usaste la IA con criterio y no copiaste la primera respuesta. Va como última sección del PDF o como anexo de una página, con mínimo <strong>cinco</strong> prompts. Incluye siempre alguno que salió mal y cómo lo corregiste. Copia esta tabla y complétala:</p>
+<table class="t">
+<thead><tr><th>#</th><th>Objetivo</th><th>Prompt usado (resumen)</th><th>Qué falló</th><th>Ajuste que hice</th><th>Uso final</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Definir el problema</td><td>Rol consultor + contexto de [PROCESO] + frase de 25 palabras</td><td>Frase genérica, servía para cualquier empresa</td><td>Pedí 3 versiones: por costo, por cliente y por riesgo</td><td>Diapositiva 2</td></tr>
+<tr><td>2</td><td>Esquema de diapositivas</td><td>Texto plano con jerarquía para la vista Esquema</td><td>Devolvió asteriscos y PowerPoint los pegó mal</td><td>Pedí el esquema sin ningún símbolo de formato</td><td>Diapositivas 1 a 13</td></tr>
+<tr><td>3</td><td>Guion con tiempos</td><td>Rol coach de oratoria + reparto por expositor</td><td>Sumaba 19 minutos, cuatro de más</td><td>Pedí recortar a 13 minutos y frases de 18 palabras</td><td>Notas del orador</td></tr>
+<tr><td>4</td><td>Guion de la demo</td><td>Prompts exactos de los 2 casos + plan B</td><td>Usó un nombre de cliente real de mi ejemplo</td><td>Reemplacé por "Cliente A" y "Pedido 000123"</td><td>Bloc de notas de la demo</td></tr>
+<tr><td>5</td><td>Preguntas del jurado</td><td>Rol jurado escéptico + 10 preguntas incómodas</td><td>Inventó un porcentaje de ahorro que no tengo</td><td>Lo cambié por "meta a validar a 90 días"</td><td>Preparación de preguntas</td></tr>
+</tbody>
+</table>
+<div class="callout">Truco: deja abierto un documento de Word en blanco mientras trabajas y pega ahí cada prompt que uses. Al final solo lo organizas. Reconstruir la bitácora de memoria toma el triple de tiempo.</div>
+
+<div class="ok"><strong>Checklist final antes de subir el archivo</strong><br>
+<strong>Criterio 1 · Identificación clara del problema:</strong> diapositiva 2 con una frase de máximo 25 palabras y un dato de impacto; diapositivas 3 y 4 con el proceso de hoy, personas y tiempos en rangos verificados; el problema es de tu área y es medible.<br>
+<strong>Criterio 2 · Viabilidad técnica de la solución:</strong> diapositiva 5 con la solución en una frase; diapositiva 6 con el SmartArt de la arquitectura; diapositiva 7 con las herramientas usadas, lo que descartaste y por qué; diapositiva 11 con riesgos, revisión humana y protección de datos.<br>
+<strong>Criterio 3 · Funcionamiento del prototipo en vivo:</strong> los dos casos de uso probados hoy; el prototipo opera en tiempo real, sin grabaciones; prompts esperando en el bloc de notas; pestañas y sesión verificadas; diapositiva 13 con capturas de respaldo; plan B de conexión sin wifi de invitados.<br>
+<strong>Criterio 4 · Calidad de la presentación oral:</strong> ensayo completo cronometrado entre 12 y 15 minutos; notas del orador en cada diapositiva; las 10 preguntas con respuesta de 30 segundos para los 5 minutos finales; diapositiva 12 con petición concreta; si es en grupo, hablan todos.<br>
+<strong>Requisitos formales de entrega:</strong> mínimo 10 diapositivas con estructura clara (llevas 13); mínimo 2 casos de uso demostrados; archivo en PPT o PDF guardado con el nombre correcto y subido al campus antes de la sesión; ningún dato personal ni información confidencial en las diapositivas ni en la demo; todas las cifras verificadas por una persona del grupo; bitácora de prompts lista si tu docente la pide.</div>
+
+<h2>11. Dónde subir el archivo</h2>
+<p>Sube el archivo de slides en <strong>PPT o PDF</strong> al <strong>campus virtual del curso</strong>, en la actividad correspondiente, <strong>antes de la sesión</strong> de sustentación. Lleva también el .pptx en una memoria USB o en tu OneDrive por si expones desde el equipo del salón. Sube con un día de anticipación: el día de la exposición necesitas la cabeza en la demo, no en el archivo. Si tu docente habilitó otro canal de entrega, confírmalo con él antes de la fecha.</p>
+<div class="callout" style="margin-top:20pt">
+<p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
+<p style="font-size:9.5pt">Sube tu entrega a tu carpeta personal en SharePoint, dentro de la carpeta de este m&oacute;dulo. En la p&aacute;gina <b>index.html</b> de esa misma carpeta tienes un cargador que revisa el archivo antes de que lo entregues.</p>
+</div>
+</div>
+</body>
+</html>

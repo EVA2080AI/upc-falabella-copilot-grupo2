@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portal de entregas · Falabella Grupo 2</title>
+<meta name="description" content="0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/estilos.css">
+
+</head>
+<body>
+<header class="cabecera">
+  <div class="envoltura-ancha">
+    <div class="marca"><span class="punto"></span> Universidad Piloto de Colombia &nbsp;·&nbsp; Falabella &nbsp;·&nbsp; Grupo 2</div>
+    <nav class="migas"><span>Portal</span></nav>
+    <h1>Portal de entregas del curso</h1>
+    <p class="lema">Microsoft Copilot Chat. Tu carpeta, tus cinco módulos, el PDF de cada actividad, el tutorial para resolverla rápido y un cargador que revisa tu archivo antes de entregarlo.</p>
+  </div>
+</header>
+<main>
+  <div class="envoltura-ancha">
+    <div class="rejilla-2" style="margin-bottom:30px;align-items:start">
+      <div class="caja">
+        <h2 style="margin-top:0">Cómo funciona este portal</h2>
+        <p class="apunte">Cada estudiante tiene su carpeta. Dentro hay una carpeta por módulo, y en cada una encontrarás tres cosas: el <strong>PDF oficial de la actividad</strong>, un <strong>tutorial paso a paso</strong> para resolverla rápido con Copilot aunque no tengas licencia de pago, y un <strong>cargador que revisa tu archivo</strong> antes de que lo entregues.</p>
+        <div class="aviso bien"><strong>El cargador revisa por ti</strong><p>Cuenta las páginas del PDF, mide los píxeles de la infografía, cuenta las diapositivas de la presentación y las capturas del manual. Te dice qué falta antes de que el docente lo vea.</p></div>
+      </div>
+      <div class="caja">
+        <h2 style="margin-top:0">Los cinco módulos</h2>
+        <table class="datos">
+          <thead><tr><th>Módulo</th><th>Actividad</th><th>Formato</th><th>Modalidad</th><th>Peso</th></tr></thead>
+          <tbody>
+        <tr>
+          <td><strong>Módulo 1</strong><br><span style="color:var(--tinta-3);font-size:.86rem">Actividad 00</span></td>
+          <td>Diagnóstico del problema<br><span style="color:var(--tinta-3);font-size:.86rem">Analiza un proceso real de tu área con apoyo de IA: causas, actores, evidencias e impactos.</span></td>
+          <td>PDF de 3 a 5 páginas</td>
+          <td>Individual o en pareja</td>
+          <td><span class="eti">20%</span></td>
+        </tr>
+        <tr>
+          <td><strong>Módulo 2</strong><br><span style="color:var(--tinta-3);font-size:.86rem">Actividad 01</span></td>
+          <td>Infografía de la solución propuesta<br><span style="color:var(--tinta-3);font-size:.86rem">Representa visualmente el proceso, sus cuellos de botella y la solución con IA que propones.</span></td>
+          <td>PDF o imagen PNG/JPG de alta resolución, mínimo 1920 px de ancho</td>
+          <td>Individual o en pareja</td>
+          <td><span class="eti">25%</span></td>
+        </tr>
+        <tr>
+          <td><strong>Módulo 3</strong><br><span style="color:var(--tinta-3);font-size:.86rem">Actividad 02</span></td>
+          <td>Documento de la solución<br><span style="color:var(--tinta-3);font-size:.86rem">Describe qué vas a implementar, cómo funcionará, con qué herramientas y qué beneficios esperas.</span></td>
+          <td>Word (.docx) o PDF, de 4 a 6 páginas</td>
+          <td>En grupo, máximo 3 personas</td>
+          <td><span class="eti">25%</span></td>
+        </tr>
+        <tr>
+          <td><strong>Módulo 4</strong><br><span style="color:var(--tinta-3);font-size:.86rem">Actividad 03</span></td>
+          <td>Manual del sistema o asistente de IA<br><span style="color:var(--tinta-3);font-size:.86rem">Documenta tu asistente: objetivo, arquitectura, guía de uso paso a paso y limitaciones.</span></td>
+          <td>Word (.docx) o PDF, mínimo 8 páginas de contenido</td>
+          <td>Individual</td>
+          <td><span class="eti">35%</span></td>
+        </tr>
+        <tr>
+          <td><strong>Módulo 5</strong><br><span style="color:var(--tinta-3);font-size:.86rem">Actividad 04</span></td>
+          <td>Presentación final y prototipo en vivo<br><span style="color:var(--tinta-3);font-size:.86rem">Expón diagnóstico, solución y demuestra el prototipo funcionando en vivo ante el jurado.</span></td>
+          <td>PPT o PDF, mínimo 10 diapositivas, más demostración en vivo</td>
+          <td>En grupo, máximo 3 personas</td>
+          <td><span class="eti">40%</span></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h2 id="estudiantes">Estudiantes del grupo <span class="eti gris" id="contador">22</span></h2>
+    <p class="apunte">Busca tu nombre y entra a tu carpeta. Si tu nombre está mal escrito o no aparece, avísale al instructor.</p>
+    <div class="buscador">
+      <span class="lupa" aria-hidden="true">⌕</span>
+      <label class="solo-lectores" for="q">Buscar estudiante</label>
+      <input id="q" type="search" placeholder="Escribe tu nombre…" autocomplete="off">
+    </div>
+    <div class="rejilla" id="rejilla-est">
+      <a class="tarjeta busca" data-nombre="sergio ivan ruiz mosquera" href="Estudiantes/Sergio Ivan Ruiz Mosquera/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">SM</div>
+          <div style="min-width:0">
+            <span class="nombre">Sergio Ivan Ruiz Mosquera</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="clara valentina daza silva" href="Estudiantes/Clara Valentina Daza Silva/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">CS</div>
+          <div style="min-width:0">
+            <span class="nombre">Clara Valentina Daza Silva</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="rocio guecha" href="Estudiantes/Rocio Guecha/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">RG</div>
+          <div style="min-width:0">
+            <span class="nombre">Rocio Guecha</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="melany canon" href="Estudiantes/Melany Canon/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">MC</div>
+          <div style="min-width:0">
+            <span class="nombre">Melany Cañon</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="daniela herrera" href="Estudiantes/Daniela Herrera/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">DH</div>
+          <div style="min-width:0">
+            <span class="nombre">Daniela Herrera</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="tania alvarez" href="Estudiantes/Tania Alvarez/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">TA</div>
+          <div style="min-width:0">
+            <span class="nombre">Tania Alvarez</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="mari luz vanegas" href="Estudiantes/Mari Luz Vanegas/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">MV</div>
+          <div style="min-width:0">
+            <span class="nombre">Mari Luz Vanegas</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="erika johanna vargas puentes" href="Estudiantes/Erika Johanna Vargas Puentes/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">EP</div>
+          <div style="min-width:0">
+            <span class="nombre">Erika Johanna Vargas Puentes</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="diana paola moscoso casallas" href="Estudiantes/Diana Paola Moscoso Casallas/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">DC</div>
+          <div style="min-width:0">
+            <span class="nombre">Diana Paola Moscoso Casallas</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="jesus vergara" href="Estudiantes/Jesus Vergara/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">JV</div>
+          <div style="min-width:0">
+            <span class="nombre">Jesus Vergara</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="natalia ramirez fernandez" href="Estudiantes/Natalia Ramirez Fernandez/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">NF</div>
+          <div style="min-width:0">
+            <span class="nombre">Natalia Ramirez Fernandez</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="lorena perdomo" href="Estudiantes/Lorena Perdomo/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">LP</div>
+          <div style="min-width:0">
+            <span class="nombre">Lorena Perdomo</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="natalia monterroza" href="Estudiantes/Natalia Monterroza/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">NM</div>
+          <div style="min-width:0">
+            <span class="nombre">Natalia Monterroza</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="magdalena gamez" href="Estudiantes/Magdalena Gamez/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">MG</div>
+          <div style="min-width:0">
+            <span class="nombre">Magdalena Gamez</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="claudia diaz" href="Estudiantes/Claudia Diaz/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">CD</div>
+          <div style="min-width:0">
+            <span class="nombre">Claudia Diaz</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="carolina huertas" href="Estudiantes/Carolina Huertas/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">CH</div>
+          <div style="min-width:0">
+            <span class="nombre">Carolina Huertas</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="yeyson pedreros" href="Estudiantes/Yeyson Pedreros/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">YP</div>
+          <div style="min-width:0">
+            <span class="nombre">Yeyson Pedreros</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="lizeth natalia marulanda cardenas" href="Estudiantes/Lizeth Natalia Marulanda Cardenas/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">LC</div>
+          <div style="min-width:0">
+            <span class="nombre">Lizeth Natalia Marulanda Cardenas</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="leidy cano ibanez" href="Estudiantes/Leidy Cano Ibanez/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">LI</div>
+          <div style="min-width:0">
+            <span class="nombre">Leidy Cano Ibañez</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="juan carlos forero silva" href="Estudiantes/Juan Carlos Forero Silva/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">JS</div>
+          <div style="min-width:0">
+            <span class="nombre">Juan Carlos Forero Silva</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="angie padilla" href="Estudiantes/Angie Padilla/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">AP</div>
+          <div style="min-width:0">
+            <span class="nombre">Angie Padilla</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+      <a class="tarjeta busca" data-nombre="jhony gutierrez" href="Estudiantes/Jhony Gutierrez/index.html">
+        <div class="fila-avatar">
+          <div class="avatar">JG</div>
+          <div style="min-width:0">
+            <span class="nombre">Jhony Gutierrez</span>
+            <span class="detalle">Microsoft Copilot Chat</span>
+          </div>
+        </div>
+        <div class="pie"><span>Módulos 1 a 5</span><span class="eti">Abrir carpeta</span></div>
+      </a>
+    </div>
+    <p class="apunte oculto" id="sin-resultados" style="margin-top:16px">No hay ningún estudiante con ese nombre. Revisa cómo lo escribiste.</p>
+
+  </div>
+</main>
+<footer class="pie-pagina">
+  <div class="envoltura-ancha">
+    <div>Curso Microsoft Copilot Chat &nbsp;·&nbsp; Universidad Piloto de Colombia &nbsp;·&nbsp; Falabella Grupo 2</div>
+    <div><a href="https://upcedu-my.sharepoint.com/:f:/r/personal/instructor6-cta_unipiloto_edu_co/Documents/Moodle%20u%20piloto%20Falabella%20grupo%202" target="_blank" rel="noopener">Carpeta oficial en SharePoint</a></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var q=document.getElementById('q'), tarjetas=[].slice.call(document.querySelectorAll('.busca')),
+      cont=document.getElementById('contador'), vacio=document.getElementById('sin-resultados');
+  function norm(t){return t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+  q.addEventListener('input',function(){
+    var t=norm(q.value.trim()), n=0;
+    tarjetas.forEach(function(c){
+      var ver=!t||c.dataset.nombre.indexOf(t)>=0;
+      c.classList.toggle('oculto',!ver); if(ver)n++;
+    });
+    cont.textContent=n; vacio.classList.toggle('oculto',n>0);
+  });
+})();
+</script>
+</body>
+</html>

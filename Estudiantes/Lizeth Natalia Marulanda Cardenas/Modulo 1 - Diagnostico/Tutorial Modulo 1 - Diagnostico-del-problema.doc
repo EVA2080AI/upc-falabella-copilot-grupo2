@@ -1,0 +1,620 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<title>Modulo 1 - Como hacerlo super rapido con Copilot</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+@page {
+  size: 21.59cm 27.94cm;
+  margin: 2.2cm 2.0cm 2.2cm 2.0cm;
+  mso-header-margin: 1.2cm;
+  mso-footer-margin: 1.2cm;
+  mso-paper-source: 0;
+}
+div.Section1 { page: Section1; }
+
+body {
+  font-family: "Aptos", "Calibri", "Segoe UI", sans-serif;
+  font-size: 11.0pt;
+  line-height: 1.42;
+  color: #1B2A22;
+  margin: 0;
+}
+
+/* ---------------- portada del tutorial ---------------- */
+h1 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 25.0pt;
+  line-height: 1.14;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 0 0 6pt 0;
+  letter-spacing: -0.3pt;
+  border-bottom: 3.0pt solid #0B7A43;
+  padding-bottom: 9pt;
+}
+p.sub {
+  font-size: 13.0pt;
+  color: #41544B;
+  margin: 0 0 10pt 0;
+  line-height: 1.34;
+}
+div.meta {
+  font-size: 8.8pt;
+  color: #FFFFFF;
+  background: #0B7A43;
+  padding: 7pt 11pt;
+  margin: 0 0 17pt 0;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  mso-shading: #0B7A43;
+}
+
+h2 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 15.5pt;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 21pt 0 7pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 1.0pt solid #C9DED3;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 12.0pt;
+  color: #14201A;
+  font-weight: bold;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 8pt 0; }
+ul, ol { margin: 0 0 10pt 0; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+strong, b { color: #0B5B33; }
+
+/* ---------------- pasos numerados ---------------- */
+div.step {
+  margin: 0 0 13pt 0;
+  padding: 11pt 13pt 8pt 13pt;
+  border: 0.75pt solid #DDE6E1;
+  border-left: 3.5pt solid #0B7A43;
+  background: #FBFDFC;
+  mso-shading: #FBFDFC;
+  page-break-inside: avoid;
+}
+div.step span.num {
+  font-family: "Aptos Display", "Calibri", sans-serif;
+  font-size: 15.0pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  padding: 2pt 9pt;
+  margin-right: 8pt;
+}
+div.stepbody { margin-top: 7pt; }
+p.time {
+  font-size: 9.0pt;
+  color: #0B7A43;
+  font-weight: bold;
+  font-style: italic;
+  margin: 6pt 0 0 0;
+}
+
+/* ---------------- prompts para copiar ---------------- */
+div.prompt {
+  margin: 9pt 0 11pt 0;
+  border: 0.75pt solid #B9CFC3;
+  background: #F2F8F5;
+  mso-shading: #F2F8F5;
+  padding: 0;
+  page-break-inside: avoid;
+}
+span.ptag {
+  display: block;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-size: 8.0pt;
+  font-weight: bold;
+  letter-spacing: 0.9pt;
+  padding: 4pt 10pt;
+  text-transform: uppercase;
+}
+div.prompt pre {
+  font-family: "Cascadia Mono", "Consolas", "Courier New", monospace;
+  font-size: 9.2pt;
+  line-height: 1.42;
+  color: #14201A;
+  margin: 0;
+  padding: 9pt 11pt;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ---------------- cajas de aviso ---------------- */
+div.callout, div.warn, div.ok {
+  margin: 10pt 0 12pt 0;
+  padding: 9pt 12pt;
+  border-left: 3.5pt solid #1D5FA8;
+  background: #EAF1FA;
+  mso-shading: #EAF1FA;
+  font-size: 10.4pt;
+  page-break-inside: avoid;
+}
+div.warn { border-left-color: #C62828; background: #FDECEC; mso-shading: #FDECEC; }
+div.ok   { border-left-color: #0B7A43; background: #E7F6EE; mso-shading: #E7F6EE; }
+div.callout p, div.warn p, div.ok p { margin: 0 0 5pt 0; }
+div.callout p:last-child, div.warn p:last-child, div.ok p:last-child { margin-bottom: 0; }
+div.ok ul, div.warn ul, div.callout ul { margin-bottom: 0; }
+
+/* ---------------- tablas ---------------- */
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 9pt 0 13pt 0;
+  font-size: 10.0pt;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+table.t th {
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+  padding: 6pt 8pt;
+  border: 0.5pt solid #0B7A43;
+  font-size: 9.4pt;
+}
+table.t td {
+  padding: 6pt 8pt;
+  border: 0.5pt solid #D5E3DB;
+  vertical-align: top;
+}
+table.t tr:nth-child(even) td { background: #F6FAF8; mso-shading: #F6FAF8; }
+
+span.kbd {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.4pt;
+  background: #EDF3F0;
+  mso-shading: #EDF3F0;
+  border: 0.5pt solid #C9DED3;
+  padding: 1pt 4pt;
+  color: #0B5B33;
+  font-weight: bold;
+}
+
+div.pagebreak {
+  page-break-before: always;
+  mso-special-character: line-break;
+  height: 0;
+  font-size: 1pt;
+}
+</style>
+</head>
+<body lang="ES-CO">
+<div class="Section1">
+<h1>C&oacute;mo hacer el M&oacute;dulo 1 s&uacute;per r&aacute;pido con Copilot</h1>
+<p class="sub">Diagnóstico estructurado de un problema real de tu proceso en Falabella usando Copilot Chat gratuito: preguntas de análisis, lluvia de ideas, árbol de problemas, 5 Por Qué, Ishikawa de las 6M, impacto estimado y evidencias verificables.</p>
+<div class="meta">Microsoft Copilot Chat &middot; Universidad Piloto de Colombia &middot; Falabella grupo 2 &nbsp;|&nbsp; M&oacute;dulo 1: Diagn&oacute;stico del problema &nbsp;|&nbsp; Peso 20% &nbsp;|&nbsp; PDF de 3 a 5 p&aacute;ginas &nbsp;|&nbsp; Individual o en pareja</div><div class="callout"><p><b>Sobre la numeraci&oacute;n:</b> este es el <b>M&oacute;dulo 1</b> del curso, la carpeta que lleva ese nombre en SharePoint y en Drive. La universidad numer&oacute; las actividades de forma despareja, as&iacute; que en el PDF aparece como &laquo;ACTIVIDAD 00 &mdash; Diagn&oacute;stico del problema&raquo;. Es la misma actividad; gu&iacute;ate por el n&uacute;mero de m&oacute;dulo.</p></div>
+
+<h2>1. Qué vas a entregar</h2>
+<p>Un diagnóstico corto de un problema real que veas todos los días en tu área: una demora, un reproceso, un error que se repite o una caída de productividad. No es un ensayo ni una opinión: lleva estructura, causas analizadas, impactos y evidencia. El problema que elijas hoy es el que vas a resolver en las siguientes actividades del curso, así que define la base de todo tu proyecto. Copilot Chat te ahorra redactar y ordenar; tú pones el criterio, la realidad del proceso y la verificación de cada dato.</p>
+<table class="t">
+<thead><tr><th>Aspecto</th><th>Requisito oficial</th></tr></thead>
+<tbody>
+<tr><td>Formato y extensión</td><td>PDF de 3 a 5 páginas, con estructura clara y conclusiones (escríbelo en Word y expórtalo)</td></tr>
+<tr><td>Peso</td><td>20% de la nota del módulo (la modalidad individual o en pareja la define el docente)</td></tr>
+<tr><td>Objetivo</td><td>Identificar y analizar un problema organizacional mediante el uso crítico de la IA, convirtiendo información inicial en un diagnóstico claro, verificable y útil</td></tr>
+<tr><td>Secciones</td><td>A. Contexto (organización, área, proceso, usuarios) / B. Estado actual (flujo, entradas, salidas, responsables) / C. Problema central (demoras, errores, reprocesos, baja productividad) / D. Causas e impactos (causas principales, consecuencias, evidencias) / E. Oportunidad IA (hipótesis de cómo Copilot apoyaría la mejora)</td></tr>
+<tr><td>Proceso analizado</td><td>Uno real y observable de tu organización, tu vida académica o tu vida personal</td></tr>
+<tr><td>Evidencias</td><td>Mínimo 3: datos, testimonios, tiempos, ejemplos, documentos o capturas</td></tr>
+<tr><td>Anexo obligatorio</td><td>Bitácora con los prompts usados y la explicación de cómo validaste o ajustaste las respuestas</td></tr>
+<tr><td>Criterios de evaluación</td><td>1. Claridad en la delimitación del problema. 2. Pertinencia del proceso seleccionado. 3. Calidad del análisis de causas e impactos. 4. Uso crítico y documentado de la IA</td></tr>
+</tbody>
+</table>
+
+<h2>2. Antes de empezar (3 minutos)</h2>
+<ol>
+<li>Abre <strong>https://copilot.microsoft.com</strong> e inicia sesión con tu <strong>cuenta corporativa @falabella.com.co</strong>, nunca con el correo personal.</li>
+<li>Verifica arriba a la derecha el <strong>indicador de protección de datos empresariales</strong> (el escudo con la palabra "Protegido"). Si no aparece, cierra sesión y vuelve a entrar con la cuenta corporativa antes de escribir nada.</li>
+<li>Ten a la mano el proceso: el Excel, el correo o el sistema que usas, y datos aproximados reales (casos por semana, minutos por caso).</li>
+<li>Abre un Word en blanco al lado y pega ahí cada respuesta apenas la obtengas. No dejes el trabajo dentro del chat.</li>
+<li>Abre también una página de <strong>OneNote</strong> o un componente de <strong>Loop</strong> para ir llenando la bitácora de prompts mientras trabajas. Si no los usas, sirve una tabla al final del mismo Word.</li>
+</ol>
+<div class="callout"><strong>Atajo:</strong> en Edge abre Copilot en la barra lateral con el ícono de arriba a la derecha y tendrás el chat y el documento en la misma pantalla.</div>
+<p class="time">Tiempo estimado: 3 minutos</p>
+
+<h2>3. Herramientas de la actividad y qué necesita licencia</h2>
+<p>Toda la ruta obligatoria de este tutorial se hace con herramientas gratuitas que ya tienes. Ningún paso obligatorio requiere Microsoft 365 Copilot, Copilot Studio ni Power Automate.</p>
+<table class="t">
+<thead><tr><th>Herramienta</th><th>Para qué la usas aquí</th><th>¿Requiere licencia de pago?</th></tr></thead>
+<tbody>
+<tr><td>Copilot Chat (web o barra lateral de Edge)</td><td>Preguntas de análisis, lluvia de ideas, árbol de problemas, 5 Por Qué, Ishikawa, redacción</td><td>No. Gratis con la cuenta corporativa</td></tr>
+<tr><td>Word</td><td>Armar el informe, SmartArt del árbol y del flujo, tabla de contenido, exportar a PDF</td><td>No, en su uso normal sin Copilot integrado</td></tr>
+<tr><td>Excel</td><td>Conteo de la semana y cálculo del impacto estimado con fórmulas propias</td><td>No, en su uso normal sin Copilot integrado</td></tr>
+<tr><td>Microsoft Forms</td><td>Encuesta corta de 3 preguntas a compañeros del área para conseguir testimonios como evidencia</td><td>No</td></tr>
+<tr><td>Loop u OneNote</td><td>Llevar la bitácora de prompts y las notas de validación mientras trabajas</td><td>No</td></tr>
+<tr><td>Copilot dentro de Word, Excel o PowerPoint</td><td>Redacción y resúmenes asistidos dentro del archivo</td><td>Sí. Es <strong>opcional</strong>: ver la sección "Si tienes licencia"</td></tr>
+<tr><td>Copilot Studio y Power Automate</td><td>Automatizaciones. No se usan en esta actividad</td><td>Sí. Quedan fuera del alcance de la Actividad 00</td></tr>
+</tbody>
+</table>
+
+<h2>4. Ruta rápida</h2>
+<table class="t">
+<thead><tr><th>Paso</th><th>Qué haces</th><th>Sección</th><th>Tiempo</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>Abrir Copilot y verificar el indicador "Protegido"</td><td>&ndash;</td><td>3 min</td></tr>
+<tr><td>1</td><td>Elegir y delimitar el proceso (contexto y usuarios)</td><td>A</td><td>5 min</td></tr>
+<tr><td>2</td><td>Levantar el flujo actual, entradas, salidas y responsables</td><td>B</td><td>7 min</td></tr>
+<tr><td>3</td><td>Problema central, lluvia de ideas y árbol de problemas</td><td>C</td><td>7 min</td></tr>
+<tr><td>4</td><td>Causa raíz con los 5 Por Qué</td><td>D</td><td>5 min</td></tr>
+<tr><td>5</td><td>Ishikawa de las 6M en tabla</td><td>D</td><td>6 min</td></tr>
+<tr><td>6</td><td>Cuantificar el impacto por rangos</td><td>D</td><td>5 min</td></tr>
+<tr><td>7</td><td>Conseguir y anonimizar las 3 evidencias</td><td>D</td><td>6 min</td></tr>
+<tr><td>8</td><td>Oportunidad con IA y conclusiones</td><td>E</td><td>4 min</td></tr>
+<tr><td>9</td><td>Armar el Word, SmartArt y exportar a PDF</td><td>Todo</td><td>12 min</td></tr>
+<tr><td colspan="3"><strong>Total</strong></td><td><strong>60 minutos</strong></td></tr>
+</tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<h2>5. Los pasos, uno por uno</h2>
+
+<div class="step"><span class="num">1</span><div class="stepbody">
+<h3>Elegir y delimitar el proceso (sección A: contexto)</h3>
+<p>El error número uno es elegir un tema gigante ("mejorar el servicio al cliente"): no cabe en 3 páginas y baja la nota en el criterio de delimitación. También se califica la pertinencia: elige un proceso que realmente puedas observar.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como consultor de mejora de procesos con 15 años de experiencia en retail.
+
+CONTEXTO: trabajo en Falabella Colombia, área de [TU ÁREA: servicio al cliente / CEDI / tienda / Falabella.com / cartera CMR / nómina / proveedores]. Cargo: [TU CARGO]. Quiero analizar [NOMBRE DEL PROCESO EN UNA LÍNEA]. Intervienen [CUÁNTAS PERSONAS INTERVIENEN] personas, los usuarios o beneficiarios del proceso son [QUIÉNES RECIBEN EL RESULTADO] y ocurre unas [CUÁNTAS VECES POR SEMANA] veces por semana.
+
+TAREA:
+1. Escribe el proceso delimitado en UNA frase, con inicio y fin: desde qué evento arranca hasta cuál termina.
+2. Redacta el párrafo de CONTEXTO para mi informe: organización, área, proceso y usuarios, en máximo 120 palabras.
+3. Dime qué queda DENTRO y qué queda FUERA del alcance, mínimo 4 puntos cada lista.
+4. Hazme 6 preguntas que yo deba responder para que el diagnóstico tenga sustento real.
+
+FORMATO: numerado y con viñetas, máximo 400 palabras.
+RESTRICCIONES: no inventes cifras, pídemelas. Sin nombres de personas ni clientes. Español de Colombia.</pre></div>
+<p><strong>Qué debes ver:</strong> una frase como "Desde que el cliente radica la solicitud de cambio en tienda hasta que recibe la confirmación por correo".</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Sigues siendo el consultor de mejora de procesos de la conversación anterior.
+
+CONTEXTO: la delimitación que me entregaste quedó demasiado amplia para un informe de 3 a 5 páginas. Mi área es [TU ÁREA EN FALABELLA], mi cargo es [TU CARGO], solo puedo observar el proceso durante [CUÁNTOS DÍAS] días hábiles y tengo acceso a [CORREOS, CHAT DE TEAMS, UN EXCEL, LA BANDEJA DE CASOS, EL SISTEMA DE TIENDA].
+
+TAREA:
+1. Reduce el alcance a UN solo subproceso que yo pueda observar completo en una semana de trabajo.
+2. Justifica en 3 líneas por qué ese subproceso es el más pertinente para un diagnóstico académico con evidencia real.
+3. Reescribe la delimitación final en máximo 30 palabras, nombrando el evento inicial y el evento final.
+4. Enumera 3 señales que me indicarían que el alcance sigue siendo demasiado grande.
+
+FORMATO: numerado, máximo 250 palabras, frases cortas listas para pegar en Word.
+RESTRICCIONES: no propongas soluciones todavía, solo delimita. No inventes datos de la empresa ni nombres de personas.</pre></div>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">2</span><div class="stepbody">
+<h3>Levantar el estado actual: flujo, entradas, salidas y responsables (sección B)</h3>
+<p>Describe cómo funciona el proceso HOY, no cómo debería. Escribe los pasos a mano, desordenados; Copilot los ordena.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Sigues siendo el consultor de procesos del mensaje anterior.
+
+CONTEXTO: el proceso delimitado es [PEGA TU FRASE DE DELIMITACIÓN]. Los pasos que observo hoy son: [ESCRÍBELOS TAL COMO OCURREN, AUNQUE DESORDENADOS, 5 A 10 LÍNEAS]. Herramientas: [OUTLOOK, EXCEL COMPARTIDO, TEAMS, WHATSAPP, SISTEMA DE TIENDA].
+
+TAREA:
+1. Tabla del flujo actual: N.º, Actividad, Responsable (por ROL, nunca por nombre), Herramienta, Tiempo aproximado, Punto de dolor.
+2. Lista de ENTRADAS y de SALIDAS del proceso, indicando quién entrega cada entrada y quién recibe cada salida.
+3. Los 3 puntos donde más se generan demoras, errores o reprocesos, con una justificación de una línea cada uno.
+
+FORMATO: la tabla y luego las listas, máximo 500 palabras.
+RESTRICCIONES: usa solo lo que te di y marca "(supuesto)" lo que infieras. Sin nombres de personas, clientes ni proveedores.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como auditor del levantamiento que acabas de hacer.
+
+CONTEXTO: voy a llevar esa tabla del flujo actual a un informe calificado, así que necesito separar lo que yo observé de lo que tú inferiste. Esta semana puedo confirmar información observando el proceso [CUÁNTOS DÍAS] días y preguntándole a [QUÉ ROL: mi líder, un analista, un asesor de tienda].
+
+TAREA:
+1. Marca fila por fila cuáles datos son HECHOS que yo te di y cuáles son SUPUESTOS tuyos.
+2. Para cada supuesto, escribe la pregunta exacta que debo hacer o el dato que debo contar para confirmarlo.
+3. Resume el flujo en máximo 7 pasos de 4 palabras o menos, para dibujarlo en Word con SmartArt de tipo Proceso.
+4. Señala si falta alguna entrada, salida o responsable que un proceso de este tipo suele tener.
+
+FORMATO: tabla de hechos y supuestos, lista de preguntas y lista de los 7 pasos. Máximo 350 palabras.
+RESTRICCIONES: no agregues actividades que yo no mencioné sin marcarlas como "(por verificar)". Sin nombres propios.</pre></div>
+<p class="time">Tiempo estimado: 7 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">3</span><div class="stepbody">
+<h3>Problema central, lluvia de ideas y árbol de problemas (sección C)</h3>
+<p>El problema central va en negativo, sin nombrar la solución y sin culpar a nadie. "Falta un sistema" no es un problema: es una solución disfrazada.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como experto en formulación de proyectos y árbol de problemas del marco lógico.
+
+CONTEXTO: proceso analizado: [PEGA TU DELIMITACIÓN]. Puntos de dolor: [PEGA LOS 3 DEL PASO ANTERIOR]. Área: [TU ÁREA EN FALABELLA]. Organización: retail colombiano con tiendas, comercio electrónico, marketplace y centro de distribución.
+
+TAREA:
+1. Redacta 3 versiones del PROBLEMA CENTRAL, cada una en una frase, en negativo, sin mencionar la solución y sin culpar a personas. Estilo: "El tiempo de respuesta a X supera Y días y genera Z".
+2. Recomiéndame la mejor para un informe de 3 páginas y explica por qué en 3 líneas.
+3. Con esa versión construye un ÁRBOL DE PROBLEMAS en tabla: CAUSAS RAÍZ (mínimo 5), PROBLEMA CENTRAL y EFECTOS (mínimo 5). Clasifica cada causa como estructural, de método o de herramienta.
+
+FORMATO: numerado y en tablas, máximo 500 palabras.
+RESTRICCIONES: sin datos personales ni cifras inventadas; si una causa es supuesto, escribe "(por verificar)".</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como facilitador de una lluvia de ideas estructurada sobre causas de un problema.
+
+CONTEXTO: mi problema central es [PÉGALO]. El árbol de problemas que construimos tiene estas causas: [PÉGALAS]. Trabajo en [TU ÁREA EN FALABELLA] y el proceso ocurre en [TIENDA / CEDI / OFICINA / CANAL DIGITAL].
+
+TAREA:
+1. Genera 12 causas posibles adicionales que no estén en mi lista, pensando en operaciones de retail colombiano y en temporadas altas como Cyber Days o Navidad.
+2. Descarta las que no sean verificables con evidencia sencilla y explica en una línea por qué las descartas.
+3. Ordena todas las causas, las mías y las nuevas, de mayor a menor impacto probable sobre el problema central.
+4. Dime cuáles 2 podría verificar esta semana con un conteo, una captura o un testimonio, y explica en 2 líneas cómo verificar cada una.
+
+FORMATO: lista de 12 causas, lista de descartes y tabla final priorizada. Máximo 500 palabras.
+RESTRICCIONES: nada de "falta de compromiso" o "mala actitud". No inventes cifras ni nombres. Español de Colombia.</pre></div>
+<p class="time">Tiempo estimado: 7 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">4</span><div class="stepbody">
+<h3>Causa raíz con los 5 Por Qué (sección D)</h3>
+<p>Preguntar "por qué" cinco veces seguidas hasta llegar al origen real, siempre sobre un caso concreto.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como facilitador de análisis de causa raíz con la técnica de los 5 Por Qué.
+
+CONTEXTO: mi problema central es [PÉGALO]. Un caso real reciente, ya anonimizado: [DESCRÍBELO SIN NOMBRES NI DATOS DE CLIENTES; EJEMPLO: "el Cliente A pidió cambio de talla de un producto comprado en el canal digital y la respuesta tardó 6 días hábiles"].
+
+TAREA:
+1. Desarrolla la cadena de los 5 Por Qué de ese caso: en cada nivel escribe la pregunta, la respuesta más probable y marca si es HECHO que yo te di o SUPUESTO tuyo.
+2. Cierra la cadena con la causa raíz y con una contramedida realista que NO dependa de comprar software.
+3. Repite el ejercicio con una segunda cadena que parta de otra hipótesis, porque una sola cadena lleva a conclusiones sesgadas.
+4. Compara las dos causas raíz y dime cuál explica mejor los puntos de dolor que ya identifiqué.
+
+FORMATO: dos cadenas numeradas del 1 al 5, cerradas con "Causa raíz / Contramedida", máximo 400 palabras.
+RESTRICCIONES: no culpes a personas ni cargos; enfócate en método, información y herramientas.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa ahora como revisor crítico de tu propio análisis de causa raíz.
+
+CONTEXTO: acabas de entregarme dos cadenas de 5 Por Qué sobre el problema [PÉGALO]. Yo sí conozco este dato que no te había dado: [UN DATO REAL QUE TÚ CONOZCAS: un tiempo medido, un porcentaje aproximado, una regla interna del proceso].
+
+TAREA:
+1. Señala en qué nivel exacto de cada cadena te faltó información y qué supusiste para poder continuar.
+2. Escríbeme 4 preguntas concretas que yo debería hacerle a un compañero del área para cerrar esos vacíos.
+3. Reescribe la causa raíz de cada cadena incorporando el dato real que acabo de darte.
+4. Indica cuál de las dos cadenas queda mejor sustentada y por qué, en 3 líneas.
+
+FORMATO: numerado, máximo 350 palabras, listo para pegar en la sección de causas de mi informe.
+RESTRICCIONES: distingue siempre hecho de supuesto. No culpes a personas ni cargos. No inventes cifras.</pre></div>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<div class="step"><span class="num">5</span><div class="stepbody">
+<h3>Ishikawa de las 6M, primero en tabla (sección D)</h3>
+<p>Copilot Chat gratuito no inserta gráficos dentro de tu Word: pídelo <strong>en tabla</strong> y luego dibújalo con SmartArt, que sí es gratis. Las 6M: Mano de obra, Método, Máquina, Material, Medición y Medio ambiente.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como especialista en calidad y mejora continua. Vas a construir un Ishikawa (espina de pescado) de las 6M.
+
+CONTEXTO: cabeza del pescado (problema central): [PÉGALO]. Proceso: [NOMBRE DEL PROCESO]. Área: [TU ÁREA EN FALABELLA]. Herramientas actuales: [EXCEL, OUTLOOK, TEAMS, SISTEMA DE TIENDA].
+
+TAREA:
+1. Entrégalo EN TABLA, no como dibujo, con las columnas: Categoría (6M), Causa específica, ¿Hecho o supuesto?, Evidencia que la comprobaría, Impacto (alto/medio/bajo).
+2. Incluye de 2 a 4 causas por categoría: Mano de obra (formación, rotación), Método (procedimiento, aprobaciones, reprocesos), Máquina (sistemas, equipos, conectividad), Material (información, formatos), Medición (indicadores, trazabilidad) y Medio ambiente (carga de trabajo, temporadas altas como Cyber Days o Navidad).
+3. Relaciona cada causa con el efecto que produce en los usuarios del proceso, en una línea.
+4. Cierra listando las 6 causas más críticas en orden, para usarlas como ramas del diagrama en Word.
+
+FORMATO: una tabla y la lista final numerada, máximo 550 palabras.
+RESTRICCIONES: causas concretas y verificables; prohibido "falta de compromiso" o "mala actitud". No inventes cifras.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Sigues siendo el especialista en calidad del mensaje anterior.
+
+CONTEXTO: la categoría [LA QUE QUEDÓ FLOJA: Mano de obra / Método / Máquina / Material / Medición / Medio ambiente] quedó con causas genéricas que no puedo demostrar. Mi área es [TU ÁREA EN FALABELLA], el proceso es [NOMBRE DEL PROCESO] y un día normal se ve así: [DESCRIBE EN 3 LÍNEAS CÓMO ES UN DÍA TÍPICO].
+
+TAREA:
+1. Reescribe SOLO esa categoría con 4 causas concretas de una operación de retail colombiana.
+2. Para cada causa, describe en una línea cómo se vería en la práctica un día normal en mi área.
+3. Para cada causa, propón la evidencia mínima que la comprobaría y cuánto tiempo me tomaría conseguirla.
+4. Marca cuáles de esas causas se conectan con la causa raíz que encontramos con los 5 Por Qué.
+
+FORMATO: tabla de 4 filas con las columnas Causa, Cómo se ve, Evidencia, Tiempo, Conexión con la causa raíz. Máximo 350 palabras.
+RESTRICCIONES: nada de juicios sobre las personas. Sin nombres ni datos de clientes. No inventes indicadores de la empresa.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">6</span><div class="stepbody">
+<h3>Cuantificar el impacto sin datos exactos (sección D)</h3>
+<p>No necesitas un reporte del sistema: necesitas dos rangos honestos, minutos por caso y casos por semana. Estimar y declarar el supuesto es más profesional que inventar una cifra exacta.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como analista de operaciones. Ayúdame a estimar el impacto de un problema aunque NO tenga datos exactos del sistema.
+
+CONTEXTO: mi problema central es [PÉGALO], el proceso es [NOMBRE DEL PROCESO] en [TU ÁREA EN FALABELLA] y no tengo acceso a reportes del sistema, solo a lo que pude medir y contar yo mismo esta semana.
+
+DATOS APROXIMADOS QUE MEDÍ:
+- Cada caso toma entre [MINUTOS MÍNIMO] y [MINUTOS MÁXIMO] minutos.
+- Ocurren entre [CASOS MÍNIMO] y [CASOS MÁXIMO] casos por semana.
+- Intervienen [CUÁNTAS PERSONAS INTERVIENEN] personas.
+- Hay reproceso en cerca del [PORCENTAJE APROXIMADO] % de los casos.
+
+TAREA:
+1. Calcula el impacto en horas por semana, mes y año, en escenario bajo y alto, mostrando la fórmula.
+2. Redacta 3 frases listas para pegar en mi informe, con rangos y la palabra "estimado", sin falsa precisión.
+3. Escribe un párrafo de "supuestos y limitaciones" en primera persona.
+4. Sugiere 2 indicadores sencillos que pueda medir la próxima semana.
+5. Describe 3 consecuencias no numéricas del problema para los usuarios del proceso.
+
+FORMATO: tabla de cálculo, frases numeradas y párrafos. Máximo 450 palabras.
+RESTRICCIONES: no conviertas horas en dinero ni uses salarios. No inventes datos de la empresa.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como revisor de cálculos que debe encontrar errores en la estimación anterior.
+
+CONTEXTO: voy a defender estas cifras en un informe calificado y sé que los modelos de lenguaje se equivocan multiplicando. Mis datos de entrada fueron: [MINUTOS MÍNIMO] a [MINUTOS MÁXIMO] minutos por caso, [CASOS MÍNIMO] a [CASOS MÁXIMO] casos por semana, [CUÁNTAS PERSONAS INTERVIENEN] personas y [PORCENTAJE APROXIMADO] % de reproceso.
+
+TAREA:
+1. Muestra el cálculo intermedio de cada casilla paso a paso, con la operación escrita, para que yo la repita con calculadora.
+2. Verifica la conversión de minutos a horas y de semanas a meses y año, diciendo qué factor usaste (por ejemplo 4,3 semanas por mes).
+3. Señala cualquier inconsistencia entre mi rango de minutos y mi rango de casos por semana ANTES de darme el resultado final.
+4. Entrégame la fórmula lista para escribirla en una celda de Excel y comprobarla yo mismo.
+
+FORMATO: lista numerada de operaciones y una tabla final corregida. Máximo 350 palabras.
+RESTRICCIONES: si un dato no alcanza para el cálculo, dilo y pídemelo en vez de suponerlo.</pre></div>
+<div class="callout"><strong>Ojo con la aritmética:</strong> la IA se equivoca multiplicando. Verifica un cálculo con la calculadora del celular o con una fórmula en Excel; un número mal hecho tumba la credibilidad del diagnóstico entero.</div>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">7</span><div class="stepbody">
+<h3>Las 3 evidencias mínimas (sección D)</h3>
+<p>Sin evidencias el trabajo se lee como opinión. Ideas fáciles en Falabella: captura de un correo o de un chat de Teams que se repite cada semana, conteo manual de una semana en Excel, testimonio de un compañero en 3 líneas, encuesta de 3 preguntas en Microsoft Forms, captura del reporte actual o tiempos cronometrados de 5 casos.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como asesor metodológico de un trabajo académico universitario.
+
+CONTEXTO: debo entregar un diagnóstico con MÍNIMO 3 evidencias que respalden el problema y sus causas. Mi problema central es [PÉGALO] y mis 3 causas más críticas son [PÉGALAS]. Trabajo en [TU ÁREA EN FALABELLA] y tengo acceso a [CORREOS, CHATS DE TEAMS, UN EXCEL, REPORTES, LA BANDEJA DE CASOS, MICROSOFT FORMS].
+
+TAREA:
+1. Propón 6 evidencias que pueda conseguir en menos de 3 días, sin permisos especiales.
+2. Para cada una indica: qué evidencia es y qué causa respalda; cómo la consigo en máximo 3 pasos; cómo la anonimizo; y el pie de figura sugerido.
+3. Incluye al menos una evidencia de tiempos medidos, una de testimonio (por ejemplo una encuesta corta en Microsoft Forms) y una documental.
+4. Cierra marcando cuáles 3 son las más fáciles y de mayor valor probatorio, y por qué.
+
+FORMATO: una tabla y la recomendación final, máximo 500 palabras.
+RESTRICCIONES: ninguna evidencia puede incluir nombres de clientes, cédulas, números de tarjeta CMR, correos ni datos de nómina.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Sigues siendo mi asesor metodológico y ahora vamos a redactar el texto que acompaña a las evidencias.
+
+CONTEXTO: las 3 evidencias que conseguí son: [EVIDENCIA 1: QUÉ ES Y QUÉ MUESTRA], [EVIDENCIA 2: QUÉ ES Y QUÉ MUESTRA], [EVIDENCIA 3: QUÉ ES Y QUÉ MUESTRA]. Las causas que quiero demostrar con ellas son [PEGA LAS CAUSAS]. Ya tapé los datos sensibles de las capturas.
+
+TAREA:
+1. Escribe el pie de figura exacto de cada evidencia, con el formato "Figura N. Descripción. Fuente: elaboración propia, [MES Y AÑO]".
+2. Escribe para cada evidencia una frase de 2 líneas que conecte lo que se ve con la causa que demuestra, lista para pegar debajo de la imagen en Word.
+3. Dime qué le falta a cada evidencia para ser convincente y cómo lo puedo corregir hoy mismo.
+4. Advierte si alguna evidencia podría contener datos personales que yo deba tapar antes de entregarla.
+
+FORMATO: numerado por evidencia, máximo 300 palabras.
+RESTRICCIONES: no describas contenido que yo no te haya dado. Sin nombres de personas, clientes ni proveedores.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos más las capturas</p>
+</div></div>
+
+<div class="step"><span class="num">8</span><div class="stepbody">
+<h3>Oportunidad de mejora con IA y conclusiones (sección E)</h3>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como consultor de adopción de inteligencia artificial especializado en Microsoft Copilot.
+
+CONTEXTO: problema central [PÉGALO]; causas raíz priorizadas [PEGA LAS 3]; proceso [NOMBRE] en [TU ÁREA EN FALABELLA]. Dato clave: la mayoría NO tiene licencia de Microsoft 365 Copilot dentro de Word o Excel; sí tenemos Copilot Chat web con cuenta corporativa.
+
+TAREA: redacta la sección "Oportunidad de mejora con IA":
+1. Tres hipótesis con esta estructura: "Si usamos Copilot Chat para [tarea concreta], entonces esperamos [resultado medible], porque ataca [causa raíz]".
+2. Para cada una separa qué se puede hacer HOY solo con Copilot Chat gratuito y qué requeriría licencia o automatización ("requiere licencia").
+3. Riesgos y límites del uso de IA aquí, mínimo 3, incluyendo protección de datos personales y verificación humana.
+4. Un cierre de 5 líneas con la conclusión del diagnóstico.
+
+FORMATO: numerado, frases cortas, listo para pegar en Word, máximo 450 palabras.
+RESTRICCIONES: no prometas porcentajes de mejora, usa "se estima" y rangos. No propongas subir datos de clientes a la IA.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Sigues siendo el consultor de adopción de IA. Vamos a aterrizar una de las hipótesis.
+
+CONTEXTO: quiero desarrollar la hipótesis número [1, 2 o 3] de tu respuesta anterior. El proceso es [NOMBRE DEL PROCESO] en [TU ÁREA EN FALABELLA], lo ejecuta el rol [QUÉ ROL LO HACE] y ocurre [CUÁNTAS VECES POR SEMANA] veces por semana. Solo cuento con Copilot Chat gratuito con cuenta corporativa.
+
+TAREA:
+1. Explica qué le pediría yo exactamente a Copilot Chat, con un ejemplo de instrucción de 3 líneas.
+2. Define con qué frecuencia se usaría y en qué momento del flujo actual entraría.
+3. Indica quién revisaría la salida antes de usarla y qué tendría que verificar esa persona.
+4. Propón cómo mediría si funcionó: un indicador, cómo se calcula y cada cuánto se mide.
+5. Menciona un riesgo de esta hipótesis y cómo lo mitigaría, incluido el manejo de datos personales.
+
+FORMATO: numerado, máximo 300 palabras, redactado en primera persona para pegarlo en la sección E.
+RESTRICCIONES: nada que requiera comprar licencias, Copilot Studio ni Power Automate. No prometas resultados exactos.</pre></div>
+<p class="time">Tiempo estimado: 4 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<h2>6. Cómo armar el archivo final sin licencia de Copilot</h2>
+<ol>
+<li><strong>Pegar bien:</strong> <span class="kbd">Ctrl + V</span> y en Opciones de pegado elige <strong>Combinar formato</strong>, o <strong>Mantener solo texto</strong> si llega con colores raros (<span class="kbd">Ctrl + Alt + V</span> abre Pegado especial). Las tablas llegan editables.</li>
+<li><strong>Estilos, no negrillas a mano:</strong> aplica <strong>Título 1</strong> a las secciones y <strong>Título 2</strong> a los subtítulos desde la pestaña <strong>Inicio &gt; Estilos</strong>; sin esto no funciona la tabla de contenido.</li>
+<li><strong>Ordenar las secciones:</strong> en <strong>Vista &gt; Esquema</strong> ves solo los títulos y puedes subirlos o bajarlos hasta dejar el orden A, B, C, D y E. Sal con <strong>Cerrar vista Esquema</strong>.</li>
+<li><strong>Tabla de contenido:</strong> <strong>Referencias &gt; Tabla de contenido &gt; Tabla automática 1</strong>; si cambias títulos, clic derecho sobre la tabla y <strong>Actualizar campos</strong>.</li>
+<li><strong>Árbol de problemas:</strong> <strong>Insertar &gt; SmartArt &gt; Jerarquía</strong>, arriba el problema central y abajo las causas; con <span class="kbd">Tab</span> bajas un nivel y con <span class="kbd">Shift + Tab</span> subes.</li>
+<li><strong>Ishikawa:</strong> Word no trae espina de pescado; usa <strong>Insertar &gt; SmartArt &gt; Proceso</strong> con 6 bloques, uno por cada M, y dentro sus causas. También vale la tabla de las 6M más el diagrama de las 6 ramas.</li>
+<li><strong>Flujo y evidencias:</strong> otro SmartArt de tipo Proceso con los 7 pasos, e <strong>Insertar &gt; Imágenes &gt; Este dispositivo</strong> para las capturas; tapa lo sensible con <strong>Insertar &gt; Formas &gt; Rectángulo</strong> y pon pie con clic derecho sobre la imagen &gt; <strong>Insertar título</strong>, o desde <strong>Referencias &gt; Insertar título</strong> (Figura 1, 2 y 3).</li>
+<li><strong>Presentación:</strong> <strong>Diseño &gt; Temas</strong> (uno sobrio) e <strong>Insertar &gt; Número de página</strong>; verifica que queden de 3 a 5 páginas con anexos.</li>
+<li><strong>Exportar:</strong> <strong>Archivo &gt; Exportar &gt; Crear documento PDF/XPS &gt; Publicar</strong>; abre el PDF, revisa que los SmartArt se vean completos y nómbralo <strong>Act00_Diagnostico_TuNombre.pdf</strong>.</li>
+</ol>
+<div class="callout"><strong>Si Copilot está saturado:</strong> puedes armar la versión visual del árbol en Microsoft Designer (designer.microsoft.com) e insertarla como imagen. No subas a ninguna herramienta externa datos de clientes, de compañeros ni información confidencial de la empresa. El contenido sale de tu análisis, no de una plantilla.</div>
+
+<h2>7. Si tienes licencia de Microsoft 365 Copilot (opcional)</h2>
+<p>Esta sección es <strong>totalmente opcional</strong> y solo aplica a quien tenga la licencia asignada. Sin ella, la ruta de las secciones anteriores entrega exactamente el mismo resultado y cumple los cuatro criterios de evaluación.</p>
+<ul>
+<li><strong>Word (requiere licencia):</strong> pestaña <strong>Inicio &gt; Copilot &gt; Redactar con Copilot</strong> para armar cada sección desde tus notas o tu Excel de conteo.</li>
+<li><strong>Excel (requiere licencia):</strong> pestaña <strong>Inicio &gt; Copilot</strong> para que resuma el conteo de la semana y proponga la fórmula del impacto estimado. Sin licencia haces lo mismo escribiendo la fórmula a mano.</li>
+<li><strong>PowerPoint (requiere licencia):</strong> si hay sustentación, <strong>Inicio &gt; Copilot &gt; Crear una presentación a partir de un archivo</strong> con tu Word terminado. Sin licencia, crea las diapositivas a mano y ajusta el formato en <strong>Diseño &gt; Tamaño de diapositiva</strong>.</li>
+<li>Copilot Studio y Power Automate <strong>no se usan</strong> en esta actividad; si los mencionas, hazlo solo como propuesta futura en la sección E.</li>
+<li>Con licencia o sin ella, la bitácora es obligatoria y verificar las cifras sigue siendo tu responsabilidad.</li>
+</ul>
+
+<div class="warn">
+<p><strong>Uso responsable de la IA y protección de datos: léelo antes de escribir tu primer prompt.</strong></p>
+<ul>
+<li><strong>Nunca pegues</strong> datos personales de clientes, cédulas, números de tarjeta CMR, correos, direcciones, teléfonos, datos de nómina, contratos, precios negociados con proveedores ni información confidencial de Falabella.</li>
+<li><strong>Anonimiza:</strong> escribe "Cliente A", "Proveedor 1", "Analista 2", "Tienda del norte"; usa rangos en vez de cifras exactas ("entre 40 y 60 casos por semana") y tapa los datos sensibles de las capturas antes de insertarlas.</li>
+<li><strong>Marco legal:</strong> en Colombia rige la <strong>Ley 1581 de 2012</strong> de protección de datos personales y su decreto reglamentario; compartir datos de clientes o compañeros sin autorización tiene consecuencias legales y disciplinarias, aunque sea "para una tarea". Si necesitas un testimonio, pide autorización y publícalo sin el nombre de la persona.</li>
+<li><strong>La IA se equivoca:</strong> inventa cifras, normas y nombres con total seguridad. Verifica cada dato antes de entregar; si Copilot cita una norma, confírmala o quítala.</li>
+<li><strong>Se califica el uso crítico y documentado:</strong> contar qué salió mal y cómo lo corregiste <strong>suma nota</strong>; entregar la primera respuesta sin tocar la baja.</li>
+</ul>
+</div>
+
+<h2>8. Errores que bajan la nota</h2>
+<ol>
+<li><strong>Tema demasiado amplio:</strong> "mejorar la experiencia del cliente" no es un proceso; delimita con inicio y fin.</li>
+<li><strong>Proceso no observable:</strong> si no puedes ver el proceso ni conseguir evidencia, pierdes el criterio de pertinencia; elige otro.</li>
+<li><strong>Confundir problema con solución:</strong> "no tenemos un sistema" esconde la solución; el problema es la demora o el reproceso.</li>
+<li><strong>Entregar la primera respuesta sin editar:</strong> se nota por el texto genérico, sin tu área ni tus cifras.</li>
+<li><strong>Menos de 3 evidencias o evidencias mudas:</strong> cada una necesita pie de figura y una frase que la conecte con su causa.</li>
+<li><strong>Inventar cifras exactas:</strong> "demora 47,3 minutos" sin medición es falso; usa rangos y declara el supuesto.</li>
+<li><strong>Causas genéricas en el Ishikawa</strong> como "falta de compromiso": no son verificables ni accionables.</li>
+<li><strong>Olvidar la bitácora:</strong> es anexo obligatorio y sin ella pierdes uno de los cuatro criterios.</li>
+<li><strong>Entregar en Word o pasarse de 5 páginas:</strong> exporta a PDF y cuenta las páginas antes de subir.</li>
+</ol>
+
+<div class="pagebreak"></div>
+
+<h2>9. Anexo obligatorio: bitácora de prompts</h2>
+<p>Es la última página del PDF y demuestra que dialogaste con la IA, detectaste errores y ajustaste las respuestas. Con 5 o 6 filas basta; llénala mientras trabajas, no al final. Puedes llevarla en OneNote o en Loop y pegarla al final en el Word.</p>
+<table class="t">
+<thead><tr><th>N.º</th><th>Objetivo</th><th>Prompt (resumen)</th><th>Qué respondió la IA</th><th>Qué ajusté</th><th>Cómo lo validé</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Delimitar el proceso</td><td>Rol de consultor, contexto de mi área, frase con inicio y fin</td><td>Alcance muy amplio</td><td>Pedí reducirlo a un subproceso observable</td><td>Lo contrasté con lo que veo en mi puesto</td></tr>
+<tr><td>2</td><td>Levantar el flujo actual</td><td>Tabla de actividades, responsables por rol, entradas y salidas</td><td>Agregó dos actividades que no existen</td><td>Le pedí marcar hechos y supuestos</td><td>Observé el proceso dos días y corregí la tabla</td></tr>
+<tr><td>3</td><td>Ishikawa 6M</td><td>Ishikawa en tabla con columna hecho o supuesto</td><td>Genérico en Mano de obra</td><td>Reescribí esa categoría con causas concretas</td><td>Lo confirmé con un compañero del área</td></tr>
+<tr><td>4</td><td>Estimar el impacto</td><td>Horas por semana, mes y año, escenario bajo y alto</td><td>Multiplicó mal el escenario alto</td><td>Rehíce el cálculo y corregí la cifra</td><td>Calculadora, fórmula en Excel y mi conteo de la semana</td></tr>
+<tr><td>5</td><td>Oportunidad con IA</td><td>Hipótesis de uso de Copilot Chat por cada causa raíz</td><td>Propuso una automatización con licencia</td><td>La marqué como opcional y dejé la alternativa gratuita</td><td>Verifiqué qué herramientas tengo realmente disponibles</td></tr>
+</tbody>
+</table>
+<p>Cierra con 4 o 5 líneas en primera persona: qué aportó la IA, qué corregiste, qué decidiste tú y qué no usarías de lo que te propuso.</p>
+
+<div class="ok">
+<p><strong>Checklist final antes de subir el archivo, mapeado contra los criterios oficiales</strong></p>
+<ul>
+<li>Es PDF, tiene de 3 a 5 páginas, tiene conclusiones y se llama Act00_Diagnostico_TuNombre.pdf. (Requisito de entrega)</li>
+<li>Están las 5 secciones: A. Contexto, B. Estado actual, C. Problema central, D. Causas e impactos y E. Oportunidad IA. (Criterio 1: claridad en la delimitación del problema)</li>
+<li>El problema central está redactado en negativo, con inicio y fin, sin culpar a personas y sin esconder la solución. (Criterio 1: claridad en la delimitación del problema)</li>
+<li>El proceso es real, observable, de mi organización, mi vida académica o personal, y expliqué por qué lo elegí. (Criterio 2: pertinencia del proceso seleccionado)</li>
+<li>La sección B describe el flujo actual con entradas, salidas y responsables por rol. (Criterio 2: pertinencia del proceso seleccionado)</li>
+<li>Incluyo árbol de problemas, 5 Por Qué e Ishikawa de las 6M, con al menos uno dibujado en SmartArt. (Criterio 3: calidad del análisis de causas e impactos)</li>
+<li>Los impactos están cuantificados en rangos, con el párrafo de supuestos y limitaciones, y verifiqué la aritmética. (Criterio 3: calidad del análisis de causas e impactos)</li>
+<li>Hay mínimo 3 evidencias numeradas, con pie de figura y una frase que conecta cada una con la causa que demuestra. (Criterio 3: calidad del análisis de causas e impactos)</li>
+<li>La sección E plantea hipótesis de cómo Copilot apoyaría la mejora y separa lo gratuito de lo que requiere licencia. (Criterio 3 y objetivo de la actividad)</li>
+<li>Está la bitácora con los prompts usados, lo que ajusté y cómo validé cada respuesta, más la reflexión en primera persona. (Criterio 4: uso crítico y documentado de la IA)</li>
+<li>Revisé y corregí al menos un error o dato inventado por la IA y lo dejé registrado. (Criterio 4: uso crítico y documentado de la IA)</li>
+<li>No quedó ningún dato personal ni nombre de cliente, ni en el texto ni en las capturas. (Ley 1581 de 2012)</li>
+<li>Leí el documento completo: no hay relleno ni párrafos que yo no pueda explicar.</li>
+</ul>
+</div>
+
+<h2>10. Dónde subir el archivo</h2>
+<p>Sube tu PDF a <strong>tu carpeta personal en SharePoint</strong>, dentro de la carpeta del <strong>Módulo 1</strong>, en la subcarpeta de la Actividad 00. Si el docente autorizó trabajo en pareja, cada uno lo sube en su carpeta e indica los dos nombres en la portada. Antes abre el <strong>index.html</strong> de esa carpeta: tiene un cargador de archivos para preparar y validar el entregable (formato, nombre y tamaño). Si marca algo, corrígelo y vuelve a cargarlo. Listo: actividad entregada.</p>
+<div class="callout" style="margin-top:20pt">
+<p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
+<p style="font-size:9.5pt">Sube tu entrega a tu carpeta personal en SharePoint, dentro de la carpeta de este m&oacute;dulo. En la p&aacute;gina <b>index.html</b> de esa misma carpeta tienes un cargador que revisa el archivo antes de que lo entregues.</p>
+</div>
+</div>
+</body>
+</html>
