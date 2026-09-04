@@ -2,6 +2,8 @@
 
 Universidad Piloto de Colombia · Falabella · **Grupo 2**
 
+**Sitio publicado:** https://eva2080ai.github.io/upc-falabella-copilot-grupo2/
+
 Portal web con la carpeta de cada estudiante, los cinco módulos del curso, el PDF oficial
 de cada actividad, un tutorial paso a paso para resolverla con Copilot **sin licencia de pago**,
 y un cargador que revisa el archivo antes de que se entregue.
