@@ -1,0 +1,653 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<title>Modulo 2 - Como hacerlo super rapido con Copilot</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+@page {
+  size: 21.59cm 27.94cm;
+  margin: 2.2cm 2.0cm 2.2cm 2.0cm;
+  mso-header-margin: 1.2cm;
+  mso-footer-margin: 1.2cm;
+  mso-paper-source: 0;
+}
+div.Section1 { page: Section1; }
+
+body {
+  font-family: "Aptos", "Calibri", "Segoe UI", sans-serif;
+  font-size: 11.0pt;
+  line-height: 1.42;
+  color: #1B2A22;
+  margin: 0;
+}
+
+/* ---------------- portada del tutorial ---------------- */
+h1 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 25.0pt;
+  line-height: 1.14;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 0 0 6pt 0;
+  letter-spacing: -0.3pt;
+  border-bottom: 3.0pt solid #0B7A43;
+  padding-bottom: 9pt;
+}
+p.sub {
+  font-size: 13.0pt;
+  color: #41544B;
+  margin: 0 0 10pt 0;
+  line-height: 1.34;
+}
+div.meta {
+  font-size: 8.8pt;
+  color: #FFFFFF;
+  background: #0B7A43;
+  padding: 7pt 11pt;
+  margin: 0 0 17pt 0;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  mso-shading: #0B7A43;
+}
+
+h2 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 15.5pt;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 21pt 0 7pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 1.0pt solid #C9DED3;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 12.0pt;
+  color: #14201A;
+  font-weight: bold;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 8pt 0; }
+ul, ol { margin: 0 0 10pt 0; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+strong, b { color: #0B5B33; }
+
+/* ---------------- pasos numerados ---------------- */
+div.step {
+  margin: 0 0 13pt 0;
+  padding: 11pt 13pt 8pt 13pt;
+  border: 0.75pt solid #DDE6E1;
+  border-left: 3.5pt solid #0B7A43;
+  background: #FBFDFC;
+  mso-shading: #FBFDFC;
+  page-break-inside: avoid;
+}
+div.step span.num {
+  font-family: "Aptos Display", "Calibri", sans-serif;
+  font-size: 15.0pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  padding: 2pt 9pt;
+  margin-right: 8pt;
+}
+div.stepbody { margin-top: 7pt; }
+p.time {
+  font-size: 9.0pt;
+  color: #0B7A43;
+  font-weight: bold;
+  font-style: italic;
+  margin: 6pt 0 0 0;
+}
+
+/* ---------------- prompts para copiar ---------------- */
+div.prompt {
+  margin: 9pt 0 11pt 0;
+  border: 0.75pt solid #B9CFC3;
+  background: #F2F8F5;
+  mso-shading: #F2F8F5;
+  padding: 0;
+  page-break-inside: avoid;
+}
+span.ptag {
+  display: block;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-size: 8.0pt;
+  font-weight: bold;
+  letter-spacing: 0.9pt;
+  padding: 4pt 10pt;
+  text-transform: uppercase;
+}
+div.prompt pre {
+  font-family: "Cascadia Mono", "Consolas", "Courier New", monospace;
+  font-size: 9.2pt;
+  line-height: 1.42;
+  color: #14201A;
+  margin: 0;
+  padding: 9pt 11pt;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ---------------- cajas de aviso ---------------- */
+div.callout, div.warn, div.ok {
+  margin: 10pt 0 12pt 0;
+  padding: 9pt 12pt;
+  border-left: 3.5pt solid #1D5FA8;
+  background: #EAF1FA;
+  mso-shading: #EAF1FA;
+  font-size: 10.4pt;
+  page-break-inside: avoid;
+}
+div.warn { border-left-color: #C62828; background: #FDECEC; mso-shading: #FDECEC; }
+div.ok   { border-left-color: #0B7A43; background: #E7F6EE; mso-shading: #E7F6EE; }
+div.callout p, div.warn p, div.ok p { margin: 0 0 5pt 0; }
+div.callout p:last-child, div.warn p:last-child, div.ok p:last-child { margin-bottom: 0; }
+div.ok ul, div.warn ul, div.callout ul { margin-bottom: 0; }
+
+/* ---------------- tablas ---------------- */
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 9pt 0 13pt 0;
+  font-size: 10.0pt;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+table.t th {
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+  padding: 6pt 8pt;
+  border: 0.5pt solid #0B7A43;
+  font-size: 9.4pt;
+}
+table.t td {
+  padding: 6pt 8pt;
+  border: 0.5pt solid #D5E3DB;
+  vertical-align: top;
+}
+table.t tr:nth-child(even) td { background: #F6FAF8; mso-shading: #F6FAF8; }
+
+span.kbd {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.4pt;
+  background: #EDF3F0;
+  mso-shading: #EDF3F0;
+  border: 0.5pt solid #C9DED3;
+  padding: 1pt 4pt;
+  color: #0B5B33;
+  font-weight: bold;
+}
+
+div.pagebreak {
+  page-break-before: always;
+  mso-special-character: line-break;
+  height: 0;
+  font-size: 1pt;
+}
+</style>
+</head>
+<body lang="ES-CO">
+<div class="Section1">
+<h1>C&oacute;mo hacer el M&oacute;dulo 2 s&uacute;per r&aacute;pido con Copilot</h1>
+<p class="sub">Una infografía visual de un proceso real de Falabella: diagnóstico, cuellos de botella y la solución con IA, lista para entregar hoy.</p>
+<div class="meta">Microsoft Copilot Chat &middot; Universidad Piloto de Colombia &middot; Falabella grupo 2 &nbsp;|&nbsp; M&oacute;dulo 2: Infograf&iacute;a de la soluci&oacute;n propuesta &nbsp;|&nbsp; Peso 25% &nbsp;|&nbsp; PDF o imagen PNG/JPG de alta resoluci&oacute;n, m&iacute;nimo 1920 px de ancho &nbsp;|&nbsp; Individual o en pareja</div><div class="callout"><p><b>Sobre la numeraci&oacute;n:</b> este es el <b>M&oacute;dulo 2</b> del curso, la carpeta que lleva ese nombre en SharePoint y en Drive. La universidad numer&oacute; las actividades de forma despareja, as&iacute; que en el PDF aparece como &laquo;ACTIVIDAD 01 &mdash; Infograf&iacute;a&raquo;. Es la misma actividad; gu&iacute;ate por el n&uacute;mero de m&oacute;dulo.</p></div>
+
+<h2>1. Qué vas a entregar</h2>
+<p>Una sola pieza gráfica vertical, tipo afiche, que cuenta la historia de un proceso organizacional real de tu área: cómo funciona hoy, dónde se traba, qué harías con IA y Copilot, y qué ganarías con ese cambio. No es un informe ni una presentación: es <strong>una imagen que se entiende en 30 segundos</strong>.</p>
+<p>No te califican por saber diseñar ni por la cantidad de texto, sino por la claridad del problema, la coherencia de la solución, la calidad del diseño visual y el uso apropiado de elementos gráficos. Todo lo obligatorio se puede hacer <strong>sin licencia de pago de Microsoft 365 Copilot</strong>, sin Copilot Studio y sin Power Automate.</p>
+
+<table class="t">
+<thead><tr><th>Aspecto</th><th>Requisito oficial</th></tr></thead>
+<tbody>
+<tr><td>Qué es</td><td>Infografía que representa un proceso organizacional a intervenir, sus puntos de mejora y la solución con IA/Copilot</td></tr>
+<tr><td>Objetivo</td><td>Demostrar análisis y síntesis visual de problemas organizacionales, identificando oportunidades de automatización con IA</td></tr>
+<tr><td>Formato</td><td>PDF o imagen PNG/JPG de alta resolución, mínimo 1920 px de ancho</td></tr>
+<tr><td>Extensión</td><td>1 pieza vertical (1 página). Si la partes en dos, entrégala en un solo PDF</td></tr>
+<tr><td>Bloques obligatorios</td><td>A Encabezado · B Diagnóstico · C Propuesta IA · D Beneficios · E Herramientas</td></tr>
+<tr><td>Elementos visuales</td><td>Mínimo 5 elementos visuales diferenciados (no 5 cajas iguales)</td></tr>
+<tr><td>Herramientas sugeridas</td><td>Copilot Chat, Copilot en PowerPoint (opcional, con licencia), Canva, Microsoft Designer (solo con cuenta personal)</td></tr>
+<tr><td>Modalidad</td><td>La define tu docente. Si autoriza parejas, los dos nombres van en el encabezado</td></tr>
+<tr><td>Peso</td><td>25% de la nota</td></tr>
+<tr><td>Anexo recomendado</td><td>Bitácora de prompts, como última página del PDF o archivo aparte. No está en la rúbrica oficial, pero respalda tu diagnóstico y tu propuesta; confirma con tu docente si la exige</td></tr>
+</tbody>
+</table>
+
+<h2>2. Cómo te califican: los cuatro criterios oficiales</h2>
+<p>La rúbrica de la actividad tiene cuatro criterios. Esta tabla te dice qué mira el docente en cada uno y en qué paso de este tutorial lo resuelves.</p>
+<table class="t">
+<thead><tr><th>Criterio oficial</th><th>Qué revisa el docente</th><th>Dónde lo resuelves</th></tr></thead>
+<tbody>
+<tr><td>Claridad en la identificación del problema</td><td>Se entiende cuál es el proceso, quiénes intervienen, dónde se traba y cuál es el problema principal, sin tener que preguntar</td><td>Pasos 1 y 2 (bloque B, Diagnóstico)</td></tr>
+<tr><td>Coherencia de la solución propuesta</td><td>Cada intervención con IA responde a un cuello de botella real, dice dónde se aplica, con qué herramienta y qué sigue haciendo la persona</td><td>Pasos 3 y 4 (bloques C y D)</td></tr>
+<tr><td>Calidad del diseño visual</td><td>Jerarquía, paleta limitada, tipografías legibles, espacio en blanco, resolución mínima de 1920 px</td><td>Pasos 5, 6 y sección 6</td></tr>
+<tr><td>Uso apropiado de elementos gráficos</td><td>Mínimo 5 elementos visuales <em>diferenciados</em> (no repetidos) y que aporten información, no decoración</td><td>Paso 6 (bloques A a E)</td></tr>
+</tbody>
+</table>
+
+<h2>3. Antes de empezar (3 minutos)</h2>
+<ol>
+<li>Abre <strong>https://copilot.microsoft.com</strong> e inicia sesión con tu cuenta corporativa <strong>@falabella.com.co</strong>. También sirve el ícono de Copilot en la barra lateral de <strong>Edge</strong>. Esta versión web con cuenta corporativa es gratuita: no necesitas licencia de pago.</li>
+<li>Verifica en la parte superior el indicador de <strong>datos protegidos</strong> (aparece como un escudo con la palabra «Protegido» o un aviso de que tus datos personales y empresariales están protegidos): significa que tus conversaciones no se usan para entrenar el modelo. Si no aparece, cierra sesión y vuelve a entrar con la cuenta corporativa.</li>
+<li>Anota en un papel el proceso que vas a analizar: nombre, cuántas personas intervienen, cuánto se demora y qué es lo que más molesta de él.</li>
+<li>Abre en otra pestaña tu herramienta de diseño: <strong>Canva</strong> gratis o <strong>PowerPoint</strong> de escritorio. Son las dos que funcionan con tu cuenta corporativa; Microsoft Designer solo sirve si tienes cuenta personal de Microsoft.</li>
+</ol>
+<div class="callout">Elige un proceso que sufras en carne propia: devoluciones en tienda, alistamiento de pedidos en el CEDI, respuesta a PQR de servicio al cliente, activación de tarjeta CMR, cargue de productos al marketplace de Falabella.com, cierre de inventario, filtro de hojas de vida en selección o conciliación de cartera con proveedores. Entre más real, más fácil de llenar y mejor califica.</div>
+
+<h2>4. Ruta rápida</h2>
+<table class="t">
+<thead><tr><th>Paso</th><th>Qué haces</th><th>Dónde</th><th>Tiempo</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Mapear el proceso: etapas, actores y tiempos</td><td>Copilot Chat</td><td>8 min</td></tr>
+<tr><td>2</td><td>Diagnóstico: problema principal y cuellos de botella</td><td>Copilot Chat</td><td>7 min</td></tr>
+<tr><td>3</td><td>Propuesta: dónde y cómo entra Copilot</td><td>Copilot Chat</td><td>7 min</td></tr>
+<tr><td>4</td><td>Beneficios estimados: antes vs. después</td><td>Copilot Chat</td><td>5 min</td></tr>
+<tr><td>5</td><td>Recortar el texto de cada bloque</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>6</td><td>Elementos visuales, paleta y jerarquía</td><td>Copilot Chat</td><td>4 min</td></tr>
+<tr><td>7</td><td>Armar la infografía</td><td>Canva / Designer / PowerPoint</td><td>15 min</td></tr>
+<tr><td>8</td><td>Exportar en 1920 px y verificar</td><td>Tu computador</td><td>4 min</td></tr>
+<tr><td>9</td><td>Bitácora de prompts y checklist</td><td>Word</td><td>5 min</td></tr>
+<tr><td colspan="3"><strong>Total</strong></td><td><strong>≈ 61 minutos</strong></td></tr>
+</tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<h2>5. Paso a paso</h2>
+
+<div class="step"><span class="num">1</span><div class="stepbody">
+<h3>Mapea el proceso con Copilot</h3>
+<p>No empieces por el diseño: si el contenido está claro, la infografía se arma sola. Copia este prompt y reemplaza los corchetes.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como consultor de mejora de procesos con experiencia en retail y comercio electrónico.
+
+CONTEXTO
+Trabajo en el área de [TU AREA EN FALABELLA] en Falabella Colombia y debo analizar el proceso [NOMBRE DEL PROCESO].
+Así funciona hoy, en mis palabras: [ESCRIBE 4 O 5 RENGLONES].
+Intervienen [CUANTAS PERSONAS INTERVIENEN] personas de estas áreas: [LISTA LAS AREAS].
+Se ejecuta [DIARIO / SEMANAL / MENSUAL] y se demora aproximadamente [TIEMPO TOTAL].
+Herramientas actuales: [EXCEL, CORREO, WHATSAPP, SAP, SISTEMA INTERNO].
+
+TAREA
+1. Divide el proceso en máximo 6 etapas consecutivas con nombres de 2 a 4 palabras.
+2. Para cada etapa indica actor responsable, tiempo estimado, herramienta usada y una dificultad frecuente.
+3. Señala en qué etapa se pierde más tiempo y por qué, en una sola frase.
+
+FORMATO DE SALIDA
+Tabla con columnas: Etapa | Actor | Tiempo | Herramienta | Dificultad. Debajo, una conclusión de máximo 3 renglones.
+
+RESTRICCIONES
+- Español de Colombia, lenguaje sencillo, sin tecnicismos de consultoría.
+- Sin datos personales ni cifras confidenciales; si falta un dato escribe "por confirmar".
+- Máximo 12 palabras por celda.</pre></div>
+<p><strong>Qué debes ver:</strong> una tabla de 5 o 6 filas con etapas concretas. Si te suenan genéricas («planeación», «ejecución», «seguimiento»), agrégale más detalle real de tu día a día y vuelve a enviarlo. Ahora refina, que es lo que separa un trabajo flojo de uno bueno:</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como auditor de procesos que revisa con ojo crítico el trabajo de otro consultor.
+
+CONTEXTO
+Vas a revisar la tabla de etapas del proceso [NOMBRE DEL PROCESO] que me acabas de entregar.
+Datos reales que agrego ahora: [ESCRIBE 3 DETALLES CONCRETOS DE TU OPERACION: sistemas, formatos, horarios, volúmenes aproximados].
+Esta tabla alimentará el bloque B (Diagnóstico) de una infografía académica que se lee en 30 segundos.
+
+TAREA
+1. Identifica las dos etapas más generales y divídelas en acciones concretas y observables (por ejemplo "descargar reporte", "validar contra el sistema", "enviar correo de aprobación").
+2. Reescribe la columna Dificultad para que cada fila sea un problema medible (reprocesos, esperas, errores de digitación, falta de trazabilidad) y no una opinión.
+3. Agrega una columna final "Impacto en el cliente o en la tienda" con máximo 8 palabras por fila.
+4. Marca con "(por confirmar)" cada dato que estés estimando.
+
+FORMATO DE SALIDA
+Solo la tabla corregida, con columnas: Etapa | Actor | Tiempo | Herramienta | Dificultad | Impacto. Debajo, dos renglones que expliquen qué cambiaste.
+
+RESTRICCIONES
+- Español de Colombia, máximo 12 palabras por celda y máximo 6 etapas en total.
+- Sin nombres de personas, clientes ni proveedores.
+- Describe el proceso, no juzgues a las áreas.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">2</span><div class="stepbody">
+<h3>Diagnóstico: problema principal y cuellos de botella</h3>
+<p>El primer criterio de evaluación es «claridad en la identificación del problema». Aquí lo resuelves.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como analista de procesos que prepara el diagnóstico de una infografía ejecutiva.
+
+CONTEXTO
+Sigue con el mismo proceso [NOMBRE DEL PROCESO] del área de [TU AREA EN FALABELLA] que analizamos arriba, con la tabla de etapas ya corregida.
+
+TAREA
+1. Redacta el PROBLEMA PRINCIPAL en una frase de máximo 20 palabras, con la estructura "Hoy [qué pasa], lo que genera [consecuencia concreta]".
+2. Identifica exactamente 3 cuellos de botella y clasifícalos con semáforo: ROJO detiene el proceso, AMARILLO lo demora, VERDE molesta pero no frena.
+3. Para cada uno escribe una causa raíz de máximo 10 palabras.
+4. Estima cuánto tiempo se pierde por semana en cada cuello de botella.
+
+FORMATO DE SALIDA
+Primero la frase del problema principal en negrilla. Luego una tabla: Cuello de botella | Semáforo | Causa raíz | Tiempo perdido por semana.
+
+RESTRICCIONES
+- Español de Colombia, tono profesional y directo.
+- Describe el proceso, nunca culpes a personas ni áreas.
+- Marca cada cifra estimada con "aprox." para que yo la valide.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor de titulares para piezas de comunicación interna.
+
+CONTEXTO
+Trabajamos sobre el diagnóstico del proceso [NOMBRE DEL PROCESO] en Falabella Colombia que acabas de entregar. El texto irá en el titular de una infografía vertical que se lee a un metro de distancia.
+
+TAREA
+1. Recorta la frase del problema principal a máximo 14 palabras sin perder la consecuencia.
+2. Entrega 3 versiones alternativas de esa frase, cada una con un énfasis distinto: tiempo perdido, reprocesos o errores, e impacto en el cliente.
+3. Para el cuello de botella clasificado en ROJO, agrega un ejemplo corto (máximo 25 palabras) de lo que pasa cuando falla.
+4. Propón un antetítulo de máximo 5 palabras para acompañar el titular.
+
+FORMATO DE SALIDA
+Lista numerada: titular recortado, las 3 alternativas, el ejemplo del cuello ROJO y el antetítulo. Cierra con un renglón que diga cuál alternativa recomiendas y por qué.
+
+RESTRICCIONES
+- Sin nombres de personas, clientes, proveedores ni tiendas específicas.
+- Sin signos de admiración ni lenguaje publicitario.
+- Español de Colombia.</pre></div>
+<p class="time">Tiempo estimado: 7 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">3</span><div class="stepbody">
+<h3>La propuesta con IA y Copilot</h3>
+<p>Segundo criterio: coherencia de la solución. No basta con decir «usaría Copilot»; hay que decir <em>en qué etapa</em>, <em>para qué</em> y <em>con qué herramienta</em>.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como especialista en adopción de Microsoft Copilot en empresas grandes de retail.
+
+CONTEXTO
+Mismo proceso de [NOMBRE DEL PROCESO] en Falabella Colombia, con los 3 cuellos de botella ya identificados. La mayoría de usuarios solo tiene Copilot Chat web gratuito con cuenta corporativa; muy pocos tienen la licencia de pago de Microsoft 365 Copilot dentro de Word, Excel, PowerPoint y Outlook.
+
+TAREA
+Propón exactamente 3 intervenciones con IA, una por cada cuello de botella. Para cada una define:
+- Etapa donde se aplica.
+- Qué hace la IA en concreto (redactar, resumir, clasificar, comparar, extraer datos, generar borradores).
+- Herramienta: Copilot Chat, Copilot en Edge, Microsoft Designer, o versión con licencia si de verdad se necesita.
+- Qué sigue haciendo la persona, porque la IA no decide sola.
+- Un indicador para medir si funcionó.
+
+FORMATO DE SALIDA
+Tabla: Etapa | Qué hace la IA | Herramienta | Rol de la persona | Indicador. Debajo, una frase de máximo 15 palabras que resuma la propuesta.
+
+RESTRICCIONES
+- Nada que exija comprar software nuevo, desarrollar integraciones ni usar Power Automate o Copilot Studio.
+- Marca "(requiere licencia)" solo donde de verdad aplique.
+- Sé realista: nada de "elimina el 100% de los errores".</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como líder de adopción digital que debe priorizar iniciativas con recursos limitados.
+
+CONTEXTO
+Trabajamos sobre las 3 intervenciones con IA que propusiste para el proceso [NOMBRE DEL PROCESO]. Mi equipo tiene [CUANTAS PERSONAS INTERVIENEN] personas y solo cuenta con Copilot Chat web gratuito y las aplicaciones de Microsoft 365 sin licencia de Copilot.
+
+TAREA
+1. Marca como "Quick win" la intervención que se puede implementar esta misma semana sin licencia y explica en máximo 12 palabras por qué.
+2. Para cada intervención escribe el prompt de ejemplo que usaría el empleado, de máximo 3 renglones, listo para copiar y con marcadores entre corchetes.
+3. Elimina toda promesa que no se pueda medir y reemplázala por una redacción prudente ("puede reducir", "se estima").
+4. Señala un riesgo de cada intervención y cómo se controla con revisión humana.
+
+FORMATO DE SALIDA
+Tabla: Intervención | Quick win (sí/no) | Prompt de ejemplo | Riesgo | Control humano. Debajo, una frase de máximo 15 palabras que resuma la propuesta completa.
+
+RESTRICCIONES
+- Nada que exija comprar licencias adicionales ni desarrollos a la medida.
+- Español de Colombia, lenguaje sencillo, sin tecnicismos.
+- Textos cortos, porque van dentro de una imagen.</pre></div>
+<p class="time">Tiempo estimado: 7 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">4</span><div class="stepbody">
+<h3>Beneficios: el antes y el después</h3>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como analista de productividad que construye el bloque de beneficios de una infografía.
+
+CONTEXTO
+Usa el diagnóstico y la propuesta anteriores del proceso [NOMBRE DEL PROCESO] en Falabella Colombia. El resultado va en el bloque D de una infografía vertical, donde el espacio es mínimo.
+
+TAREA
+1. Arma una comparación "Antes" vs. "Después" con 4 indicadores: tiempo total del proceso, reprocesos o errores, cantidad de correos o mensajes, y satisfacción del cliente interno.
+2. Expresa el "Después" como rangos estimados (por ejemplo "de 3 horas a 1 - 1,5 horas"), nunca como cifra exacta.
+3. Escribe 3 beneficios cualitativos de máximo 8 palabras cada uno.
+4. Propón 3 cifras grandes de impacto para destacar, cada una con etiqueta de máximo 6 palabras.
+
+FORMATO DE SALIDA
+Tabla Antes / Después, luego los beneficios cualitativos, luego las 3 cifras destacadas.
+
+RESTRICCIONES
+- Aclara con la frase "estimación propia, por validar" que las cifras son de referencia.
+- No inventes datos oficiales de Falabella ni cites fuentes que no existen.
+- Texto muy corto, porque va dentro de una imagen.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como analista financiero conservador que audita estimaciones de beneficios.
+
+CONTEXTO
+Revisas la tabla Antes / Después del proceso [NOMBRE DEL PROCESO] que acabas de entregar. La usaré en un trabajo académico y el docente puede preguntarme de dónde salió cada número.
+
+TAREA
+1. Baja cualquier mejora que supere el 40% y ajústala a un rango prudente.
+2. Explica en un renglón el supuesto detrás de cada número, para que yo pueda defenderlo.
+3. Señala cuál cifra es la más débil y qué dato real de [TU AREA EN FALABELLA] necesitaría para sostenerla.
+4. Redacta una nota al pie de máximo 12 palabras aclarando que son estimaciones propias sin validar.
+
+FORMATO DE SALIDA
+Tabla corregida con columnas: Indicador | Antes | Después (rango) | Supuesto. Luego la advertencia sobre la cifra más débil y, al final, la nota al pie.
+
+RESTRICCIONES
+- Ninguna cifra puede presentarse como dato oficial de Falabella.
+- Sin estudios, fuentes ni porcentajes de mercado inventados.
+- Español de Colombia, textos muy cortos.</pre></div>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">5</span><div class="stepbody">
+<h3>Recorta el texto a la medida exacta de cada bloque</h3>
+<p>El secreto de las infografías que se ven bien: <strong>máximo 60 palabras por bloque</strong>. Pídele a Copilot el texto ya recortado y no escribas nada más a mano.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como redactor publicitario especializado en piezas gráficas corporativas.
+
+CONTEXTO
+Vas a escribir el texto final de mi infografía vertical sobre el proceso [NOMBRE DEL PROCESO] en Falabella Colombia, usando el diagnóstico, la propuesta y los beneficios que ya trabajamos. El espacio es sagrado.
+
+TAREA
+Entrega el texto definitivo de estos 5 bloques respetando el límite de palabras al pie de la letra:
+A. ENCABEZADO: título de máximo 8 palabras, subtítulo de máximo 14 palabras y línea de autoría con [TU NOMBRE], [TU AREA EN FALABELLA] y "Falabella Colombia".
+B. DIAGNÓSTICO: máximo 60 palabras en total, incluyendo los nombres de las 6 etapas (máximo 4 palabras cada una) y la frase del problema principal.
+C. PROPUESTA IA: máximo 60 palabras, en 3 viñetas de máximo 18 palabras.
+D. BENEFICIOS: máximo 40 palabras, con las 3 cifras destacadas y su etiqueta.
+E. HERRAMIENTAS: máximo 6 nombres de herramientas, sin descripción.
+
+FORMATO DE SALIDA
+Un bloque por sección, con el nombre en mayúsculas y el conteo real de palabras entre paréntesis al final.
+
+RESTRICCIONES
+- Verbos en presente y viñetas sin punto final.
+- Prohibidas las palabras de relleno: sinergia, holístico, robusto, empoderar.
+- Si un bloque se pasa del límite, recórtalo tú antes de mostrármelo.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como corrector de estilo especializado en textos para piezas gráficas.
+
+CONTEXTO
+Revisas los textos de los bloques A a E de mi infografía sobre [NOMBRE DEL PROCESO]. Los límites son: título de 8 palabras, diagnóstico 60 palabras, propuesta 60 palabras, beneficios 40 palabras y máximo 6 herramientas.
+
+TAREA
+1. Cuenta otra vez las palabras de cada bloque y muéstrame el conteo real entre paréntesis.
+2. Recorta los bloques que se pasaron del límite, sin perder el problema, la solución ni la cifra principal.
+3. Dame 2 títulos alternativos de máximo 8 palabras que mencionen el proceso y el beneficio.
+4. Revisa ortografía, tildes, eñes y uso de mayúsculas, y lista aparte los errores que corregiste.
+
+FORMATO DE SALIDA
+Cada bloque con su nombre en mayúsculas, el texto final y el conteo entre paréntesis. Al final, los 2 títulos alternativos y la lista de correcciones.
+
+RESTRICCIONES
+- Sin signos de admiración ni palabras de relleno.
+- Verbos en presente y viñetas sin punto final.
+- Español de Colombia.</pre></div>
+<div class="callout">Guarda estos textos en un Word o en el Bloc de notas antes de irte a diseñar. Los vas a pegar uno por uno y no querrás volver al chat a buscarlos.</div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">6</span><div class="stepbody">
+<h3>Los 5 elementos visuales, la paleta y la jerarquía</h3>
+<p>«Diferenciados» significa que se ven distintos entre sí, no cinco recuadros con texto. Usa estos cinco, que siempre funcionan:</p>
+<ul>
+<li><strong>Línea de tiempo</strong> con las 6 etapas del proceso y flechas entre ellas.</li>
+<li><strong>Íconos por actor</strong>: uno distinto para asesor de tienda, analista, operario de CEDI y cliente.</li>
+<li><strong>Semáforo de cuellos de botella</strong>: círculos rojo, amarillo y verde sobre las etapas problemáticas.</li>
+<li><strong>Gráfico de barras antes/después</strong>: dos barras por indicador, la de «después» más corta y en verde.</li>
+<li><strong>Cinta de herramientas</strong> al pie: íconos de Copilot, Word, Excel, PowerPoint, Designer o Canva.</li>
+</ul>
+<table class="t">
+<thead><tr><th>Uso</th><th>Color</th><th>Código</th></tr></thead>
+<tbody>
+<tr><td>Encabezado y títulos</td><td>Azul profundo</td><td>#12355B</td></tr>
+<tr><td>Solución IA y beneficios</td><td>Verde</td><td>#00A46B</td></tr>
+<tr><td>Cuellos de botella medios</td><td>Ámbar</td><td>#F5A623</td></tr>
+<tr><td>Problema crítico (usar poco)</td><td>Rojo</td><td>#D64545</td></tr>
+<tr><td>Fondos de bloque</td><td>Gris claro</td><td>#F2F4F7</td></tr>
+<tr><td>Texto de cuerpo</td><td>Gris oscuro</td><td>#333333</td></tr>
+</tbody>
+</table>
+<p><strong>Tipografías:</strong> máximo dos. Títulos en Montserrat o Poppins SemiBold, cuerpo en Open Sans o Segoe UI. <strong>Jerarquía:</strong> un solo título grande (60 a 80 pt), subtítulos de bloque de 28 a 32 pt, cuerpo de 16 a 18 pt y nunca menos de 14 pt. Esos tamaños son para un lienzo de 1920 px de ancho, como el de Canva o Designer; si armas la pieza en PowerPoint con el lienzo de 50,8 cm de la Ruta B, duplícalos (título 140 pt, subtítulos 60 pt, cuerpo 34 pt y nunca menos de 28 pt), porque ese lienzo mide el doble. Si dudas entre agregar un texto o dejar espacio en blanco, deja el espacio.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como diseñador gráfico especializado en infografías corporativas.
+
+CONTEXTO
+Voy a armar una infografía vertical de 1920 px de ancho sobre el proceso [NOMBRE DEL PROCESO] en Falabella Colombia. Ya tengo los textos de los bloques A a E. Paleta: azul #12355B, verde #00A46B, ámbar #F5A623, rojo #D64545, gris #F2F4F7.
+
+TAREA
+1. Define el orden vertical de los bloques y qué porcentaje de la altura ocupa cada uno.
+2. Asigna a cada bloque uno de estos elementos: línea de tiempo, íconos de actores, semáforo, barras antes/después, cinta de herramientas.
+3. Indica qué color de la paleta va en cada bloque para que haya contraste y no se vea plano.
+4. Dame 5 descripciones de íconos sencillos, estilo plano, línea gruesa, monocromáticos.
+
+FORMATO DE SALIDA
+Tabla: Orden | Bloque | Elemento visual | Color de fondo | Nota de diseño en máximo 10 palabras.
+
+RESTRICCIONES
+- Máximo 2 tipografías y máximo 3 niveles de texto.
+- Sin degradados complicados, sombras fuertes ni fotos detrás del texto.
+- Debe leerse bien en un celular.</pre></div>
+<p>Para generar íconos o ilustraciones propias con Copilot Chat o Microsoft Designer:</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como director de arte que redacta instrucciones para un generador de imágenes.
+
+CONTEXTO
+Necesito ilustraciones e íconos para una infografía académica sobre el proceso [NOMBRE DEL PROCESO] en un contexto de retail. Paleta: azul #12355B, verde #00A46B, ámbar #F5A623 y gris #F2F4F7.
+
+TAREA
+1. Genera una ilustración en estilo plano (flat design), fondo blanco, línea gruesa y colores dentro de la paleta indicada, que represente [DESCRIBE LA ESCENA: por ejemplo "un operario de centro de distribución alistando cajas con una tableta en la mano"].
+2. Después propón 4 descripciones más, de máximo 20 palabras cada una, para los íconos de [ACTOR 1], [ACTOR 2], [HERRAMIENTA] y [BENEFICIO].
+
+FORMATO DE SALIDA
+Primero la imagen. Debajo, una lista numerada con las 4 descripciones adicionales, listas para volver a pedírtelas una por una.
+
+RESTRICCIONES
+- Formato cuadrado, aspecto corporativo y sobrio.
+- Sin texto dentro de la imagen, sin logotipos de ninguna marca y sin rostros reconocibles.
+- Sin fotografías realistas de personas ni de establecimientos existentes.</pre></div>
+<div class="warn">No uses el logo de Falabella, CMR ni Falabella.com de forma que parezca comunicación oficial de la empresa. Escribe en el encabezado «Ejercicio académico - Universidad Piloto de Colombia» y usa íconos genéricos. Tampoco tomes imágenes de internet sin licencia: usa las de Canva, Designer o las que genere Copilot.</div>
+<p class="time">Tiempo estimado: 4 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<h2>6. Cómo armar el archivo final sin licencia de Copilot</h2>
+<p>Elige <strong>una</strong> de las tres rutas. Las tres son gratuitas y ninguna exige licencia de pago de Copilot. Las rutas A y B funcionan con tu cuenta corporativa; la C solo si tienes cuenta personal de Microsoft. Cualquiera llega a los 1920 px, pero solo si configuras el lienzo como te indica cada una: ninguna te da esa resolución con el tamaño que trae por defecto.<strong>solo si configuras el lienzo</strong> como te indica cada ruta: ninguna te da esa resolución con el tamaño que trae por defecto.</p>
+
+<h3>Ruta A — Canva gratis (la más rápida)</h3>
+<ol>
+<li>En canva.com entra a <span class="kbd">Crear un diseño</span> &gt; <span class="kbd">Tamaño personalizado</span> y escribe <strong>1920 x 5400 px</strong>. Así aseguras la resolución desde el principio.</li>
+<li>En el buscador de plantillas escribe <strong>«infografía de proceso»</strong> y elige una gratuita, sin la corona de Pro.</li>
+<li>Pega tus textos con <span class="kbd">Ctrl + Shift + V</span> (pegar sin formato) para no dañar las tipografías de la plantilla.</li>
+<li>Cambia los colores: selecciona el elemento, haz clic en el cuadro de color y escribe el código, por ejemplo <strong>12355B</strong>.</li>
+<li>Busca íconos en <span class="kbd">Elementos</span> («flecha», «caja», «carrito») y filtra por gratis.</li>
+<li>Descarga en <span class="kbd">Compartir</span> &gt; <span class="kbd">Descargar</span> &gt; <strong>PNG</strong> o <strong>PDF estándar</strong>.</li>
+</ol>
+
+<h3>Ruta B — PowerPoint de escritorio</h3>
+<ol>
+<li><span class="kbd">Diseño</span> &gt; <span class="kbd">Tamaño de diapositiva</span> &gt; <span class="kbd">Personalizar tamaño de diapositiva</span>: ancho <strong>50,8 cm</strong> y alto <strong>127 cm</strong> (vertical de infografía). Cuando pregunte cómo ajustar el contenido, elige <span class="kbd">Maximizar</span>.</li>
+<li><strong>Por qué ese tamaño:</strong> PowerPoint exporta a PNG a 96 ppp, así que 50,8 cm dan exactamente <strong>1920 px</strong> de ancho; si usaras 25,4 cm solo obtendrías 960 px y no cumplirías el mínimo. Como el lienzo es del doble, sube también las letras: título 140 pt, subtítulos 60 pt, cuerpo 34 pt. Alternativa igual de válida: exportar a <strong>PDF</strong>, que nunca pierde calidad.</li>
+<li>Escribe primero los títulos de bloque y pega los textos con <span class="kbd">Ctrl + V</span>; si el formato se daña, abre el ícono de opciones de pegado y elige <span class="kbd">Mantener solo texto</span>.</li>
+<li>Abre <span class="kbd">Diseño</span> &gt; <span class="kbd">Diseñador</span> (antes «Ideas de diseño»): viene incluido en tu Microsoft 365 corporativo y <strong>no requiere licencia de Copilot</strong>. En lienzos muy largos casi no propone ideas, así que conviene diseñar por secciones y luego unirlas.</li>
+<li>Línea de tiempo y actores con <span class="kbd">Insertar</span> &gt; <span class="kbd">SmartArt</span> &gt; <strong>Proceso</strong>; barras antes/después con <span class="kbd">Insertar</span> &gt; <span class="kbd">Gráfico</span> &gt; <strong>Barra</strong>; íconos con <span class="kbd">Insertar</span> &gt; <span class="kbd">Iconos</span>.</li>
+<li>Exporta en <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Cambiar el tipo de archivo</span> &gt; <strong>PNG</strong>, o en <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Crear documento PDF/XPS</span>. Si eliges PNG, PowerPoint pregunta si exportas todas las diapositivas o solo esta.</li>
+</ol>
+
+<h3>Ruta C — Microsoft Designer (solo con cuenta personal)</h3>
+<div class="warn"><p><strong>Con tu cuenta @falabella.com.co esta ruta no te va a servir.</strong> designer.microsoft.com está pensado para cuentas personales de Microsoft y para uso no comercial; con la cuenta corporativa aparece deshabilitado, salvo que te hayan asignado la licencia de pago de Microsoft 365 Copilot. Si entras con la corporativa y te lo bloquea, no pierdas tiempo: usa la <strong>Ruta A</strong> (Canva) o la <strong>Ruta B</strong> (PowerPoint), que funcionan para todos y sí garantizan los 1920 px.</p></div>
+<p>Si de todas formas tienes una cuenta Microsoft personal y quieres usarlo: <strong>antes de diseñar, ajusta el lienzo.</strong> Selecciona la página, haz clic en <span class="kbd">Cambiar tamaño</span> (Resize), elige <span class="kbd">Tamaño personalizado</span> y escribe <strong>1920 px de ancho x 5400 px de alto</strong>. Las plantillas de Designer vienen en tamaños de redes sociales, alrededor de 1080 px de ancho, y no cumplen el mínimo. Luego busca una plantilla de <strong>infographic</strong> o describe tu pieza en el cuadro de texto, reemplaza los textos por los tuyos y descarga en <strong>PNG</strong> o <strong>PDF</strong>.</p>
+<div class="warn">En Designer no existe una descarga «en la máxima calidad» que suba la resolución: el archivo sale al tamaño del lienzo. Si no cambias el tamaño antes de diseñar, vas a entregar unos 1080 px de ancho y el archivo queda por debajo del mínimo obligatorio de 1920 px.</div>
+
+<h3>Verifica los 1920 px antes de entregar</h3>
+<p>Esta verificación aplica solo si entregas <strong>PNG o JPG</strong>. Windows: clic derecho sobre el archivo &gt; <span class="kbd">Propiedades</span> &gt; pestaña <span class="kbd">Detalles</span> &gt; revisa <strong>Ancho</strong> y <strong>Alto</strong>. Mac: clic derecho &gt; <span class="kbd">Obtener información</span> &gt; <strong>Más información</strong>. Si el ancho es menor a 1920 px, vuelve a exportar con el lienzo más grande.</p>
+<p>Si entregas <strong>PDF</strong> no busques Ancho y Alto en pestaña Detalles: ahí solo verás título, autor y número de páginas, porque un PDF no tiene píxeles. No te preocupes ni pienses que hiciste algo mal: el PDF es vectorial, no pierde calidad al ampliarlo y por eso cumple el requisito de resolución.</p>
+
+<h2>7. Si tienes licencia Copilot (opcional, no afecta tu nota)</h2>
+<p>Todo lo obligatorio de esta actividad se resuelve con Copilot Chat gratuito y las rutas A, B o C. Lo siguiente <strong>solo aplica si tu área te asignó la licencia de pago de Microsoft 365 Copilot</strong>. Si no la tienes, salta esta sección: no cambia tu nota ni te falta ningún entregable. Esta actividad <strong>no requiere Copilot Studio ni Power Automate</strong> en ningún momento.</p>
+<ul>
+<li><strong>PowerPoint (requiere licencia):</strong> <span class="kbd">Inicio</span> &gt; <span class="kbd">Copilot</span> &gt; «Crear una presentación a partir de un archivo», apuntando al Word con los textos de los bloques; luego reduces todo a una diapositiva vertical.</li>
+<li><strong>Word (requiere licencia):</strong> «Redactar con Copilot» para armar la bitácora y la justificación del proceso en un minuto.</li>
+<li><strong>Excel (requiere licencia):</strong> para calcular tiempos antes/después si tienes datos reales del proceso. Sin licencia consigues lo mismo pidiéndole el cálculo a Copilot Chat y escribiendo tú la fórmula en Excel.</li>
+</ul>
+
+<div class="warn"><strong>Datos sensibles y verificación.</strong> No pegues en Copilot ni en Canva datos personales de clientes o empleados: nombres completos, cédulas, direcciones, teléfonos, correos, números de tarjeta CMR, datos de nómina ni salarios; tampoco información confidencial de Falabella como márgenes, costos de proveedores o ventas no públicas. En Colombia rige la <strong>Ley 1581 de 2012</strong> de protección de datos personales (Habeas Data) y su cumplimiento es responsabilidad tuya. <strong>Anonimiza siempre</strong>: «Cliente A», «Proveedor 1», «Tienda del norte», «Asesor 2», y usa rangos en vez de cifras exactas («entre 200 y 300 pedidos diarios»). Antes de entregar, revisa que ni la infografía ni la bitácora contengan un solo dato identificable. Además, <strong>la IA se equivoca</strong>: inventa cifras, porcentajes y nombres de menús que no existen. Verifica cada dato, cada ruta de menú y cada número antes de entregar; los criterios de claridad del problema y coherencia de la solución se caen si tus datos no se sostienen.</div>
+
+<h2>8. Errores que bajan la nota</h2>
+<ul>
+<li><strong>Infografía con párrafos.</strong> Más de 60 palabras por bloque ya no es infografía: recorta con el prompt del paso 5.</li>
+<li><strong>Cinco cajas iguales.</strong> El criterio pide elementos <em>diferenciados</em>; cinco rectángulos son uno solo repetido.</li>
+<li><strong>Proceso genérico.</strong> «Proceso de ventas» sin etapas reales se nota a un kilómetro.</li>
+<li><strong>Solución vaga.</strong> «Usar IA para mejorar» no es propuesta: di en qué etapa, qué hace la IA y qué sigue haciendo la persona.</li>
+<li><strong>Cifras sin respaldo.</strong> «Reduce 90% los errores» sin supuesto es bandera roja: usa rangos y la nota «estimación propia».</li>
+<li><strong>Resolución menor a 1920 px</strong> o captura de pantalla borrosa. Si entregas PNG o JPG, verifica el ancho en <span class="kbd">Propiedades</span> &gt; <span class="kbd">Detalles</span>; si entregas PDF no aplica, porque no pierde calidad.</li>
+<li><strong>Texto ilegible:</strong> letra menor a 14 pt en un lienzo de 1920 px (o menor a 28 pt si trabajas en PowerPoint con el lienzo de 50,8 cm de la Ruta B), blanco sobre amarillo o texto encima de una foto.</li>
+<li><strong>Entregar sin documentar cómo usaste la IA.</strong> La bitácora no está en la rúbrica oficial, pero es la forma más fácil de demostrar que el diagnóstico y la propuesta son tuyos y no la primera respuesta del chat.</li>
+</ul>
+
+<h2>9. Anexo recomendado: bitácora de prompts</h2>
+<p>La bitácora demuestra que usaste la IA con criterio. Va como última página del PDF o en un Word aparte. En Word créala con <span class="kbd">Insertar</span> &gt; <span class="kbd">Tabla</span> (6 columnas), pega la infografía con <span class="kbd">Insertar</span> &gt; <span class="kbd">Imágenes</span> &gt; <span class="kbd">Este dispositivo</span> y entrega todo en un solo archivo desde <span class="kbd">Archivo</span> &gt; <span class="kbd">Exportar</span> &gt; <span class="kbd">Crear documento PDF/XPS</span>. Copia esta tabla y llénala mientras trabajas, no al final:</p>
+<table class="t">
+<thead><tr><th>N.º</th><th>Herramienta</th><th>Prompt usado (resumen)</th><th>Qué salió mal</th><th>Ajuste que hice</th><th>Qué usé al final</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Copilot Chat (datos protegidos)</td><td>Mapeo del proceso de devoluciones en tienda en 6 etapas con actores y tiempos</td><td>Etapas muy generales y tiempos inventados</td><td>Le di el detalle real de mi operación y pedí dividir 2 etapas</td><td>Tabla de 6 etapas con tiempos corregidos por mí</td></tr>
+<tr><td>2</td><td>Copilot Chat</td><td>Problema principal en 20 palabras y 3 cuellos de botella con semáforo</td><td>El problema no cabía en el titular</td><td>Pedí 3 versiones de máximo 14 palabras</td><td>La versión 2, ajustada a mano</td></tr>
+<tr><td>3</td><td>Copilot Chat</td><td>Beneficios antes/después con 3 cifras destacadas</td><td>Prometía 90% menos errores, poco creíble</td><td>Pedí cifras conservadoras con su supuesto</td><td>Rangos con la nota «estimación propia, por validar»</td></tr>
+<tr><td>4</td><td>Canva / Diseñador de PowerPoint</td><td>Plantilla de infografía de proceso 1920 x 5400 px</td><td>La plantilla traía colores ajenos a mi paleta</td><td>Reemplacé cada color con su código</td><td>Diseño final exportado en PNG</td></tr>
+</tbody>
+</table>
+
+<div class="ok"><strong>Checklist final antes de subir el archivo</strong>
+<ul>
+<li><strong>Criterio 1, claridad del problema:</strong> el problema principal se lee en una frase de máximo 14 palabras y está destacado visualmente.</li>
+<li><strong>Criterio 1, claridad del problema:</strong> el diagnóstico muestra las etapas, los actores y los 3 cuellos de botella con semáforo.</li>
+<li><strong>Criterio 2, coherencia de la solución:</strong> cada intervención de IA se conecta a un cuello de botella, y dice dónde se aplica, con qué herramienta y qué sigue haciendo la persona.</li>
+<li><strong>Criterio 2, coherencia de la solución:</strong> los beneficios se derivan de la propuesta, son estimaciones honestas y están marcados como propios.</li>
+<li><strong>Criterio 3, calidad del diseño visual:</strong> un solo título grande, máximo 3 niveles de texto, máximo 2 tipografías, paleta de 5 colores y suficiente espacio en blanco.</li>
+<li><strong>Criterio 3, calidad del diseño visual:</strong> ningún bloque pasa de 60 palabras y ningún texto baja de 14 pt (28 pt si armaste la pieza en PowerPoint con el lienzo de 50,8 cm).</li>
+<li><strong>Criterio 3, calidad del diseño visual:</strong> si entregas PNG o JPG, verificaste en <span class="kbd">Propiedades</span> &gt; <span class="kbd">Detalles</span> (Windows) u <span class="kbd">Obtener información</span> &gt; <span class="kbd">Más información</span> (Mac) que el ancho es de 1920 px o más. Si entregas PDF no aplica esa verificación: el PDF es vectorial y no pierde calidad al ampliarlo.</li>
+<li><strong>Criterio 4, uso apropiado de elementos gráficos:</strong> están los 5 elementos diferenciados (línea de tiempo, íconos de actores, semáforo, barras antes/después, cinta de herramientas).</li>
+<li><strong>Criterio 4, uso apropiado de elementos gráficos:</strong> cada elemento aporta información del proceso; ninguno es solo decoración.</li>
+<li><strong>Estructura:</strong> aparecen completos los bloques A Encabezado, B Diagnóstico, C Propuesta IA, D Beneficios y E Herramientas.</li>
+<li><strong>Encabezado:</strong> nombre del proceso, contexto «Falabella Colombia», autor o autores y la leyenda «Ejercicio académico».</li>
+<li><strong>Herramientas:</strong> el bloque E muestra con íconos las herramientas usadas o propuestas (Copilot, Designer, Canva, Word, Excel, PowerPoint).</li>
+<li><strong>Datos:</strong> cero datos personales, cero cifras confidenciales, todo anonimizado según la Ley 1581 de 2012.</li>
+<li><strong>Verificación:</strong> revisaste a mano las cifras, los nombres y las rutas de menú que dio la IA.</li>
+<li><strong>Anexo:</strong> bitácora de prompts con al menos 4 filas (recomendada).</li>
+<li><strong>Archivo:</strong> Apellido_Nombre_M2_Act01_Infografia.pdf</li>
+</ul></div>
+
+<h2>10. Dónde subir el archivo</h2>
+<p>Sube tu infografía a <strong>tu carpeta personal en SharePoint</strong>, dentro de la carpeta del <strong>Módulo 2</strong>. Allí encontrarás un archivo <strong>index.html</strong>: ábrelo, tiene un cargador que te permite preparar y validar el entregable (formato, tamaño y nombre) antes de subirlo. Si algo sale en rojo, corrígelo y vuelve a cargar. Listo: 25% de la nota resuelto en aproximadamente una hora.</p>
+<div class="callout" style="margin-top:20pt">
+<p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
+<p style="font-size:9.5pt">Sube tu entrega a tu carpeta personal en SharePoint, dentro de la carpeta de este m&oacute;dulo. En la p&aacute;gina <b>index.html</b> de esa misma carpeta tienes un cargador que revisa el archivo antes de que lo entregues.</p>
+</div>
+</div>
+</body>
+</html>

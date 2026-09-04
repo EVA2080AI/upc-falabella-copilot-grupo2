@@ -1,0 +1,729 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<title>Modulo 4 - Como hacerlo super rapido con Copilot</title>
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>100</w:Zoom>
+  <w:DoNotOptimizeForBrowser/>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+@page {
+  size: 21.59cm 27.94cm;
+  margin: 2.2cm 2.0cm 2.2cm 2.0cm;
+  mso-header-margin: 1.2cm;
+  mso-footer-margin: 1.2cm;
+  mso-paper-source: 0;
+}
+div.Section1 { page: Section1; }
+
+body {
+  font-family: "Aptos", "Calibri", "Segoe UI", sans-serif;
+  font-size: 11.0pt;
+  line-height: 1.42;
+  color: #1B2A22;
+  margin: 0;
+}
+
+/* ---------------- portada del tutorial ---------------- */
+h1 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 25.0pt;
+  line-height: 1.14;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 0 0 6pt 0;
+  letter-spacing: -0.3pt;
+  border-bottom: 3.0pt solid #0B7A43;
+  padding-bottom: 9pt;
+}
+p.sub {
+  font-size: 13.0pt;
+  color: #41544B;
+  margin: 0 0 10pt 0;
+  line-height: 1.34;
+}
+div.meta {
+  font-size: 8.8pt;
+  color: #FFFFFF;
+  background: #0B7A43;
+  padding: 7pt 11pt;
+  margin: 0 0 17pt 0;
+  letter-spacing: 0.5pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  mso-shading: #0B7A43;
+}
+
+h2 {
+  font-family: "Aptos Display", "Calibri Light", "Segoe UI Semibold", sans-serif;
+  font-size: 15.5pt;
+  color: #0B7A43;
+  font-weight: bold;
+  margin: 21pt 0 7pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 1.0pt solid #C9DED3;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 12.0pt;
+  color: #14201A;
+  font-weight: bold;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+p { margin: 0 0 8pt 0; }
+ul, ol { margin: 0 0 10pt 0; padding-left: 20pt; }
+li { margin-bottom: 4pt; }
+strong, b { color: #0B5B33; }
+
+/* ---------------- pasos numerados ---------------- */
+div.step {
+  margin: 0 0 13pt 0;
+  padding: 11pt 13pt 8pt 13pt;
+  border: 0.75pt solid #DDE6E1;
+  border-left: 3.5pt solid #0B7A43;
+  background: #FBFDFC;
+  mso-shading: #FBFDFC;
+  page-break-inside: avoid;
+}
+div.step span.num {
+  font-family: "Aptos Display", "Calibri", sans-serif;
+  font-size: 15.0pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  padding: 2pt 9pt;
+  margin-right: 8pt;
+}
+div.stepbody { margin-top: 7pt; }
+p.time {
+  font-size: 9.0pt;
+  color: #0B7A43;
+  font-weight: bold;
+  font-style: italic;
+  margin: 6pt 0 0 0;
+}
+
+/* ---------------- prompts para copiar ---------------- */
+div.prompt {
+  margin: 9pt 0 11pt 0;
+  border: 0.75pt solid #B9CFC3;
+  background: #F2F8F5;
+  mso-shading: #F2F8F5;
+  padding: 0;
+  page-break-inside: avoid;
+}
+span.ptag {
+  display: block;
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-size: 8.0pt;
+  font-weight: bold;
+  letter-spacing: 0.9pt;
+  padding: 4pt 10pt;
+  text-transform: uppercase;
+}
+div.prompt pre {
+  font-family: "Cascadia Mono", "Consolas", "Courier New", monospace;
+  font-size: 9.2pt;
+  line-height: 1.42;
+  color: #14201A;
+  margin: 0;
+  padding: 9pt 11pt;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* ---------------- cajas de aviso ---------------- */
+div.callout, div.warn, div.ok {
+  margin: 10pt 0 12pt 0;
+  padding: 9pt 12pt;
+  border-left: 3.5pt solid #1D5FA8;
+  background: #EAF1FA;
+  mso-shading: #EAF1FA;
+  font-size: 10.4pt;
+  page-break-inside: avoid;
+}
+div.warn { border-left-color: #C62828; background: #FDECEC; mso-shading: #FDECEC; }
+div.ok   { border-left-color: #0B7A43; background: #E7F6EE; mso-shading: #E7F6EE; }
+div.callout p, div.warn p, div.ok p { margin: 0 0 5pt 0; }
+div.callout p:last-child, div.warn p:last-child, div.ok p:last-child { margin-bottom: 0; }
+div.ok ul, div.warn ul, div.callout ul { margin-bottom: 0; }
+
+/* ---------------- tablas ---------------- */
+table.t {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 9pt 0 13pt 0;
+  font-size: 10.0pt;
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+table.t th {
+  background: #0B7A43;
+  mso-shading: #0B7A43;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+  padding: 6pt 8pt;
+  border: 0.5pt solid #0B7A43;
+  font-size: 9.4pt;
+}
+table.t td {
+  padding: 6pt 8pt;
+  border: 0.5pt solid #D5E3DB;
+  vertical-align: top;
+}
+table.t tr:nth-child(even) td { background: #F6FAF8; mso-shading: #F6FAF8; }
+
+span.kbd {
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 9.4pt;
+  background: #EDF3F0;
+  mso-shading: #EDF3F0;
+  border: 0.5pt solid #C9DED3;
+  padding: 1pt 4pt;
+  color: #0B5B33;
+  font-weight: bold;
+}
+
+div.pagebreak {
+  page-break-before: always;
+  mso-special-character: line-break;
+  height: 0;
+  font-size: 1pt;
+}
+</style>
+</head>
+<body lang="ES-CO">
+<div class="Section1">
+<h1>C&oacute;mo hacer el M&oacute;dulo 4 s&uacute;per r&aacute;pido con Copilot</h1>
+<p class="sub">Manual del sistema o asistente de IA: documenta el asistente que construiste, en lenguaje que entienda cualquier persona, usando Copilot Chat gratuito.</p>
+<div class="meta">Microsoft Copilot Chat &middot; Universidad Piloto de Colombia &middot; Falabella grupo 2 &nbsp;|&nbsp; M&oacute;dulo 4: Manual del sistema o asistente de IA &nbsp;|&nbsp; Peso 35% &nbsp;|&nbsp; Word (.docx) o PDF, m&iacute;nimo 8 p&aacute;ginas de contenido &nbsp;|&nbsp; Individual</div><div class="callout"><p><b>Sobre la numeraci&oacute;n:</b> este es el <b>M&oacute;dulo 4</b> del curso, la carpeta que lleva ese nombre en SharePoint y en Drive. La universidad numer&oacute; las actividades de forma despareja, as&iacute; que en el PDF aparece como &laquo;ACTIVIDAD 02 &mdash; Manual del sistema&raquo;. Es la misma actividad; gu&iacute;ate por el n&uacute;mero de m&oacute;dulo.</p></div>
+
+<h2>1. Qué vas a entregar</h2>
+<p>Un manual técnico-funcional de tu asistente de IA: qué problema resuelve, cómo está armado por dentro, cómo se usa paso a paso y qué <strong>no</strong> hace. El documento tiene que servirle por igual a una persona técnica y a un asesor de tienda que nunca ha usado inteligencia artificial. Debe incluir mínimo 3 capturas de pantalla o diagramas del asistente y la bitácora de los prompts que usaste. Es la actividad con mayor peso individual del curso, así que vale la pena hacerla completa.</p>
+<table class="t">
+<thead><tr><th>Aspecto</th><th>Requisito oficial</th></tr></thead>
+<tbody>
+<tr><td>Formato</td><td>Word (.docx) o PDF</td></tr>
+<tr><td>Extensión</td><td>El enunciado pide mínimo 8 páginas de contenido; el recuadro de formato dice mínimo 5</td></tr>
+<tr><td>Secciones mínimas</td><td>I Portada, II Objetivo, III Arquitectura, IV Guía de uso, V Limitaciones</td></tr>
+<tr><td>Evidencias</td><td>Mínimo 3 capturas de pantalla o diagramas + bitácora de prompts</td></tr>
+<tr><td>Modalidad</td><td>Individual</td></tr>
+<tr><td>Peso</td><td>35% de la nota del curso</td></tr>
+</tbody>
+</table>
+<div class="callout"><strong>Aclaración importante sobre las páginas.</strong> El enunciado se contradice: el texto pide mínimo 8 páginas y el bloque de formato dice mínimo 5. La recomendación segura es apuntar a <strong>8 páginas de contenido</strong> (sin contar portada ni anexos). Con las 5 secciones más las capturas y la bitácora, llegas a 8 páginas sin rellenar nada. Si te quedas en 5, arriesgas puntos en el criterio de completitud.</div>
+
+<h3>1.1 Qué debe contener cada sección obligatoria</h3>
+<p>Esta tabla es tu índice de trabajo: mientras avanzas, ve marcando qué sección ya quedó lista y con qué paso de esta guía la produces.</p>
+<table class="t">
+<thead><tr><th>Sección oficial</th><th>Qué debe contener como mínimo</th><th>Dónde la produces</th></tr></thead>
+<tbody>
+<tr><td>I. Portada</td><td>Título del documento, nombre del asistente, frase de propósito, autor (tu nombre completo), curso y módulo, ciudad y fecha de entrega</td><td>Paso 1</td></tr>
+<tr><td>II. Objetivo</td><td>Qué problema resuelve el asistente, a quién va dirigido, cómo se hace hoy ese proceso y qué beneficio se espera</td><td>Paso 1</td></tr>
+<tr><td>III. Arquitectura</td><td>Diagrama o descripción del flujo de funcionamiento: las cinco capas, la tabla por capa y el flujo en pasos numerados</td><td>Pasos 2 y 3</td></tr>
+<tr><td>IV. Guía de uso</td><td>Instrucciones numeradas con capturas o esquemas, mínimo dos ejemplos prácticos completos y una tabla de solución de problemas</td><td>Pasos 4 y 5</td></tr>
+<tr><td>V. Limitaciones</td><td>Qué no hace el sistema, riesgos de ignorarlo y próximos pasos sugeridos</td><td>Paso 6</td></tr>
+<tr><td>Anexo (exigido en la entrega)</td><td>Bitácora de prompts usados y ajustes realizados</td><td>Sección 8</td></tr>
+</tbody>
+</table>
+
+<h3>1.2 Los cuatro criterios con los que te van a calificar</h3>
+<table class="t">
+<thead><tr><th>Criterio de evaluación</th><th>Qué mira el evaluador</th><th>Cómo lo cumples en este tutorial</th></tr></thead>
+<tbody>
+<tr><td>Estructura y organización del documento</td><td>Que estén las cinco secciones, con títulos jerarquizados, tabla de contenido y páginas numeradas</td><td>Sección 5, pasos 1 a 3 de armado en Word</td></tr>
+<tr><td>Claridad en las instrucciones</td><td>Que la guía de uso se entienda sin ayuda: una acción por paso, sin jerga, con lo que se ve en pantalla</td><td>Paso 4</td></tr>
+<tr><td>Completitud de la información</td><td>Que no falte ninguna sección, que la extensión alcance y que las limitaciones estén desarrolladas</td><td>Pasos 1, 2, 6 y checklist final</td></tr>
+<tr><td>Ejemplos prácticos de uso incluidos</td><td>Que haya al menos dos casos reales con el texto que escribe el usuario y la respuesta esperada</td><td>Paso 4 y capturas del paso 5</td></tr>
+</tbody>
+</table>
+
+<h2>2. Antes de empezar (3 minutos)</h2>
+<ol>
+<li>Abre <strong>https://copilot.microsoft.com</strong> y, si tu organización ya migró el chat de trabajo, también sirve <strong>https://m365.cloud.microsoft/chat</strong>. Inicia sesión con tu cuenta corporativa <strong>@falabella.com.co</strong> (no con la personal).</li>
+<li>Verifica arriba a la derecha el <strong>escudo verde "Protegido"</strong>. Si aparece, tus conversaciones tienen protección de datos empresariales. Si no aparece, cierra sesión y vuelve a entrar con la cuenta corporativa.</li>
+<li>Ten a la mano el asistente que construiste en el <strong>Módulo 3</strong>: su nombre, el prompt de sistema o las instrucciones que le diste, y 2 o 3 conversaciones reales donde funcionó bien.</li>
+<li>Abre un Word en blanco y guárdalo ya como <span class="kbd">Modulo4_Act03_TuNombre.docx</span>. Vas a ir pegando ahí.</li>
+</ol>
+<div class="callout"><strong>Atajo:</strong> si Copilot Chat está saturado, puedes usar la barra lateral de Copilot en el navegador <strong>Edge</strong> (ícono arriba a la derecha) con la misma cuenta. Y para lo visual tienes gratis <strong>designer.microsoft.com</strong> y Canva gratuito.</div>
+
+<h3>2.1 Herramientas sugeridas y cuáles cuestan</h3>
+<p>La ficha de la actividad sugiere varias herramientas, pero <strong>ninguna de pago es obligatoria</strong>. Toda la ruta de este tutorial se puede completar sin la licencia de Microsoft 365 Copilot. Esta tabla te dice qué usar en cada caso.</p>
+<table class="t">
+<thead><tr><th>Herramienta sugerida</th><th>¿Requiere licencia de pago?</th><th>Qué haces si no la tienes</th></tr></thead>
+<tbody>
+<tr><td>Copilot Chat en el navegador (copilot.microsoft.com)</td><td>No. Es gratuito con la cuenta corporativa</td><td>Es la herramienta principal de esta actividad, la usas siempre</td></tr>
+<tr><td>Copilot dentro de Word (Redactar o Reescribir con Copilot)</td><td>Sí, requiere la licencia Microsoft 365 Copilot</td><td>Redactas en Copilot Chat y pegas el texto en Word a mano (sección 5)</td></tr>
+<tr><td>Copilot Studio o Power Automate</td><td>Sí, requieren licencia adicional</td><td>No los necesitas: esta actividad se documenta con Copilot Chat, no exige automatizar nada</td></tr>
+<tr><td>Microsoft Loop</td><td>Disponible con la cuenta corporativa, pero su uso aquí es opcional</td><td>Trabajas directo en tu archivo de Word; no afecta la calificación</td></tr>
+<tr><td>SharePoint para publicación</td><td>No, viene con la cuenta corporativa</td><td>Es la ruta de entrega del curso: subes ahí el archivo final y lo revisas con el cargador del index.html de la carpeta del módulo (sección 9)</td></tr>
+<tr><td>Diagramas (SmartArt de Word, designer.microsoft.com, Canva)</td><td>No</td><td>SmartArt ya viene incluido en Word de escritorio</td></tr>
+</tbody>
+</table>
+
+<h2>3. Ruta rápida</h2>
+<table class="t">
+<thead><tr><th>Paso</th><th>Qué haces</th><th>Dónde</th><th>Tiempo</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>Abrir Copilot con cuenta corporativa y reunir el material</td><td>Navegador</td><td>3 min</td></tr>
+<tr><td>1</td><td>Ficha de identidad: nombre, propósito y objetivo (secciones I y II)</td><td>Copilot Chat</td><td>5 min</td></tr>
+<tr><td>2</td><td>Arquitectura en 5 capas explicada sin ser ingeniero (sección III)</td><td>Copilot Chat</td><td>9 min</td></tr>
+<tr><td>3</td><td>Diagrama del flujo con SmartArt en Word</td><td>Word</td><td>5 min</td></tr>
+<tr><td>4</td><td>Guía de uso para usuarios no técnicos + solución de problemas (sección IV)</td><td>Copilot Chat</td><td>8 min</td></tr>
+<tr><td>5</td><td>Tomar las 3 capturas, tapar lo sensible sobre la imagen y pegarlas con su leyenda</td><td>Windows o Mac + Word</td><td>8 min</td></tr>
+<tr><td>6</td><td>Limitaciones y próximos pasos (sección V)</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>7</td><td>Auditar el borrador contra los criterios de evaluación</td><td>Copilot Chat</td><td>6 min</td></tr>
+<tr><td>8</td><td>Armar el documento, tabla de contenido, numeración y exportar a PDF (sección 5 de este tutorial)</td><td>Word</td><td>10 min</td></tr>
+<tr><td colspan="3"><strong>Total</strong></td><td><strong>60 minutos</strong></td></tr>
+</tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<h2>4. Los pasos, uno por uno</h2>
+
+<div class="step"><span class="num">1</span><div class="stepbody">
+<h3>Ficha de identidad: nombre y objetivo del asistente</h3>
+<p>Aquí sale la portada (sección I) y la sección II completa. Copia el prompt, reemplaza lo que está entre corchetes y pégalo en Copilot Chat.</p>
+<p><strong>La portada debe llevar, sin falta:</strong> título del documento, nombre del asistente, frase de propósito, tu nombre completo, el nombre del curso y del módulo, la ciudad y la fecha de entrega.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como consultor de documentación técnica con experiencia escribiendo manuales de sistemas de IA para empresas de retail.
+
+CONTEXTO
+Trabajo en [TU ÁREA EN FALABELLA] de Falabella Colombia. En el módulo anterior construí un asistente de IA llamado [NOMBRE PROVISIONAL DEL ASISTENTE] que ayuda a [PROBLEMA QUE RESUELVE, por ejemplo: responder dudas de los asesores de tienda sobre la política de cambios y devoluciones]. Sus usuarios serán [QUIÉN LO USARÁ: asesores de tienda, analistas de CEDI, ejecutivos de CMR, analistas de cartera, etc.], que tienen nivel técnico bajo y nunca han usado IA generativa. Hoy ese proceso se hace [CÓMO SE HACE HOY, por ejemplo: preguntándole al jefe de tienda o buscando en un PDF de 60 páginas] y demora aproximadamente [CUÁNTO DEMORA].
+
+TAREA
+Construye la ficha de identidad del asistente para la portada y la sección de objetivo de un manual técnico-funcional.
+
+FORMATO DE SALIDA
+1. Tres opciones de nombre corto para el asistente, máximo 3 palabras cada una, con una línea de justificación.
+2. Una frase de propósito de máximo 25 palabras, para la portada.
+3. Un bloque de portada con estos campos, uno por línea: título del documento, nombre del asistente, frase de propósito, autor [TU NOMBRE COMPLETO], curso Microsoft Copilot Chat, Módulo 4 Actividad 03, ciudad [TU CIUDAD] y fecha [FECHA DE ENTREGA].
+4. Un párrafo de 120 palabras que explique qué problema resuelve, en lenguaje sencillo.
+5. Una tabla con estas columnas: usuario objetivo | necesidad que tiene | cómo se la resuelve el asistente | beneficio esperado.
+6. Tres indicadores para medir si el asistente sirve.
+
+RESTRICCIONES
+- Español de Colombia, tono profesional y cercano, tratando de usted al lector.
+- Nada de tecnicismos sin explicar; si usas uno, defínelo entre paréntesis.
+- No inventes cifras de Falabella: si necesitas un dato, escríbelo como [DATO POR CONFIRMAR].
+- No uses viñetas de más de dos líneas.</pre></div>
+<p><strong>Qué vas a ver en pantalla:</strong> Copilot responde con los seis bloques numerados. Elige un nombre, no dejes las tres opciones en el documento.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor de documentación técnica especializado en manuales de sistemas de IA para retail.
+
+CONTEXTO
+Seguimos en la misma conversación. Ya me entregaste las opciones de nombre, la frase de propósito, el bloque de portada, el párrafo del problema, la tabla de usuarios y los indicadores del asistente que documento para el área de [TU ÁREA] de Falabella Colombia. Me quedo con el nombre [NOMBRE ELEGIDO]. El dolor real de mi proceso hoy es: [ESCRIBE EN TUS PALABRAS QUÉ ES LO QUE MÁS MOLESTA: reprocesos, demoras, respuestas distintas según a quién se le pregunte, errores que llegan al cliente].
+
+TAREA
+Refina y consolida el texto anterior, y devuélvemelo completo en un solo bloque listo para pegar.
+
+FORMATO DE SALIDA
+1. Todo el texto reescrito usando únicamente el nombre [NOMBRE ELEGIDO].
+2. El párrafo del problema reescrito en máximo 130 palabras, mencionando de forma concreta el contexto de [TU ÁREA] en Falabella Colombia y el dolor real que te describí.
+3. Una sección titulada "Alcance" con dos listas: "Sí hace" (5 puntos) y "No hace" (5 puntos), de una línea cada punto.
+4. La lista de las 8 palabras clave que debería resaltar en negrilla en el documento final.
+
+RESTRICCIONES
+- Español de Colombia, sin emojis y sin símbolos de markdown como asteriscos o numerales.
+- No inventes cifras de Falabella: deja [DATO POR CONFIRMAR] donde haga falta un dato.
+- Listo para pegar en Word, sin comentarios tuyos al final.</pre></div>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">2</span><div class="stepbody">
+<h3>Arquitectura sin ser ingeniero: las 5 capas</h3>
+<p>Aquí es donde la gente se bloquea. No necesitas saber programar: la arquitectura de tu asistente se describe en 5 capas simples.</p>
+<ul>
+<li><strong>Capa de entrada:</strong> qué le escribe o le pide el usuario.</li>
+<li><strong>Capa de conocimiento:</strong> qué información tiene cargada (documentos, políticas, ejemplos).</li>
+<li><strong>Capa de razonamiento:</strong> las instrucciones o prompt de sistema que le diste, o sea sus reglas.</li>
+<li><strong>Capa de salida:</strong> en qué formato responde (tabla, correo, lista, resumen).</li>
+<li><strong>Capa de control:</strong> qué hace cuando no sabe, cuando el dato es sensible o cuando debe escalar a un humano.</li>
+</ul>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como arquitecto de soluciones que explica sistemas de IA a personas sin formación técnica.
+
+CONTEXTO
+Estoy documentando el asistente [NOMBRE DEL ASISTENTE], creado en Microsoft Copilot Chat para el área de [TU ÁREA] de Falabella Colombia. Estas son sus instrucciones o prompt de sistema tal como se las di: "[PEGA AQUÍ TU PROMPT DE SISTEMA O LAS INSTRUCCIONES QUE LE DISTE]". La información que le cargué o que le pego cuando lo uso es: [DESCRIBE LAS FUENTES: manual de la política de cambios, plantilla de correo, listado de códigos internos, etc.]. Responde en formato [FORMATO DE RESPUESTA HABITUAL: tabla, correo listo para enviar, resumen de 5 viñetas].
+
+TAREA
+Redacta la sección "III. Arquitectura y funcionamiento" del manual, organizada en cinco capas: entrada, conocimiento, razonamiento, salida y control.
+
+FORMATO DE SALIDA
+1. Un párrafo introductorio de 80 palabras que explique, con una analogía cotidiana, cómo funciona el asistente.
+2. Una tabla con columnas: Capa | Qué contiene en mi asistente | Ejemplo concreto.
+3. La descripción del flujo en 6 pasos numerados, redactada como una secuencia: el usuario hace algo, el asistente hace algo, y así.
+4. Una lista de 5 rótulos cortos, de máximo 4 palabras cada uno, para usarlos como texto de un diagrama SmartArt de proceso.
+
+RESTRICCIONES
+- Prohibido usar palabras como "modelo de lenguaje", "token", "embedding" o "API" sin una definición de una línea entre paréntesis.
+- Cada celda de la tabla, máximo 2 líneas.
+- No afirmes que el asistente se conecta a sistemas internos de Falabella: no lo hace.
+- Español de Colombia, sin emojis y sin markdown.</pre></div>
+<p><strong>Qué vas a ver en pantalla:</strong> la tabla de 5 capas y los 5 rótulos cortos al final. Esos rótulos son el insumo del diagrama del paso 3.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como arquitecto de soluciones y editor que revisa la sección de arquitectura de un manual dirigido a personas sin formación técnica.
+
+CONTEXTO
+Continuamos con el asistente [NOMBRE DEL ASISTENTE], del área de [TU ÁREA] de Falabella Colombia. Ya redactaste la sección "III. Arquitectura y funcionamiento" con las cinco capas, el flujo de seis pasos y los rótulos del diagrama. El lector típico de este manual es [PERFIL DEL LECTOR, por ejemplo: asesor de tienda sin formación técnica y jefe de área que sí es técnico]. La analogía que usaste no me convence.
+
+TAREA
+Refina la sección de arquitectura y devuélvemela completa, no solo los cambios.
+
+FORMATO DE SALIDA
+1. Tres analogías alternativas tomadas del día a día de una tienda Falabella o de un CEDI, y luego la sección reescrita dejando solo la mejor.
+2. La capa de control ampliada, diciendo de forma explícita qué hace el asistente cuando le piden algo con datos personales de un cliente y cuando le preguntan algo fuera de su alcance.
+3. El flujo de 6 pasos convertido en un texto corrido de máximo 90 palabras, para poner debajo del diagrama como explicación.
+4. Una lista final con las afirmaciones que yo no podría demostrar con una captura de pantalla, cada una marcada con [VERIFICAR].
+
+RESTRICCIONES
+- Español de Colombia, sin emojis y sin markdown.
+- No afirmes que el asistente se conecta a sistemas internos de Falabella.
+- Ningún tecnicismo sin definición de una línea entre paréntesis.</pre></div>
+<p class="time">Tiempo estimado: 9 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">3</span><div class="stepbody">
+<h3>El diagrama en SmartArt (gratis, sin licencia de Copilot)</h3>
+<p>Con los 5 rótulos que te dio Copilot, arma el diagrama directamente en Word:</p>
+<ol>
+<li>En Word ve a la pestaña <span class="kbd">Insertar</span> &rarr; grupo Ilustraciones &rarr; <span class="kbd">SmartArt</span>.</li>
+<li>Elige la categoría <strong>Proceso</strong> y la opción <strong>Proceso básico</strong> o <strong>Proceso de flexión</strong>.</li>
+<li>Se abre el panel de texto a la izquierda del gráfico. Escribe ahí tus 5 rótulos, uno por línea: Entrada, Conocimiento, Razonamiento, Salida, Control. Si te faltan cajas, presiona <span class="kbd">Enter</span> al final de la última línea. Si no ves el panel, usa <span class="kbd">Diseño de SmartArt</span> &rarr; <span class="kbd">Panel de texto</span>.</li>
+<li>Con el diagrama seleccionado, entra a <span class="kbd">Diseño de SmartArt</span> &rarr; <span class="kbd">Cambiar colores</span> y elige una paleta sobria.</li>
+<li>Con el diagrama seleccionado ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Insertar título</span> (también aparece con clic derecho sobre el gráfico). En el desplegable <span class="kbd">Rótulo</span> verás solo <strong>Ecuación</strong>, <strong>Ilustración</strong> y <strong>Tabla</strong>: la primera vez haz clic en <span class="kbd">Nuevo rótulo...</span>, escribe <strong>Figura</strong> y acepta. De ahí en adelante &laquo;Figura&raquo; queda en la lista y Word numera solo. Deja la posición en <strong>Debajo del elemento seleccionado</strong> y completa la leyenda: <strong>Figura 1. Arquitectura funcional del asistente [NOMBRE]</strong>.</li>
+<li>Debajo pega el texto de 90 palabras que te dio el prompt de refinamiento. Ese párrafo es el que hace que el diagrama sume puntos y no sea decoración.</li>
+</ol>
+<div class="callout"><strong>Si trabajas en Mac:</strong> Word para Mac de escritorio también tiene SmartArt. Ve a <span class="kbd">Insertar</span> &rarr; grupo Ilustraciones &rarr; <span class="kbd">SmartArt</span>, igual que en Windows, elige <strong>Proceso</strong> &rarr; <strong>Proceso básico</strong> y escribe los rótulos en el panel de texto; los colores los cambias en <span class="kbd">Diseño de SmartArt</span>. Si el botón SmartArt te aparece en gris, casi siempre es porque el archivo está guardado en el formato antiguo .doc: ve a <span class="kbd">Archivo</span> &rarr; <span class="kbd">Guardar como</span> y guárdalo como <strong>Documento de Word (.docx)</strong>; después SmartArt se activa. Solo si aún así no lo ves &mdash;por ejemplo si estás en Word en el navegador, que no incluye SmartArt&mdash; arma el diagrama con formas: en Word de escritorio es <span class="kbd">Insertar</span> &rarr; <span class="kbd">Formas</span>, y en Word para la web es <span class="kbd">Insertar</span> &rarr; <span class="kbd">Dibujo</span> y, dentro del lienzo, el botón <span class="kbd">Formas</span> (cinco rectángulos y cuatro flechas, agrupados); o créalo gratis en Canva, descárgalo como imagen y pégalo en Word con su leyenda. Cuenta exactamente igual como evidencia visual.</div>
+<div class="callout"><strong>Este diagrama cuenta</strong> como una de las 3 evidencias visuales obligatorias. Necesitas 2 capturas reales más (paso 5).</div>
+<p class="time">Tiempo estimado: 5 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">4</span><div class="stepbody">
+<h3>Guía de uso para alguien que nunca ha usado IA</h3>
+<p>Regla de oro: <strong>una acción por paso</strong> y siempre decir qué se ve en pantalla después de hacerla.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como redactor de manuales de usuario para personal operativo de retail, con experiencia escribiendo para personas que no son técnicas.
+
+CONTEXTO
+Estoy escribiendo la sección "IV. Guía de uso" del manual del asistente [NOMBRE DEL ASISTENTE], que funciona dentro de Microsoft Copilot Chat en https://copilot.microsoft.com con la cuenta corporativa de Falabella. El usuario típico es [PERFIL DEL USUARIO, por ejemplo: asesora comercial de tienda, 45 años, usa Excel básico, nunca ha usado IA generativa]. Para usarlo, la persona debe abrir Copilot, iniciar sesión, verificar el escudo Protegido, pegar el prompt del asistente y luego escribir su caso concreto.
+
+TAREA
+Redacta la guía de uso completa, en pasos numerados, para que esa persona lo logre sin ayuda de nadie.
+
+FORMATO DE SALIDA
+1. Requisitos previos: 4 viñetas de una línea.
+2. Entre 8 y 10 pasos numerados. Cada paso: una sola acción en imperativo, y luego una frase que empiece con "En pantalla verás:".
+3. Un ejemplo práctico completo de uso, con el texto exacto que escribiría el usuario y un resumen de la respuesta esperada, ambientado en [SITUACIÓN REAL DE TU ÁREA].
+4. Un segundo ejemplo práctico distinto, de un caso más difícil.
+5. Una tabla de solución de problemas con columnas: Problema | Causa probable | Qué hacer, con 6 filas.
+
+RESTRICCIONES
+- Nada de jerga: escribe "escribe", "haz clic", "espera", no "ejecuta la consulta".
+- Máximo 25 palabras por paso.
+- Los ejemplos no pueden contener datos reales de clientes; usa Cliente A, Proveedor 1, Pedido 000.
+- Español de Colombia, sin emojis, sin markdown.</pre></div>
+<p><strong>Qué vas a ver en pantalla:</strong> los pasos numerados, los dos ejemplos y la tabla de problemas. Pega los tres bloques tal cual en tu Word.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como revisor de usabilidad de manuales, especializado en detectar dónde se pierde un lector sin conocimientos técnicos.
+
+CONTEXTO
+Seguimos con la sección "IV. Guía de uso" del asistente [NOMBRE DEL ASISTENTE] que acabas de redactar. El lector real es [PERFIL DEL USUARIO, por ejemplo: asesora comercial de tienda, 45 años, usa Excel básico, nunca ha usado IA generativa] y va a seguir la guía sola, sin nadie al lado que le explique.
+
+TAREA
+Audita la guía de uso desde los ojos de esa persona y devuélvemela corregida y completa.
+
+FORMATO DE SALIDA
+1. Los 5 puntos exactos donde esa persona se perdería, cada uno con la frase original y su versión reescrita.
+2. La guía completa ya corregida, manteniendo una sola acción por paso y la frase "En pantalla verás:".
+3. La tabla de solución de problemas con dos filas nuevas: qué hacer si no aparece el escudo Protegido y qué hacer si la respuesta llega incompleta o cortada.
+4. Los tres puntos de la guía donde conviene una captura de pantalla, marcados dentro del texto con la palabra (captura).
+5. Tres consejos finales para obtener mejores respuestas, de máximo 20 palabras cada uno.
+
+RESTRICCIONES
+- Español de Colombia, sin emojis y sin markdown.
+- Sin jerga técnica y sin pasos con dos acciones.
+- Nada de datos reales de clientes: usa Cliente A, Proveedor 1, Pedido 000.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">5</span><div class="stepbody">
+<h3>Las 3 capturas de pantalla bien hechas</h3>
+<p>Esta actividad exige mínimo 3 capturas o diagramas. Ya tienes el diagrama SmartArt, así que te faltan al menos dos capturas reales del asistente funcionando. Recomendación: haz tres capturas y deja el diagrama como cuarta evidencia.</p>
+<p><strong>Cómo capturar:</strong></p>
+<ul>
+<li><strong>Windows:</strong> <span class="kbd">Windows + Shift + S</span> abre el Recorte de pantalla. Arrastra sobre el área que quieres y se copia al portapapeles.</li>
+<li><strong>Mac:</strong> <span class="kbd">Cmd + Shift + 4</span> y arrastra. La imagen queda en el Escritorio; si además mantienes <span class="kbd">Ctrl</span> mientras arrastras, se copia al portapapeles.</li>
+</ul>
+<p><strong>Cómo pegarla y presentarla en Word:</strong> antes de pegar nada, lee la caja roja del final de este paso: si la captura tiene un dato sensible, tienes que taparlo <strong>sobre la imagen</strong> antes de insertarla en Word.</p>
+<ol>
+<li>Ubica el cursor donde va la imagen y pega con <span class="kbd">Ctrl + V</span> (en Mac <span class="kbd">Cmd + V</span>).</li>
+<li>Haz clic en la imagen &rarr; pestaña <span class="kbd">Formato de imagen</span> &rarr; <span class="kbd">Borde de imagen</span> &rarr; elige gris o negro, grosor 1 pto. Enmarcarlas se ve profesional.</li>
+<li>Con la imagen seleccionada ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Insertar título</span> (también con clic derecho sobre la imagen). Si es la primera vez, el rótulo <strong>Figura</strong> no aparece en la lista (solo están Ecuación, Ilustración y Tabla): haz clic en <span class="kbd">Nuevo rótulo...</span>, escribe <strong>Figura</strong> y acepta; si ya lo creaste en el paso 3, solo elígelo. Deja la posición en <strong>Debajo del elemento seleccionado</strong> y escribe la leyenda: <strong>Figura 2. Prompt de sistema cargado en Copilot Chat</strong>.</li>
+<li>Debajo de cada figura escribe una o dos líneas explicando qué se está viendo. Una captura sin explicación no suma.</li>
+</ol>
+<p><strong>Qué capturar (sugerencia que siempre funciona):</strong> Figura 2, el prompt de sistema o instrucciones cargadas; Figura 3, una consulta real del usuario con la respuesta del asistente; Figura 4, un caso donde el asistente responde que no sabe o pide más información (esto demuestra la capa de control y le encanta al evaluador).</p>
+<div class="warn"><strong>Antes de pegar cualquier captura, revísala.</strong> No pueden aparecer nombres de clientes, cédulas, números de tarjeta, correos reales, teléfonos ni pantallas de sistemas internos.
+<p><strong>Ojo con esto, es lo más importante de todo el módulo:</strong> dibujar un rectángulo negro encima de la captura dentro de Word <strong>no borra el dato</strong>. Ese rectángulo es una forma independiente que se apila encima, y al exportar a PDF la imagen original queda incrustada completa dentro del archivo: cualquiera puede extraerla y ver el dato intacto. Tapar no es eliminar, y aquí estamos hablando de datos de clientes de Falabella y de la Ley 1581 de 2012.</p>
+<p><strong>Haz esto en cambio</strong> (el dato tiene que desaparecer <strong>antes</strong> de que la imagen entre a Word):</p>
+<ul>
+<li><strong>Lo más seguro: que el dato nunca aparezca en la captura.</strong> Cierra o reemplaza el dato en pantalla antes de capturar; vuelve a generar la conversación con datos ficticios (Cliente A, Proveedor 1, Pedido 000123) y captura eso.</li>
+<li><strong>Recorta el área sensible al capturar.</strong> Con <span class="kbd">Windows + Shift + S</span> o <span class="kbd">Cmd + Shift + 4</span> selecciona solo la parte que sí puedes mostrar.</li>
+<li><strong>O tapa sobre la imagen misma y guárdala tapada.</strong> En Windows abre la captura en <strong>Paint</strong>, dibuja encima un rectángulo negro relleno y usa <span class="kbd">Archivo</span> &rarr; <span class="kbd">Guardar</span>. En Mac ábrela con <strong>Vista Previa</strong>, usa <span class="kbd">Herramientas</span> &rarr; <span class="kbd">Anotar</span> &rarr; <span class="kbd">Rectángulo</span> con relleno negro y guarda. Recién ahí insertas esa imagen ya modificada en Word con <span class="kbd">Insertar</span> &rarr; <span class="kbd">Imágenes</span> &rarr; <span class="kbd">Este dispositivo</span>. La clave es que el tapado quede aplanado dentro del archivo de imagen, no como una forma encima.</li>
+<li><strong>Si ya la pegaste y la tapaste en Word</strong>, no la dejes así: toma una captura nueva de la pantalla ya tapada (<span class="kbd">Windows + Shift + S</span> o <span class="kbd">Cmd + Shift + 4</span>), borra la imagen anterior y pega la captura nueva. Y si recortas dentro de Word, entra a <span class="kbd">Formato de imagen</span> &rarr; <span class="kbd">Comprimir imágenes</span> y marca <strong>Eliminar áreas recortadas de las imágenes</strong>: el recorte por sí solo tampoco borra los píxeles.</li>
+<li><strong>Nunca</strong> uses resaltador amarillo, transparencias ni formas con relleno semitransparente para tapar.</li>
+</ul></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor de manuales técnicos especializado en redactar leyendas y textos de figuras.
+
+CONTEXTO
+Voy a incluir estas evidencias visuales en el manual del asistente [NOMBRE DEL ASISTENTE], del área de [TU ÁREA] de Falabella Colombia:
+Figura 1: [DESCRIBE QUÉ SE VE]
+Figura 2: [DESCRIBE QUÉ SE VE]
+Figura 3: [DESCRIBE QUÉ SE VE]
+Figura 4: [DESCRIBE QUÉ SE VE, o elimina esta línea]
+
+TAREA
+Redacta para cada figura: (a) una leyenda de máximo 12 palabras que empiece por "Figura N." y (b) un párrafo explicativo de 40 a 55 palabras que diga qué está viendo el lector, por qué es relevante y qué demuestra sobre el funcionamiento del asistente.
+
+FORMATO DE SALIDA
+Una lista por figura, con la leyenda en la primera línea y el párrafo debajo.
+
+RESTRICCIONES
+- Sin markdown, sin emojis, listo para pegar en Word.
+- No describas datos que yo no mencioné ni inventes nombres de personas o clientes.
+- Español de Colombia, tono explicativo y neutro.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor de manuales técnicos y revisor de protección de datos personales.
+
+CONTEXTO
+Seguimos con las leyendas y los párrafos de las figuras del manual del asistente [NOMBRE DEL ASISTENTE]. Ya redactaste el texto de cada figura. La arquitectura del asistente está descrita en cinco capas: entrada, conocimiento, razonamiento, salida y control. En Colombia aplica la Ley 1581 de 2012 de protección de datos personales, así que en el documento no puede quedar ningún dato identificable.
+
+TAREA
+Refina los textos de las figuras y devuélvemelos completos, figura por figura.
+
+FORMATO DE SALIDA
+1. Cada párrafo reescrito, nombrando de forma explícita la capa de arquitectura que ilustra esa figura.
+2. Al final de cada párrafo, una frase que le diga al lector qué debería intentar él mismo después de ver esa figura.
+3. Una lista de alertas: cualquier texto que mencione datos personales, cifras de Falabella o nombres propios, con la propuesta concreta de cómo anonimizarlo (Cliente A, Proveedor 1, Tienda X, Pedido 000123).
+
+RESTRICCIONES
+- Español de Colombia, tono explicativo y neutro, sin emojis y sin markdown.
+- No inventes datos, nombres ni cifras que yo no te haya dado.
+- Cada párrafo, entre 40 y 60 palabras.</pre></div>
+<p class="time">Tiempo estimado: 8 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">6</span><div class="stepbody">
+<h3>Limitaciones y próximos pasos (aquí casi todos pierden puntos)</h3>
+<p>La sección V es la que separa un trabajo de 3.5 de uno de 5.0. Decir con honestidad qué NO hace tu asistente demuestra criterio. Estas 8 limitaciones ya están redactadas: adáptalas a tu caso, no las copies tal cual.</p>
+<ol>
+<li><strong>Puede alucinar.</strong> El asistente puede generar respuestas que suenan correctas pero contienen datos falsos: cifras, fechas, códigos internos o políticas inexistentes. Toda respuesta debe verificarse contra la fuente oficial antes de usarla con un cliente.</li>
+<li><strong>No está conectado a los sistemas internos de Falabella.</strong> No consulta inventarios, no ve el estado real de un pedido, no accede a la cartera del cliente ni al core de CMR. Solo trabaja con la información que el usuario le pega en la conversación.</li>
+<li><strong>No reemplaza la validación humana.</strong> Sus respuestas son un borrador. La decisión sobre un cliente, un proveedor o un caso de nómina siempre la toma la persona responsable del proceso.</li>
+<li><strong>No debe usarse con datos personales.</strong> Está prohibido ingresar nombres, cédulas, números de tarjeta, direcciones o datos de nómina, en cumplimiento de la Ley 1581 de 2012 de protección de datos personales.</li>
+<li><strong>Depende de la calidad del prompt.</strong> Si la solicitud es vaga, la respuesta será genérica. La calidad de la salida es directamente proporcional al detalle del contexto que entregue el usuario.</li>
+<li><strong>No tiene memoria entre conversaciones.</strong> Cada conversación nueva empieza en blanco: hay que volver a cargar las instrucciones del asistente.</li>
+<li><strong>Su conocimiento tiene fecha de corte.</strong> No conoce cambios recientes de política, campañas comerciales vigentes ni procedimientos actualizados después de la última vez que se le cargó la información.</li>
+<li><strong>No maneja archivos ni volúmenes grandes de forma confiable.</strong> Con textos muy largos puede omitir partes o cortar la respuesta; conviene trabajar por bloques.</li>
+</ol>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como auditor de riesgos tecnológicos que revisa soluciones de IA antes de ponerlas en producción en una empresa de retail.
+
+CONTEXTO
+Mi asistente [NOMBRE DEL ASISTENTE] apoya el proceso de [NOMBRE DEL PROCESO] en el área de [TU ÁREA] de Falabella Colombia. Funciona en Microsoft Copilot Chat con cuenta corporativa. No se conecta a ningún sistema interno. Sus usuarios son [PERFIL DE USUARIOS].
+
+TAREA
+Redacta la sección "V. Limitaciones y próximos pasos" del manual.
+
+FORMATO DE SALIDA
+1. Ocho limitaciones. Cada una con un título en negrilla de 3 a 5 palabras y una explicación de 2 a 3 líneas que incluya el riesgo concreto para el negocio si se ignora.
+2. Una tabla con columnas: Limitación | Riesgo si se ignora | Control o mitigación recomendada.
+3. Cinco próximos pasos sugeridos, ordenados del más fácil al más ambicioso, indicando para cada uno qué se necesitaría (tiempo, licencia, aprobación).
+4. Un párrafo de cierre de 60 palabras sobre el uso responsable, mencionando la Ley 1581 de 2012 de Colombia.
+
+RESTRICCIONES
+- Redacción honesta y directa: no minimices las limitaciones ni vendas el asistente.
+- Incluye obligatoriamente: alucinaciones, ausencia de conexión a sistemas internos, necesidad de validación humana, prohibición de datos personales y dependencia de la calidad del prompt.
+- Español de Colombia, sin emojis y sin markdown.</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como auditor de riesgos tecnológicos y editor, revisando la versión final de la sección de limitaciones.
+
+CONTEXTO
+Seguimos con la sección "V. Limitaciones y próximos pasos" del asistente [NOMBRE DEL ASISTENTE], del área de [TU ÁREA] de Falabella Colombia. Las limitaciones 3 y 5 quedaron muy generales. Además, en mi área sé que el asistente no puede hacer esto: [ESCRIBE ALGO CONCRETO QUE TU ASISTENTE NO PUEDE HACER]. Ten en cuenta que en este curso no es obligatorio tener la licencia de pago de Microsoft 365 Copilot, así que debo dejar claro qué mejoras se pueden hacer sin ella.
+
+TAREA
+Refina la sección completa de limitaciones y próximos pasos, y devuélvemela lista para pegar.
+
+FORMATO DE SALIDA
+1. Las limitaciones 3 y 5 reescritas, cada una con un ejemplo concreto de qué podría salir mal en [TU ÁREA] de Falabella si alguien confía ciegamente en el asistente.
+2. Una limitación adicional redactada a partir de lo que te describí, con el mismo estilo de las demás.
+3. Los cinco próximos pasos reorganizados en dos grupos: "Se pueden hacer sin licencia de pago" y "Requieren licencia de Microsoft 365 Copilot u otra herramienta de pago".
+4. El texto completo de la sección, sin superar las 700 palabras.
+
+RESTRICCIONES
+- Español de Colombia, sin emojis y sin markdown.
+- Redacción honesta: no minimices los riesgos.
+- Mantén la mención a la Ley 1581 de 2012 en el párrafo de cierre.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="step"><span class="num">7</span><div class="stepbody">
+<h3>Revisión final con Copilot antes de entregar</h3>
+<p>No entregues sin pasar tu propio documento por esta auditoría. Toma pocos minutos y sube la nota.</p>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como el docente que va a calificar este trabajo.
+
+CONTEXTO
+Te voy a pegar el borrador completo de mi manual del asistente de IA [NOMBRE DEL ASISTENTE]. Los criterios oficiales de evaluación son: estructura y organización del documento, claridad en las instrucciones, completitud de la información y ejemplos prácticos de uso incluidos. Las secciones mínimas exigidas son: I Portada, II Objetivo, III Arquitectura, IV Guía de uso, V Limitaciones. Además debe tener mínimo 3 capturas o diagramas, una bitácora de prompts y mínimo 8 páginas de contenido.
+
+TAREA
+Evalúa el borrador y dime qué me falta.
+
+FORMATO DE SALIDA
+1. Tabla con columnas: Criterio | Nota de 1 a 5 | Qué le falta para llegar a 5.
+2. Lista de secciones exigidas que estén ausentes o incompletas.
+3. Los 10 puntos concretos que debo corregir, ordenados por impacto en la nota.
+4. Tres frases del texto que suenen escritas por una IA y su versión reescrita en lenguaje natural.
+
+RESTRICCIONES
+- Sé exigente y específico; no me felicites.
+- No reescribas todo el documento, solo señala y propón.
+- Español de Colombia.
+
+BORRADOR:
+[PEGA AQUÍ TU DOCUMENTO COMPLETO]</pre></div>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como editor final del documento, siguiendo la evaluación que acabas de hacer como docente.
+
+CONTEXTO
+Estamos en la misma conversación. Ya calificaste mi manual del asistente [NOMBRE DEL ASISTENTE] contra los cuatro criterios oficiales: estructura y organización, claridad en las instrucciones, completitud de la información y ejemplos prácticos de uso. El lector final es [PERFIL DEL USUARIO, por ejemplo: asesor de tienda sin conocimientos técnicos]. Voy a entregar el documento en Word o PDF, con mínimo 8 páginas de contenido.
+
+TAREA
+Aplica las correcciones que tú mismo señalaste.
+
+FORMATO DE SALIDA
+1. Las secciones que calificaste por debajo de 4, reescritas completas y listas para pegar en Word.
+2. Esas secciones con el tono ajustado para que [PERFIL DEL USUARIO] entienda todo sin releer.
+3. Un título llamativo y profesional para la portada, más la lista de las 5 palabras clave del manual.
+4. Una línea por criterio confirmando si el documento ya lo cumple y por qué.
+
+RESTRICCIONES
+- Español de Colombia, sin emojis y sin markdown.
+- No inventes contenido nuevo que yo no pueda demostrar con una captura.
+- No toques las secciones que calificaste con 4 o más.</pre></div>
+<p class="time">Tiempo estimado: 6 minutos</p>
+</div></div>
+
+<div class="pagebreak"></div>
+
+<h2>5. Cómo armar el archivo final sin licencia de Copilot</h2>
+<p>Todo lo que sigue es gratuito y está en tu Word de escritorio. No necesitas Copilot dentro de Word.</p>
+<ol>
+<li><strong>Pegar sin heredar formatos raros.</strong> Copia desde Copilot y, al pegar en Word, abre el botón <strong>Opciones de pegado</strong> que aparece junto al texto y elige <span class="kbd">Combinar formato</span> o <span class="kbd">Conservar solo texto</span>. La otra ruta es <span class="kbd">Inicio</span> &rarr; <span class="kbd">Pegar</span> &rarr; <span class="kbd">Pegado especial</span> (<span class="kbd">Ctrl + Alt + V</span>) &rarr; <strong>Texto sin formato</strong>. Así el texto adopta el estilo de tu documento y no queda con fondos grises.</li>
+<li><strong>Estilos, no negrillas manuales.</strong> Selecciona cada título de sección y aplícale <span class="kbd">Título 1</span> desde el grupo Estilos de la pestaña <span class="kbd">Inicio</span> (I. Portada, II. Objetivo, III. Arquitectura, IV. Guía de uso, V. Limitaciones). Los subtítulos, <span class="kbd">Título 2</span>. Esto es lo que evalúan como "estructura y organización".</li>
+<li><strong>Tabla de contenido automática.</strong> Ubica el cursor después de la portada y ve a <span class="kbd">Referencias</span> &rarr; <span class="kbd">Tabla de contenido</span> &rarr; <span class="kbd">Tabla automática 1</span>. Si luego cambias títulos, clic derecho sobre ella &rarr; <span class="kbd">Actualizar campos</span> &rarr; <strong>Actualizar toda la tabla</strong>.</li>
+<li><strong>Diagramas.</strong> <span class="kbd">Insertar</span> &rarr; <span class="kbd">SmartArt</span> para la arquitectura y, si quieres, un segundo SmartArt tipo <strong>Jerarquía</strong> para los tipos de consultas que atiende el asistente.</li>
+<li><strong>Numeración de páginas.</strong> <span class="kbd">Insertar</span> &rarr; <span class="kbd">Número de página</span> &rarr; <strong>Final de página</strong> &rarr; alineación a la derecha. Sin numeración, el revisor no puede verificar las 8 páginas.</li>
+<li><strong>Saltos de página.</strong> Entre secciones usa <span class="kbd">Ctrl + Enter</span> (en Mac <span class="kbd">Cmd + Enter</span>), nunca muchos Enter seguidos.</li>
+<li><strong>Verifica la extensión real.</strong> Mira la barra de estado, abajo a la izquierda, donde dice "Página X de Y". Si vas en 6 páginas, amplía los ejemplos prácticos y la tabla de solución de problemas: es contenido que suma, no relleno.</li>
+<li><strong>Exportar.</strong> <span class="kbd">Archivo</span> &rarr; <span class="kbd">Guardar como</span> &rarr; tipo <strong>PDF</strong>, o <span class="kbd">Archivo</span> &rarr; <span class="kbd">Exportar</span> &rarr; <span class="kbd">Crear documento PDF/XPS</span>. Nombra el archivo <strong>Modulo4_Act03_NombreApellido.pdf</strong>.</li>
+<li><strong>Revisión de ortografía.</strong> Antes de exportar, pasa <span class="kbd">Revisar</span> &rarr; <span class="kbd">Ortografía y gramática</span> (<span class="kbd">F7</span>) y confirma que el idioma del documento sea Español (Colombia) en <span class="kbd">Revisar</span> &rarr; <span class="kbd">Idioma</span>.</li>
+</ol>
+<div class="callout"><strong>Si Copilot Chat está saturado</strong> puedes generar el diagrama en <strong>designer.microsoft.com</strong> o en Canva gratis, descargarlo como imagen y pegarlo en Word con su leyenda. Cuenta igual como evidencia visual.</div>
+
+<h2>6. Si tienes licencia Copilot (opcional)</h2>
+<p>Este atajo es solo para quien tenga asignada la licencia Microsoft 365 Copilot. <strong>No es obligatorio, nada de esta sección se exige para entregar y no cambia la calificación.</strong> Si no tienes la licencia, quédate con la ruta gratuita de la sección 5: cumple exactamente igual con todos los criterios.</p>
+<ul>
+<li>En Word (opcional, requiere licencia): <span class="kbd">Redactar con Copilot</span> y pídele "redacta un manual técnico-funcional del asistente [NOMBRE] con las secciones I a V descritas en este texto", pegando tus notas.</li>
+<li>En Word (opcional, requiere licencia): selecciona una sección y usa <span class="kbd">Reescribir con Copilot</span> para bajar el nivel técnico del lenguaje.</li>
+<li>En PowerPoint (opcional, requiere licencia): con el manual listo en Word, usa <span class="kbd">Copilot</span> &rarr; <span class="kbd">Crear presentación a partir de archivo</span> si quisieras sustentarlo. Sin licencia, arma la presentación a mano con <span class="kbd">Vista</span> &rarr; <span class="kbd">Esquema</span> y ajusta el formato en <span class="kbd">Diseño</span> &rarr; <span class="kbd">Tamaño de diapositiva</span>.</li>
+<li>Guarda el documento en SharePoint y usa <strong>Microsoft Loop</strong> si trabajas la revisión con un compañero. Es opcional y la entrega sigue siendo individual.</li>
+<li><strong>Copilot Studio y Power Automate no se necesitan</strong> en esta actividad. Si alguien te dice que hay que automatizar el asistente, no es requisito del enunciado: lo que se califica es el manual.</li>
+</ul>
+<p>Aunque uses esta ruta, la bitácora de prompts y las capturas siguen siendo obligatorias.</p>
+
+<div class="warn"><strong>Uso responsable de la IA: léelo antes de pegar nada.</strong>
+<ul>
+<li><strong>Nunca</strong> pegues en Copilot datos personales de clientes o empleados: nombres completos, cédulas, números de tarjeta CMR, direcciones, teléfonos, correos, datos de nómina, ni información confidencial de Falabella (márgenes, contratos con proveedores, cifras de venta no publicadas).</li>
+<li><strong>Anonimiza siempre:</strong> escribe "Cliente A", "Proveedor 1", "Tienda X", "Asesor 2". Usa rangos en vez de cifras exactas ("entre 100 y 200 pedidos diarios") y códigos ficticios ("Pedido 000123").</li>
+<li>Esto no es una recomendación de estilo: es cumplimiento de la <strong>Ley 1581 de 2012</strong> de protección de datos personales en Colombia, de su decreto reglamentario y de las políticas internas de la compañía. Tratar datos personales sin autorización expone a la persona y a la empresa a sanciones.</li>
+<li><strong>Revisa también las capturas y los anexos.</strong> La bitácora de prompts y las imágenes se entregan con el documento: si un prompt que copiaste tenía el nombre de un cliente, anonimízalo antes de pegarlo.</li>
+<li><strong>La IA se equivoca.</strong> Inventa cifras, fechas, nombres de políticas y hasta normas. Verifica todo dato, cifra o nombre propio contra la fuente oficial antes de entregar. Si el manual afirma algo que no puedes demostrar, quítalo.</li>
+<li>El docente califica el <strong>uso crítico y documentado de la IA</strong>: documentar tus prompts, lo que salió mal y cómo lo corregiste <strong>suma nota</strong>. Entregar la primera salida de Copilot sin ajustes se nota y baja la calificación.</li>
+</ul></div>
+
+<h2>7. Errores que bajan la nota</h2>
+<ul>
+<li><strong>Entregar 5 páginas.</strong> El enunciado pide 8. Apunta a 8 de contenido sin contar portada ni anexos.</li>
+<li><strong>Capturas sin explicación ni leyenda.</strong> Toda imagen debe tener "Figura N." y un párrafo debajo que diga qué demuestra.</li>
+<li><strong>Guía de uso escrita para técnicos.</strong> Si un paso tiene dos acciones o usa jerga sin explicar, pierdes en "claridad en las instrucciones".</li>
+<li><strong>Sección de limitaciones de tres líneas.</strong> Es el error más caro. Mínimo 8 limitaciones desarrolladas más los próximos pasos.</li>
+<li><strong>Sin ejemplos prácticos.</strong> El criterio los exige de forma explícita: mínimo dos casos reales con el texto que escribe el usuario y la respuesta esperada.</li>
+<li><strong>Portada incompleta.</strong> Debe llevar título, nombre del asistente, propósito, tu nombre, curso, módulo y fecha. Sin el nombre del asistente pierdes el requisito de entrega número 01.</li>
+<li><strong>Copiar y pegar la respuesta de Copilot sin editar.</strong> Se detecta por el tono uniforme, los asteriscos de markdown y frases como "en el dinámico mundo del retail".</li>
+<li><strong>Datos sensibles en las capturas.</strong> Correos, cédulas o nombres reales a la vista, o tapados con una forma dibujada encima en Word: así el dato sigue dentro del archivo y se puede recuperar del PDF. Tápalo sobre la imagen antes de insertarla. Es falta grave, no solo error de forma.</li>
+<li><strong>No incluir la bitácora de prompts.</strong> Es requisito de entrega número 02 y es lo que evidencia tu proceso.</li>
+</ul>
+
+<h2>8. Anexo obligatorio: bitácora de prompts</h2>
+<p>La ficha de la actividad pide "documentar el proceso: prompts usados y ajustes realizados". Ponlo como anexo al final, después de la sección V. No cuenta dentro de las 8 páginas de contenido, pero sin él pierdes puntos. Copia esta tabla a tu documento y complétala con lo que realmente hiciste: cuatro o cinco filas bastan.</p>
+<table class="t">
+<thead><tr><th>#</th><th>Objetivo del prompt</th><th>Prompt usado (resumen)</th><th>Qué falló en la primera respuesta</th><th>Ajuste que hice</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Definir nombre y propósito del asistente</td><td>Rol de consultor + contexto de mi área + pedido de 3 opciones de nombre y párrafo de problema</td><td>Los nombres eran genéricos y el párrafo no mencionaba mi proceso</td><td>Agregué el dolor concreto del área y pedí reescribir solo con el nombre elegido</td></tr>
+<tr><td>2</td><td>Redactar la arquitectura en 5 capas</td><td>Rol de arquitecto + pegué mi prompt de sistema + pedí tabla por capas y flujo en 6 pasos</td><td>Usó tecnicismos sin explicar y afirmó una conexión a sistemas internos que no existe</td><td>Prohibí la jerga sin definición y pedí eliminar esa afirmación</td></tr>
+<tr><td>3</td><td>Escribir la guía de uso para no técnicos</td><td>Rol de redactor de manuales + perfil del usuario + pasos con "En pantalla verás"</td><td>Pasos con dos acciones cada uno y un solo ejemplo</td><td>Pedí una acción por paso y un segundo ejemplo más difícil</td></tr>
+<tr><td>4</td><td>Redactar limitaciones y próximos pasos</td><td>Rol de auditor de riesgos + exigí 8 limitaciones con riesgo de negocio</td><td>Limitaciones muy generales, sin ejemplo de mi área</td><td>Pedí ejemplos concretos y separar los próximos pasos con y sin licencia</td></tr>
+<tr><td>5</td><td>Auditar el borrador contra los criterios</td><td>Rol de docente evaluador + pegué el documento + pedí nota por criterio</td><td>Detectó que faltaban ejemplos prácticos y que la portada no tenía el propósito</td><td>Agregué los ejemplos y la frase de propósito en la portada</td></tr>
+</tbody>
+</table>
+<div class="prompt"><span class="ptag">PROMPT PARA COPIAR</span><pre>Actúa como mi asistente de documentación, experto en organizar bitácoras de trabajo con IA.
+
+CONTEXTO
+Te voy a describir en desorden lo que hice hoy con Copilot para construir el manual de mi asistente [NOMBRE DEL ASISTENTE], del área de [TU ÁREA] de Falabella Colombia: [ESCRIBE EN TUS PALABRAS QUÉ LE PEDISTE, QUÉ TE RESPONDIÓ MAL Y CÓMO LO CORREGISTE, sin importar el orden]. Esta bitácora es el anexo obligatorio de la actividad y con ella el docente evalúa mi proceso, no solo el resultado.
+
+TAREA
+Organiza eso en una bitácora de prompts para el anexo del trabajo.
+
+FORMATO DE SALIDA
+Una tabla con estas columnas exactas: # | Objetivo del prompt | Prompt usado (resumen en máximo 25 palabras) | Qué falló en la primera respuesta | Ajuste que hice. Mínimo 5 filas.
+Debajo de la tabla, un párrafo de 80 palabras titulado "Reflexión sobre el uso de la IA" donde explique qué aprendí sobre cómo escribir mejores prompts.
+
+RESTRICCIONES
+- Usa solo la información que te di; no inventes prompts que yo no usé.
+- Redacta en primera persona y en pasado.
+- Si algo que te conté incluye nombres reales de clientes o compañeros, reemplázalos por Cliente A, Proveedor 1 o Asesor 2.
+- Español de Colombia, sin emojis y sin markdown.</pre></div>
+
+<div class="ok"><strong>Checklist final antes de subir el archivo</strong>
+<ul>
+<li>Estructura y organización: están las 5 secciones (I Portada, II Objetivo, III Arquitectura, IV Guía de uso, V Limitaciones), con estilos Título 1 y tabla de contenido automática actualizada.</li>
+<li>Estructura y organización: la portada tiene título, nombre del asistente, frase de propósito, tu nombre completo, curso, módulo, ciudad y fecha; las páginas están numeradas.</li>
+<li>Claridad en las instrucciones: la guía de uso tiene entre 8 y 10 pasos, una sola acción por paso y la frase "En pantalla verás".</li>
+<li>Claridad en las instrucciones: incluiste la tabla de solución de problemas con al menos 6 filas y no quedó jerga técnica sin explicar.</li>
+<li>Completitud: la sección II dice qué problema resuelve y a quién va dirigido; la sección III incluye el diagrama y la descripción del flujo de funcionamiento.</li>
+<li>Completitud: mínimo 8 páginas de contenido, sin contar portada ni anexos.</li>
+<li>Completitud: la sección de limitaciones tiene 8 puntos desarrollados más los próximos pasos sugeridos.</li>
+<li>Ejemplos prácticos: hay al menos dos casos de uso completos con el texto que escribe el usuario y la respuesta esperada.</li>
+<li>Ejemplos prácticos: los ejemplos usan datos ficticios (Cliente A, Proveedor 1, Pedido 000123) y corresponden a situaciones reales de tu área.</li>
+<li>Evidencias: mínimo 3 capturas o diagramas, todos con leyenda "Figura N." y un párrafo explicativo debajo.</li>
+<li>Datos: ninguna captura ni ningún texto muestra nombres, cédulas, tarjetas, correos o cifras confidenciales; lo sensible se tapó <strong>sobre la imagen misma antes de insertarla en Word</strong> (en Paint o Vista Previa, guardando la imagen ya tapada) o se recapturó con datos ficticios, no con una forma dibujada encima en Word, cumpliendo la Ley 1581 de 2012.</li>
+<li>Verificación: revisaste manualmente cada dato, cifra y nombre que escribió la IA.</li>
+<li>Anexo: la bitácora de prompts está incluida y completada con lo que realmente hiciste, con la reflexión final.</li>
+<li>Ortografía: pasaste la revisión de Word con el idioma en Español (Colombia) y quitaste los asteriscos y numerales de markdown.</li>
+<li>Archivo guardado como Modulo4_Act03_NombreApellido.docx o .pdf y abierto una última vez para confirmar que se ve bien.</li>
+</ul></div>
+
+<h2>9. Dónde subir el archivo</h2>
+<p>Sube el documento a tu <strong>carpeta personal en SharePoint</strong>, dentro de la carpeta del <strong>Módulo 4</strong>. En SharePoint la subida se hace con el botón <span class="kbd">Cargar</span> &rarr; <span class="kbd">Archivos</span>, o arrastrando el archivo dentro de la biblioteca. En esa misma carpeta está el <strong>index.html</strong> del curso: ábrelo, ahí tienes el cargador oficial que revisa formato, nombre y tamaño antes de que entregues, y que trabaja en tu propio navegador sin enviar el archivo a ninguna parte; si te marca algo en rojo, corrígelo y vuelve a cargarlo. Lo que sí debes evitar es subir el trabajo a servicios de terceros ajenos al curso: si alguien te pasa un enlace o una herramienta que no sea el index.html de tu carpeta ni SharePoint, no la uses y confirma la ruta con el docente. Si además el docente habilitó el aula virtual, sube allí la misma versión final.</p>
+<p>Antes de confirmar la entrega verifica tú mismo tres cosas: que el archivo se llame <strong>Modulo4_Act03_NombreApellido</strong>, que esté en Word (.docx) o PDF, y que tenga mínimo 8 páginas de contenido. Entrega individual y a tiempo: es el 35% de tu nota.</p>
+<div class="callout" style="margin-top:20pt">
+<p><b>Universidad Piloto de Colombia &nbsp;&middot;&nbsp; Falabella &nbsp;&middot;&nbsp; Grupo 2 &nbsp;&middot;&nbsp; Curso Microsoft Copilot Chat</b></p>
+<p style="font-size:9.5pt">Sube tu entrega a tu carpeta personal en SharePoint, dentro de la carpeta de este m&oacute;dulo. En la p&aacute;gina <b>index.html</b> de esa misma carpeta tienes un cargador que revisa el archivo antes de que lo entregues.</p>
+</div>
+</div>
+</body>
+</html>
