@@ -26,7 +26,9 @@ Estudiantes/
 assets/
   estilos.css                     Hoja de estilos del portal
   cargador.js                     Validación y preparación de las entregas
-  drive.js                        Inserta los enlaces de Drive al abrir la página
+  blob-client.js                  Cliente de subida a Vercel Blob, empaquetado con esbuild
+api/
+  subir.js                        Recibe la entrega y hace el commit al repositorio
 _generador/
   datos.py                        Datos maestros: módulos, pesos y requisitos
   generar.py                      Regenera todo el portal
@@ -49,8 +51,8 @@ _assets/
 
 ## El cargador de archivos
 
-Cada carpeta de módulo tiene un `index.html` que acepta el archivo del estudiante y lo revisa
-**dentro de su propio navegador**, sin enviarlo a ningún servidor externo:
+Cada carpeta de módulo tiene un `index.html` que acepta el archivo del estudiante, lo revisa
+**dentro de su propio navegador** y lo sube al repositorio con un clic:
 
 - **PDF** — cuenta las páginas reales con pdf.js y las compara contra el mínimo de la actividad.
 - **Imagen** — mide el ancho en píxeles y verifica el mínimo de 1920 px de la infografía.
@@ -59,20 +61,37 @@ Cada carpeta de módulo tiene un `index.html` que acepta el archivo del estudian
 - **Todos** — verifica la extensión permitida y el peso máximo de 45 MB.
 
 Después renombra el archivo con la convención del curso
-(`M3_Documento-Solucion_Nombre-Apellido_2026-09-03.pdf`), lo guarda en el navegador con IndexedDB
-para que no se pierda al recargar, y ofrece descargarlo listo o abrir directamente la carpeta
-de SharePoint donde debe subirse.
+(`M3_Documento-Solucion_Nombre-Apellido_2026-09-04.pdf`), lo guarda en el navegador con IndexedDB
+para que no se pierda al recargar, y lo sube.
 
-### Carga hacia un servidor (opcional)
+## Dónde quedan las entregas
 
-El cargador trae un segundo carril ya implementado. Si se define un endpoint en la configuración
-de la página, el archivo se envía de verdad por `POST` como `multipart/form-data`:
+**En este mismo repositorio**, en `Estudiantes/<estudiante>/<módulo>/entregas/`. Así el docente
+las recoge de GitHub y quedan publicadas en el portal con el resto del material del módulo.
 
-```js
-window.PORTAL = { /* ... */ endpoint: "https://tu-servidor/api/subir" };
-```
+El camino del archivo, de principio a fin:
 
-Sin endpoint definido, ese botón queda oculto y el portal funciona solo con el carril local.
+1. El portal pide a `api/subir.js`, desplegada en Vercel, un token de subida. La función valida
+   el estudiante, el módulo, la extensión y el tamaño, y fija la ruta de destino.
+2. El navegador sube el archivo directo a Vercel Blob con ese token. Por eso no aplica el límite
+   de 4,5 MB por petición de las funciones: una presentación de 30 MB pasa sin problema.
+3. Al terminar, Vercel Blob avisa a la misma función, que descarga el archivo, hace el commit
+   con la API de GitHub y borra la copia de Blob.
+4. GitHub Pages se redespliega solo y la entrega aparece en el portal en uno o dos minutos.
+   Si el estudiante sube otra versión con el mismo nombre, reemplaza la anterior.
+
+La función necesita tres variables de entorno en Vercel:
+
+| Variable | Qué es |
+|---|---|
+| `BLOB_READ_WRITE_TOKEN` | La pone sola el store de Blob al vincularlo al proyecto |
+| `GITHUB_REPO` | `EVA2080AI/upc-falabella-copilot-grupo2` |
+| `GITHUB_TOKEN` | Token con permiso de escritura de contenido **solo en este repositorio** |
+
+Para el token conviene uno de grano fino, creado en
+`github.com/settings/personal-access-tokens/new` con acceso únicamente a este repositorio y el
+permiso *Contents: Read and write*. Se carga con `vercel env add GITHUB_TOKEN production` y
+después se redespliega con `vercel --prod`.
 
 ## Regenerar el portal
 
@@ -103,7 +122,7 @@ que es el canal oficial de calificación de todas formas.
 
 ## Privacidad
 
-El repositorio **no contiene correos corporativos** ni identificadores de Drive. Los nombres de los
+El repositorio **no contiene correos corporativos**. Los nombres de los
 estudiantes sí aparecen, porque cada quien necesita encontrar su carpeta; todas las páginas llevan
 `noindex, nofollow` y la cabecera `X-Robots-Tag` para que no queden en buscadores. Dos archivos
 tienen datos que no se publican y están en `.gitignore`:
@@ -111,4 +130,4 @@ tienen datos que no se publican y están en `.gitignore`:
 | Archivo | Qué contiene |
 |---|---|
 | `_assets/estudiantes.privado.json` | Los correos `@falabella.com.co` de los 22 estudiantes |
-| `_assets/drive.json` | Los identificadores de las 132 carpetas de Drive, que dan permiso de escritura |
+| `_assets/drive.json` | Identificadores de carpetas de Drive de un diseño anterior; ya no se usan |
