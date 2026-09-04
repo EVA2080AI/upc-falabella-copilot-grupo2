@@ -58,9 +58,15 @@ function segmento(texto, largoMax) {
     .slice(0, largoMax || 120);
 }
 
-export default async function handler(request) {
-  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS });
-  if (request.method !== 'POST') return json({ error: 'Solo se acepta POST.' }, 405);
+export async function OPTIONS() {
+  return new Response(null, { status: 204, headers: CORS });
+}
+
+export async function GET() {
+  return json({ ok: true, servicio: 'entregas', metodo: 'usa POST' }, 200);
+}
+
+export async function POST(request) {
 
   const faltan = ['BLOB_READ_WRITE_TOKEN', 'GITHUB_TOKEN', 'GITHUB_REPO']
     .filter((v) => !process.env[v]);
