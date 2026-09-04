@@ -320,8 +320,13 @@
       if (it.subido) {
         var ok2 = document.createElement('div');
         ok2.className = 'dictamen';
-        ok2.innerHTML = '<div><span class="marca si">\u2713</span><span class="si">Subido a GitHub.</span></div>';
+        ok2.innerHTML = '<div><span class="marca si">\u2713</span><span class="si">Confirmado en GitHub: el commit ya est\u00e1 en tu carpeta.</span></div>';
         info.appendChild(ok2);
+      } else if (it.verificando) {
+        var esp = document.createElement('div');
+        esp.className = 'dictamen';
+        esp.innerHTML = '<div><span class="marca duda">\u00b7</span><span class="duda">Recibido. Esperando a que GitHub confirme el commit\u2026</span></div>';
+        info.appendChild(esp);
       } else if (it.error) {
         var er = document.createElement('div');
         er.className = 'dictamen';
@@ -374,6 +379,11 @@
         progreso: null
       };
       estado = estado.filter(function (x) { return x.id !== it.id; });
+      // dos archivos del mismo tipo el mismo dia no pueden llamarse igual
+      var baseNombre = it.nombreFinal, k = 2;
+      while (estado.some(function (x) { return x.nombreFinal === it.nombreFinal; })) {
+        it.nombreFinal = baseNombre.replace(/(\.[^.]+)$/, '_' + k + '$1'); k++;
+      }
       estado.push(it);
       pinta();
       validar(archivo).then(function (r) {
@@ -429,38 +439,58 @@
     return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
   }
 
+  /* Consulta al servidor del curso, que pregunta a GitHub con su propio token. */
+  function consultarEntregas() {
+    if (!CFG.endpoint) return Promise.resolve(null);
+    var url = CFG.endpoint + '?listar=' + encodeURIComponent(CFG.carpetaEstudiante + '/' + CFG.carpetaModulo);
+    return fetch(url, { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .catch(function () { return null; });
+  }
+
   function listarEntregas() {
     var caja = $('#entregas-previas');
     if (!caja || !CFG.repo) return;
-    var carpeta = rutaEntregas().split('/').map(encodeURIComponent).join('/');
-    var base = 'https://api.github.com/repos/' + CFG.repo;
-    var cab = { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' };
-    Promise.all([
-      fetch(base + '/contents/' + carpeta + '?ref=main', cab).then(function (r) { return r.ok ? r.json() : []; }),
-      fetch(base + '/commits?sha=main&per_page=8&path=' + carpeta, cab).then(function (r) { return r.ok ? r.json() : []; })
-    ]).then(function (res) {
-      var lista = Array.isArray(res[0]) ? res[0].filter(function (f) { return f.type === 'file'; }) : [];
-      var commits = Array.isArray(res[1]) ? res[1] : [];
+    consultarEntregas().then(function (d) {
+      if (!d) {
+        caja.classList.remove('oculto');
+        caja.className = 'aviso ojo';
+        caja.innerHTML = '<strong>No se pudo consultar GitHub ahora mismo</strong><p>Tus entregas anteriores siguen ah\u00ed; solo no se pueden mostrar en este momento. <a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">Ver la carpeta en GitHub \u2197</a></p>';
+        return;
+      }
+      var lista = d.archivos || [];
       if (!lista.length) { caja.classList.add('oculto'); return; }
       caja.classList.remove('oculto');
       caja.className = 'aviso bien';
       var items = lista.map(function (f) {
-        return '<li><a href="' + f.html_url + '" target="_blank" rel="noopener">' + escapaHtml(f.name) + '</a>' +
-               ' <span style="color:var(--tinta-3)">\u00b7 ' + bytes(f.size) + '</span></li>';
+        return '<li><a href="' + f.url + '" target="_blank" rel="noopener">' + escapaHtml(f.nombre) + '</a>' +
+               ' <span style="color:var(--tinta-3)">\u00b7 ' + bytes(f.bytes) + '</span></li>';
       }).join('');
-      var hist = commits.slice(0, 5).map(function (c) {
-        var a = (c.commit && c.commit.author) || {};
-        var titulo = ((c.commit && c.commit.message) || '').split('\n')[0];
-        return '<li><span style="color:var(--tinta-3)">' + escapaHtml(fechaCorta(a.date || '')) + '</span> \u00b7 ' +
-               '<strong>' + escapaHtml(a.name || '') + '</strong> \u00b7 ' +
-               '<a href="' + c.html_url + '" target="_blank" rel="noopener">' + escapaHtml(titulo) + '</a></li>';
+      var hist = (d.commits || []).slice(0, 5).map(function (c) {
+        return '<li><span style="color:var(--tinta-3)">' + escapaHtml(fechaCorta(c.fecha || '')) + '</span> \u00b7 ' +
+               '<strong>' + escapaHtml(c.autor || '') + '</strong> \u00b7 ' +
+               '<a href="' + c.url + '" target="_blank" rel="noopener">' + escapaHtml(c.titulo || '') + '</a></li>';
       }).join('');
       caja.innerHTML = '<strong>Tus entregas en GitHub para este m\u00f3dulo</strong>' +
         '<ul style="margin:6px 0 0;padding-left:18px">' + items + '</ul>' +
         (hist ? '<p style="margin:10px 0 4px;font-weight:700;font-size:.86rem">Historial de commits</p>' +
                 '<ul style="margin:0;padding-left:18px;font-size:.86rem">' + hist + '</ul>' : '') +
         '<p style="margin-top:8px"><a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">Ver la carpeta en GitHub \u2197</a></p>';
-    }).catch(function () { /* sin red o sin carpeta todavia */ });
+    });
+  }
+
+  function confirmarEnGitHub(nombre, maxMs) {
+    var inicio = Date.now();
+    return new Promise(function (ok) {
+      (function intenta() {
+        consultarEntregas().then(function (d) {
+          var hay = d && (d.archivos || []).some(function (f) { return f.nombre === nombre; });
+          if (hay) return ok(true);
+          if (Date.now() - inicio > maxMs) return ok(false);
+          setTimeout(intenta, 6000);
+        });
+      })();
+    });
   }
 
   function enviarServidor() {
@@ -476,7 +506,7 @@
       return;
     }
     var boton = $('#btn-enviar');
-    if (boton) { boton.disabled = true; boton.textContent = 'Subiendo a GitHub\u2026'; }
+    if (boton) { boton.disabled = true; boton.textContent = 'Subiendo y confirmando\u2026'; }
 
     var tareas = listos.map(function (it) {
       it.progreso = 2; pinta();
@@ -496,11 +526,26 @@
           it.progreso = Math.max(2, Math.min(99, Math.round(ev.percentage || 0)));
           pinta();
         }
-      }).then(function () { it.progreso = 100; it.subido = true; pinta(); return true; })
-        .catch(function (err) {
-          it.progreso = null; it.error = (err && err.message) || 'fallo la subida'; pinta();
-          return false;
-        });
+      }).then(function () {
+        it.progreso = 100; it.verificando = true; pinta();
+        return confirmarEnGitHub(it.nombreFinal, 100000);
+      }).then(function (confirmado) {
+        it.verificando = false;
+        if (confirmado) { it.subido = true; borrarLocal(it.id); pinta(); return true; }
+        it.progreso = null;
+        it.error = 'GitHub no confirm\u00f3 la entrega. El archivo lleg\u00f3 al servidor pero el commit no aparece; vuelve a intentarlo en un momento o av\u00edsale al instructor.';
+        pinta();
+        return false;
+      }).catch(function (err) {
+        it.progreso = null; it.verificando = false;
+        var m = (err && err.message) || '';
+        if (/client token|Failed to retrieve/i.test(m)) m = 'el servidor del curso rechaz\u00f3 el archivo. Revisa el nombre y el formato, o av\u00edsale al instructor.';
+        else if (/size|too large|exceed/i.test(m)) m = 'el archivo supera el tama\u00f1o permitido.';
+        else if (/network|fetch|Failed to fetch/i.test(m)) m = 'se perdi\u00f3 la conexi\u00f3n. Revisa tu internet y vuelve a intentarlo.';
+        else if (!m) m = 'fall\u00f3 la subida.';
+        it.error = m; pinta();
+        return false;
+      });
     });
 
     Promise.all(tareas).then(function (res) {
@@ -509,17 +554,16 @@
         caja.classList.remove('oculto');
         caja.className = bien === res.length ? 'aviso bien' : 'aviso alerta';
         caja.innerHTML = bien === res.length
-          ? '<strong>Entrega recibida</strong><p>Se ' + plural(bien, 'subi\u00f3', 'subieron') + ' ' + nArch(bien) +
-            ' a tu carpeta de GitHub. En uno o dos minutos aparece publicada aqu\u00ed mismo y en ' +
-            '<a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">tu carpeta de entregas \u2197</a>.</p>'
+          ? '<strong>Entrega confirmada en GitHub</strong><p>' + nArch(bien) + ' con commit a tu nombre en ' +
+            '<a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">tu carpeta de entregas \u2197</a>. ' +
+            'En uno o dos minutos aparece publicada tambi\u00e9n aqu\u00ed mismo.</p>'
           : '<strong>Algo fall\u00f3</strong><p>Se ' + plural(bien, 'subi\u00f3', 'subieron') + ' ' + bien + ' de ' + res.length +
             '. Revisa el mensaje bajo cada archivo, espera un momento y vuelve a intentar. ' +
             'Si sigue fallando, descarga el archivo y av\u00edsale al instructor.</p>';
       }
       if (boton) { boton.disabled = false; boton.textContent = '\u2601\ufe0f Subir a GitHub'; }
       var campo = $('#txt-mensaje'); if (campo && bien) campo.value = '';
-      setTimeout(listarEntregas, 20000);
-      setTimeout(listarEntregas, 90000);
+      if (bien) listarEntregas();
     });
   }
 

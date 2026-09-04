@@ -310,7 +310,7 @@ def pagina_modulo(est, m, tiene_tutorial):
         </div>
 
         <h2>Prepara y revisa tu entrega</h2>
-        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de GitHub con el botón verde. Cada subida es un <strong>commit hecho a tu nombre</strong> en el repositorio del curso, como lo haría un desarrollador: queda tu autoría, la fecha y el mensaje que escribas. En uno o dos minutos aparece publicado aquí mismo.</p>
+        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad. Si cumple, lo subes a tu carpeta de GitHub con el botón verde, ya renombrado con el formato del curso. Cada subida es un <strong>commit hecho a tu nombre</strong> en el repositorio del curso, como lo haría un desarrollador: queda tu autoría, la fecha y el mensaje que escribas. En uno o dos minutos aparece publicado aquí mismo.</p>
 
         <div id="entregas-previas" class="aviso oculto"></div>
 
