@@ -20,14 +20,19 @@ DIR_PDF = os.path.join(RAIZ, "_assets", "pdf")
 DIR_TUT = os.path.join(RAIZ, "_assets", "tutoriales")
 HOY = datetime.date.today().strftime("%d de %B de %Y")
 
+# Las entregas van directo al repositorio de GitHub. El navegador sube el archivo a
+# Vercel Blob con un token temporal y una funcion en Vercel hace el commit.
+REPO = "EVA2080AI/upc-falabella-copilot-grupo2"
+ENDPOINT = "https://upc-falabella-copilot-grupo2.vercel.app/api/subir"
+
+
+def github_url(*partes):
+    from urllib.parse import quote
+    return "https://github.com/" + REPO + "/tree/main/" + "/".join(quote(p) for p in partes)
+
 # Mapa de carpetas de Google Drive, si ya se creo la estructura alli.
 # Formato: {"<nombre del estudiante>": {"id": "...", "modulos": {"1": "...", ...}}}
 #
-# Los enlaces de Google Drive NO se escriben en el HTML. Los inserta assets/drive.js
-# al cargar la pagina, leyendo _assets/drive.json, que esta fuera del control de
-# versiones. Motivo: esos enlaces dan permiso de escritura sobre las entregas de
-# todo el grupo, asi que no pueden quedar en un sitio publico. Sin ese archivo la
-# pagina funciona igual y solo ofrece el destino de SharePoint.
 
 
 def ascii_seguro(t):
@@ -143,8 +148,8 @@ def pagina_portada(estudiantes):
     cuerpo = f"""    <div class="rejilla-2" style="margin-bottom:30px;align-items:start">
       <div class="caja">
         <h2 style="margin-top:0">Cómo funciona este portal</h2>
-        <p class="apunte">Cada estudiante tiene su carpeta. Dentro hay una carpeta por módulo, y en cada una encontrarás tres cosas: el <strong>PDF oficial de la actividad</strong>, un <strong>tutorial paso a paso</strong> para resolverla rápido con Copilot aunque no tengas licencia de pago, y un <strong>cargador que revisa tu archivo</strong> antes de que lo entregues.</p>
-        <div class="aviso bien"><strong>El cargador revisa por ti</strong><p>Cuenta las páginas del PDF, mide los píxeles de la infografía, cuenta las diapositivas de la presentación y las capturas del manual. Te dice qué falta antes de que el docente lo vea.</p></div>
+        <p class="apunte">Cada estudiante tiene su carpeta. Dentro hay una carpeta por módulo, y en cada una encontrarás tres cosas: el <strong>PDF oficial de la actividad</strong>, un <strong>tutorial paso a paso</strong> para resolverla rápido con Copilot aunque no tengas licencia de pago, y un <strong>cargador que revisa tu archivo y lo sube a GitHub</strong>, donde queda tu entrega.</p>
+        <div class="aviso bien"><strong>El cargador revisa por ti y entrega por ti</strong><p>Cuenta las páginas del PDF, mide los píxeles de la infografía, cuenta las diapositivas de la presentación y las capturas del manual. Te dice qué falta antes de que el docente lo vea, y cuando todo está bien lo sube a tu carpeta de GitHub con un clic.</p></div>
       </div>
       <div class="caja">
         <h2 style="margin-top:0">Los cinco módulos</h2>
@@ -198,7 +203,8 @@ def pagina_portada(estudiantes):
 
 # --------------------------------------------------------- panel del estudiante
 def pagina_estudiante(est):
-    bloque_drive_est = '<span id="drive-estudiante"></span>'
+    bloque_drive_est = (f'<a class="btn pequeno principal" href="{e(github_url("Estudiantes", est["carpeta"]))}" '
+                        f'target="_blank" rel="noopener" style="margin-right:8px">Mi carpeta en GitHub ↗</a>')
     tarjetas = []
     for m in MODULOS:
         tarjetas.append(f"""      <a class="tarjeta" href="{e(m['carpeta'])}/index.html">
@@ -213,8 +219,8 @@ def pagina_estudiante(est):
       </a>""")
 
     cuerpo = f"""    <div class="aviso bien" style="margin-top:0">
-      <strong>Dónde subes tus entregas</strong>
-      <p>Tienes tu propia carpeta, con una subcarpeta por cada módulo. Sube ahí el archivo del módulo que corresponda. Este portal te prepara y revisa el archivo antes; la carpeta es donde el docente lo recoge y lo califica.</p>
+      <strong>Dónde quedan tus entregas</strong>
+      <p>Tus entregas se guardan en el repositorio de GitHub del curso, en tu carpeta, dentro de la subcarpeta del módulo que corresponda. Las subes desde la página de cada módulo: el portal revisa el archivo, lo renombra y lo envía. Quedan publicadas y el docente las recoge de ahí.</p>
       <p style="margin-top:9px">{bloque_drive_est}<a class="btn pequeno" href="{e(sp_url(est['carpetaSP']))}" target="_blank" rel="noopener">Abrir mi carpeta en SharePoint ↗</a></p>
     </div>
 
@@ -244,8 +250,8 @@ def pagina_estudiante(est):
     <p class="lema">{e(est['email']) if est['email'] else 'Estudiante del grupo 2'} &nbsp;·&nbsp; 5 módulos del curso Microsoft Copilot Chat</p>"""
     script_est = (
         "<script>window.PORTAL = "
-        + json.dumps({"estudiante": est["nombre"], "rutaBase": "../../"}, ensure_ascii=False)
-        + ";</script>\n<script src=\"../../assets/drive.js\" defer></script>"
+        + json.dumps({"estudiante": est["nombre"]}, ensure_ascii=False)
+        + ";</script>"
     )
     return envoltura(
         f"{est['nombre']} · Entregas del curso",
@@ -277,8 +283,10 @@ def pagina_modulo(est, m, tiene_tutorial):
     reglas_txt = " · ".join(reglas) if reglas else "sin mínimo de extensión"
 
     spu = sp_url(est["carpetaSP"], m["sp"])
-    boton_drive_arriba = '<span id="drive-modulo"></span>'
-    boton_drive_entrega = '<span id="drive-entrega"></span>'
+    ghu = github_url("Estudiantes", est["carpeta"], m["carpeta"], "entregas")
+    boton_drive_arriba = (f'<a class="btn sutil" href="{e(ghu)}" target="_blank" rel="noopener">'
+                          f'🗂️ Mis entregas de este módulo en GitHub ↗</a>\n            ')
+    boton_drive_entrega = ""
 
     tut_nombre = f"Tutorial Modulo {m['n']} - {slug(m['titulo'])}.doc"
     bloque_tut = (
@@ -293,8 +301,10 @@ def pagina_modulo(est, m, tiene_tutorial):
         "moduloNumero": m["n"],
         "moduloCorto": m["corto"],
         "requisitos": m["requisitos"],
-        "rutaBase": "../../../",
-        "endpoint": None,
+        "carpetaEstudiante": est["carpeta"],
+        "carpetaModulo": m["carpeta"],
+        "repo": REPO,
+        "endpoint": ENDPOINT,
     }
 
     cuerpo = f"""    <div class="rejilla-2" style="align-items:start">
@@ -310,7 +320,9 @@ def pagina_modulo(est, m, tiene_tutorial):
         </div>
 
         <h2>Prepara y revisa tu entrega</h2>
-        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de <span id="nombre-destino">SharePoint</span> con el botón de abajo.</p>
+        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de GitHub con el botón verde. Queda guardado en el repositorio del curso, con tu nombre y tu módulo, y en uno o dos minutos aparece publicado aquí mismo.</p>
+
+        <div id="entregas-previas" class="aviso oculto"></div>
 
         <div id="recuperados" class="aviso oculto"></div>
 
@@ -326,14 +338,14 @@ def pagina_modulo(est, m, tiene_tutorial):
         <div id="resumen-envio" class="aviso oculto"></div>
 
         <div class="acciones oculto" id="acciones-entrega">
-          <button class="btn principal" type="button" id="btn-descargar">⬇️ Descargar con el nombre correcto</button>
-          {boton_drive_entrega}<a class="btn sutil" href="{e(spu)}" target="_blank" rel="noopener">Subirlo a SharePoint ↗</a>
-          <button class="btn" type="button" id="btn-enviar">Enviar al servidor del curso</button>
+          <button class="btn principal" type="button" id="btn-enviar">☁️ Subir a GitHub</button>
+          <button class="btn" type="button" id="btn-descargar">⬇️ Descargar con el nombre correcto</button>
+          <a class="btn sutil" href="{e(spu)}" target="_blank" rel="noopener">SharePoint ↗</a>
         </div>
 
         <div class="aviso ojo">
           <strong>El portal revisa el formato, no el contenido</strong>
-          <p>Que el archivo pase la revisión significa que cumple los requisitos técnicos: formato, extensión y resolución. La nota la define el contenido según los criterios de evaluación de aquí al lado.</p>
+          <p>Que el archivo pase la revisión significa que cumple los requisitos técnicos: formato, extensión y resolución. La nota la define el contenido según los criterios de evaluación de aquí al lado. Si subes una versión nueva con el mismo nombre, reemplaza la anterior.</p>
         </div>
       </div>
 
@@ -376,7 +388,7 @@ def pagina_modulo(est, m, tiene_tutorial):
 
     script = ("<script>window.PORTAL = " + json.dumps(cfg, ensure_ascii=False) +
               ";</script>\n"
-              "<script src=\"../../../assets/drive.js\" defer></script>\n"
+              "<script src=\"../../../assets/blob-client.js\"></script>\n"
               "<script src=\"../../../assets/cargador.js\" defer></script>")
 
     return envoltura(
@@ -425,13 +437,9 @@ def main():
     io.open(os.path.join(RAIZ, "index.html"), "w", encoding="utf-8").write(
         pagina_portada(estudiantes))
 
-    hay_drive = os.path.exists(os.path.join(RAIZ, "_assets", "drive.json"))
     print("OK  %d estudiantes  ·  %d carpetas de modulo  ·  portada generada"
           % (len(estudiantes), creados))
-    print("    Google Drive: %s"
-          % ("_assets/drive.json presente, los botones aparecen al abrir la pagina"
-             if hay_drive else
-             "sin _assets/drive.json, las paginas solo ofrecen SharePoint"))
+    print("    Entregas: a GitHub via " + ENDPOINT)
 
 
 if __name__ == "__main__":

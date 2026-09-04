@@ -1,10 +1,8 @@
 # Datos que nunca se publican.
 # Correos corporativos de los 22 estudiantes:
 _assets/estudiantes.privado.json
-# _assets/drive.json SI se publica, por decision del instructor: es lo que hace
-# aparecer el boton de subir a Google Drive en el portal. Solo contiene ids de
-# carpeta, ningun correo. Quien abra el sitio puede subir y tambien borrar
-# entregas; lo borrado queda 30 dias en la papelera del propietario.
+# Ids de Drive. Ya no se usan en el portal: las entregas van a GitHub.
+_assets/drive.json
 
 # Listados para repartir: llevan correos y enlaces de escritura.
 _ENLACES-PARA-ESTUDIANTES.csv
@@ -16,3 +14,5 @@ Thumbs.db
 node_modules/
 .vercel/
 _SUBIR-A-DRIVE/
+.vercel
+.env*.local

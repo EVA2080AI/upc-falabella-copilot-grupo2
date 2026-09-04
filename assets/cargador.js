@@ -311,6 +311,20 @@
         b.innerHTML = '<i style="width:' + it.progreso + '%"></i>';
         info.appendChild(b);
       }
+      if (it.subido) {
+        var ok2 = document.createElement('div');
+        ok2.className = 'dictamen';
+        ok2.innerHTML = '<div><span class="marca si">\u2713</span><span class="si">Subido a GitHub.</span></div>';
+        info.appendChild(ok2);
+      } else if (it.error) {
+        var er = document.createElement('div');
+        er.className = 'dictamen';
+        var e1 = document.createElement('div');
+        var m1 = document.createElement('span'); m1.className = 'marca no'; m1.textContent = '\u2715';
+        var t1 = document.createElement('span'); t1.className = 'no'; t1.textContent = 'No se pudo subir: ' + it.error;
+        e1.appendChild(m1); e1.appendChild(t1); er.appendChild(e1);
+        info.appendChild(er);
+      }
 
       var quitar = document.createElement('button');
       quitar.className = 'quitar';
@@ -392,35 +406,90 @@
     });
   }
 
-  function enviarServidor() {
-    if (!CFG.endpoint) return;
-    var boton = $('#btn-enviar');
-    if (boton) { boton.disabled = true; boton.textContent = 'Enviando…'; }
+  /* ------------------------------------------------- subida a GitHub */
+  function rutaEntregas() {
+    return 'Estudiantes/' + CFG.carpetaEstudiante + '/' + CFG.carpetaModulo + '/entregas';
+  }
+  function urlCarpetaGitHub() {
+    return 'https://github.com/' + CFG.repo + '/tree/main/' + rutaEntregas().split('/').map(encodeURIComponent).join('/');
+  }
 
-    var tareas = estado.map(function (it) {
-      var fd = new FormData();
-      fd.append('archivo', it.archivo, it.nombreFinal);
-      fd.append('estudiante', CFG.estudiante);
-      fd.append('modulo', String(CFG.moduloNumero));
-      fd.append('actividad', CFG.moduloCorto);
-      it.progreso = 10; pinta();
-      return fetch(CFG.endpoint, { method: 'POST', body: fd })
-        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-        .then(function (d) { it.progreso = 100; it.enlace = d.url; pinta(); return true; })
-        .catch(function () { it.progreso = null; pinta(); return false; });
+  function listarEntregas() {
+    var caja = $('#entregas-previas');
+    if (!caja || !CFG.repo) return;
+    var api = 'https://api.github.com/repos/' + CFG.repo + '/contents/' +
+      rutaEntregas().split('/').map(encodeURIComponent).join('/') + '?ref=main';
+    fetch(api, { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (lista) {
+        if (!Array.isArray(lista) || !lista.length) { caja.classList.add('oculto'); return; }
+        caja.classList.remove('oculto');
+        caja.className = 'aviso bien';
+        var items = lista.filter(function (f) { return f.type === 'file'; }).map(function (f) {
+          return '<li><a href="' + f.html_url + '" target="_blank" rel="noopener">' + f.name + '</a>' +
+                 ' <span style="color:var(--tinta-3)">· ' + bytes(f.size) + '</span></li>';
+        }).join('');
+        caja.innerHTML = '<strong>Ya tienes ' + nArch(lista.length) + ' en GitHub para este m\u00f3dulo</strong>' +
+          '<ul style="margin:6px 0 0;padding-left:18px">' + items + '</ul>' +
+          '<p style="margin-top:8px"><a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">Ver la carpeta en GitHub \u2197</a></p>';
+      })
+      .catch(function () { /* sin red o sin carpeta todavia */ });
+  }
+
+  function enviarServidor() {
+    if (!CFG.endpoint || !window.VercelBlob) return;
+    var listos = estado.filter(function (it) { return it.revision && it.revision.apto; });
+    var caja = $('#resumen-envio');
+    if (!listos.length) {
+      if (caja) {
+        caja.classList.remove('oculto');
+        caja.className = 'aviso alerta';
+        caja.innerHTML = '<strong>Nada para subir</strong><p>Ning\u00fan archivo cumple los requisitos todav\u00eda. Corrige lo marcado en rojo y vuelve a intentarlo.</p>';
+      }
+      return;
+    }
+    var boton = $('#btn-enviar');
+    if (boton) { boton.disabled = true; boton.textContent = 'Subiendo a GitHub\u2026'; }
+
+    var tareas = listos.map(function (it) {
+      it.progreso = 2; pinta();
+      var ruta = 'entregas/' + CFG.carpetaEstudiante + '/' + CFG.carpetaModulo + '/' + it.nombreFinal;
+      return window.VercelBlob.upload(ruta, it.archivo, {
+        access: 'public',
+        handleUploadUrl: CFG.endpoint,
+        clientPayload: JSON.stringify({
+          estudiante: CFG.estudiante,
+          carpetaEstudiante: CFG.carpetaEstudiante,
+          moduloNumero: CFG.moduloNumero,
+          carpetaModulo: CFG.carpetaModulo,
+          nombreFinal: it.nombreFinal
+        }),
+        onUploadProgress: function (ev) {
+          it.progreso = Math.max(2, Math.min(99, Math.round(ev.percentage || 0)));
+          pinta();
+        }
+      }).then(function () { it.progreso = 100; it.subido = true; pinta(); return true; })
+        .catch(function (err) {
+          it.progreso = null; it.error = (err && err.message) || 'fallo la subida'; pinta();
+          return false;
+        });
     });
 
     Promise.all(tareas).then(function (res) {
       var bien = res.filter(Boolean).length;
-      var caja = $('#resumen-envio');
       if (caja) {
         caja.classList.remove('oculto');
         caja.className = bien === res.length ? 'aviso bien' : 'aviso alerta';
         caja.innerHTML = bien === res.length
-          ? '<strong>Enviado al servidor del curso</strong><p>Se ' + plural(bien, 'recibi\u00f3', 'recibieron') + ' ' + nArch(bien) + '. Igual sube tu entrega a la carpeta de SharePoint, que es el canal oficial de calificaci\u00f3n.</p>'
-          : '<strong>El env\u00edo al servidor fall\u00f3</strong><p>Se ' + plural(bien, 'envi\u00f3', 'enviaron') + ' ' + bien + ' de ' + res.length + '. Usa el bot\u00f3n de descargar y sube el archivo directamente a SharePoint.</p>';
+          ? '<strong>Entrega recibida</strong><p>Se ' + plural(bien, 'subi\u00f3', 'subieron') + ' ' + nArch(bien) +
+            ' a tu carpeta de GitHub. En uno o dos minutos aparece publicada aqu\u00ed mismo y en ' +
+            '<a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">tu carpeta de entregas \u2197</a>.</p>'
+          : '<strong>Algo fall\u00f3</strong><p>Se ' + plural(bien, 'subi\u00f3', 'subieron') + ' ' + bien + ' de ' + res.length +
+            '. Revisa el mensaje bajo cada archivo, espera un momento y vuelve a intentar. ' +
+            'Si sigue fallando, descarga el archivo y av\u00edsale al instructor.</p>';
       }
-      if (boton) { boton.disabled = false; boton.textContent = 'Enviar al servidor del curso'; }
+      if (boton) { boton.disabled = false; boton.textContent = '\u2601\ufe0f Subir a GitHub'; }
+      setTimeout(listarEntregas, 90000);
     });
   }
 
@@ -451,9 +520,10 @@
 
     var enviar = $('#btn-enviar');
     if (enviar) {
-      if (CFG.endpoint) enviar.addEventListener('click', enviarServidor);
+      if (CFG.endpoint && window.VercelBlob) enviar.addEventListener('click', enviarServidor);
       else enviar.classList.add('oculto');
     }
+    listarEntregas();
 
     // recuperar lo que el estudiante ya habia cargado en este navegador
     leerLocal(CFG.clave + '::').then(function (guardados) {
