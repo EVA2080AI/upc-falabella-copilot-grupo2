@@ -4,6 +4,10 @@ _assets/estudiantes.privado.json
 # Ids de Drive: dan permiso de escritura sobre las entregas de todo el grupo.
 _assets/drive.json
 
+# Listados para repartir: llevan correos y enlaces de escritura.
+_ENLACES-PARA-ESTUDIANTES.csv
+_MENSAJES-PARA-ENVIAR.txt
+
 # Sistema
 .DS_Store
 Thumbs.db
