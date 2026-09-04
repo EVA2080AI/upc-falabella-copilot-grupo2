@@ -69,6 +69,12 @@ para que no se pierda al recargar, y lo sube.
 **En este mismo repositorio**, en `Estudiantes/<estudiante>/<módulo>/entregas/`. Así el docente
 las recoge de GitHub y quedan publicadas en el portal con el resto del material del módulo.
 
+Cada subida es un **commit a nombre del estudiante**, como lo haría un desarrollador: el autor y el
+committer llevan su nombre, el mensaje lo escribe el estudiante en el portal si quiere, y en la
+página del módulo se ve el historial de commits de su carpeta. Los estudiantes no necesitan cuenta
+de GitHub: la identidad del commit la pone la función a partir del nombre con que aparecen en el
+portal, con un correo `noreply` derivado.
+
 El camino del archivo, de principio a fin:
 
 1. El portal pide a `api/subir.js`, desplegada en Vercel, un token de subida. La función valida
@@ -78,7 +84,8 @@ El camino del archivo, de principio a fin:
 3. Al terminar, Vercel Blob avisa a la misma función, que descarga el archivo, hace el commit
    con la API de GitHub y borra la copia de Blob.
 4. GitHub Pages se redespliega solo y la entrega aparece en el portal en uno o dos minutos.
-   Si el estudiante sube otra versión con el mismo nombre, reemplaza la anterior.
+   Si el estudiante sube otra versión con el mismo nombre, reemplaza la anterior y queda un
+   commit nuevo en el historial.
 
 La función necesita tres variables de entorno en Vercel:
 
@@ -112,12 +119,9 @@ generador produce dos versiones:
 
 ```bash
 python3 _generador/generar.py                    # versión privada: con los enlaces de Drive
-PORTAL_PUBLICO=1 python3 _generador/generar.py   # versión pública: solo SharePoint
 ```
 
 Usa la versión **privada** para repartirla por un canal cerrado, por ejemplo la carpeta de
-SharePoint del curso o un archivo comprimido enviado por correo. Usa la versión **pública** para
-cualquier sitio en línea abierto, como GitHub Pages: ahí los estudiantes entregan por SharePoint,
 que es el canal oficial de calificación de todas formas.
 
 ## Privacidad

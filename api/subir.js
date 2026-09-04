@@ -58,6 +58,21 @@ function segmento(texto, largoMax) {
     .slice(0, largoMax || 120);
 }
 
+/** Identidad del autor del commit: el nombre del estudiante y un correo noreply derivado. */
+function autor(nombre) {
+  const limpio = segmento(nombre, 80) || 'Estudiante';
+  const slug = limpio.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'estudiante';
+  return { name: limpio, email: slug + '@estudiantes.noreply.upc-falabella-copilot-grupo2' };
+}
+
+/** Mensaje del commit: el del estudiante si lo escribio, si no uno automatico. */
+function mensajeCommit(datos) {
+  const propio = String(datos.mensaje || '').replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140);
+  const archivo = datos.rutaGitHub.split('/').pop();
+  const cabecera = 'Modulo ' + datos.modulo + ': ' + (propio || 'entrega de ' + archivo);
+  return cabecera + '\n\n' + 'Estudiante: ' + datos.estudiante + '\nArchivo: ' + archivo + '\nEntregado desde el portal del curso';
+}
+
 export async function OPTIONS() {
   return new Response(null, { status: 204, headers: CORS });
 }
@@ -109,6 +124,7 @@ export async function POST(request) {
             rutaGitHub,
             estudiante: segmento(datos.estudiante, 80),
             modulo: Number(datos.moduloNumero) || 0,
+            mensaje: String(datos.mensaje || '').slice(0, 140),
           }),
         };
       },
@@ -140,9 +156,11 @@ export async function POST(request) {
           method: 'PUT',
           headers: { ...cabeceras, 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            message: 'Entrega: ' + datos.estudiante + ' · Modulo ' + datos.modulo + ' · ' + datos.rutaGitHub.split('/').pop(),
+            message: mensajeCommit(datos),
             content: contenido,
             branch: rama,
+            author: autor(datos.estudiante),
+            committer: autor(datos.estudiante),
             ...(sha ? { sha } : {}),
           }),
         });

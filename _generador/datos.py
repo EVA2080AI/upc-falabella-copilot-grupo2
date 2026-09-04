@@ -6,10 +6,6 @@ CURSO = {
     "institucion": "Universidad Piloto de Colombia",
     "empresa": "Falabella",
     "grupo": "Grupo 2",
-    "sp_sitio": "https://upcedu-my.sharepoint.com/personal/instructor6-cta_unipiloto_edu_co",
-    "sp_ruta_base": "/personal/instructor6-cta_unipiloto_edu_co/Documents/Moodle u piloto Falabella grupo 2",
-    "sp_carpeta": ("https://upcedu-my.sharepoint.com/:f:/r/personal/instructor6-cta_unipiloto_edu_co"
-                   "/Documents/Moodle%20u%20piloto%20Falabella%20grupo%202"),
     "hoja": "https://docs.google.com/spreadsheets/d/1HLq_iHm77P71BBsEL6vN7PXTYpEgoPBZPcGWmItpfX4/edit",
 }
 
@@ -17,7 +13,6 @@ MODULOS = [
     {
         "n": 1,
         "carpeta": "Modulo 1 - Diagnostico",
-        "sp": "Modulo 1",
         "actividad": "Actividad 00",
         "titulo": "Diagnóstico del problema",
         "corto": "Diagnostico",
@@ -42,7 +37,6 @@ MODULOS = [
     {
         "n": 2,
         "carpeta": "Modulo 2 - Infografia",
-        "sp": "Modulo 2",
         "actividad": "Actividad 01",
         "titulo": "Infografía de la solución propuesta",
         "corto": "Infografia",
@@ -67,7 +61,6 @@ MODULOS = [
     {
         "n": 3,
         "carpeta": "Modulo 3 - Documento de solucion",
-        "sp": "Modulo 3",
         "actividad": "Actividad 02",
         "titulo": "Documento de la solución",
         "corto": "Documento-Solucion",
@@ -93,7 +86,6 @@ MODULOS = [
     {
         "n": 4,
         "carpeta": "Modulo 4 - Manual del sistema",
-        "sp": "Modulo 4",
         "actividad": "Actividad 03",
         "titulo": "Manual del sistema o asistente de IA",
         "corto": "Manual",
@@ -119,7 +111,6 @@ MODULOS = [
     {
         "n": 5,
         "carpeta": "Modulo 5 - Presentacion final",
-        "sp": "Modulo 5",
         "actividad": "Actividad 04",
         "titulo": "Presentación final y prototipo en vivo",
         "corto": "Presentacion",

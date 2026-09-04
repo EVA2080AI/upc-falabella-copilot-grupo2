@@ -59,15 +59,6 @@ def iniciales(nombre):
     return (partes[0][0] + partes[-1][0]).upper()
 
 
-def sp_url(carpeta_sp, sub=None):
-    ruta = CURSO["sp_ruta_base"] + "/" + carpeta_sp
-    if sub:
-        ruta += "/" + sub
-    from urllib.parse import quote
-    return (CURSO["sp_sitio"] + "/_layouts/15/onedrive.aspx?id=" + quote(ruta, safe="")
-            + "&view=0")
-
-
 # ---------------------------------------------------------------- plantillas
 def envoltura(titulo, prof, cuerpo, migas_html, encabezado_html, extra_head="", extra_body=""):
     return f"""<!doctype html>
@@ -99,7 +90,7 @@ def envoltura(titulo, prof, cuerpo, migas_html, encabezado_html, extra_head="", 
 <footer class="pie-pagina">
   <div class="envoltura-ancha">
     <div>Curso {e(CURSO['titulo'])} &nbsp;·&nbsp; {e(CURSO['institucion'])} &nbsp;·&nbsp; {e(CURSO['empresa'])} {e(CURSO['grupo'])}</div>
-    <div><a href="{e(CURSO['sp_carpeta'])}" target="_blank" rel="noopener">Carpeta oficial en SharePoint</a></div>
+    <div><a href="https://github.com/{e(REPO)}" target="_blank" rel="noopener">Repositorio del curso en GitHub</a></div>
   </div>
 </footer>
 {extra_body}
@@ -204,7 +195,7 @@ def pagina_portada(estudiantes):
 # --------------------------------------------------------- panel del estudiante
 def pagina_estudiante(est):
     bloque_drive_est = (f'<a class="btn pequeno principal" href="{e(github_url("Estudiantes", est["carpeta"]))}" '
-                        f'target="_blank" rel="noopener" style="margin-right:8px">Mi carpeta en GitHub ↗</a>')
+                        f'target="_blank" rel="noopener">Mi carpeta en GitHub ↗</a>')
     tarjetas = []
     for m in MODULOS:
         tarjetas.append(f"""      <a class="tarjeta" href="{e(m['carpeta'])}/index.html">
@@ -220,8 +211,8 @@ def pagina_estudiante(est):
 
     cuerpo = f"""    <div class="aviso bien" style="margin-top:0">
       <strong>Dónde quedan tus entregas</strong>
-      <p>Tus entregas se guardan en el repositorio de GitHub del curso, en tu carpeta, dentro de la subcarpeta del módulo que corresponda. Las subes desde la página de cada módulo: el portal revisa el archivo, lo renombra y lo envía. Quedan publicadas y el docente las recoge de ahí.</p>
-      <p style="margin-top:9px">{bloque_drive_est}<a class="btn pequeno" href="{e(sp_url(est['carpetaSP']))}" target="_blank" rel="noopener">Abrir mi carpeta en SharePoint ↗</a></p>
+      <p>Tus entregas se guardan en el repositorio de GitHub del curso, en tu carpeta, dentro de la subcarpeta del módulo que corresponda. Las subes desde la página de cada módulo: el portal revisa el archivo, lo renombra y hace el commit a tu nombre. Quedan publicadas con tu autoría y el docente las recoge de ahí.</p>
+      <p style="margin-top:9px">{bloque_drive_est}</p>
     </div>
 
     <h2>Tus cinco módulos</h2>
@@ -282,7 +273,6 @@ def pagina_modulo(est, m, tiene_tutorial):
         reglas.append(f"mínimo {r['imagenesMin']} capturas o diagramas")
     reglas_txt = " · ".join(reglas) if reglas else "sin mínimo de extensión"
 
-    spu = sp_url(est["carpetaSP"], m["sp"])
     ghu = github_url("Estudiantes", est["carpeta"], m["carpeta"], "entregas")
     boton_drive_arriba = (f'<a class="btn sutil" href="{e(ghu)}" target="_blank" rel="noopener">'
                           f'🗂️ Mis entregas de este módulo en GitHub ↗</a>\n            ')
@@ -315,12 +305,12 @@ def pagina_modulo(est, m, tiene_tutorial):
           <div class="acciones" style="margin-top:4px">
 {bloque_tut}
             <a class="btn" href="{e(m['pdf'])}" download>📄 Descargar el PDF de la actividad</a>
-            {boton_drive_arriba}<a class="btn sutil" href="{e(spu)}" target="_blank" rel="noopener">📂 Mi carpeta de este módulo en SharePoint ↗</a>
+            {boton_drive_arriba}
           </div>
         </div>
 
         <h2>Prepara y revisa tu entrega</h2>
-        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de GitHub con el botón verde. Queda guardado en el repositorio del curso, con tu nombre y tu módulo, y en uno o dos minutos aparece publicado aquí mismo.</p>
+        <p class="apunte">Arrastra aquí tu archivo. Se revisa en tu propio navegador contra los requisitos oficiales de la actividad, sin enviarlo a ningún servidor. Después lo descargas ya renombrado y lo subes a tu carpeta de GitHub con el botón verde. Cada subida es un <strong>commit hecho a tu nombre</strong> en el repositorio del curso, como lo haría un desarrollador: queda tu autoría, la fecha y el mensaje que escribas. En uno o dos minutos aparece publicado aquí mismo.</p>
 
         <div id="entregas-previas" class="aviso oculto"></div>
 
@@ -337,10 +327,13 @@ def pagina_modulo(est, m, tiene_tutorial):
         <div id="resumen-estado"></div>
         <div id="resumen-envio" class="aviso oculto"></div>
 
+        <div class="oculto" id="mensaje-entrega" style="margin-top:14px">
+          <label for="txt-mensaje" style="display:block;font-weight:700;font-size:.9rem;margin-bottom:6px">Mensaje de tu entrega <span style="color:var(--tinta-3);font-weight:500">(opcional, va en el commit)</span></label>
+          <input id="txt-mensaje" type="text" maxlength="140" placeholder="Ej.: Versión final con las tres evidencias" style="width:100%;padding:11px 14px;border-radius:10px;border:1px solid var(--linea);background:var(--panel);color:var(--tinta);font-family:inherit;font-size:.95rem">
+        </div>
         <div class="acciones oculto" id="acciones-entrega">
           <button class="btn principal" type="button" id="btn-enviar">☁️ Subir a GitHub</button>
           <button class="btn" type="button" id="btn-descargar">⬇️ Descargar con el nombre correcto</button>
-          <a class="btn sutil" href="{e(spu)}" target="_blank" rel="noopener">SharePoint ↗</a>
         </div>
 
         <div class="aviso ojo">

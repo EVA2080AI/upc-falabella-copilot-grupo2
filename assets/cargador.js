@@ -3,12 +3,15 @@
    Universidad Piloto de Colombia · Falabella · Grupo 2
    Curso: Microsoft Copilot Chat
 
-   Funciona en dos carriles:
-     1. LOCAL  (siempre): valida el archivo contra los requisitos oficiales de
-        la actividad, lo renombra con la convencion del curso, lo guarda en el
-        navegador (IndexedDB) y lo empaqueta para subirlo a SharePoint.
-     2. SERVIDOR (opcional): si la pagina define window.PORTAL.endpoint, el
-        archivo se envia de verdad al servidor del curso.
+   Que hace:
+     1. Valida el archivo contra los requisitos oficiales de la actividad: paginas
+        del PDF, pixeles de la imagen, diapositivas del PPTX, capturas del DOCX.
+     2. Lo renombra con la convencion del curso y lo guarda en el navegador
+        (IndexedDB) para que no se pierda al recargar.
+     3. Lo sube a GitHub: el navegador manda el archivo a Vercel Blob con un token
+        temporal y una funcion en Vercel hace el commit al repositorio del curso,
+        a nombre del estudiante y con el mensaje que escriba.
+     4. Muestra las entregas ya hechas y el historial de commits de su carpeta.
    ========================================================================== */
 (function () {
   'use strict';
@@ -253,14 +256,17 @@
   function pinta() {
     var lista = $('#lista-archivos');
     var accion = $('#acciones-entrega');
+    var msj = $('#mensaje-entrega');
     if (!lista) return;
     lista.innerHTML = '';
 
     if (!estado.length) {
       if (accion) accion.classList.add('oculto');
+      if (msj) msj.classList.add('oculto');
       return;
     }
     if (accion) accion.classList.remove('oculto');
+    if (msj && CFG.endpoint) msj.classList.remove('oculto');
 
     estado.forEach(function (it, i) {
       var li = document.createElement('li');
@@ -348,7 +354,7 @@
       if (listos === estado.length) {
         res.className = 'aviso bien';
         res.innerHTML = '<strong>Todo en orden</strong><p>' + listos + ' de ' + nArch(estado.length) +
-          ' ' + plural(listos, 'cumple', 'cumplen') + ' los requisitos de la actividad. Ya puedes descargar tu entrega con el nombre correcto y subirla a tu carpeta de SharePoint.</p>';
+          ' ' + plural(listos, 'cumple', 'cumplen') + ' los requisitos de la actividad. Ya puedes subirla a GitHub con el bot\u00f3n verde.</p>';
       } else {
         res.className = 'aviso ojo';
         res.innerHTML = '<strong>Revisa lo marcado en rojo</strong><p>' + listos + ' de ' + nArch(estado.length) +
@@ -414,26 +420,47 @@
     return 'https://github.com/' + CFG.repo + '/tree/main/' + rutaEntregas().split('/').map(encodeURIComponent).join('/');
   }
 
+  function fechaCorta(iso) {
+    try {
+      return new Date(iso).toLocaleString('es-CO', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+    } catch (e) { return iso; }
+  }
+  function escapaHtml(t) {
+    return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+  }
+
   function listarEntregas() {
     var caja = $('#entregas-previas');
     if (!caja || !CFG.repo) return;
-    var api = 'https://api.github.com/repos/' + CFG.repo + '/contents/' +
-      rutaEntregas().split('/').map(encodeURIComponent).join('/') + '?ref=main';
-    fetch(api, { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : []; })
-      .then(function (lista) {
-        if (!Array.isArray(lista) || !lista.length) { caja.classList.add('oculto'); return; }
-        caja.classList.remove('oculto');
-        caja.className = 'aviso bien';
-        var items = lista.filter(function (f) { return f.type === 'file'; }).map(function (f) {
-          return '<li><a href="' + f.html_url + '" target="_blank" rel="noopener">' + f.name + '</a>' +
-                 ' <span style="color:var(--tinta-3)">· ' + bytes(f.size) + '</span></li>';
-        }).join('');
-        caja.innerHTML = '<strong>Ya tienes ' + nArch(lista.length) + ' en GitHub para este m\u00f3dulo</strong>' +
-          '<ul style="margin:6px 0 0;padding-left:18px">' + items + '</ul>' +
-          '<p style="margin-top:8px"><a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">Ver la carpeta en GitHub \u2197</a></p>';
-      })
-      .catch(function () { /* sin red o sin carpeta todavia */ });
+    var carpeta = rutaEntregas().split('/').map(encodeURIComponent).join('/');
+    var base = 'https://api.github.com/repos/' + CFG.repo;
+    var cab = { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' };
+    Promise.all([
+      fetch(base + '/contents/' + carpeta + '?ref=main', cab).then(function (r) { return r.ok ? r.json() : []; }),
+      fetch(base + '/commits?sha=main&per_page=8&path=' + carpeta, cab).then(function (r) { return r.ok ? r.json() : []; })
+    ]).then(function (res) {
+      var lista = Array.isArray(res[0]) ? res[0].filter(function (f) { return f.type === 'file'; }) : [];
+      var commits = Array.isArray(res[1]) ? res[1] : [];
+      if (!lista.length) { caja.classList.add('oculto'); return; }
+      caja.classList.remove('oculto');
+      caja.className = 'aviso bien';
+      var items = lista.map(function (f) {
+        return '<li><a href="' + f.html_url + '" target="_blank" rel="noopener">' + escapaHtml(f.name) + '</a>' +
+               ' <span style="color:var(--tinta-3)">\u00b7 ' + bytes(f.size) + '</span></li>';
+      }).join('');
+      var hist = commits.slice(0, 5).map(function (c) {
+        var a = (c.commit && c.commit.author) || {};
+        var titulo = ((c.commit && c.commit.message) || '').split('\n')[0];
+        return '<li><span style="color:var(--tinta-3)">' + escapaHtml(fechaCorta(a.date || '')) + '</span> \u00b7 ' +
+               '<strong>' + escapaHtml(a.name || '') + '</strong> \u00b7 ' +
+               '<a href="' + c.html_url + '" target="_blank" rel="noopener">' + escapaHtml(titulo) + '</a></li>';
+      }).join('');
+      caja.innerHTML = '<strong>Tus entregas en GitHub para este m\u00f3dulo</strong>' +
+        '<ul style="margin:6px 0 0;padding-left:18px">' + items + '</ul>' +
+        (hist ? '<p style="margin:10px 0 4px;font-weight:700;font-size:.86rem">Historial de commits</p>' +
+                '<ul style="margin:0;padding-left:18px;font-size:.86rem">' + hist + '</ul>' : '') +
+        '<p style="margin-top:8px"><a href="' + urlCarpetaGitHub() + '" target="_blank" rel="noopener">Ver la carpeta en GitHub \u2197</a></p>';
+    }).catch(function () { /* sin red o sin carpeta todavia */ });
   }
 
   function enviarServidor() {
@@ -462,7 +489,8 @@
           carpetaEstudiante: CFG.carpetaEstudiante,
           moduloNumero: CFG.moduloNumero,
           carpetaModulo: CFG.carpetaModulo,
-          nombreFinal: it.nombreFinal
+          nombreFinal: it.nombreFinal,
+          mensaje: (($('#txt-mensaje') || {}).value || '').trim().slice(0, 140)
         }),
         onUploadProgress: function (ev) {
           it.progreso = Math.max(2, Math.min(99, Math.round(ev.percentage || 0)));
@@ -489,6 +517,8 @@
             'Si sigue fallando, descarga el archivo y av\u00edsale al instructor.</p>';
       }
       if (boton) { boton.disabled = false; boton.textContent = '\u2601\ufe0f Subir a GitHub'; }
+      var campo = $('#txt-mensaje'); if (campo && bien) campo.value = '';
+      setTimeout(listarEntregas, 20000);
       setTimeout(listarEntregas, 90000);
     });
   }
